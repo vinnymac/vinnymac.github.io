@@ -16,7 +16,7 @@ class App.AvatarView extends Backbone.Marionette.ItemView
   className: 'avatar_view'
 ```
 
-Initialize Aviary by creating an instance of Feather JS. Do this in the initialize method of the ItemView. Here we construct what Aviary's Editor will do throughout its use. When the user finishes saving you have the option of saving the URL to a Backbone model, or perhaps just insert the URL into an image on the DOM. Make sure you store your api_key somewhere so you can access from anywhere you might need to launch aviary from. For this example I'll store it in window.aviary_api_key. A full up to date list of tools that can be used with Aviary can be found in the documentation.
+Initialize Aviary by creating an instance of Feather JS. Do this in the initialize method of the ItemView. Here we construct what Aviary's Editor will do throughout its use. When the user finishes saving the photo, a url is returned. You are left with several options. Insert the url into the DOM using the image id, save the new url to an attribute on your Backbone model, or directly post the url to your server. Make sure you store your api_key somewhere so you can access it from anywhere you might need to launch aviary. For this example I'll store it in window.aviary_api_key.
 
 ```coffeescript
 initialize: ->
@@ -55,15 +55,15 @@ If you would like to add a default cropping ratio you can do so by adding a 'for
   forceCropMessage: 'Please Crop your Avatar'
 ```
 
-At this point you can test that aviary is properly launching after calling the 'launchEditor' method. You may want to add a click listener to launch it. If you have a class named avatar, you could add an event to launch it like this.
+At this point you can test that aviary is properly launching after calling the 'launchEditor' method. You may want to add a click listener to launch it. If you have a class named avatar, you could add an event to launch it.
 
 ```coffeescript
 events:
   'click .avatar' : 'launchEditor'
 ```
 
-Aviary has [documentation](http://developers.aviary.com/docs/web/setup-guide "Aviary's Feather Documentation") on implementing feather. I don't recommend reading the entire thing. Only pieces of it are useful for specific instances of aviary. I went over some of the more useful features you may want when using it with Avatars. But you can mix and match Aviary's editor to fit your needs.
+Aviary has [documentation](http://developers.aviary.com/docs/web/setup-guide "Aviary's Feather Documentation") on implementing feather. I don't recommend reading the entire thing. Only pieces of it are useful for specific instances of aviary. I went over some of the more useful features you may want when using it with Avatars. But you can mix and match Aviary's editor to fit your needs. Take a look at the various tools the editor offers to see what I mean.
 
 Remember, every external library comes with its hardships. Although it seems very simple to implement, Aviary only allows external resources to be used as (a publicly available file that they process) the url source. The url they return to you is always one from there servers. So if you don't feel comfortable with aviary touching your users data remotely, I would look for other options. Such as manually cropping photos using the HTML 5 Canvas.
 
-Note: I had some difficulty with IE9, they claim to support it but I received 'Not Enough Storage' errors when launching Feather in IE. It appeared to be an issue with cascading style sheets, let me know if you have a similar result.
+Note: I had trouble with IE9, they claim to support it but I received 'Not Enough Storage' errors when launching Feather in IE. It appeared to be an issue with cascading style sheets, let me know if you have a similar result.
