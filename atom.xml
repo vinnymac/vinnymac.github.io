@@ -1,16 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-04-07T00:59:44-04:00</updated>
+  <updated>2014-04-07T01:04:55-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Vincent Taverna]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Aviary's FeatherJS in Backbone.Marionette]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/04/07/aviarys-featherjs-in-backbone-dot-marionette/"/>
+    <updated>2014-04-07T01:01:35-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/04/07/aviarys-featherjs-in-backbone-dot-marionette</id>
+    <content type="html"><![CDATA[<p>To get started head over to the <a href="http://developers.aviary.com/" title="Dev Page">Developer Page</a> and sign up. Select the HTML 5 app and generate an api key. Place featherjs in a <a href="http://feather.aviary.com/js/feather.js" title="FeatherJS">script tag or download it</a>.</p>
+
+<p>Now in your Backbone.Marionette app you are going to either create a new ItemView or navigate to an existing one you want aviary to be launched from.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="k">class</span> <span class="nx">App</span><span class="p">.</span><span class="nx">AvatarView</span> <span class="k">extends</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">Marionette</span><span class="p">.</span><span class="nx">ItemView</span>
+</span><span class='line'>  <span class="nv">template: </span><span class="s">&#39;avatar&#39;</span>
+</span><span class='line'>  <span class="nv">className: </span><span class="s">&#39;avatar_view&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Initialize Aviary by creating an instance of Feather JS. Do this in the initialize method of the ItemView. Here we construct what Aviary&rsquo;s Editor will do throughout its use. When the user finishes saving you have the option of saving the URL to a Backbone model, or perhaps just insert the URL into an image on the DOM. Make sure you store your api_key somewhere so you can access from anywhere you might need to launch aviary from. For this example I&rsquo;ll store it in window.aviary_api_key. A full up to date list of tools that can be used with Aviary can be found in the documentation.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">initialize: </span><span class="nf">-&gt;</span>
+</span><span class='line'>  <span class="vi">@featherEditor = </span><span class="k">new</span> <span class="nx">Aviary</span><span class="p">.</span><span class="nx">Feather</span>
+</span><span class='line'>    <span class="nv">apiKey: </span><span class="nx">aviary_api_key</span>
+</span><span class='line'>    <span class="nv">apiVersion: </span><span class="mi">3</span> <span class="c1"># The latest api version</span>
+</span><span class='line'>    <span class="nv">tools: </span><span class="p">[</span><span class="s">&#39;stickers&#39;</span><span class="p">,</span> <span class="s">&#39;crop&#39;</span><span class="p">]</span>
+</span><span class='line'>    <span class="nv">onSave: </span><span class="nf">(id, url) -&gt;</span>
+</span><span class='line'>      <span class="nx">@model</span><span class="p">.</span><span class="nx">save</span>
+</span><span class='line'>        <span class="nv">avatar_url: </span><span class="nx">url</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kc">false</span> <span class="c1"># ignores the save/confirm dialog</span>
+</span><span class='line'>    <span class="nv">theme: </span><span class="s">&#39;light&#39;</span> <span class="c1"># dark by default</span>
+</span><span class='line'>    <span class="nv">noCloseButton: </span><span class="kc">true</span> <span class="c1"># You can force the user to continue using aviary this way.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aviary also provides callback methods like onClose and onReady for additional control during various points of user interaction. Another useful param is postUrl. This allows you to post the newly edited photo to a route on your server or wherever you would like.</p>
+
+<p>You&rsquo;re going to need a method that can start aviary from an event or some other place in your view. Let&rsquo;s call this method launchEditor.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">launchEditor: </span><span class="nf">(id, src) -&gt;</span>
+</span><span class='line'>  <span class="c1"># load a url now or pass it into this function</span>
+</span><span class='line'>  <span class="nx">@featherEditor</span><span class="p">.</span><span class="nx">launch</span>
+</span><span class='line'>    <span class="nv">image: </span><span class="nx">id</span>
+</span><span class='line'>    <span class="nv">url: </span><span class="nx">src</span>
+</span><span class='line'>  <span class="k">return</span> <span class="kc">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you would like to add a default cropping ratio you can do so by adding a &lsquo;forceCropPreset&rsquo; to the params on launch like so.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nx">@featherEditor</span><span class="p">.</span><span class="nx">launch</span>
+</span><span class='line'>  <span class="nv">image: </span><span class="nx">id</span>
+</span><span class='line'>  <span class="nv">url: </span><span class="nx">src</span>
+</span><span class='line'>  <span class="nv">forceCropPreset: </span><span class="p">[</span><span class="s">&#39;My Default&#39;</span><span class="p">,</span> <span class="s">&#39;1:1&#39;</span><span class="p">]</span>
+</span><span class='line'>  <span class="nv">forceCropMessage: </span><span class="s">&#39;Please Crop your Avatar&#39;</span>
+</span><span class='line'><span class="k">return</span> <span class="kc">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Aviary has <a href="http://developers.aviary.com/docs/web/setup-guide" title="Aviary's Feather Documentation">documentation</a> on implementing feather. I don&rsquo;t recommend reading the entire thing. Only pieces of it are useful for specific instances of aviary. I went over some of the more useful features you may want when using it with Avatars. But you can mix and match Aviary&rsquo;s editor to fit your needs.</p>
+
+<p>Remember, every external library comes with its hardships. Although it seems very simple to implement, Aviary only allows external resources to be used as the url source. (a publicly available file that they process). The url they return to you is always one from there servers. So if you don&rsquo;t feel comfortable with aviary touching your users data remotely, I would look for other options. Such as manually cropping photos using the HTML 5 Canvas.</p>
+
+<p>Note: I had some difficulty with IE9, they claim to support it but I received &lsquo;Not Enough Storage&rsquo; errors when launching Feather in IE. It appeared to be an issue with cascading style sheets, let me know if you have a similar result.</p>
+]]></content>
+  </entry>
   
 </feed>
