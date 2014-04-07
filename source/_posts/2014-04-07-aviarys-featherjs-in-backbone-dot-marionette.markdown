@@ -53,7 +53,6 @@ If you would like to add a default cropping ratio you can do so by adding a 'for
   url: src
   forceCropPreset: ['My Default', '1:1']
   forceCropMessage: 'Please Crop your Avatar'
-return false
 ```
 
 At this point you can test that aviary is properly launching after calling the 'launchEditor' method. You may want to add a click listener to launch it. If you have a class named avatar, you could add an event to launch it like this.
