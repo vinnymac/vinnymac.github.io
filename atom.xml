@@ -4,7 +4,7 @@
   <title><![CDATA[Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-04-07T01:17:59-04:00</updated>
+  <updated>2014-04-07T01:48:02-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -91,6 +91,15 @@
 </span><span class='line'>  <span class="nv">forceCropPreset: </span><span class="p">[</span><span class="s">&#39;My Default&#39;</span><span class="p">,</span> <span class="s">&#39;1:1&#39;</span><span class="p">]</span>
 </span><span class='line'>  <span class="nv">forceCropMessage: </span><span class="s">&#39;Please Crop your Avatar&#39;</span>
 </span><span class='line'><span class="k">return</span> <span class="kc">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At this point you can test that aviary is properly launching after calling the &lsquo;launchEditor&rsquo; method. You may want to add a click listener to launch it. If you have a class named avatar, you could add an event to launch it like this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">events:</span>
+</span><span class='line'>  <span class="s">&#39;click .avatar&#39;</span> <span class="o">:</span> <span class="s">&#39;launchEditor&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
