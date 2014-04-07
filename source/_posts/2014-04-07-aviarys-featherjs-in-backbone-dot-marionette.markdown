@@ -56,6 +56,13 @@ If you would like to add a default cropping ratio you can do so by adding a 'for
 return false
 ```
 
+At this point you can test that aviary is properly launching after calling the 'launchEditor' method. You may want to add a click listener to launch it. If you have a class named avatar, you could add an event to launch it like this.
+
+```coffeescript
+events:
+  'click .avatar' : 'launchEditor'
+```
+
 Aviary has [documentation](http://developers.aviary.com/docs/web/setup-guide "Aviary's Feather Documentation") on implementing feather. I don't recommend reading the entire thing. Only pieces of it are useful for specific instances of aviary. I went over some of the more useful features you may want when using it with Avatars. But you can mix and match Aviary's editor to fit your needs.
 
 Remember, every external library comes with its hardships. Although it seems very simple to implement, Aviary only allows external resources to be used as (a publicly available file that they process) the url source. The url they return to you is always one from there servers. So if you don't feel comfortable with aviary touching your users data remotely, I would look for other options. Such as manually cropping photos using the HTML 5 Canvas.
