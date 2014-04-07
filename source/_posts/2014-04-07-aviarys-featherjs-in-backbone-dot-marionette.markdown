@@ -58,6 +58,6 @@ return false
 
 Aviary has [documentation](http://developers.aviary.com/docs/web/setup-guide "Aviary's Feather Documentation") on implementing feather. I don't recommend reading the entire thing. Only pieces of it are useful for specific instances of aviary. I went over some of the more useful features you may want when using it with Avatars. But you can mix and match Aviary's editor to fit your needs.
 
-Remember, every external library comes with its hardships. Although it seems very simple to implement, Aviary only allows external resources to be used as the url source. (a publicly available file that they process). The url they return to you is always one from there servers. So if you don't feel comfortable with aviary touching your users data remotely, I would look for other options. Such as manually cropping photos using the HTML 5 Canvas.
+Remember, every external library comes with its hardships. Although it seems very simple to implement, Aviary only allows external resources to be used as (a publicly available file that they process) the url source. The url they return to you is always one from there servers. So if you don't feel comfortable with aviary touching your users data remotely, I would look for other options. Such as manually cropping photos using the HTML 5 Canvas.
 
 Note: I had some difficulty with IE9, they claim to support it but I received 'Not Enough Storage' errors when launching Feather in IE. It appeared to be an issue with cascading style sheets, let me know if you have a similar result.
