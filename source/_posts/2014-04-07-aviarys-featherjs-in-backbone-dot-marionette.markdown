@@ -3,7 +3,7 @@ layout: post
 title: "Aviary's FeatherJS in Backbone.Marionette"
 date: 2014-04-07 01:01:35 -0400
 comments: true
-categories:
+categories: [Backbone, Marionette, Aviary]
 ---
 
 To get started head over to the [Developer Page](http://developers.aviary.com/ "Dev Page") and sign up. Select the HTML 5 app and generate an api key. Place featherjs in a [script tag or download it](http://feather.aviary.com/js/feather.js "FeatherJS").
