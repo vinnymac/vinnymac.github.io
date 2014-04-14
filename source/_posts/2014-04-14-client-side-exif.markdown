@@ -19,7 +19,7 @@ categories: EXIF, Web Worker, Javascript
 ### Overview
 Images with exif data are often not that easy to handle. I have used many of the options available to one when trying to get Exif in JavaScript. This is a review of several of the options I see as viable, as well as what to do with the exif data once you've retrieved it.
 
-For testing purposes throughout this review, in case you don't have an image with exif intact, download this one for testing.
+For testing purposes throughout this review I recommend using images with exif data intact. Dave Perret has a pack of them [over on github](https://github.com/recurser/exif-orientation-examples).
 
 ### Image Orientation in Firefox
 http://sethfowler.org/blog/2013/09/13/new-in-firefox-26-css-image-orientation
@@ -28,7 +28,7 @@ http://dev.w3.org/csswg/css3-images/#image-orientation
 
 The only browser which actually allows for orientation of images to be corrected right now is [Firefox 26 beta](https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation#Browser_compatibility).
 
-[Unfortunately chrome has yet to implement this feature](https://code.google.com/p/chromium/issues/detail?id=158753) and the only way to see correctly oriented images is by having an image at the [top level of the DOM](https://code.google.com/p/chromium/issues/detail?id=56845#c66). As time passes this feature will become more adopted, and possibly images will be rotated automatically. Firefox will return the best results, but you should be able to try it in any browser you have installed. Just give this [example](http://jsfiddle.net/kTU7a/) a try.
+[Unfortunately chrome has yet to implement this feature](https://code.google.com/p/chromium/issues/detail?id=158753) and the only way to see correctly oriented images is by having an image at the [top level of the DOM](https://code.google.com/p/chromium/issues/detail?id=56845#c66). As time passes this feature will become more adopted, and possibly images will be rotated automatically. Firefox will return the best results, but you should be able to try it in any browser you have installed. Just give this [example](http://jsfiddle.net/L3S7R/) a try.
 
 ```javascript
 <img style="image-orientation: from-image" src="image.jpg">
@@ -76,4 +76,4 @@ http://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/
 
 Flickr has a great write up in regards to manipulating image data using web workers. Web workers appear to be a very performant option when getting the exif data. Unfortunately Flickr doesn't go into too much detail, so I do not have a great example to show you. However, the idea is sound. For more information about retreiving exif data on the client, read this.
 
-Consistent exif orientation handling is wack on the web, [a great article on this topic](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/), goes into detail about the current state of orientation handling. If you would like a pack of images to test your own implementation of gathering exif data, Dave Perret has a pack of them [over on github](https://github.com/recurser/exif-orientation-examples).
+Consistent exif orientation handling is wack on the web, [a great article on this topic](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/), goes into detail about the current state of orientation handling.
