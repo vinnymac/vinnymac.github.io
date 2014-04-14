@@ -28,7 +28,7 @@ http://dev.w3.org/csswg/css3-images/#image-orientation
 
 The only browser which actually allows for orientation of images to be corrected right now is [Firefox 26 beta](https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation#Browser_compatibility).
 
-[Unfortunately chrome has yet to implement this feature](https://code.google.com/p/chromium/issues/detail?id=158753) and the only way to see correctly oriented images is by having an image at the [top level of the DOM](https://code.google.com/p/chromium/issues/detail?id=56845#c66). As time passes this feature will become more adopted, and possibly images will be rotated automatically. Firefox will return the best results, but you should be able to try it in any browser you have installed. Just give this [example](http://jsfiddle.net/7tNT4/1/) a try.
+[Unfortunately chrome has yet to implement this feature](https://code.google.com/p/chromium/issues/detail?id=158753) and the only way to see correctly oriented images is by having an image at the [top level of the DOM](https://code.google.com/p/chromium/issues/detail?id=56845#c66). As time passes this feature will become more adopted, and possibly images will be rotated automatically. Firefox will return the best results, but you should be able to try it in any browser you have installed. Just give this [example](http://jsfiddle.net/kTU7a/) a try.
 
 ```javascript
 <img style="image-orientation: from-image" src="image.jpg">
