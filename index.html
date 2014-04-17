@@ -163,7 +163,7 @@
 </span><span class='line'>  <span class="k">if</span> <span class="nx">data</span><span class="p">.</span><span class="nx">exif</span>
 </span><span class='line'>    <span class="nv">options.orientation = </span><span class="nx">data</span><span class="p">.</span><span class="nx">exif</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;Orientation&#39;</span><span class="p">)</span>
 </span><span class='line'>    <span class="nv">options.canvas = </span><span class="kc">true</span> <span class="c1"># tells loadImage we want a canvas returned</span>
-</span><span class='line'>  <span class="c1"># Load the Image with the</span>
+</span><span class='line'>  <span class="c1"># Load the Image with new options</span>
 </span><span class='line'>  <span class="nx">loadImage</span> <span class="nx">file</span><span class="p">,</span> <span class="nf">(image) -&gt;</span>
 </span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;some_div&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">image</span><span class="p">)</span>
 </span><span class='line'>  <span class="p">,</span> <span class="nx">options</span>

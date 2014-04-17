@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Javascript | Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-04-14T17:00:23-04:00</updated>
+  <updated>2014-04-17T10:10:39-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -65,7 +65,7 @@
 options.canvas = true # tells loadImage we want a canvas returned
 </code></pre>
 
-<p>  # Load the Image with the
+<p>  # Load the Image with new options
   loadImage file, (image) &ndash;></p>
 
 <pre><code>$('some_div').append(image)
