@@ -42,7 +42,7 @@ loadImage.parseMetaData file, (data) ->
   if data.exif
     options.orientation = data.exif.get('Orientation')
     options.canvas = true # tells loadImage we want a canvas returned
-  # Load the Image with the
+  # Load the Image with new options
   loadImage file, (image) ->
     $('some_div').append(image)
   , options
