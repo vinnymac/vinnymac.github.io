@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Teaspoon | Dev Continuum]]></title>
+  <link href="http://vinnymac.github.io/blog/categories/teaspoon/atom.xml" rel="self"/>
+  <link href="http://vinnymac.github.io/"/>
+  <updated>2014-04-23T14:43:38-04:00</updated>
+  <id>http://vinnymac.github.io/</id>
+  <author>
+    <name><![CDATA[Vincent Taverna]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Jasmine and Teaspoon]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/04/21/jasmine-and-teaspoon/"/>
+    <updated>2014-04-21T23:59:13-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/04/21/jasmine-and-teaspoon</id>
+    <content type="html"><![CDATA[<h3>onStart</h3>
+
+<p>In the case of writing tests for your javascript/coffeescript apps you will find that Jasmine is one of the best options. It is easy to add to by improving its matchers, and it is flexible enough to test more difficult subjects like asynchronous calls or mock/stub events and data. If you are currently looking for a way to test the front end of your website or javascript app you will not regret using jasmine to do so.</p>
+
+<h3>Getting Started with Teaspoon</h3>
+
+<p>When testing with Jasmine I found it easiest to use <a href="https://github.com/modeset/teaspoon">Teaspoon</a> alongside to easily setup a testing environment. Teaspoon has many benefits. They offer support for command line testing as well as testing in the browser. Teaspoon automatically generates a spec helper so that you can easily require your front end app. Combine this with Stub/Mocking with <a href="https://github.com/froots/jasmine-sinon">jasmine-sinon</a> and <a href="https://github.com/velesin/jasmine-jquery">jasmine-jquery</a> and you will have all the testing tools you could want on the front end.</p>
+
+<p>```ruby</p>
+
+<h1>Add these lines to your Gemfile</h1>
+
+<p>group :development, :test do
+  gem &ldquo;teaspoon&rdquo;
+  # Teaspoon can use selenium or phantomjs
+  # gem &ldquo;phantomjs&rdquo;, &ldquo;>= 1.8.1.1&rdquo;
+end
+<code>
+After setting up your gemfile, you can run bundler. Then execute the following line in your terminal. You can specify a framework, in my case I am using Jasmine, but Teaspoon supports other as well, such as Mocha. I also love to use coffeescript when testing, so I append --coffee to the end of the command to tell Teaspoon I will be writing coffee files.
+</code>
+rails generate teaspoon:install &mdash;framework=jasmine &mdash;coffee
+```
+You can run your tests by visiting <a href="http://localhost:3000/teaspoon.">http://localhost:3000/teaspoon.</a> Where 3000 is the port you run your server on.
+Alternatively you can run the Teaspoon test suites by typing rake teaspoon in the command line. They both have benefits, but ultimately you may find yourself wanting to run your tests using Guard. That way you can run your tests while you develop. If you are interested in using Guard with Teaspoon, I recommend reading about <a href="https://github.com/modeset/guard-teaspoon">guard-teaspoon</a>.</p>
+
+<h3>Writing Jasmine Tests</h3>
+
+<p>Now that you have setup Teaspoon you can get to the fun part. I recommend reading Jasmines documentation, they have a lot of great examples on the various types of tests you may come across when testing a front end. In my case below, I am testing my backbone model Person, and the attributes that exist on it by default. If you want open a new file in the jasmine folder that Teaspoon generated. In my case it would be person_spec.coffee.
+```coffeescript
+describe &ldquo;Person&rdquo;, &ndash;></p>
+
+<p>  # If you want to do something before each test
+  beforeEach &ndash;></p>
+
+<pre><code>person = new People.Person()
+</code></pre>
+
+<p>  it &lsquo;should be alive&rsquo;, &ndash;></p>
+
+<pre><code>expect(person).toBeDefined()
+</code></pre>
+
+<p>  it &lsquo;should have a name&rsquo;, &ndash;></p>
+
+<pre><code>expect(person.get('name')).toBeString() # underscore method
+</code></pre>
+
+<p>  it &lsquo;should have a favorite food&rsquo;, &ndash;></p>
+
+<pre><code>expect(person.get('food')).toBe("Pizza")
+</code></pre>
+
+<p>  it &lsquo;should have an identification&rsquo;, &ndash;></p>
+
+<pre><code>expect(person.get('id')).toBeNumber()
+</code></pre>
+
+<p>  # If you want to write the boilerplate
+  # for a test you haven&rsquo;t finished yet
+  xit &lsquo;can die&rsquo;, &ndash;></p>
+
+<p>  # Testing a method on a model
+  it &lsquo;should have a creator&rsquo;, &ndash;></p>
+
+<pre><code>expect(person.creator()).toBe("Vinny")
+</code></pre>
+
+<p>```</p>
+
+<h3>Creating Matchers</h3>
+
+<p>So now that you have written a test, maybe you want to expand the tools you have at your disposal when testing in Jasmine. Matchers make it easy to create new tools you can use for testing. If you have the <a href="http://underscorejs.org/">UnderscoreJS</a> library, you can easily add some matchers to Jasmine that will make testing better. In order to start adding matchers, open up your spec_helper file that Teaspoon generated. At the end of this file you can add any matchers you might want when writing your tests.</p>
+
+<p>```coffeescript
+beforeEach &ndash;> # Executes this code before each test.
+  @addMatchers # Tells Jasmine to add these matchers</p>
+
+<pre><code>toBeOfType: (type) -&gt;
+  return typeof @actual is type # @actual points to the expected value
+toBeNaN: -&gt;
+  return _.isNaN @actual
+toBeDate: -&gt;
+  return _.isDate @actual
+toBeEmpty: -&gt;
+  return _.isEmpty @actual
+toBeArray: -&gt;
+  return _.isArray @actual
+toBeObject: -&gt;
+  return _.isObject @actual
+toBeRegExp: -&gt;
+  return _.isRegExp @actual
+toBeFinite: -&gt;
+  return _.isFinite @actual
+toBeString: -&gt;
+  return _.isString @actual
+toBeNumber: -&gt;
+  return _.isNumber @actual
+toBeElement: -&gt;
+  return _.isElement @actual
+toBeBoolean: -&gt;
+  return _.isBoolean @actual
+toBeFunction: -&gt;
+  return _.isFunction @actual
+toHaveArguments: -&gt;
+  return _.isArguments @actual
+</code></pre>
+
+<p>```
+By using a library like underscore you retain the testing environment that Jasmine creates, even when doing comparisons like expecting a handful of arguments. By adding matchers your tests become more clear and concise. Being able to write thin self explanatory tests is priceless. Especially when the magic is coming from a spec helper that you yourself have written.</p>
+
+<h3>onFinish</h3>
+
+<p>Hopefully this brief overview of Teaspoon will give you the jump start you need to get into front end testing. Testing is invaluable, and I recommend doing it for more than just your front end if you can. If you have any problems while testing with Jasmine or just want some help, leave a comment below.</p>
+]]></content>
+  </entry>
+  
+</feed>

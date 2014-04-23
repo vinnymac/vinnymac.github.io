@@ -9,13 +9,7 @@
   <meta name="author" content="Vincent Taverna">
 
   
-  <meta name="description" content="1
-2
-3
-4
-5
-6
-7 1 2 3 4 5 6 7 8 &hellip;">
+  <meta name="description" content="onStart In the case of writing tests for your javascript/coffeescript apps you will find that Jasmine is one of the best options. It is easy to add &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +65,203 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/21/jasmine-and-teaspoon/">Jasmine and Teaspoon</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-21T23:59:13-04:00" pubdate data-updated="true">Apr 21<span>st</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>onStart</h3>
+
+<p>In the case of writing tests for your javascript/coffeescript apps you will find that Jasmine is one of the best options. It is easy to add to by improving its matchers, and it is flexible enough to test more difficult subjects like asynchronous calls or mock/stub events and data. If you are currently looking for a way to test the front end of your website or javascript app you will not regret using jasmine to do so.</p>
+
+<h3>Getting Started with Teaspoon</h3>
+
+<p>When testing with Jasmine I found it easiest to use <a href="https://github.com/modeset/teaspoon">Teaspoon</a> alongside to easily setup a testing environment. Teaspoon has many benefits. They offer support for command line testing as well as testing in the browser. Teaspoon automatically generates a spec helper so that you can easily require your front end app. Combine this with Stub/Mocking with <a href="https://github.com/froots/jasmine-sinon">jasmine-sinon</a> and <a href="https://github.com/velesin/jasmine-jquery">jasmine-jquery</a> and you will have all the testing tools you could want on the front end.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Add these lines to your Gemfile</span>
+</span><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s2">&quot;teaspoon&quot;</span>
+</span><span class='line'>  <span class="c1"># Teaspoon can use selenium or phantomjs</span>
+</span><span class='line'>  <span class="c1"># gem &quot;phantomjs&quot;, &quot;&gt;= 1.8.1.1&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After setting up your gemfile, you can run bundler. Then execute the following line in your terminal. You can specify a framework, in my case I am using Jasmine, but Teaspoon supports other as well, such as Mocha. I also love to use coffeescript when testing, so I append &mdash;coffee to the end of the command to tell Teaspoon I will be writing coffee files.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rails</span> <span class="n">generate</span> <span class="ss">teaspoon</span><span class="p">:</span><span class="n">install</span> <span class="o">--</span><span class="n">framework</span><span class="o">=</span><span class="n">jasmine</span> <span class="o">--</span><span class="n">coffee</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can run your tests by visiting <a href="http://localhost:3000/teaspoon.">http://localhost:3000/teaspoon.</a> Where 3000 is the port you run your server on.
+Alternatively you can run the Teaspoon test suites by typing rake teaspoon in the command line. They both have benefits, but ultimately you may find yourself wanting to run your tests using Guard. That way you can run your tests while you develop. If you are interested in using Guard with Teaspoon, I recommend reading about <a href="https://github.com/modeset/guard-teaspoon">guard-teaspoon</a>.</p>
+
+<h3>Writing Jasmine Tests</h3>
+
+<p>Now that you have setup Teaspoon you can get to the fun part. I recommend reading Jasmines documentation, they have a lot of great examples on the various types of tests you may come across when testing a front end. In my case below, I am testing my backbone model Person, and the attributes that exist on it by default. If you want open a new file in the jasmine folder that Teaspoon generated. In my case it would be person_spec.coffee.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nx">describe</span> <span class="s">&quot;Person&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># If you want to do something before each test</span>
+</span><span class='line'>  <span class="nx">beforeEach</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nv">person = </span><span class="k">new</span> <span class="nx">People</span><span class="p">.</span><span class="nx">Person</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&#39;should be alive&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">).</span><span class="nx">toBeDefined</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&#39;should have a name&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">)).</span><span class="nx">toBeString</span><span class="p">()</span> <span class="c1"># underscore method</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&#39;should have a favorite food&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;food&#39;</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s">&quot;Pizza&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&#39;should have an identification&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">)).</span><span class="nx">toBeNumber</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># If you want to write the boilerplate</span>
+</span><span class='line'>  <span class="c1"># for a test you haven&#39;t finished yet</span>
+</span><span class='line'>  <span class="nx">xit</span> <span class="s">&#39;can die&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Testing a method on a model</span>
+</span><span class='line'>  <span class="nx">it</span> <span class="s">&#39;should have a creator&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nx">expect</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">creator</span><span class="p">()).</span><span class="nx">toBe</span><span class="p">(</span><span class="s">&quot;Vinny&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Creating Matchers</h3>
+
+<p>So now that you have written a test, maybe you want to expand the tools you have at your disposal when testing in Jasmine. Matchers make it easy to create new tools you can use for testing. If you have the <a href="http://underscorejs.org/">UnderscoreJS</a> library, you can easily add some matchers to Jasmine that will make testing better. In order to start adding matchers, open up your spec_helper file that Teaspoon generated. At the end of this file you can add any matchers you might want when writing your tests.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nx">beforeEach</span> <span class="nf">-&gt;</span> <span class="c1"># Executes this code before each test.</span>
+</span><span class='line'>  <span class="nx">@addMatchers</span> <span class="c1"># Tells Jasmine to add these matchers</span>
+</span><span class='line'>    <span class="nv">toBeOfType: </span><span class="nf">(type) -&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="k">typeof</span> <span class="nx">@actual</span> <span class="o">is</span> <span class="nx">type</span> <span class="c1"># @actual points to the expected value</span>
+</span><span class='line'>    <span class="nv">toBeNaN: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nb">isNaN</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeDate: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isDate</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeEmpty: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeArray: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isArray</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeObject: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isObject</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeRegExp: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isRegExp</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeFinite: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nb">isFinite</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeString: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isString</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeNumber: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isNumber</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeElement: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isElement</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeBoolean: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isBoolean</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toBeFunction: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isFunction</span> <span class="nx">@actual</span>
+</span><span class='line'>    <span class="nv">toHaveArguments: </span><span class="nf">-&gt;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isArguments</span> <span class="nx">@actual</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>By using a library like underscore you retain the testing environment that Jasmine creates, even when doing comparisons like expecting a handful of arguments. By adding matchers your tests become more clear and concise. Being able to write thin self explanatory tests is priceless. Especially when the magic is coming from a spec helper that you yourself have written.</p>
+
+<h3>onFinish</h3>
+
+<p>Hopefully this brief overview of Teaspoon will give you the jump start you need to get into front end testing. Testing is invaluable, and I recommend doing it for more than just your front end if you can. If you have any problems while testing with Jasmine or just want some help, leave a comment below.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -396,6 +587,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/21/jasmine-and-teaspoon/">Jasmine and Teaspoon</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/14/client-side-exif/">Client-Side EXIF</a>
