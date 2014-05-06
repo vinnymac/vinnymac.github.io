@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Coffeescript | Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/blog/categories/coffeescript/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-04-28T01:18:03-04:00</updated>
+  <updated>2014-05-05T20:56:41-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -30,12 +30,8 @@
 
 <h1>(poster, height, and width are video only features)</h1>
 
-<p>%video#movie{height: 640, width: 480, poster: &ldquo;some.png&rdquo;,</p>
-
-<pre><code>          controls: true, autoplay: true, loop: true}
-</code></pre>
-
-<p>  %source#mp4{src: &lsquo;rickroll.mp4&rsquo;, type: &lsquo;video/mp4; codecs=&ldquo;avc1.42E01E, mp4a.40.2&rdquo;&rsquo;}
+<p>%video#movie{height: 640, width: 480, poster: &ldquo;some.png&rdquo;, controls, autoplay, loop}
+  %source#mp4{src: &lsquo;rickroll.mp4&rsquo;, type: &lsquo;video/mp4; codecs=&ldquo;avc1.42E01E, mp4a.40.2&rdquo;&rsquo;}
   %source#ogg &ndash; # you can specify as many of these as you like, or just one.
   Your browser does not support the video type or codec.</p>
 

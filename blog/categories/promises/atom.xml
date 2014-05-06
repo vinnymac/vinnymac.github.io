@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript, | Dev Continuum]]></title>
-  <link href="http://vinnymac.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Promises | Dev Continuum]]></title>
+  <link href="http://vinnymac.github.io/blog/categories/promises/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
   <updated>2014-05-05T20:56:41-04:00</updated>
   <id>http://vinnymac.github.io/</id>
