@@ -15,8 +15,7 @@ To begin let's see what HTML5 video and audio tags might look like in a template
 
 ```haml HTML5 Video and Audio Tagging
 # (poster, height, and width are video only features)
-%video#movie{height: 640, width: 480, poster: "some.png",
-              controls: true, autoplay: true, loop: true}
+%video#movie{height: 640, width: 480, poster: "some.png", controls, autoplay, loop}
   %source#mp4{src: 'rickroll.mp4', type: 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'}
   %source#ogg - # you can specify as many of these as you like, or just one.
   Your browser does not support the video type or codec.
