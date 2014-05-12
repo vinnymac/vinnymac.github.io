@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Fragment Factories - Dev Continuum</title>
+  <meta name="author" content="Vincent Taverna">
+
+  
+  <meta name="description" content="onStart Android fragments can become a big garbled mess of spaghetti code. I have seen it happen again and again. Other developers I have worked &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://vinnymac.github.io/blog/2014/05/11/fragment-factories">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Dev Continuum" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Dev Continuum</a></h1>
+  
+    <h2>Web and Android Development</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:vinnymac.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Fragment Factories</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-11T20:22:59-04:00" pubdate data-updated="true">May 11<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>onStart</h3>
+
+<p>Android fragments can become a big garbled mess of spaghetti code. I have seen it happen again and again. Other developers I have worked alongside and I agree that generating fragments with the use of factory methods will make your code cleaner and more reusable. Although the material I go over here will mainly pertain to Android, it should help anyone who understands the basics of java. Fragments are the butter to the bread of android apps. They allow for a disconnect of the inner workings of your application. When instantiating a new instance of a fragment you will often want to pass in a bundle of arguments that can be used throughout the lifetime of that fragment. By using factories you create a special place for argument passing to occur. Things become more interesting as you dive deeper into more complex fragments. For now we will begin by taking a look at extending the Android ListFragment.</p>
+
+<figure class='code'><figcaption><span>An Example ListFragment</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseListFragment</span> <span class="kd">extends</span> <span class="n">ListFragment</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="cm">/* No Base Factories */</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="cm">/* You can override the usual onCreate/onPause/onResume methods here. */</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Lists of information are some of the most important screens in applications these days. Whether they are on your phone or your desktop, lists are where it is at. Just go to google or reddit and you can see how important a good list is. An Android ListFragment is the tool given to you for free in order to make a list in the android ecosystem. By creating a base list fragment in your android application you let yourself abstract the tools you need in every list away from the busy work. It becomes especially important to do this as the application you are building will surely get more and more complicated. It always happens, and helping yourself early in this regard can only make the development process easier.</p>
+
+<h3>Fragment Generation</h3>
+
+<p>So now that we have our BaseListFragment we can start generating our fragments by extending that class. We are able to override any of the methods we retain from our extended class, and we can add any new ones we may need as well. As you might have already realized I chose not to put a factory in my base class. Some may argue that the base class should be able to be used just like any of the other classes that extend it, but in this case I chose to leave the factory out. By not having a Factory method in the base, you restrict yourself to only generating classes that have extended your base. Leaving your base practically unusable otherwise. Feel free to go against the grain here and try doing this how you like. But I believe that factories do not belong in base classes. Look at the class below for an example of how to create factories in your fragments.</p>
+
+<figure class='code'><figcaption><span>A Fragment Factory</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatGifListFragment</span> <span class="kd">extends</span> <span class="n">BaseListFragment</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="cm">/* Just a unique string identifier for use in a fragment transaction. */</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">FRAGMENT_CAT_GIFS</span> <span class="o">=</span> <span class="s">&quot;fragment_cat_gifs&quot;</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="n">CatGifListFragment</span> <span class="nf">newInstance</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">CatGifListFragment</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CatGifListFragment</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">Bundle</span> <span class="n">args</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bundle</span><span class="o">();</span>
+</span><span class='line'>    <span class="cm">/* Any extra arguments you might want to add. */</span>
+</span><span class='line'>    <span class="n">f</span><span class="o">.</span><span class="na">setArguments</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="n">f</span><span class="o">;</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>New Instance</h3>
+
+<p>Now that our CatGifListFragment has a method that can return an instantiated copy of itself, let&rsquo;s show it off. In order to show a fragment we can use a fragment manager in an Activity after some user interaction. Below I have an example of a user clicking on a view element called list_cats. This could be anything, but the idea is that it will display our fragment on screen after being clicked. By calling newInstance on our CatGifListFragment we are returning an instantiated version of the class that will contain any arguments we pass into the newInstance method. Simply call show after generating the fragment to display it.</p>
+
+<figure class='code'><figcaption><span>New Fragment Instance</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CatActivity</span> <span class="kd">extends</span> <span class="n">BaseActivity</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="cm">/* After some user interaction lets show the cat gif list fragment. */</span>
+</span><span class='line'>  <span class="nd">@Override</span>
+</span><span class='line'>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">id</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">FragmentTransaction</span> <span class="n">ft</span> <span class="o">=</span> <span class="n">getSupportFragmentManager</span><span class="o">().</span><span class="na">beginTransaction</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">switch</span> <span class="o">(</span><span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">case</span> <span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">list_cats</span><span class="o">:</span>
+</span><span class='line'>        <span class="cm">/* You would pass in any arguments you wanted access to in the fragment here. */</span>
+</span><span class='line'>        <span class="n">CatGifListFragment</span> <span class="n">catGifListFragment</span> <span class="o">=</span> <span class="n">CatGifListFragment</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">catGifListFragment</span><span class="o">.</span><span class="na">show</span><span class="o">(</span><span class="n">ft</span><span class="o">,</span> <span class="n">CatGifListFragment</span><span class="o">.</span><span class="na">FRAGMENT_CAT_GIFS</span><span class="o">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">default</span><span class="o">:</span>
+</span><span class='line'>        <span class="k">break</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is just one example of displaying a fragment. There are countless ways that you could display a fragment, but the way in which you instantiate it is vital. Notice that CatActivity extends a base class as well. Keeping this in mind throughout your application will lead to cleaner code. Cleaner code will make your development process improve, so please keep this in mind throughout every piece of work your produce.</p>
+
+<h3>onFinish</h3>
+
+<p>If you find yourself reusing similar fragments over and over these tips will be even more helpful to you. Dialog and List fragments being some of the most frequent ones I see in android. Not everyone shares as many cat gifs as my coworkers do, but when they do I want them to be doing it efficiently. Look over your android apps, and review how you instantiated your fragments in your activities. Most android apps I have seen are doing this horribly wrong. If you have a cleaner and more efficient way of instantiating them than this, I would love to hear about it. Also if you have any questions, feel free to ask as always!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vincent Taverna</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-11T20:22:59-04:00" pubdate data-updated="true">May 11<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>Android,</a>, <a class='category' href='/blog/categories/fragments/'>Fragments</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://vinnymac.github.io/blog/2014/05/11/fragment-factories/" data-via="kidtheflash" data-counturl="http://vinnymac.github.io/blog/2014/05/11/fragment-factories/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/05/promises-and-more/" title="Previous Post: Promises and More">&laquo; Promises and More</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/05/11/fragment-factories/">Fragment Factories</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/05/promises-and-more/">Promises and More</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/28/html5-video-and-audio/">HTML5 Video and Audio</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/21/jasmine-and-teaspoon/">Jasmine and Teaspoon</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/04/14/client-side-exif/">Client-Side EXIF</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/vinnymac">@vinnymac</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'vinnymac',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Vincent Taverna -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -20,11 +20,15 @@
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/05/05/promises-and-more/</loc>
-        <lastmod>2014-05-05T20:56:12-04:00</lastmod>
+        <lastmod>2014-05-05T20:57:39-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vinnymac.github.io/blog/2014/05/11/fragment-factories/</loc>
+        <lastmod>2014-05-11T21:34:27-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/archives/</loc>
-        <lastmod>2014-05-05T20:56:12-04:00</lastmod>
+        <lastmod>2014-05-11T21:34:27-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/robots.txt</loc>
@@ -32,6 +36,6 @@
     </url>
     <url>
         <loc>http://vinnymac.github.io/</loc>
-        <lastmod>2014-05-05T20:56:12-04:00</lastmod>
+        <lastmod>2014-05-11T21:34:27-04:00</lastmod>
     </url>
 </urlset>
