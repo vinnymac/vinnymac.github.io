@@ -9,7 +9,7 @@
   <meta name="author" content="Vincent Taverna">
 
   
-  <meta name="description" content="onStart Android fragments can become a big garbled mess of spaghetti code. I have seen it happen again and again. Other developers I have worked &hellip;">
+  <meta name="description" content="onStart The BoxViewAPI is useful for displaying documents in the browser without needing to do any heavy lifting. You can quickly turn any PDF, MS &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,219 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/05/18/boxview/">BoxView</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-18T21:51:11-04:00" pubdate data-updated="true">May 18<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>onStart</h3>
+
+<p>The <a href="https://developers.box.com/view/">BoxViewAPI</a> is useful for displaying documents in the browser without needing to do any heavy lifting. You can quickly turn any PDF, MS Document, or MS PowerPoint into HTML and display it inline on your website. The HTML is hosted by Box, and you can easily display this on your site by using an iFrame. Alternatively you could download the HTML and display it with viewer.js. Make sure you <a href="https://app.box.com/">signup</a> and <a href="https://app.box.com/developers/services">create a BoxView app</a> before you start. The app will have an API key that you will need in all requests you make with Box. I am implementing it in Rails, but you could do this on any backend in exactly the same fashion.</p>
+
+<h3>Upload a Document</h3>
+
+<p>The first step to making a viewable document is uploading the file to box. I decided to use the net::http library when communicating with the BoxViewAPI. However, you can use any RESTful lib. RestClient is another popular one. Then make a post with the necessary headers. The response if successful will contain a document id.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1"># Headers used throughout these examples</span>
+</span><span class='line'>  <span class="c1"># Get YOUR_API_KEY from the box view application page</span>
+</span><span class='line'>  <span class="no">BOX_HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="s1">&#39;Authorization&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Token </span><span class="si">#{</span><span class="no">YOUR_API_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;Content-type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;application/json&#39;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">upload_document</span>
+</span><span class='line'>    <span class="n">document_uri</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;https://view-api.box.com/1/documents&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="n">original_url</span>
+</span><span class='line'>      <span class="c1"># If thumbnails are desired:</span>
+</span><span class='line'>      <span class="c1">#, &#39;thumbnails&#39; =&gt; &#39;100x100&#39;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">http</span> <span class="o">=</span> <span class="ss">Net</span><span class="p">:</span><span class="ss">:HTTP</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">document_uri</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">document_uri</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">http</span><span class="o">.</span><span class="n">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="ss">Net</span><span class="p">:</span><span class="ss">:HTTP</span><span class="o">::</span><span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">document_uri</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="no">BOX_HEADERS</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">request</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_json</span>
+</span><span class='line'>    <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">parsed</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+</span><span class='line'>    <span class="n">document_id</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">[</span><span class="s2">&quot;id&quot;</span><span class="o">]</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">document_id</span>
+</span><span class='line'>    <span class="c1"># or self.update_attribute :document_id, document_id</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Create a Session</h3>
+
+<p>Now that you have a document id, you can make upload_document return the id or just save it to a model (This is useful if you&rsquo;re interested in implementing WebHooks). Next you can use that document id to create a session which will begin the conversion of the document, and let you know when it is ready. If you are using this in your web app frequently, I recommend using <a href="http://sidekiq.org/">Sidekiq</a> to offload all these network calls and possible database saves to an asynchronous process. When successful, box will return a 201, which means the document is ready for viewing. If you don&rsquo;t get a 201 you will get a 202 or 400 response code. A 202 means the document is not yet ready for viewing. A 400 means the conversion has failed. If you&rsquo;d like to view your file at this point, just head over to <a href="https://view-api.box.com/1/sessions/{session%20id}/view?theme=light">https://view-api.box.com/1/sessions/{session id}/view?theme=light</a>, where session id is the id you get from the 201 response.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">create_session</span><span class="p">(</span><span class="n">document_id</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">session_uri</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;https://view-api.box.com/1/sessions&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>      <span class="s2">&quot;document_id&quot;</span> <span class="o">=&gt;</span> <span class="n">document_id</span>
+</span><span class='line'>      <span class="c1">#, &quot;expires_at&quot; =&gt; Time.now + 1.hour</span>
+</span><span class='line'>      <span class="c1"># You could specify an expiration date.</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="n">http</span> <span class="o">=</span> <span class="ss">Net</span><span class="p">:</span><span class="ss">:HTTP</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">session_uri</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">session_uri</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">http</span><span class="o">.</span><span class="n">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="ss">Net</span><span class="p">:</span><span class="ss">:HTTP</span><span class="o">::</span><span class="no">Post</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">session_uri</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="no">BOX_HEADERS</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">request</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_json</span>
+</span><span class='line'>    <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">response</span><span class="o">.</span><span class="n">code</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;201&quot;</span> <span class="c1"># Done converting</span>
+</span><span class='line'>      <span class="n">parsed</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+</span><span class='line'>      <span class="n">session_id</span> <span class="o">=</span> <span class="n">parsed</span><span class="o">[</span><span class="s2">&quot;id&quot;</span><span class="o">]</span>
+</span><span class='line'>      <span class="k">return</span> <span class="n">session_id</span>
+</span><span class='line'>      <span class="c1"># or self.update_attribute :session_id, session_id</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;202&quot;</span> <span class="c1"># Session not ready yet</span>
+</span><span class='line'>      <span class="n">time</span> <span class="o">=</span> <span class="n">response</span><span class="o">[</span><span class="s1">&#39;Retry-After&#39;</span><span class="o">].</span><span class="n">to_i</span>
+</span><span class='line'>      <span class="c1"># here you would retry based on the time variable</span>
+</span><span class='line'>      <span class="c1"># You could use sidekiqs perform_in method, or just sleep</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;400&quot;</span> <span class="c1"># An error occurred while converting the document or the document does not exist</span>
+</span><span class='line'>      <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span> <span class="s2">&quot;Document failed to convert - </span><span class="si">#{</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">raise</span> <span class="s2">&quot;BoxSessionError </span><span class="si">#{</span><span class="n">response</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Generate a Thumbnail</h3>
+
+<p>A cool feature BoxView has is thumbnail generation. It can return a thumbnail of any size 16-1024 wide by 16-768 high. This way you can see a preview of the document before displaying it to a user. The BoxView API only requires a height and width, and the document that you want the thumbnail generated from.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">generate_thumbnail</span><span class="p">(</span><span class="n">document_id</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">query_params</span> <span class="o">=</span> <span class="s2">&quot;?width=100&amp;height=100&quot;</span>
+</span><span class='line'>    <span class="n">thumbnail_uri</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;https://view-api.box.com/1/documents/</span><span class="si">#{</span><span class="n">document_id</span><span class="si">}</span><span class="s2">/thumbnail&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">http</span> <span class="o">=</span> <span class="ss">Net</span><span class="p">:</span><span class="ss">:HTTP</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">thumbnail_uri</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">thumbnail_uri</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">http</span><span class="o">.</span><span class="n">use_ssl</span> <span class="o">=</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="n">thumbnail_path</span> <span class="o">=</span> <span class="n">thumbnail_uri</span><span class="o">.</span><span class="n">path</span> <span class="o">+</span> <span class="n">params</span>
+</span><span class='line'>    <span class="n">request</span> <span class="o">=</span> <span class="ss">Net</span><span class="p">:</span><span class="ss">:HTTP</span><span class="o">::</span><span class="no">Get</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">thumbnail_path</span><span class="p">,</span> <span class="no">BOX_HEADERS</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">case</span> <span class="n">response</span><span class="o">.</span><span class="n">code</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;200&quot;</span> <span class="c1"># Valid thumbnail</span>
+</span><span class='line'>      <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+</span><span class='line'>      <span class="c1"># Now upload the thumbnail to another server</span>
+</span><span class='line'>      <span class="c1"># or use it however you would like</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;202&quot;</span> <span class="c1"># Thumbnail isn&#39;t ready yet</span>
+</span><span class='line'>      <span class="n">time</span> <span class="o">=</span> <span class="n">response</span><span class="o">[</span><span class="s1">&#39;Retry-After&#39;</span><span class="o">].</span><span class="n">to_i</span>
+</span><span class='line'>      <span class="c1"># Same as a session 202, sleep or worker</span>
+</span><span class='line'>    <span class="k">when</span> <span class="s2">&quot;400&quot;</span> <span class="c1"># Width/Height are invalid</span>
+</span><span class='line'>      <span class="no">Rails</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span> <span class="s2">&quot;400 Box Thumbnail Width x Height Invalid - </span><span class="si">#{</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">raise</span> <span class="s2">&quot;BoxThumbnailError </span><span class="si">#{</span><span class="n">response</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Box offers a chance of producing the thumbnail earlier in the process. If you state the width and height earlier when uploading the document, box will have the thumbnail ready by the time you call generate_thumbnail. After getting the thumbnail from the response you could upload it to your own server.</p>
+
+<h3>onFinish</h3>
+
+<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#97;&#112;&#x69;&#x40;&#98;&#111;&#x78;&#x2e;&#x63;&#x6f;&#x6d;">&#x61;&#x70;&#x69;&#64;&#x62;&#x6f;&#x78;&#x2e;&#99;&#111;&#x6d;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1167,6 +1380,10 @@ Alternatively you can run the Teaspoon test suites by typing rake teaspoon in th
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/18/boxview/">BoxView</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/11/fragment-factories/">Fragment Factories</a>
       </li>
     
@@ -1180,10 +1397,6 @@ Alternatively you can run the Teaspoon test suites by typing rake teaspoon in th
     
       <li class="post">
         <a href="/blog/2014/04/21/jasmine-and-teaspoon/">Jasmine and Teaspoon</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/14/client-side-exif/">Client-Side EXIF</a>
       </li>
     
   </ul>
