@@ -4,7 +4,7 @@
   <title><![CDATA[Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-05-18T22:18:37-04:00</updated>
+  <updated>2014-05-26T16:13:13-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -12,6 +12,146 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sinatra Assets]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/05/26/sinatra-assets/"/>
+    <updated>2014-05-26T15:32:56-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/05/26/sinatra-assets</id>
+    <content type="html"><![CDATA[<h3>onStart</h3>
+
+<p>Rails is one of the most popular frameworks right now. It contains a lot of magic, and that can often be credited to its asset pipeline. Frequently when I think of Sinatra I think of it as a slim downed version of Rails. It has its uses, and so does Rails, but what if we wanted to combine Sinatra with an asset pipeline. I decided to do a little digging, and after doing a little research, I discovered that their is only one good solution that exists right now. It is called the <a href="https://github.com/rstacruz/sinatra-assetpack">Sinatra AssetPack</a>.</p>
+
+<h3>Sinatra AssetPack</h3>
+
+<p>In order to get started using the Sinatra AssetPack you will need to add it to your Gemfile.</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;sinatra-assetpack&#39;</span><span class="p">,</span> <span class="ss">:require</span> <span class="o">=&gt;</span> <span class="s1">&#39;sinatra/assetpack&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then run bundle (or bundle install), and let it install. Once installed you can start taking advantage of the Sinatra AssetPack. I added it to the base of my Sinatra app, I would recommend you do the same.</p>
+
+<figure class='code'><figcaption><span>Base</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra/base&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;sinatra/assetpack&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyApp</span> <span class="o">&lt;</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">set</span> <span class="ss">:root</span><span class="p">,</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">set</span> <span class="ss">:views</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;/views&#39;</span>
+</span><span class='line'>  <span class="n">set</span> <span class="ss">:public_folder</span><span class="p">,</span> <span class="n">settings</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;/public&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">register</span> <span class="ss">Sinatra</span><span class="p">:</span><span class="ss">:AssetPack</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">assets</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">serve</span> <span class="s1">&#39;/js&#39;</span><span class="p">,</span>     <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;app/js&#39;</span>
+</span><span class='line'>    <span class="n">serve</span> <span class="s1">&#39;/css&#39;</span><span class="p">,</span>    <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;app/css&#39;</span>
+</span><span class='line'>    <span class="n">serve</span> <span class="s1">&#39;/images&#39;</span><span class="p">,</span> <span class="ss">from</span><span class="p">:</span> <span class="s1">&#39;app/images&#39;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1"># Serve up JS per request</span>
+</span><span class='line'>    <span class="n">js</span> <span class="ss">:app</span><span class="p">,</span> <span class="s1">&#39;/js/app.js&#39;</span><span class="p">,</span> <span class="o">[</span>
+</span><span class='line'>      <span class="s1">&#39;/js/vendor/**/*.js&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;/js/lib/**/*.js&#39;</span>
+</span><span class='line'>    <span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1"># Serve up CSS per request</span>
+</span><span class='line'>    <span class="n">css</span> <span class="ss">:application</span><span class="p">,</span> <span class="s1">&#39;/css/application.css&#39;</span><span class="p">,</span> <span class="o">[</span>
+</span><span class='line'>      <span class="s1">&#39;/css/screen.css&#39;</span>
+</span><span class='line'>    <span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1"># jsmin, yui, closure or uglify for js compression</span>
+</span><span class='line'>    <span class="n">js_compression</span>  <span class="ss">:uglify</span>
+</span><span class='line'>    <span class="c1"># simple, sass, yui, or sqwish for css compression</span>
+</span><span class='line'>    <span class="n">css_compression</span> <span class="ss">:sass</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">get</span> <span class="s1">&#39;/&#39;</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">haml</span> <span class="ss">:index</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With the Sinatra AssetPack you can minify/obfuscate your js and css files. It will help you clean up your routes as well. By serving up only the files you need, you can specify exactly what js and css files for your Sinatra app when hitting a particular route. I found out of all the available options, this was the simplest</p>
+
+<h3>The Pipeline</h3>
+
+<p>After configuring your app like I did above, you will be able to use the pipeline in your static files. In this example I am using haml. It is very simple to include your js/css/haml files using this type of pipeline.</p>
+
+<figure class='code'><figcaption><span>Index</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='haml'><span class='line'><span class="p">=</span> <span class="n">haml</span> <span class="ss">:browser_compat</span>
+</span><span class='line'><span class="nt">%html</span>
+</span><span class='line'>  <span class="nt">%header</span>
+</span><span class='line'>    <span class="p">=</span> <span class="n">haml</span> <span class="ss">:header</span> <span class="c1"># header contains != css :application</span>
+</span><span class='line'>  <span class="nt">%body</span>
+</span><span class='line'>    <span class="nc">.container</span>
+</span><span class='line'>      <span class="nc">.navigation</span>
+</span><span class='line'>        <span class="p">=</span> <span class="n">haml</span> <span class="ss">:navigation</span>
+</span><span class='line'>      <span class="nc">.stage</span>
+</span><span class='line'>        <span class="p">=</span> <span class="n">haml</span> <span class="ss">:stage</span>
+</span><span class='line'>      <span class="nc">.footer</span>
+</span><span class='line'>        <span class="p">=</span> <span class="n">haml</span> <span class="ss">:footer</span>
+</span><span class='line'>    <span class="nf">#js_footer</span>
+</span><span class='line'>      <span class="p">!=</span> <span class="n">js</span> <span class="ss">:app</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This results in very clean and readable haml. The pieces here are reusable, and by following this pipeline you start to modularize your Sinatra application. I hope more apps use this, as it brings the magic of Rails to Sinatra apps, which tend to be more simplistic.</p>
+
+<h3>onFinish</h3>
+
+<p>Not everyone will need an asset pipeline in their web app. This is for those that require a clean and reusable code base for an app that is based on Sinatra. I find that modularizing your js and css will help a lot. Especially when you get obfuscation for free with it. Sinatra can be a powerful web application framework, and tools like this can make it even better. If you require any assistance setting up Sinatra AssetPack let me know.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[BoxView]]></title>
@@ -195,7 +335,7 @@
 
 <h3>onFinish</h3>
 
-<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#97;&#112;&#x69;&#x40;&#98;&#111;&#x78;&#x2e;&#x63;&#x6f;&#x6d;">&#x61;&#x70;&#x69;&#64;&#x62;&#x6f;&#x78;&#x2e;&#99;&#111;&#x6d;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
+<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#97;&#112;&#105;&#x40;&#98;&#x6f;&#120;&#46;&#99;&#111;&#109;">&#97;&#112;&#105;&#64;&#x62;&#111;&#x78;&#x2e;&#x63;&#111;&#109;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
 ]]></content>
   </entry>
   
