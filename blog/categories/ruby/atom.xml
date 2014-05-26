@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby, | Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-05-26T16:13:13-04:00</updated>
+  <updated>2014-05-26T16:29:28-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -133,7 +133,7 @@ end
 
 <h3>onFinish</h3>
 
-<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x61;&#112;&#105;&#64;&#98;&#x6f;&#x78;&#46;&#x63;&#x6f;&#x6d;">&#97;&#x70;&#x69;&#64;&#98;&#111;&#120;&#46;&#x63;&#111;&#109;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
+<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#97;&#112;&#105;&#x40;&#x62;&#x6f;&#120;&#x2e;&#x63;&#x6f;&#x6d;">&#x61;&#112;&#105;&#x40;&#98;&#x6f;&#120;&#46;&#x63;&#x6f;&#x6d;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
 ]]></content>
   </entry>
   
