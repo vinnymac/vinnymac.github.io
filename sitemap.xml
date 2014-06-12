@@ -4,46 +4,50 @@
         <loc>
             http://vinnymac.github.io/blog/2014/04/07/aviarys-featherjs-in-backbone-dot-marionette/
         </loc>
-        <lastmod>2014-04-11T20:57:07-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/04/14/client-side-exif/</loc>
-        <lastmod>2014-04-21T23:59:35-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/04/21/jasmine-and-teaspoon/</loc>
-        <lastmod>2014-04-27T12:47:19-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/04/28/html5-video-and-audio/</loc>
-        <lastmod>2014-04-28T01:42:21-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/05/05/promises-and-more/</loc>
-        <lastmod>2014-05-05T20:57:39-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/05/11/fragment-factories/</loc>
-        <lastmod>2014-05-11T21:34:27-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/05/18/boxview/</loc>
-        <lastmod>2014-05-18T22:18:37-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/2014/05/26/sinatra-assets/</loc>
-        <lastmod>2014-05-26T16:13:13-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://vinnymac.github.io/blog/2014/06/11/boxviewrb/</loc>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/blog/archives/</loc>
-        <lastmod>2014-05-26T16:13:13-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/robots.txt</loc>
-        <lastmod>2014-04-07T00:57:57-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
     <url>
         <loc>http://vinnymac.github.io/</loc>
-        <lastmod>2014-05-26T16:13:13-04:00</lastmod>
+        <lastmod>2014-06-11T20:21:38-04:00</lastmod>
     </url>
 </urlset>

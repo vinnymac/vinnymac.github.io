@@ -4,7 +4,7 @@
   <title><![CDATA[Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-05-26T16:29:28-04:00</updated>
+  <updated>2014-06-11T20:22:16-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Boxviewrb]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/06/11/boxviewrb/"/>
+    <updated>2014-06-11T20:06:09-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/06/11/boxviewrb</id>
+    <content type="html"><![CDATA[<h3>onStart</h3>
+
+<p>I took a bit of a blogging hiatus during my vacation recently. I used this time to start working on an open source project called <a href="https://github.com/getlua/boxviewrb">boxviewrb</a>. <a href="https://github.com/getlua/boxviewrb">Boxviewrb</a> is a Box View API Wrapper written in ruby. It uses the <a href="http://johnnunemaker.com/httparty/">HTTParty</a> gem for network calls, and also supports multipart uploading. Alternative gems for Box View do exist. However, they are incomplete implementations, some old that have not been updated (crocodoc), and others that just did not offer a complete feature set. <a href="https://github.com/getlua/boxviewrb">Boxviewrb</a> works with every request and feature that the Box View API has documented. Test coverage is minimal, only some of the requests have tests, but I am meaning to add more coverage in the future. I attempted to make the documentation as readable and self explanatory as I possibly could. This is my first time ever releasing a piece of open source software, and it certainly will not be my last. Instructions on how to contribute can be found at the bottom of the readme.</p>
+
+<h3>onFinish</h3>
+
+<p>In previous articles I wrote about communicating with the Box View API using Net::HTTP. Based on this primitive example I was able to make an open source gem. If you read over my documentation, you will notice the convenience methods. They came in handy when placing Box View in a production application. At <a href="http://getlua.com">Lua</a> we now have document viewing right in the browser! If you would like this feature in a site you&rsquo;re running, give my gem a try. As always if you have any concerns or questions drop a comment below.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sinatra Assets]]></title>
@@ -335,7 +350,7 @@
 
 <h3>onFinish</h3>
 
-<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#97;&#112;&#x69;&#x40;&#98;&#x6f;&#120;&#46;&#x63;&#x6f;&#109;">&#97;&#112;&#x69;&#64;&#x62;&#111;&#120;&#x2e;&#99;&#x6f;&#109;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
+<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#97;&#112;&#x69;&#x40;&#98;&#111;&#x78;&#x2e;&#99;&#x6f;&#109;">&#x61;&#112;&#105;&#x40;&#98;&#111;&#x78;&#x2e;&#x63;&#x6f;&#109;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
 ]]></content>
   </entry>
   
