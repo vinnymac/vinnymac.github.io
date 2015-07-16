@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ES6</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+      @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic);
+      @font-face {
+        font-family: 'dejavu_sans_monobook';
+        src: url('/assets/fonts/DejaVuSansMono-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body { font-family: 'Lato'; }
+      h1, h2, h3 {
+        font-family: 'Open Sans';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'dejavu_sans_monobook'; }
+      .remark-slide-content { background-size: 101% 105% !important; }
+    </style>
+  </head>
+  <body>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script>
+      var slideshow = remark.create({ sourceUrl : "/assets/presentations/es6.md" });
+    </script>
+  </body>
+</html>
