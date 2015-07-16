@@ -18,6 +18,11 @@ background-image: url(/images/js-logo.png)
 - 4 failure, arguing, punted and renamed Harmony (1999-2009)
 - 5 ‘use strict’, JSON, get, set, reflection (2009)
 - 5.1 international standardization (2011)
+
+![ECMA](http://www.ecma-international.org/images/logo_printerf.jpg)
+---
+
+![Standards](http://i.imgur.com/eZGm64W.png)
 ---
 
 # Transpiling
@@ -28,6 +33,8 @@ background-image: url(/images/js-logo.png)
 - Mana began development with ES6 via Babel
 - Firefox, Chrome hot on tail
 - ES6 gets standardized (June 2015)
+
+![Compiling](http://imgs.xkcd.com/xk3d/303/compiling_4.png)
 ---
 
 # Constants
@@ -45,24 +52,16 @@ E = PI; // Line 4: "E" is read-only
 # Scoping
 
 - Block-Scoped Variables
-- Block-Scoped Functions
 
-#### Variables
 ```javascript
 let a = [1];
 for (let i = 0; i < a.length; i++) {
   let x = a[i] + 1;
-  console.log(x); // 2
 }
-console.log(i); // i is not defined
-console.log(x); // x is not defined
-console.log(a); // [1]
+console.log(i, x, a); // i is not defined, x is not defined, [1]
 ```
----
 
-# Scoping Continued
-
-#### Functions
+- Block-Scoped Functions
 
 ```javascript
 {
@@ -77,15 +76,23 @@ console.log(a); // [1]
 ```
 ---
 
-
 # Arrow Functions
 
 - Expression Bodies
+
+```javascript
+let admins = collection.map( m => m.get("admin") );
+console.log(m); // m is not defined
+```
 - Statement Bodies
 - Lexical _this_
 
 ```javascript
-var example = 'code';
+this.accepted = [];
+this.collection.each((m) => {
+  if (m.get("state") === "accepted")
+    this.accepted.push(m);
+});
 ```
 ---
 
@@ -96,7 +103,18 @@ var example = 'code';
 - Spread Operator
 
 ```javascript
-var example = 'code';
+{
+  initialize: function(options = {}) {
+    _(this.defaults).extend(options);
+  },
+  generateName: function(conversation, names...) {
+    console.log(names); // ["Angie", "Ariel", "Jared"]
+    conversation.set("name", names.join(", "));
+  }
+}
+
+var params = [ "kana", [true], 7 ]
+[ 1, 2, ...params ].length // 5
 ```
 ---
 
@@ -280,6 +298,8 @@ var example = 'code';
   * a long ways out
   * Macros (make your own syntax)
   * Parallel arrays
+
+![XKCD](http://i.imgur.com/PsVj5Nl.png)
 ---
 
 # Finito
@@ -296,3 +316,5 @@ https://babeljs.io/repl/#?experimental=true
 - Feature List
 http://es6-features.org
 ---
+
+<iframe src="https://babeljs.io/repl/#?experimental=true" style="height:100%;width:100%;" />
