@@ -121,22 +121,28 @@ var params = [ "kana", [true], 7 ]
 # Template Strings
 
 - String Interpolation
-- Custom Interpolation
+- Multiline support
 - Raw String Access
 
 ```javascript
-var example = 'code';
+var lastSeenAt = `Last Seen ${manawa(@model.get("sent_at"))}`;
+
+console.log(`Aloha
+Hawaii`);
+
+String.raw `Dear, \n World ${ 42 }` === "Dear, \\n World 42";
 ```
 ---
 
 # Extended Literals
 
 - Binary and Octal
-- Unicode String
-- RegExp
+- Unicode String/RegExp
 
 ```javascript
-var example = 'code';
+0b110010100 === 404;
+
+"\u{0CA0}_\u{0CA0}" === "ಠ_ಠ"
 ```
 ---
 
@@ -156,6 +162,12 @@ var example = 'code';
 - Method Properties
 
 ```javascript
+var options = { animate, duration }; // shorthand
+
+var properties = {
+  color: "blue",
+  [ "avatar_" + getSize() ]: 42
+};
 var example = 'code';
 ```
 ---
