@@ -27,11 +27,11 @@ background-image: url(/images/js-logo.png)
 
 # Transpiling
 
+- Firefox, Chrome hot on tail
 - GWT/Type/Clojure/Dart/Coffee/JSX history
 - Compiling to ES5
 - ES6 via Babel (71%) or Traceur (58%)
 - Mana began development with ES6 via Babel
-- Firefox, Chrome hot on tail
 - ES6 gets standardized (June 2015)
 
 ![Compiling](http://imgs.xkcd.com/xk3d/303/compiling_4.png)
@@ -168,7 +168,15 @@ var properties = {
   color: "blue",
   [ "avatar_" + getSize() ]: 42
 };
-var example = 'code';
+
+var helpers = {
+    foo (a, b) {
+      // …
+    },
+    *quux (x, y) {
+      //  …
+    }
+};
 ```
 ---
 
@@ -180,7 +188,18 @@ var example = 'code';
 - Fail-Soft with Defaults
 
 ```javascript
-var example = 'code';
+var list = [ "Blue", "Red", "Yellow" ];
+var [ first, , second ] = list;
+[ second, first ] = [ first, second ];
+
+var { members, meta: { total_count, updated_at } } = payload();
+
+function sum ([ x, y ]) { return x + y; }
+function latestMessageText ({ senderName, body }) {
+  return `${senderName}: ${body}`;
+}
+
+var [ a = 1, b = 2, c = 3, d ] = [ 4, 5 ];
 ```
 ---
 
@@ -192,7 +211,15 @@ var example = 'code';
 - Wildcard
 
 ```javascript
-var example = 'code';
+export function randomNumber {
+  return Math.floor( Math.random() * 11 );
+}
+
+import { Input, Label } from "react-bootstrap";
+
+export default (x) => x * x;
+
+import * as _ from "underscore";
 ```
 ---
 
