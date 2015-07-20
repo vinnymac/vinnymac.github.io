@@ -302,7 +302,14 @@ var example = 'code';
 - Number Comparison / Truncation / Sign Determination
 
 ```javascript
-var example = 'code';
+Object.assign({a: 1}, {b: 2}, {c: 3}); // { a: 1, b: 2, c: 3 }
+[ 1, 3, 4, 2 ].find(x => x > 3); // 4
+"aloha".repeat(3); // alohaalohaaloha
+"/networks/lua/latest".includes("networks") // true, also endsWith and startsWith
+Number.isNaN(NaN) || Number.isFinite(Infinity) || Number.isSafeInteger(10007199254740992) // true || false || false
+Number.EPSILON // instead of 2.22e-16
+Math.trunc(-42.7) // -42
+Math.sign(-7) // -1
 ```
 ---
 
@@ -312,7 +319,13 @@ var example = 'code';
 - Chaining
 
 ```javascript
-var example = 'code';
+
+
+Promise.all(networkPromises).then((data) => {
+  NetworkActions.setNetworks(data);
+}, (err) => {
+  errorHandler(err);
+});
 ```
 ---
 
@@ -322,7 +335,11 @@ var example = 'code';
 - Reflection
 
 ```javascript
-var example = 'code';
+
+let obj = { a: 1 }
+Object.defineProperty(obj, "b", { value: 2 })
+obj[Symbol("c")] = 3
+Reflect.ownKeys(obj) // [ "a", "b", Symbol(c) ]
 ```
 ---
 
