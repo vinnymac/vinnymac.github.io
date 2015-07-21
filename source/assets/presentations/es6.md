@@ -54,7 +54,7 @@ e = π; // → Line 4: "e" is read-only
 - Block-Scoped Variables
 
 ```javascript
-let a = [1];
+let a = [ 1 ];
 for (let i = 0; i < a.length; i++) {
   let x = a[i] + 1;
 }
