@@ -19,10 +19,10 @@ background-image: url(/images/js-logo.png)
 - 5 ‘use strict’, JSON, get, set, reflection (2009)
 - 5.1 international standardization (2011)
 
-![ECMA](http://www.ecma-international.org/images/logo_printerf.jpg)
+.right[![ECMA](http://www.ecma-international.org/images/logo_printerf.jpg)]
 ---
 
-![Standards](http://i.imgur.com/eZGm64W.png)
+.center[![Standards](http://i.imgur.com/eZGm64W.png)]
 ---
 
 # Transpiling
@@ -42,10 +42,10 @@ background-image: url(/images/js-logo.png)
 - Immutable Variables
 
 ```javascript
-const E = 2.71828;
-const PI = 3.14;
-E < PI; // → true
-E = PI; // → Line 4: "E" is read-only
+const e = 2.718281828459045;
+const π = 3.141592653589793;
+e < π; // → true
+e = π; // → Line 4: "e" is read-only
 ```
 ---
 
@@ -100,7 +100,6 @@ this.collection.each((m) => {
 
 - Defaults
 - Rest Parameter
-- Spread Operator
 
 ```javascript
 {
@@ -112,36 +111,49 @@ this.collection.each((m) => {
     conversation.set("name", names.join(", "));
   }
 }
+```
 
-var params = [ "kana", [true], 7 ]
-[ 1, 2, ...params ].length // → 5
+- Spread Operator
+
+```javascript
+var params = [ "kana", [true], 7 ];
+[ 1, 2, ...params ].length; // → 5
 ```
 ---
 
 ## Template Strings
 
 - String Interpolation
+
+```javascript
+var lastSeenAt = `Last Seen ${manawa(this.model.get("sent_at"))}`;
+```
+
 - Multiline support
+
+```javascript
+console.log(`Aloha
+Hawaii`); // → Aloha Hawaii
+```
+
 - Raw String Access
 
 ```javascript
-var lastSeenAt = `Last Seen ${manawa(@model.get("sent_at"))}`;
-
-console.log(`Aloha
-Hawaii`);
-
-String.raw `Dear, \n World ${ 42 }` === "Dear, \\n World 42";
+String.raw `Hi, \n World ${ 42 }` === "Hi, \\n World 42"; // → true
 ```
 ---
 
 ## Extended Literals
 
 - Binary and Octal
-- Unicode String/RegExp
 
 ```javascript
 0b110010100 === 404; // → true
+```
 
+- Unicode String/RegExp
+
+```javascript
 "\u{0CA0}_\u{0CA0}" === "ಠ_ಠ" // → true
 ```
 ---
@@ -169,13 +181,17 @@ regex.lastIndex; // → 9
 ---
 
 ## Enhanced Object Properties
+
 - Property Shorthand
-- Computer Property Names
+
+```javascript
+var options = { animate, duration };
+```
+
+- Computed Property Names
 - Method Properties
 
 ```javascript
-var options = { animate, duration }; // shorthand
-
 var properties = {
   color: "blue",
   [ "avatar_" + getSize() ]: 42
@@ -195,22 +211,29 @@ var helpers = {
 ## Destructuring Assignment
 
 - Array Matching
-- Object Matching (Deep)
-- Parameter Matching
-- Fail-Soft with Defaults
 
 ```javascript
 var list = [ "Blue", "Red", "Yellow" ];
 var [ first, , second ] = list;
 [ second, first ] = [ first, second ];
+```
 
+- Object Matching (Deep)
+
+```javascript
 var { members, meta: { total_count, updated_at } } = payload();
+```
 
+- Parameter Matching
+
+```javascript
 function sum ([ x, y ]) { return x + y; }
-function latestMessageText ({ senderName, body }) {
-  return `${senderName}: ${body}`;
-}
+function msgText ({ name, body }) { return `${name}: ${body}`; }
+```
 
+- Fail-Soft with Defaults
+
+```javascript
 var [ a = 1, b = 2, c = 3, d ] = [ 4, 5 ];
 ```
 ---
@@ -218,19 +241,28 @@ var [ a = 1, b = 2, c = 3, d ] = [ 4, 5 ];
 ## Modules
 
 - Export
-- Import
-- Default
-- Wildcard
 
 ```javascript
 export function randomNumber {
   return Math.floor( Math.random() * 11 );
 }
+```
 
+- Import
+
+```javascript
 import { Input, Label } from "react-bootstrap";
+```
 
+- Default
+
+```javascript
 export default (x) => x * x;
+```
 
+- Wildcard
+
+```javascript
 import * as _ from "underscore";
 ```
 ---
@@ -266,24 +298,30 @@ engineering.color === "#232b38"
 - Unique
 - Immutable
 - Optional Descriptions (debug)
-- Global Symbols
 
 ```javascript
 let attributes = {};
 const avatar = Symbol();
 attributes[avatar] = new Avatar();
+
 typeof avatar // → "symbol"
 Object.getOwnPropertySymbols(attributes); // → [ avatar ]
+Symbol("avatar") === Symbol("avatar"); // → false
+```
 
-Symbol("avatar") === Symbol("avatar") // → false
-Symbol.for("avatar") === Symbol.for("avatar"); // → true
+- Global Symbols
+
+```javascript
+let globalAvatar = Symbol.for("avatar");
+
+globalAvatar === Symbol.for("avatar"); // → true
+Symbol.keyFor(globalAvatar); // → avatar
 ```
 ---
 
 ## Iterators
 
 - Iterable Protocol
-- For \_ of \_
 
 ```javascript
 let fibonacci = {
@@ -297,7 +335,11 @@ let fibonacci = {
     };
   }
 };
+```
 
+- For \_ of \_
+
+```javascript
 for (let n of fibonacci) {
   if (n > 1000) break;
   console.log(n);
@@ -324,31 +366,33 @@ let evens = range(0, 10, 2);
 console.log(evens.next().value); // → 0
 
 for (let n of evens) {
-    console.log(n); // → 2, 4, 6, 8
+  console.log(n); // → 2, 4, 6, 8
 }
 ```
 ---
 
 ## Data Structures
 
-- Maps
 - Sets
-- Weak-linked Maps and Sets
 
 ```javascript
-let s = new Set();
-s.add("hello").add("goodbye").add("hello");
-s.size === 2;
-s.has("hello") === true;
-for (let key of s.values()) // insertion order
+let alphabet = new Set();
+alphabet.add("A").add("B").add("A");
+alphabet.size; // → 2
+alphabet.has("A"); // → true
+for (let key of alphabet.values()) // insertion order
   console.log(key);
+```
 
-let m = new Map();
-m.set("hello", 42);
-m.set(s, 34);
-m.get(s) === 34;
-m.size === 2;
-for (let [ key, val ] of m.entries())
+- Maps
+
+```javascript
+let member = new Map();
+member.set("id", 42);
+member.set(state, "accepted");
+member.get(state); // → "accepted"
+member.size; // → 2
+for (let [ key, val ] of member.entries())
   console.log(key + " = " + val);
 ```
 ---
@@ -361,7 +405,8 @@ for (let [ key, val ] of m.entries())
 - File Format Manipulations
 
 ```javascript
-let buffer = new ArrayBuffer(24);
+let buffer = new ArrayBuffer(24); // generic
+
 let amountDue = new Float32Array(buffer, 20,  1);
 
 let imageData = new Uint8ClampedArray([42, 1337]);
@@ -425,13 +470,27 @@ Promise.all(networkPromises).then((data) => {
 ## Meta Programming
 
 - Proxying
+
+```javascript
+var artist = { name: "Michelangelo", paintings: 253 };
+var interceptor = {
+  set: function (receiver, property, value) {
+    console.log(property, 'is changed to', value);
+    receiver[property] = value;
+  }
+};
+
+artist = Proxy(artist, interceptor);
+artist.paintings = 254; // → paintings is changed to 254
+```
+
 - Reflection
 
 ```javascript
-let obj = { a: 1 }
-Object.defineProperty(obj, "b", { value: 2 })
-obj[Symbol("c")] = 3
-Reflect.ownKeys(obj) // → [ "a", "b", Symbol(c) ]
+let obj = { a: 1 };
+Object.defineProperty(obj, "b", { value: 2 });
+obj[Symbol("c")] = 3;
+Reflect.ownKeys(obj); // → [ "a", "b", Symbol(c) ]
 ```
 ---
 
