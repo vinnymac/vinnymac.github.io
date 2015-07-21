@@ -235,7 +235,7 @@ import * as _ from "underscore";
 class Group extends Party {
   constructor (name, color) {
     super(name);
-    this._color = color;
+    this.color = color;
   }
   static defaultGroup () {
     return new Group("Engineering", "#232b38");
@@ -309,7 +309,12 @@ var example = 'code';
 - File Format Manipulations
 
 ```javascript
-var example = 'code';
+let buffer = new ArrayBuffer(24);
+let amountDue = new Float32Array(buffer, 20,  1);
+
+let imageData = new Uint8ClampedArray([42, 1337]);
+console.log(imageData[1]); // 255
+
 ```
 ---
 
