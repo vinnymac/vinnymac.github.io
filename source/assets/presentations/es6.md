@@ -283,7 +283,7 @@ Symbol.for("avatar") === Symbol.for("avatar"); // → true
 ## Iterators
 
 - Iterable Protocol
-- For _ of _
+- For \_ of \_
 
 ```javascript
 let fibonacci = {
@@ -366,7 +366,6 @@ let amountDue = new Float32Array(buffer, 20,  1);
 
 let imageData = new Uint8ClampedArray([42, 1337]);
 console.log(imageData[1]); // → 255
-
 ```
 ---
 
