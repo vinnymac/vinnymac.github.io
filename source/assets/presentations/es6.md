@@ -37,7 +37,7 @@ background-image: url(/images/js-logo.png)
 ![Compiling](http://imgs.xkcd.com/xk3d/303/compiling_4.png)
 ---
 
-# Constants
+## Constants
 
 - Immutable Variables
 
@@ -49,7 +49,7 @@ E = PI; // Line 4: "E" is read-only
 ```
 ---
 
-# Scoping
+## Scoping
 
 - Block-Scoped Variables
 
@@ -76,7 +76,7 @@ console.log(i, x, a); // i is not defined, x is not defined, [1]
 ```
 ---
 
-# Arrow Functions
+## Arrow Functions
 
 - Expression Bodies
 
@@ -96,7 +96,7 @@ this.collection.each((m) => {
 ```
 ---
 
-# Extended Parameter
+## Extended Parameter
 
 - Defaults
 - Rest Parameter
@@ -118,7 +118,7 @@ var params = [ "kana", [true], 7 ]
 ```
 ---
 
-# Template Strings
+## Template Strings
 
 - String Interpolation
 - Multiline support
@@ -134,7 +134,7 @@ String.raw `Dear, \n World ${ 42 }` === "Dear, \\n World 42";
 ```
 ---
 
-# Extended Literals
+## Extended Literals
 
 - Binary and Octal
 - Unicode String/RegExp
@@ -146,7 +146,7 @@ String.raw `Dear, \n World ${ 42 }` === "Dear, \\n World 42";
 ```
 ---
 
-# Enhanced Regular Expression
+## Enhanced Regular Expression
 
 - Sticky Matching
 - Efficient Parsing
@@ -156,7 +156,7 @@ var example = 'code';
 ```
 ---
 
-# Enhanced Object Properties
+## Enhanced Object Properties
 - Property Shorthand
 - Computer Property Names
 - Method Properties
@@ -180,7 +180,7 @@ var helpers = {
 ```
 ---
 
-# Destructuring Assignment
+## Destructuring Assignment
 
 - Array Matching
 - Object Matching (Deep)
@@ -203,7 +203,7 @@ var [ a = 1, b = 2, c = 3, d ] = [ 4, 5 ];
 ```
 ---
 
-# Modules
+## Modules
 
 - Export
 - Import
@@ -223,7 +223,7 @@ import * as _ from "underscore";
 ```
 ---
 
-# Classes
+## Classes
 
 - Declaration / Inheritance
 - Expressions
@@ -232,11 +232,24 @@ import * as _ from "underscore";
 - Getters / Setters
 
 ```javascript
-var example = 'code';
+class Group extends Party {
+  constructor (name, color) {
+    super(name);
+    this._color = color;
+  }
+  static defaultGroup () {
+    return new Group("Engineering", "#232b38");
+  }
+  set name  (name) { this._name = name; }
+  get name  ()     { return this._name; }
+  get color ()     { return this._color; }
+}
+var engineering = Group.defaultGroup();
+engineering.color === "#232b38"
 ```
 ---
 
-# Symbol Type
+## Symbol Type
 
 - Unique
 - Immutable
@@ -244,11 +257,18 @@ var example = 'code';
 - Global Symbols
 
 ```javascript
-var example = 'code';
+let attributes = {};
+const avatar = Symbol();
+attributes[avatar] = new Avatar();
+typeof avatar // "symbol"
+Object.getOwnPropertySymbols(attributes); // [ avatar ]
+
+Symbol("avatar") === Symbol("avatar") // false
+Symbol.for("avatar") === Symbol.for("avatar"); // true
 ```
 ---
 
-# Iterators
+## Iterators
 
 - Iterable Protocol
 - For _ of _
@@ -258,7 +278,7 @@ var example = 'code';
 ```
 ---
 
-# Generators
+## Generators
 
 - Iterator Protocol
 - Direct
@@ -270,7 +290,7 @@ var example = 'code';
 ```
 ---
 
-# Data Structures
+## Data Structures
 
 - Maps
 - Sets
@@ -281,7 +301,7 @@ var example = 'code';
 ```
 ---
 
-# Typed Arrays
+## Typed Arrays
 
 - Arbitrary byte-based data structures
 - Network Protocols
@@ -293,7 +313,7 @@ var example = 'code';
 ```
 ---
 
-# Additional Built-in Methods
+## Additional Built-in Methods
 
 - Object Property Assignment
 - Array Element Finding
@@ -313,7 +333,7 @@ Math.sign(-7) // -1
 ```
 ---
 
-# Promises
+## Promises
 
 - Async Callback
 - Chaining
@@ -329,7 +349,7 @@ Promise.all(networkPromises).then((data) => {
 ```
 ---
 
-# Meta Programming
+## Meta Programming
 
 - Proxying
 - Reflection
