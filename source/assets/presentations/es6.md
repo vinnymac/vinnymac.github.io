@@ -44,8 +44,8 @@ background-image: url(/images/js-logo.png)
 ```javascript
 const E = 2.71828;
 const PI = 3.14;
-E < PI; // true
-E = PI; // Line 4: "E" is read-only
+E < PI; // → true
+E = PI; // → Line 4: "E" is read-only
 ```
 ---
 
@@ -58,7 +58,7 @@ let a = [1];
 for (let i = 0; i < a.length; i++) {
   let x = a[i] + 1;
 }
-console.log(i, x, a); // i is not defined, x is not defined, [1]
+console.log(i, x, a); // → i is not defined, x is not defined, [1]
 ```
 
 - Block-Scoped Functions
@@ -66,12 +66,12 @@ console.log(i, x, a); // i is not defined, x is not defined, [1]
 ```javascript
 {
   function foo () { return 'hello'; }
-  foo(); // hello
+  foo(); // → hello
   {
     function foo () { return 'world'; }
-    foo(); // world
+    foo(); // → world
   }
-  foo(); // hello
+  foo(); // → hello
 }
 ```
 ---
@@ -82,7 +82,7 @@ console.log(i, x, a); // i is not defined, x is not defined, [1]
 
 ```javascript
 let admins = collection.map( m => m.get("admin") );
-console.log(m); // m is not defined
+console.log(m); // → m is not defined
 ```
 - Statement Bodies
 - Lexical _this_
@@ -108,13 +108,13 @@ this.collection.each((m) => {
     _(this.defaults).extend(options);
   },
   generateName: function(conversation, names...) {
-    console.log(names); // ["Angie", "Ariel", "Jared"]
+    console.log(names); // → ["Angie", "Ariel", "Jared"]
     conversation.set("name", names.join(", "));
   }
 }
 
 var params = [ "kana", [true], 7 ]
-[ 1, 2, ...params ].length // 5
+[ 1, 2, ...params ].length // → 5
 ```
 ---
 
@@ -140,9 +140,9 @@ String.raw `Dear, \n World ${ 42 }` === "Dear, \\n World 42";
 - Unicode String/RegExp
 
 ```javascript
-0b110010100 === 404;
+0b110010100 === 404; // → true
 
-"\u{0CA0}_\u{0CA0}" === "ಠ_ಠ"
+"\u{0CA0}_\u{0CA0}" === "ಠ_ಠ" // → true
 ```
 ---
 
@@ -152,7 +152,19 @@ String.raw `Dear, \n World ${ 42 }` === "Dear, \\n World 42";
 - Efficient Parsing
 
 ```javascript
-var example = 'code';
+let regex = /foo.bar/gy;
+regex.sticky; // → true
+regex.lastIndex; // → 0
+
+regex.test('foo-bar'); // → true
+
+regex.lastIndex; // → 7
+regex.test('..foo-bar'); // → false
+
+regex.lastIndex = 2;
+regex.test('..foo-bar'); // → true
+
+regex.lastIndex; // → 9
 ```
 ---
 
@@ -260,11 +272,11 @@ engineering.color === "#232b38"
 let attributes = {};
 const avatar = Symbol();
 attributes[avatar] = new Avatar();
-typeof avatar // "symbol"
-Object.getOwnPropertySymbols(attributes); // [ avatar ]
+typeof avatar // → "symbol"
+Object.getOwnPropertySymbols(attributes); // → [ avatar ]
 
-Symbol("avatar") === Symbol("avatar") // false
-Symbol.for("avatar") === Symbol.for("avatar"); // true
+Symbol("avatar") === Symbol("avatar") // → false
+Symbol.for("avatar") === Symbol.for("avatar"); // → true
 ```
 ---
 
@@ -309,10 +321,10 @@ function* range (start, end, step) {
 }
 
 let evens = range(0, 10, 2);
-console.log(evens.next().value); // 0
+console.log(evens.next().value); // → 0
 
 for (let n of evens) {
-    console.log(n); // 2, 4, 6, 8
+    console.log(n); // → 2, 4, 6, 8
 }
 ```
 ---
@@ -324,7 +336,20 @@ for (let n of evens) {
 - Weak-linked Maps and Sets
 
 ```javascript
-var example = 'code';
+let s = new Set();
+s.add("hello").add("goodbye").add("hello");
+s.size === 2;
+s.has("hello") === true;
+for (let key of s.values()) // insertion order
+  console.log(key);
+
+let m = new Map();
+m.set("hello", 42);
+m.set(s, 34);
+m.get(s) === 34;
+m.size === 2;
+for (let [ key, val ] of m.entries())
+  console.log(key + " = " + val);
 ```
 ---
 
@@ -340,7 +365,7 @@ let buffer = new ArrayBuffer(24);
 let amountDue = new Float32Array(buffer, 20,  1);
 
 let imageData = new Uint8ClampedArray([42, 1337]);
-console.log(imageData[1]); // 255
+console.log(imageData[1]); // → 255
 
 ```
 ---
@@ -354,14 +379,21 @@ console.log(imageData[1]); // 255
 - Number Comparison / Truncation / Sign Determination
 
 ```javascript
-Object.assign({a: 1}, {b: 2}, {c: 3}); // { a: 1, b: 2, c: 3 }
-[ 1, 3, 4, 2 ].find(x => x > 3); // 4
+Object.assign({a: 1}, {b: 2}, {c: 3}); // → { a: 1, b: 2, c: 3 }
+[ 1, 3, 4, 2 ].find(x => x > 3); // → 4
+
 "aloha".repeat(3); // alohaalohaaloha
-"/networks/lua/latest".includes("networks") // true, also endsWith and startsWith
-Number.isNaN(NaN) || Number.isFinite(Infinity) || Number.isSafeInteger(10007199254740992) // true || false || false
-Number.EPSILON // instead of 2.22e-16
-Math.trunc(-42.7) // -42
-Math.sign(-7) // -1
+"/networks/lua/latest".includes("networks"); // → true
+"reddit".endsWith("it"); // → true
+"facebook".startsWith("face"); // → true
+
+Number.isNaN(NaN); // → true
+Number.isFinite(Infinity); // → false
+Number.isSafeInteger(10007199254740992); // → false
+Number.EPSILON; // instead of 2.22e-16
+
+Math.trunc(-42.7); // → -42
+Math.sign(-7); // → -1
 ```
 ---
 
@@ -397,11 +429,10 @@ Promise.all(networkPromises).then((data) => {
 - Reflection
 
 ```javascript
-
 let obj = { a: 1 }
 Object.defineProperty(obj, "b", { value: 2 })
 obj[Symbol("c")] = 3
-Reflect.ownKeys(obj) // [ "a", "b", Symbol(c) ]
+Reflect.ownKeys(obj) // → [ "a", "b", Symbol(c) ]
 ```
 ---
 
