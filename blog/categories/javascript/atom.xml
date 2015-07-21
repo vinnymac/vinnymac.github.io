@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Javascript, | Dev Continuum]]></title>
+  <title><![CDATA[Category: Javascript | Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2014-06-11T20:22:16-04:00</updated>
+  <updated>2015-07-21T18:53:01-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -14,142 +14,134 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Promises and More]]></title>
-    <link href="http://vinnymac.github.io/blog/2014/05/05/promises-and-more/"/>
-    <updated>2014-05-05T12:30:53-04:00</updated>
-    <id>http://vinnymac.github.io/blog/2014/05/05/promises-and-more</id>
-    <content type="html"><![CDATA[<h3>onStart</h3>
+    <title type="html"><![CDATA[Client-Side EXIF]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/04/14/client-side-exif/"/>
+    <updated>2014-04-14T09:59:53-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/04/14/client-side-exif</id>
+    <content type="html"><![CDATA[<p>```coffeescript
+  1        2       3      4         5            6           7          8</p>
 
-<p>I&rsquo;ve recently begun using promises in my javascript and even now I understand how useful they can be. I have come across many tools in the last year that I have found to be helpful. Certain situations have just appeared very hard, and then suddenly the perfect tool would allow me to continue on and overcome a hurdle. Promises are a tool such as that.</p>
+<h6>######      ##  ##      ##########  ##                  ##</h6>
 
-<h3>jQuery Deferreds</h3>
+<h2>##      ##  ##      ##  ##      ##  ##          ##  ##      ##</h2>
 
-<p>Although jQuery Deferred promises aren&rsquo;t A+ Compliant, I still find them to be very useful. Often when writing Backbone.Marionette apps I have needed to make a major change to a view and immediately after do some work. This happens in almost ever view in every app I have worked on. Say you need to navigate to another part of the app but first require closing the view the user is looking at. Calling the close or remove method on your view will often do the trick, but when you have extra work, timing becomes important. In many examples, I see people calling the event, and then executing the close. This does work, but is only working because of timing. If you use a jquery deferred you can execute the event after the closing of the view.</p>
+<h4>####    ####  ####    ##          ##########  ##########</h4>
 
-<p><code>coffeescript
-$deferred = $.Deferred()
-$deferred.resolve @close()
-$deferred.done -&gt; App.vent.trigger 'show:dialog'
+<h2>##      ##</h2>
+
+<h2>##  ######</h2>
+
+<p>```</p>
+
+<h3>onStart</h3>
+
+<p>Images with exif data are often not that easy to handle. Manipulating images on the client and passing around metadata can be a slow and painful process. I have used many of the options available to one when trying to get exif in JavaScript. This is a review of several viable options for getting exif from an image.</p>
+
+<p>For testing purposes throughout this review I recommend using images with exif data intact. Dave Perret has a pack of them <a href="https://github.com/recurser/exif-orientation-examples">over on github</a> that you can download.</p>
+
+<h3>Image Orientation in Firefox</h3>
+
+<p>Althought this doesn&rsquo;t deal with extracting EXIF, it is worth mentioning for those looking for a solution to orientation problems. The only browser which actually allows for image orientation correction right now is <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation#Browser_compatibility">Firefox 26 beta or above</a>. Adding this feature is very simple. Just apply the image-orientation style using css to any image tag. <a href="https://code.google.com/p/chromium/issues/detail?id=158753">Unfortunately chrome has yet to implement this feature</a> and the only way to see correctly oriented images is by having an image at the <a href="https://code.google.com/p/chromium/issues/detail?id=56845#c66">top level of the DOM</a>. As time passes this feature will become adopted, and possibly images will be rotated automatically.</p>
+
+<p><code>html
+&lt;img style="image-orientation: from-image" src="image.jpg"&gt;
 </code></p>
 
-<h3>Image Loading with jQuery Promises</h3>
+<p>See for yourself how this works in <a href="http://jsfiddle.net/L3S7R/">my example</a>. Firefox will return the best results, but you should be able to try it in any browser you have installed. Documentation for the image-orientation style can be <a href="http://dev.w3.org/csswg/css3-images/#image-orientation">found on w3</a>.</p>
 
-<p>Many libraries exist to load images, but I like to rock my own. Using jQuery Deferred promises you can go a step further with image loading. Javascript offers an image object which has a few callbacks on it. onLoad, onError, and onAbort can be used with jQuery promises so that you can be sure that the image has succeeded or failed at loading properly.</p>
+<h3>Load-Image Library</h3>
 
-<p>```coffeescript
-imageLoader = (url) &ndash;>
-  loadImage = (deferred) &ndash;></p>
+<p>This library is great at, you guessed it, loading images! It has the idea of mix and matching behind its implementation. You can grab the exif and the main library and start parsing data with very few lines of code. After parsing the exif data out, you have to load the image again. This isn&rsquo;t great for performance but it does work very well. Try it out for yourself <a href="https://github.com/blueimp/JavaScript-Load-Image">here</a>.</p>
 
-<pre><code>loaded = -&gt;
-  unbindEvents()
-  deferred.resolve image
+<p>```coffeescript</p>
 
-errored = -&gt;
-  unbindEvents()
-  deferred.reject image
+<h1>Parsing the Metadata</h1>
 
-unbindEvents = -&gt;
-  image.onload = null
-  image.onerror = null
-  image.onabort = null
+<p>loadImage.parseMetaData file, (data) &ndash;>
+  options = {}
+  if data.exif</p>
 
-image = new Image()
-image.onload = loaded
-image.onerror = errored
-image.onabort = errored
-
-image.src = url
+<pre><code>options.orientation = data.exif.get('Orientation')
+options.canvas = true # tells loadImage we want a canvas returned
 </code></pre>
 
-<p>  # promise causes the resolve/reject methods to not be accessible.
-  $.Deferred(loadImage).promise()
+<p>  # Load the Image with new options
+  loadImage file, (image) &ndash;></p>
+
+<pre><code>$('some_div').append(image)
+</code></pre>
+
+<p>  , options</p>
+
+<h1>You could also scale an image</h1>
+
+<p>canvas = loadImage.scale image,
+  left: 0
+  top: 0
+  sourceWidth: image.width
+  sourceHeight: image.height
+  maxWidth: target_width
+  maxHeight: target_height
 ```</p>
 
-<p>With the above imageLoader you could do something like the example below.</p>
+<p>As you can see the Load-Image lib allows for a lot more than just exif extraction. You can manipulate images in many ways using this tool. The downsides are that this doesn&rsquo;t use a web worker, so you cannot count on this when doing other performance heavy operations. If you would like to test this out for yourself, they have <a href="http://blueimp.github.io/JavaScript-Load-Image/">a great demo</a>.</p>
+
+<h3>EXIF and BinaryAJAX</h3>
+
+<p>Although old, these two files will allow you to extract EXIF meta data from JPEG images. This is best used with the FileReader API available on most modern browsers.
+<a href="http://www.nihilogic.dk/labs/exif/exif.js">EXIF</a> and <a href="http://www.nihilogic.dk/labs/binaryajax/binaryajax.js">BinaryAJAX</a> are available at <a href="http://nihilogic.dk">http://nihilogic.dk</a> . Below is an example of using the FileReader to load the image, and then extract the exif with EXIF and BinaryAJAX.</p>
 
 <p><code>coffeescript
-$promise = imageLoader 'http://catgif.com/cat.gif'
-$promise.done (image) -&gt; $('.loading').replaceWith image
-$promise.fail -&gt; $('.loading').replaceWith '&lt;img src="sadface.png"&gt;&lt;/img&gt;'
+image = @files[0] # Get the first file from the user
+reader = new FileReader
+reader.onloadend = -&gt;
+  exif = EXIF.readFromBinaryFile new BinaryFile @result
+reader.readAsBinaryString image
 </code></p>
 
-<h3>A+ Promises</h3>
+<p>The advantage of this library is that it doesn&rsquo;t require much, and you do not have to load the image many times. All it really requires is the use of the File API. The downside is you don&rsquo;t get the advantages of manipulating the images, or resizing properly. All you get is the EXIF data. Seeing as this one is outdated, I would just <a href="http://sandbox.juurlink.org/html5imageuploader/">give it a try</a> or try the more <a href="http://jsfiddle.net/interstateone/gtLWG/">code friendly example</a>. Visit the github page <a href="https://github.com/jseidelin/exif-js">here</a> for more information.</p>
 
-<p>A promise is an eventual result of an asynchronous operation. Many people have argued over exactly what the terminology should be and how the inner workings should work. If you aren&rsquo;t looking to argue about this, and just want to take advantage of promises. I recommend starting with q. <a href="http://documentup.com/kriskowal/q/">Q is an A+ compliant library</a>, and it works using the expected when then format.</p>
+<h3>Flickr&rsquo;s EXIF Extraction</h3>
 
-<p>```coffeescript</p>
-
-<h1>Normal Q Promise structure</h1>
-
-<p>Q.fcall step1
-.then step2
-.then step3
-.then (value) &ndash;> console.log value
-.catch (error) &ndash;> console.log error
-.done()</p>
-
-<h1>Any function that returns a promise</h1>
-
-<p>promise = @climber()
-promise.when @climbAMountain() # A when is a static then
-promise.then @fallDown()
-.catch (error) &ndash;>
-  # A note on Q promises:
-  # It will catch any errors while you are climbing or falling
-.done()</p>
-
-<h1>Q also offers a try catch finally block</h1>
-
-<p>promise = @anotherPromise()
-promise.then # try some work
-promise.catch # catch some error
-promise.fin # finally do thing
-```</p>
-
-<p>Q is a very flexible promise library. It allows you to chain promises and execute arrays of promises. It is easy to use, and combined with coffeescript becomes one of the most readable solutions.</p>
-
-<h3>Tools</h3>
-
-<p>Promises are great and have helped dig me out of a lot of holes. Having helpers to assist you along the way when building a web app makes development more enjoyable and relaxing. I&rsquo;ll share some of the other tools that I use to help me along the way. Many people might be thinking why build my own when I can just download something like UnderscoreJS. Libraries are great, but occassionally you come up with a great piece that you just carry with you. I recommend building your own set and improving upon them. Share them with the developers you work with and just spread the word.</p>
+<p><a href="http://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/">Flickr has a great write up</a> in regards to extracting the metadata using web workers. Web workers appear to be a very performant option. Similarly to the example above, you need to use the FileReader API, but more efficiently slice off only the part of the image that contains the exif data. When working with the exif data in a web worker, the EXIF tag for orientation will be at offset 0x112.</p>
 
 <p>```coffeescript</p>
 
-<h1>Cleanup video and audio elements when you are done with them.</h1>
+<h1>Slice up the section of the file that contains the exif (128 KiloBytes = 131072 Bytes)</h1>
 
-<p>cleanupMedia: ($media) &ndash;>
-  return unless $media.length
-  $media[0].pause()
-  $media[0].src = &lsquo;&rsquo;
-  $media.children(&lsquo;source&rsquo;).prop &lsquo;src&rsquo;, &lsquo;&rsquo;
-  $media.remove().length = 0</p>
+<p>if file.slice
+  filePart = file.slice 0, 131072
+else if file.webkitSlice
+  filePart = file.webkitSlice 0, 131072
+else if file.mozSlice
+  filePart = file.mozSlice 0, 131072
+else
+  filePart = file</p>
 
-<h1>Methods to check for HTML5 Video and Audio Support</h1>
+<h1>Read part of the file, then send it to our worker for processing</h1>
 
-<p>supports_video: &ndash;> !!document.createElement(&lsquo;video&rsquo;).canPlayType
-supports_audio: &ndash;> !!document.createElement(&lsquo;audio&rsquo;).canPlayType</p>
+<p>reader = new FileReader
+reader.onload = &ndash;>
+  # Refers to a worker you must define
+  jobBlob = new Blob [workers.exif_processor], {type: &ldquo;text/javascript&rdquo;}
+  worker = new Worker URL.createObjectURL jobBlob
+  worker.addEventListener &lsquo;message&rsquo;, (e) &ndash;></p>
 
-<h1>Move the cursor to the end of an input</h1>
+<pre><code>console.log "Exif Orientation Data:", e.data
+</code></pre>
 
-<p>$.fn.focusToEnd = &ndash;> @each &ndash;>
-  v = $(this).val()
-  $(this).focus().val(&ldquo;&rdquo;).val v</p>
+<p>  worker.postMessage</p>
 
-<h1>Then do this:</h1>
+<pre><code>binary: @result
+</code></pre>
 
-<p>$(&lsquo;.input&rsquo;).focusToEnd()</p>
-
-<h1>A contains method for the String class</h1>
-
-<p>if not String::contains then String::contains = &ndash;> String::indexOf.apply( this, arguments ) isnt -1</p>
-
-<h1>Use it like so:</h1>
-
-<p>&ldquo;apple&rdquo;.contains &lsquo;app&rsquo; # returns true
-```</p>
+<p>reader.readAsBinaryString filePart
+```
+Using Web Workers to process the exif data is the fastest way to correcting your images. You may even be able to get web workers working with one of the examples above. Flickr used to acquire most of the metadata server side, but now they moved over to doing it on the client. Hopefully this will convince others to do the same, and we can get the webs images looking better than they have in the past.</p>
 
 <h3>onFinish</h3>
 
-<p>A promise is not the swiss army knife of javascript tools. However it will get you out of hard and ugly situations with asynchronous code. $.ajax, $.post, and $.get all return deferreds that you can then listen in on. That is where the .done, .fail, .always methods come from in asnychronous jquery. Promises are a great way to finish the job, and at any time. Promise libraries exist other than Q, and I would recommend reading about the various other ones before deciding on Q. May promises help you in your developments. If you have any questions feel free to ask, I will respond, I promise.</p>
+<p>Consistent exif orientation handling is wack on the web, <a href="http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/">a great article on this topic</a>, goes into detail about the current state of orientation handling. If you think you know a better way, or an alternative to the methods I went over here, please let me know. Extracting EXIF is hard enough, having to manipulate images after is overkill.</p>
 ]]></content>
   </entry>
   
