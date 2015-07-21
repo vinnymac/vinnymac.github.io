@@ -506,7 +506,7 @@ Reflect.ownKeys(obj); // → [ "a", "b", Symbol(c) ]
   * Macros (make your own syntax)
   * Parallel arrays
 
-![XKCD](http://i.imgur.com/PsVj5Nl.png)
+.right[![XKCD](http://i.imgur.com/PsVj5Nl.png)]
 ---
 
 # Finito
