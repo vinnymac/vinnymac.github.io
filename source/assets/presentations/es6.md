@@ -274,7 +274,22 @@ Symbol.for("avatar") === Symbol.for("avatar"); // true
 - For _ of _
 
 ```javascript
-var example = 'code';
+let fibonacci = {
+  [Symbol.iterator]() {
+    let pre = 0, cur = 1;
+    return {
+       next () {
+         [ pre, cur ] = [ cur, pre + cur ];
+         return { done: false, value: cur };
+       }
+    };
+  }
+};
+
+for (let n of fibonacci) {
+  if (n > 1000) break;
+  console.log(n);
+}
 ```
 ---
 
@@ -286,7 +301,19 @@ var example = 'code';
 - Control-Flow
 
 ```javascript
-var example = 'code';
+function* range (start, end, step) {
+    while (start < end) {
+        yield start;
+        start += step;
+    }
+}
+
+let evens = range(0, 10, 2);
+console.log(evens.next().value); // 0
+
+for (let n of evens) {
+    console.log(n); // 2, 4, 6, 8
+}
 ```
 ---
 
@@ -344,12 +371,22 @@ Math.sign(-7) // -1
 - Chaining
 
 ```javascript
-
+let networkPromises = this.networks.each((network) => {
+  return new Promise((resolve, reject) => {
+    return network.fetch((response) => {
+      if (response.body) {
+        resolve(response.body);
+      } else {
+        reject(response.error);
+      }
+    });
+  });
+});
 
 Promise.all(networkPromises).then((data) => {
   NetworkActions.setNetworks(data);
-}, (err) => {
-  errorHandler(err);
+}, (error) => {
+  errorHandler(error);
 });
 ```
 ---
