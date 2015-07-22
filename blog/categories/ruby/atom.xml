@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ruby, | Dev Continuum]]></title>
+  <title><![CDATA[Category: Ruby | Dev Continuum]]></title>
   <link href="http://vinnymac.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://vinnymac.github.io/"/>
-  <updated>2015-07-21T18:53:01-04:00</updated>
+  <updated>2015-07-22T14:52:12-04:00</updated>
   <id>http://vinnymac.github.io/</id>
   <author>
     <name><![CDATA[Vincent Taverna]]></name>
@@ -14,126 +14,118 @@
 
   
   <entry>
-    <title type="html"><![CDATA[BoxView]]></title>
-    <link href="http://vinnymac.github.io/blog/2014/05/18/boxview/"/>
-    <updated>2014-05-18T21:51:11-04:00</updated>
-    <id>http://vinnymac.github.io/blog/2014/05/18/boxview</id>
+    <title type="html"><![CDATA[Boxviewrb]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/06/11/boxviewrb/"/>
+    <updated>2014-06-11T20:06:09-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/06/11/boxviewrb</id>
     <content type="html"><![CDATA[<h3>onStart</h3>
 
-<p>The <a href="https://developers.box.com/view/">BoxViewAPI</a> is useful for displaying documents in the browser without needing to do any heavy lifting. You can quickly turn any PDF, MS Document, or MS PowerPoint into HTML and display it inline on your website. The HTML is hosted by Box, and you can easily display this on your site by using an iFrame. Alternatively you could download the HTML and display it with viewer.js. Make sure you <a href="https://app.box.com/">signup</a> and <a href="https://app.box.com/developers/services">create a BoxView app</a> before you start. The app will have an API key that you will need in all requests you make with Box. I am implementing it in Rails, but you could do this on any backend in exactly the same fashion.</p>
+<p>I took a bit of a blogging hiatus during my vacation recently. I used this time to start working on an open source project called <a href="https://github.com/getlua/boxviewrb">boxviewrb</a>. <a href="https://github.com/getlua/boxviewrb">Boxviewrb</a> is a Box View API Wrapper written in ruby. It uses the <a href="http://johnnunemaker.com/httparty/">HTTParty</a> gem for network calls, and also supports multipart uploading. Alternative gems for Box View do exist. However, they are incomplete implementations, some old that have not been updated (crocodoc), and others that just did not offer a complete feature set. <a href="https://github.com/getlua/boxviewrb">Boxviewrb</a> works with every request and feature that the Box View API has documented. Test coverage is minimal, only some of the requests have tests, but I am meaning to add more coverage in the future. I attempted to make the documentation as readable and self explanatory as I possibly could. This is my first time ever releasing a piece of open source software, and it certainly will not be my last. Instructions on how to contribute can be found at the bottom of the readme.</p>
 
-<h3>Upload a Document</h3>
+<h3>onFinish</h3>
 
-<p>The first step to making a viewable document is uploading the file to box. I decided to use the net::http library when communicating with the BoxViewAPI. However, you can use any RESTful lib. RestClient is another popular one. Then make a post with the necessary headers. The response if successful will contain a document id.</p>
+<p>In previous articles I wrote about communicating with the Box View API using Net::HTTP. Based on this primitive example I was able to make an open source gem. If you read over my documentation, you will notice the convenience methods. They came in handy when placing Box View in a production application. At <a href="http://getlua.com">Lua</a> we now have document viewing right in the browser! If you would like this feature in a site you&rsquo;re running, give my gem a try. As always if you have any concerns or questions drop a comment below.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sinatra Assets]]></title>
+    <link href="http://vinnymac.github.io/blog/2014/05/26/sinatra-assets/"/>
+    <updated>2014-05-26T15:32:56-04:00</updated>
+    <id>http://vinnymac.github.io/blog/2014/05/26/sinatra-assets</id>
+    <content type="html"><![CDATA[<h3>onStart</h3>
 
-<p>```ruby
-  # Headers used throughout these examples
-  # Get YOUR_API_KEY from the box view application page
-  BOX_HEADERS = {</p>
+<p>Rails is one of the most popular frameworks right now. It contains a lot of magic, and that can often be credited to its asset pipeline. Frequently when I think of Sinatra I think of it as a slim downed version of Rails. It has its uses, and so does Rails, but what if we wanted to combine Sinatra with an asset pipeline. I decided to do a little digging, and after doing a little research, I discovered that their is only one good solution that exists right now. It is called the <a href="https://github.com/rstacruz/sinatra-assetpack">Sinatra AssetPack</a>.</p>
 
-<pre><code>'Authorization' =&gt; "Token #{YOUR_API_KEY}",
-'Content-type' =&gt; 'application/json'
+<h3>Sinatra AssetPack</h3>
+
+<p>In order to get started using the Sinatra AssetPack you will need to add it to your Gemfile.</p>
+
+<p><code>ruby Gemfile
+gem 'sinatra-assetpack', :require =&gt; 'sinatra/assetpack'
+</code></p>
+
+<p>Then run bundle (or bundle install), and let it install. Once installed you can start taking advantage of the Sinatra AssetPack. I added it to the base of my Sinatra app, I would recommend you do the same.</p>
+
+<p>```ruby Base
+require &lsquo;sinatra/base&rsquo;
+require &lsquo;sinatra/assetpack&rsquo;</p>
+
+<p>class MyApp &lt; Sinatra::Base
+  set :root, File.dirname(<strong>FILE</strong>)
+  set :views, settings.root + &lsquo;/views&rsquo;
+  set :public_folder, settings.root + &lsquo;/public&rsquo;</p>
+
+<p>  register Sinatra::AssetPack</p>
+
+<p>  assets {</p>
+
+<pre><code>serve '/js',     from: 'app/js'
+serve '/css',    from: 'app/css'
+serve '/images', from: 'app/images'
+
+# Serve up JS per request
+js :app, '/js/app.js', [
+  '/js/vendor/**/*.js',
+  '/js/lib/**/*.js'
+]
+
+# Serve up CSS per request
+css :application, '/css/application.css', [
+  '/css/screen.css'
+]
+
+# jsmin, yui, closure or uglify for js compression
+js_compression  :uglify
+# simple, sass, yui, or sqwish for css compression
+css_compression :sass
 </code></pre>
 
 <p>  }</p>
 
-<p>  def upload_document</p>
+<p>  get &lsquo;/&rsquo; do</p>
 
-<pre><code>document_uri = URI.parse("https://view-api.box.com/1/documents")
-data = {
-  'url' =&gt; original_url
-  # If thumbnails are desired:
-  #, 'thumbnails' =&gt; '100x100'
-}
-http = Net::HTTP.new(document_uri.host, document_uri.port)
-http.use_ssl = true
-request = Net::HTTP::Post.new(document_uri.path, BOX_HEADERS)
-request.body = data.to_json
-response = http.request(request)
-parsed = JSON.parse response.body
-document_id = parsed["id"]
-return document_id
-# or self.update_attribute :document_id, document_id
+<pre><code>haml :index
 </code></pre>
 
 <p>  end
-```</p>
-
-<h3>Create a Session</h3>
-
-<p>Now that you have a document id, you can make upload_document return the id or just save it to a model (This is useful if you&rsquo;re interested in implementing WebHooks). Next you can use that document id to create a session which will begin the conversion of the document, and let you know when it is ready. If you are using this in your web app frequently, I recommend using <a href="http://sidekiq.org/">Sidekiq</a> to offload all these network calls and possible database saves to an asynchronous process. When successful, box will return a 201, which means the document is ready for viewing. If you don&rsquo;t get a 201 you will get a 202 or 400 response code. A 202 means the document is not yet ready for viewing. A 400 means the conversion has failed. If you&rsquo;d like to view your file at this point, just head over to <a href="https://view-api.box.com/1/sessions/{session%20id}/view?theme=light">https://view-api.box.com/1/sessions/{session id}/view?theme=light</a>, where session id is the id you get from the 201 response.</p>
-
-<p>```ruby
-  def create_session(document_id)</p>
-
-<pre><code>session_uri = URI.parse("https://view-api.box.com/1/sessions")
-data = {
-  "document_id" =&gt; document_id
-  #, "expires_at" =&gt; Time.now + 1.hour
-  # You could specify an expiration date.
-}
-http = Net::HTTP.new(session_uri.host, session_uri.port)
-http.use_ssl = true
-request = Net::HTTP::Post.new(session_uri.path, BOX_HEADERS)
-request.body = data.to_json
-response = http.request(request)
-case response.code
-when "201" # Done converting
-  parsed = JSON.parse response.body
-  session_id = parsed["id"]
-  return session_id
-  # or self.update_attribute :session_id, session_id
-when "202" # Session not ready yet
-  time = response['Retry-After'].to_i
-  # here you would retry based on the time variable
-  # You could use sidekiqs perform_in method, or just sleep
-when "400" # An error occurred while converting the document or the document does not exist
-  Rails.logger.debug "Document failed to convert - #{response.body}"
-else
-  raise "BoxSessionError #{response.inspect}"
 end
-</code></pre>
-
-<p>  end
 ```</p>
 
-<h3>Generate a Thumbnail</h3>
+<p>With the Sinatra AssetPack you can minify/obfuscate your js and css files. It will help you clean up your routes as well. By serving up only the files you need, you can specify exactly what js and css files for your Sinatra app when hitting a particular route. I found out of all the available options, this was the simplest</p>
 
-<p>A cool feature BoxView has is thumbnail generation. It can return a thumbnail of any size 16-1024 wide by 16-768 high. This way you can see a preview of the document before displaying it to a user. The BoxView API only requires a height and width, and the document that you want the thumbnail generated from.</p>
+<h3>The Pipeline</h3>
 
-<p>```ruby
-  def generate_thumbnail(document_id)</p>
+<p>After configuring your app like I did above, you will be able to use the pipeline in your static files. In this example I am using haml. It is very simple to include your js/css/haml files using this type of pipeline.</p>
 
-<pre><code>query_params = "?width=100&amp;height=100"
-thumbnail_uri = URI.parse("https://view-api.box.com/1/documents/#{document_id}/thumbnail")
-http = Net::HTTP.new(thumbnail_uri.host, thumbnail_uri.port)
-http.use_ssl = true
-thumbnail_path = thumbnail_uri.path + params
-request = Net::HTTP::Get.new(thumbnail_path, BOX_HEADERS)
-response = http.request(request)
-case response.code
-when "200" # Valid thumbnail
-  thumbnail = response.body
-  # Now upload the thumbnail to another server
-  # or use it however you would like
-when "202" # Thumbnail isn't ready yet
-  time = response['Retry-After'].to_i
-  # Same as a session 202, sleep or worker
-when "400" # Width/Height are invalid
-  Rails.logger.debug "400 Box Thumbnail Width x Height Invalid - #{response.body}"
-else
-  raise "BoxThumbnailError #{response.inspect}"
-end
+<p>```haml Index
+= haml :browser_compat
+%html
+  %header</p>
+
+<pre><code>= haml :header # header contains != css :application
 </code></pre>
 
-<p>  end
-```</p>
+<p>  %body</p>
 
-<p>Box offers a chance of producing the thumbnail earlier in the process. If you state the width and height earlier when uploading the document, box will have the thumbnail ready by the time you call generate_thumbnail. After getting the thumbnail from the response you could upload it to your own server.</p>
+<pre><code>.container
+  .navigation
+    = haml :navigation
+  .stage
+    = haml :stage
+  .footer
+    = haml :footer
+#js_footer
+  != js :app
+</code></pre>
+
+<p>```</p>
+
+<p>This results in very clean and readable haml. The pieces here are reusable, and by following this pipeline you start to modularize your Sinatra application. I hope more apps use this, as it brings the magic of Rails to Sinatra apps, which tend to be more simplistic.</p>
 
 <h3>onFinish</h3>
 
-<p>My examples above are all in ruby, but their also exists a <a href="https://view-upload.herokuapp.com/">great python project on GitHub</a> that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren&rsquo;t very difficult. Just email <a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x61;&#x70;&#x69;&#x40;&#x62;&#111;&#x78;&#46;&#x63;&#111;&#x6d;">&#x61;&#112;&#x69;&#64;&#x62;&#111;&#120;&#x2e;&#99;&#x6f;&#x6d;</a> with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using <a href="https://ngrok.com">ngrok</a>. It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.</p>
+<p>Not everyone will need an asset pipeline in their web app. This is for those that require a clean and reusable code base for an app that is based on Sinatra. I find that modularizing your js and css will help a lot. Especially when you get obfuscation for free with it. Sinatra can be a powerful web application framework, and tools like this can make it even better. If you require any assistance setting up Sinatra AssetPack let me know.</p>
 ]]></content>
   </entry>
   
