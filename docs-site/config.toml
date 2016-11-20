@@ -1,0 +1,14 @@
+siteTitle = "Dev Continuum"
+siteDescr = "Android and Web development"
+siteAuthor = "Vincent Taverna"
+
+# siteTelegramUrl = "#"
+siteTwitterUrl = "https://twitter.com/kidtheflash"
+siteGithubUrl = "https://github.com/vinnymac"
+siteEmailUrl = "vinnymac@gmail.com"
+# siteRssUrl = "#"
+# siteVkUrl = "#"
+
+googleAnalyticsId = ""
+
+linkPrefix = "/gatsby-starter-lumen"
