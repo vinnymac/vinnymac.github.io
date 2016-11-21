@@ -1,8 +1,7 @@
 ---
+layout: post
 title: "boxviewrb"
 date: 2014-06-11 20:06:09 -0400
-layout: post
-path: "/boxviewrb/"
 comments: true
 sharing: true
 category: Ruby
