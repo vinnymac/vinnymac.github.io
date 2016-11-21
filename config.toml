@@ -5,10 +5,10 @@ siteAuthor = "Vincent Taverna"
 # siteTelegramUrl = "#"
 siteTwitterUrl = "https://twitter.com/kidtheflash"
 siteGithubUrl = "https://github.com/vinnymac"
-siteEmailUrl = "vinnymac@gmail.com"
+siteEmailUrl = "mailto:vinnymac@gmail.com"
 # siteRssUrl = "#"
 # siteVkUrl = "#"
 
 googleAnalyticsId = ""
 
-linkPrefix = "/gatsby-starter-lumen"
+linkPrefix = "/"
