@@ -1,6 +1,14 @@
 var rucksack = require('rucksack-css')
 var lost = require("lost")
 var cssnext = require("postcss-cssnext")
+import Shell from 'child_process'
+
+function postBuild(pages, callback) {
+  Shell.execSync("cp -r ./static/manifest.json public/")
+  callback()
+}
+
+export { postBuild }
 
 exports.modifyWebpackConfig = function(config, env) {
     config.merge({
