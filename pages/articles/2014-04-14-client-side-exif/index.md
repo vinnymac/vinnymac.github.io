@@ -28,7 +28,7 @@ For testing purposes throughout this review I recommend using images with exif d
 Althought this doesn't deal with extracting EXIF, it is worth mentioning for those looking for a solution to orientation problems. The only browser which actually allows for image orientation correction right now is [Firefox 26 beta or above](https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation#Browser_compatibility). Adding this feature is very simple. Just apply the image-orientation style using css to any image tag. [Unfortunately chrome has yet to implement this feature](https://code.google.com/p/chromium/issues/detail?id=158753) and the only way to see correctly oriented images is by having an image at the [top level of the DOM](https://code.google.com/p/chromium/issues/detail?id=56845#c66). As time passes this feature will become adopted, and possibly images will be rotated automatically.
 
 ```html
-<img style="image-orientation: from-image" src="image.jpg">
+<img style="image-orientation: from-image" src="image.jpg" />
 ```
 
 See for yourself how this works in [my example](http://jsfiddle.net/L3S7R/). Firefox will return the best results, but you should be able to try it in any browser you have installed. Documentation for the image-orientation style can be [found on w3](http://dev.w3.org/csswg/css3-images/#image-orientation).

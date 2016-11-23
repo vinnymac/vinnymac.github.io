@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import { RouteHandler, Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import DocumentTitle from 'react-document-title'
