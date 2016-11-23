@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HTML5 Video and Audio"
-date: 2014-04-28 16:27:05 -0400
+date: 2014-04-28T16:27:05.000Z
 comments: true
 sharing: true
 category: JavaScript

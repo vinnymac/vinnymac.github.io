@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Promises and More"
-date: 2014-05-05 12:30:53 -0400
+date: 2014-05-05T12:30:53.000Z
 comments: true
 sharing: true
 category: JavaScript

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Client-Side EXIF"
-date: 2014-04-14 09:59:53 -0400
+date: 2014-04-14T09:59:53.000Z
 comments: true
 sharing: true
 category: JavaScript

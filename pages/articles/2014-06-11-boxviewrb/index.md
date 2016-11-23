@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "boxviewrb"
-date: 2014-06-11 20:06:09 -0400
+date: 2014-06-11T20:06:09.000Z
 comments: true
 sharing: true
 category: Ruby

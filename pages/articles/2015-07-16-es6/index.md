@@ -1,6 +1,6 @@
 ---
 title: "ECMAScript 6 - Harmony"
-date: 2015-07-16 00:00:00 -0400
+date: 2015-07-16T00:00:00.000Z
 layout: post
 comments: true
 sharing: true

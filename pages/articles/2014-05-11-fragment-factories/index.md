@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fragment Factories"
-date: 2014-05-11 20:22:59 -0400
+date: 2014-05-11T20:22:59.000Z
 comments: true
 sharing: true
 category: Android

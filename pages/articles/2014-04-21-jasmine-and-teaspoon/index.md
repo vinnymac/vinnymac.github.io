@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jasmine and Teaspoon"
-date: 2014-04-21 23:59:13 -0400
+date: 2014-04-21T23:59:13.000Z
 comments: true
 sharing: true
 category: JavaScript
