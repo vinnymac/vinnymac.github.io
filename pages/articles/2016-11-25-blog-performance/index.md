@@ -18,12 +18,12 @@ You can even generate it yourself. Just try out the commands below.
 
 ```bash
 yarn global add pwmetrics
-pwmetrics https://vinnymac.github.io
+pwmetrics https://vincenttaverna.com
 ```
 
 ```bash
 yarn global add lighthouse
-lighthouse https://vinnymac.github.io
+lighthouse https://vincenttaverna.com
 ```
 
 The next version of GatsbyJS, v1, is being developed right now. It will improve performance even more so, and I am really looking forward to it. Between inline CSS, offline support via service workers, and more, it will be the best release yet. If I find spare time I will definitely be contributing to it and I think you should to!
