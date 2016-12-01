@@ -42,4 +42,9 @@ After having read most of The Witcher by Andrzej Sapkowski some words stood out 
   <dd>
     ¶ Latin for Toothed
   </dd>
+  <br>
+  <dt><dfn>Milliner</dfn></dt>
+  <dd>
+    ¶ A person who designs, makes, trims, or sells women's hats
+  </dd>
 </dl>
