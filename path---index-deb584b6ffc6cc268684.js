@@ -1,2 +1,0 @@
-webpackJsonp([3],{242:function(n,e){n.exports={errors:[{message:"Syntax Error GraphQL request (1:1) Unexpected <EOF>\n\n1: \n   ^\n",locations:[{line:1,column:1}]}]}}});
-//# sourceMappingURL=path---index-deb584b6ffc6cc268684.js.map
