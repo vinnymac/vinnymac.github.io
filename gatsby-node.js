@@ -4,7 +4,13 @@ var cssnext = require("postcss-cssnext")
 import Shell from 'child_process'
 
 function postBuild(pages, callback) {
-  Shell.execSync("cp -r ./static/manifest.json public/")
+  // Files in the static directory to be moved to public
+  const staticFiles = [
+    'manifest.json',
+    'CNAME',
+  ]
+
+  Shell.execSync(`cp -r ./static/{${staticFiles.join(',')}} public/`)
   callback()
 }
 
