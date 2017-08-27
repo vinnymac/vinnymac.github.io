@@ -1,0 +1,3033 @@
+{
+  "nodes": {
+    "SitePage /dev-404-page/": {
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/.cache/dev-404-page.js",
+      "path": "/dev-404-page/",
+      "componentChunkName": "component---cache-dev-404-page-js",
+      "layout": "index",
+      "jsonName": "dev-404-page.json",
+      "internalComponentName": "ComponentDev404Page",
+      "updatedAt": 1503858497007,
+      "context": {},
+      "pluginCreator___NODE": "Plugin dev-404-page",
+      "pluginCreatorId": "Plugin dev-404-page",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/.cache/dev-404-page.js",
+      "id": "SitePage /dev-404-page/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "ae232764b3b383b7126156abb5d2ad13",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin component-page-creator": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/component-page-creator",
+      "id": "Plugin component-page-creator",
+      "name": "component-page-creator",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/component-page-creator",
+      "packageJson": {
+        "name": "component-page-creator",
+        "description": "An internal Gatsby plugin that creates pages from component files in src/pages",
+        "version": "1.0.0",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "7e18eb8e66f9e7322c0e480fedcf990c",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin component-layout-creator": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/component-layout-creator",
+      "id": "Plugin component-layout-creator",
+      "name": "component-layout-creator",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/component-layout-creator",
+      "packageJson": {
+        "name": "component-layout-creator",
+        "description": "An internal Gatsby plugin that creates pages from component files in src/layouts",
+        "version": "1.0.0",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "76cb82505e1f4edfca4ce4a63affd6ad",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin internal-data-bridge": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/internal-data-bridge",
+      "id": "Plugin internal-data-bridge",
+      "name": "internal-data-bridge",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/internal-data-bridge",
+      "packageJson": {
+        "name": "internal-data-bridge",
+        "description": "An internal Gatsby plugin which creates data nodes from internal data",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "6605e402085aeec8e29f69037f41843b",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin dev-404-page": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/dev-404-page",
+      "id": "Plugin dev-404-page",
+      "name": "dev-404-page",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/dev-404-page",
+      "packageJson": {
+        "name": "dev-404-page",
+        "description": "Internal plugin to add a 404 page in development with helpful information",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "c4b960657a88aebcf09d0ff1d1bd800a",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin prod-404": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/prod-404",
+      "id": "Plugin prod-404",
+      "name": "prod-404",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/prod-404",
+      "packageJson": {
+        "name": "prod-404",
+        "description": "Internal plugin to detect various flavors of 404 pages and ensure there's a 404.html path created as well to ensure compatability with static hosts",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "cffa5faefa9d8bdeaaf9a9112fccc754",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin query-runner": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/query-runner",
+      "id": "Plugin query-runner",
+      "name": "query-runner",
+      "version": "1.0.0",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby/dist/internal-plugins/query-runner",
+      "packageJson": {
+        "name": "query-runner",
+        "description": "Internal plugin for running queries",
+        "version": "1.0.0",
+        "main": "index.js",
+        "author": "",
+        "license": "MIT",
+        "dependencies": [],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "b54c51a20edbde4babf4b1bb12cd4355",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-source-filesystem": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-source-filesystem",
+      "id": "Plugin gatsby-source-filesystem",
+      "name": "gatsby-source-filesystem",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": [],
+        "name": "pages",
+        "path": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/"
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-source-filesystem",
+      "packageJson": {
+        "name": "gatsby-source-filesystem",
+        "description": "Gatsby plugin which parses files within a directory for further parsing by other plugins",
+        "version": "1.0.0-beta.6",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          },
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "chokidar",
+            "version": "^1.7.0"
+          },
+          {
+            "name": "pretty-bytes",
+            "version": "^4.0.2"
+          },
+          {
+            "name": "slash",
+            "version": "^1.0.0"
+          }
+        ],
+        "devDependencies": [],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "7868ea921ec02c9925e1dad92cd4a6b4",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-transformer-remark": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-transformer-remark",
+      "id": "Plugin gatsby-transformer-remark",
+      "name": "gatsby-transformer-remark",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": [
+          {
+            "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-images",
+            "id": "Plugin gatsby-remark-images",
+            "name": "gatsby-remark-images",
+            "version": "1.0.0-beta.6",
+            "pluginOptions": {
+              "plugins": [],
+              "maxWidth": 690
+            },
+            "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-images"
+          },
+          {
+            "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-responsive-iframe",
+            "id": "Plugin gatsby-remark-responsive-iframe",
+            "name": "gatsby-remark-responsive-iframe",
+            "version": "1.0.0-beta.6",
+            "pluginOptions": {
+              "plugins": []
+            },
+            "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-responsive-iframe"
+          },
+          {
+            "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-prismjs",
+            "id": "Plugin gatsby-remark-prismjs",
+            "name": "gatsby-remark-prismjs",
+            "version": "1.0.0-beta.6",
+            "pluginOptions": {
+              "plugins": []
+            },
+            "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-prismjs"
+          },
+          {
+            "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-copy-linked-files",
+            "id": "Plugin gatsby-remark-copy-linked-files",
+            "name": "gatsby-remark-copy-linked-files",
+            "version": "1.0.0-beta.6",
+            "pluginOptions": {
+              "plugins": []
+            },
+            "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-copy-linked-files"
+          },
+          {
+            "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-smartypants",
+            "id": "Plugin gatsby-remark-smartypants",
+            "name": "gatsby-remark-smartypants",
+            "version": "1.0.0-beta.6",
+            "pluginOptions": {
+              "plugins": []
+            },
+            "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-smartypants"
+          }
+        ]
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-transformer-remark",
+      "packageJson": {
+        "name": "gatsby-transformer-remark",
+        "description": "Gatsby transformer plugin for Markdown using the Remark library and ecosystem",
+        "version": "1.0.0-beta.6",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "markdown",
+          "remark"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "gray-matter",
+            "version": "^2.1.0"
+          },
+          {
+            "name": "hast-util-to-html",
+            "version": "^3.0.0"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.4"
+          },
+          {
+            "name": "mdast-util-to-hast",
+            "version": "^2.4.0"
+          },
+          {
+            "name": "remark",
+            "version": "^7.0.1"
+          },
+          {
+            "name": "sanitize-html",
+            "version": "^1.14.1"
+          },
+          {
+            "name": "underscore.string",
+            "version": "^3.3.4"
+          },
+          {
+            "name": "unist-util-select",
+            "version": "^1.5.0"
+          },
+          {
+            "name": "unist-util-visit",
+            "version": "^1.1.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          },
+          {
+            "name": "babel-plugin-transform-object-rest-spread",
+            "version": "^6.20.2"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "e05860eb96646bd6bd9ef595ca635749",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-remark-images": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-images",
+      "id": "Plugin gatsby-remark-images",
+      "name": "gatsby-remark-images",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": [],
+        "maxWidth": 690
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-images",
+      "packageJson": {
+        "name": "gatsby-remark-images",
+        "description": "Processes images in markdown so they can be used in the production build.",
+        "version": "1.0.0-beta.6",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "markdown",
+          "remark",
+          "image",
+          "responsive images"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "cheerio",
+            "version": "^1.0.0-rc.1"
+          },
+          {
+            "name": "image-size",
+            "version": "^0.5.1"
+          },
+          {
+            "name": "is-relative-url",
+            "version": "^2.0.0"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.4"
+          },
+          {
+            "name": "unist-util-select",
+            "version": "^1.5.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "f7dd0420b2331346b5a4e211c44c5770",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-remark-responsive-iframe": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-responsive-iframe",
+      "id": "Plugin gatsby-remark-responsive-iframe",
+      "name": "gatsby-remark-responsive-iframe",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-responsive-iframe",
+      "packageJson": {
+        "name": "gatsby-remark-responsive-iframe",
+        "description": "Make iframes in Markdown processed by Remark responsive",
+        "version": "1.0.0-beta.6",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "remark"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "cheerio",
+            "version": "^0.22.0"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.4"
+          },
+          {
+            "name": "unist-util-visit",
+            "version": "^1.1.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "2ea3a76e87ec62aa44c8652fd0360c34",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-remark-prismjs": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-prismjs",
+      "id": "Plugin gatsby-remark-prismjs",
+      "name": "gatsby-remark-prismjs",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-prismjs",
+      "packageJson": {
+        "name": "gatsby-remark-prismjs",
+        "description": "Adds syntax highlighting to code blocks at build time using PrismJS",
+        "version": "1.0.0-beta.6",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "prismjs",
+          "remark"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "parse-numeric-range",
+            "version": "^0.0.2"
+          },
+          {
+            "name": "prismjs",
+            "version": "^1.6.0"
+          },
+          {
+            "name": "unist-util-visit",
+            "version": "^1.1.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "b052443e1069827ed58420884ca8f2e1",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-remark-copy-linked-files": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-copy-linked-files",
+      "id": "Plugin gatsby-remark-copy-linked-files",
+      "name": "gatsby-remark-copy-linked-files",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-copy-linked-files",
+      "packageJson": {
+        "name": "gatsby-remark-copy-linked-files",
+        "description": "Find files which are linked to from markdown and copy them to the public directory",
+        "version": "1.0.0-beta.6",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "prismjs",
+          "remark"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "cheerio",
+            "version": "^1.0.0-rc.1"
+          },
+          {
+            "name": "fs-extra",
+            "version": "^3.0.1"
+          },
+          {
+            "name": "is-relative-url",
+            "version": "^2.0.0"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.4"
+          },
+          {
+            "name": "unist-util-visit",
+            "version": "^1.1.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "41ba9252e4f65f77537eef6c28dd597f",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-remark-smartypants": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-smartypants",
+      "id": "Plugin gatsby-remark-smartypants",
+      "name": "gatsby-remark-smartypants",
+      "version": "1.0.0-beta.6",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-remark-smartypants",
+      "packageJson": {
+        "name": "gatsby-remark-smartypants",
+        "description": "Use retext-smartypants to auto-enhance typography of markdown",
+        "version": "1.0.0-beta.6",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "smartypants"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "retext",
+            "version": "^4.0.0"
+          },
+          {
+            "name": "retext-smartypants",
+            "version": "^2.0.0"
+          },
+          {
+            "name": "unist-util-visit",
+            "version": "^1.1.1"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "a416f40a560edb63eaf61931b919a239",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin gatsby-plugin-sharp": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-plugin-sharp",
+      "id": "Plugin gatsby-plugin-sharp",
+      "name": "gatsby-plugin-sharp",
+      "version": "1.0.0-beta.7",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io/node_modules/gatsby-plugin-sharp",
+      "packageJson": {
+        "name": "gatsby-plugin-sharp",
+        "description": "Wrapper of the Sharp image manipulation library for Gatsby plugins",
+        "version": "1.0.0-beta.7",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "image",
+          "sharp"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "async",
+            "version": "^2.4.1"
+          },
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "image-size",
+            "version": "^0.5.1"
+          },
+          {
+            "name": "imagemin",
+            "version": "^5.2.2"
+          },
+          {
+            "name": "imagemin-pngquant",
+            "version": "^5.0.0"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.4"
+          },
+          {
+            "name": "progress",
+            "version": "^1.1.8"
+          },
+          {
+            "name": "sharp",
+            "version": "^0.17.3"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.24.1"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "feded948f582072b0ab79bd86f37b4f7",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Plugin default-site-plugin": {
+      "resolve": "/Users/vinnymac/Sites/vinnymac.github.io",
+      "id": "Plugin default-site-plugin",
+      "name": "default-site-plugin",
+      "version": "40601f9e0ab6545f5a5aadebded6c22a",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "pluginFilepath": "/Users/vinnymac/Sites/vinnymac.github.io",
+      "packageJson": {
+        "name": "gatsby-starter-lumen",
+        "description": "Simple starter for Gatsby",
+        "version": "1.1.0",
+        "main": "n/a",
+        "keywords": [
+          "gatsby",
+          "lumen",
+          "starter"
+        ],
+        "author": "Vincent Taverna <vinnymac@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "babel-plugin-add-module-exports",
+            "version": "^0.2.1"
+          },
+          {
+            "name": "babel-preset-es2015",
+            "version": "^6.24.1"
+          },
+          {
+            "name": "babel-preset-react",
+            "version": "^6.24.1"
+          },
+          {
+            "name": "babel-preset-stage-0",
+            "version": "^6.24.1"
+          },
+          {
+            "name": "classnames",
+            "version": "^2.1.2"
+          },
+          {
+            "name": "front-matter",
+            "version": "^2.2.0"
+          },
+          {
+            "name": "gatsby",
+            "version": "^1.9.8"
+          },
+          {
+            "name": "gatsby-link",
+            "version": "^1.6.13"
+          },
+          {
+            "name": "gatsby-plugin-sharp",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-remark-copy-linked-files",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-remark-images",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-remark-prismjs",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-remark-responsive-iframe",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-remark-smartypants",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-source-filesystem",
+            "version": "next"
+          },
+          {
+            "name": "gatsby-transformer-remark",
+            "version": "next"
+          },
+          {
+            "name": "history",
+            "version": "^4.7.2"
+          },
+          {
+            "name": "lodash",
+            "version": "4.17.4"
+          },
+          {
+            "name": "markdown-it",
+            "version": "^8.4.0"
+          },
+          {
+            "name": "markdown-it-abbr",
+            "version": "^1.0.4"
+          },
+          {
+            "name": "markdown-it-attrs",
+            "version": "^0.8.0"
+          },
+          {
+            "name": "markdown-it-deflist",
+            "version": "^2.0.1"
+          },
+          {
+            "name": "markdown-it-footnote",
+            "version": "^3.0.1"
+          },
+          {
+            "name": "markdown-it-link-attributes",
+            "version": "^1.0.0"
+          },
+          {
+            "name": "markdown-it-sub",
+            "version": "^1.0.0"
+          },
+          {
+            "name": "moment",
+            "version": "^2.18.1"
+          },
+          {
+            "name": "prop-types",
+            "version": "^15.5.10"
+          },
+          {
+            "name": "react",
+            "version": "^15.6.1"
+          },
+          {
+            "name": "react-dom",
+            "version": "^15.6.1"
+          },
+          {
+            "name": "react-ga",
+            "version": "^2.2.0"
+          },
+          {
+            "name": "react-router",
+            "version": "^4.2.0"
+          },
+          {
+            "name": "safe-access",
+            "version": "^0.1.0"
+          },
+          {
+            "name": "underscore.string",
+            "version": "^3.2.3"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "autoprefixer",
+            "version": "^7.1.2"
+          },
+          {
+            "name": "babel-core",
+            "version": "^6.26.0"
+          },
+          {
+            "name": "babel-loader",
+            "version": "7.1.1"
+          },
+          {
+            "name": "babel-preset-react-hmre",
+            "version": "^1.1.1"
+          },
+          {
+            "name": "css-loader",
+            "version": "^0.28.5"
+          },
+          {
+            "name": "eslint",
+            "version": "^4.5.0"
+          },
+          {
+            "name": "eslint-config-airbnb",
+            "version": "^15.1.0"
+          },
+          {
+            "name": "eslint-plugin-import",
+            "version": "^2.7.0"
+          },
+          {
+            "name": "eslint-plugin-jsx-a11y",
+            "version": "^6.0.2"
+          },
+          {
+            "name": "eslint-plugin-react",
+            "version": "^7.3.0"
+          },
+          {
+            "name": "file-loader",
+            "version": "^0.11.2"
+          },
+          {
+            "name": "gh-pages",
+            "version": "^0.12.0"
+          },
+          {
+            "name": "image-webpack-loader",
+            "version": "^3.3.1"
+          },
+          {
+            "name": "lost",
+            "version": "^8.2.0"
+          },
+          {
+            "name": "null-loader",
+            "version": "^0.1.1"
+          },
+          {
+            "name": "postcss-loader",
+            "version": "^2.0.6"
+          },
+          {
+            "name": "react-helmet",
+            "version": "^3.2.2"
+          },
+          {
+            "name": "react-transform-catch-errors",
+            "version": "^1.0.2"
+          },
+          {
+            "name": "react-transform-hmr",
+            "version": "^1.0.4"
+          },
+          {
+            "name": "redbox-react",
+            "version": "^1.5.0"
+          },
+          {
+            "name": "rucksack-css",
+            "version": "^1.0.2"
+          },
+          {
+            "name": "style-loader",
+            "version": "^0.18.2"
+          },
+          {
+            "name": "webpack",
+            "version": "^3.5.5"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "eb910ee90af9b46b046b2e71ef10c9fc",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "Site": {
+      "siteMetadata": {
+        "title": "Dev Continuum",
+        "description": "Software Engineer",
+        "author": "Vincent Taverna",
+        "twitterUrl": "https://twitter.com/kidtheflash",
+        "githubUrl": "https://github.com/vinnymac",
+        "emailUrl": "mailto:vinnymac@gmail.com",
+        "vkUrl": null,
+        "rssUrl": null,
+        "telegramUrl": null,
+        "googleAnalyticsId": "UA-87784359-1",
+        "linkPrefix": ""
+      },
+      "port": "8000",
+      "host": "localhost",
+      "pathPrefix": "",
+      "polyfill": true,
+      "buildTime": "2017-08-27T18:28:12.125Z",
+      "id": "Site",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "2ea70824303ad76232bb97b378cd741b",
+        "type": "Site",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/.DS_Store absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/.DS_Store absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "88458f04920866f354bfca0a38cfea8b",
+        "mediaType": "application/octet-stream",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/.DS_Store",
+      "relativePath": ".DS_Store",
+      "extension": "",
+      "size": 8196,
+      "prettySize": "8.2 kB",
+      "modifiedTime": "2016-11-25T15:30:38.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T15:30:38.000Z",
+      "birthTime": "2016-11-20T04:24:16.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": ".DS_Store",
+      "ext": "",
+      "name": ".DS_Store",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 55359824,
+      "blocks": 24,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T15:30:38.000Z",
+      "ctime": "2016-11-25T15:30:38.000Z",
+      "birthtime": "2016-11-20T04:24:16.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "4ee194c44d18b2c827dafb5235bf7788",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md",
+      "relativePath": "404.md",
+      "extension": "md",
+      "size": 106,
+      "prettySize": "106 B",
+      "modifiedTime": "2016-11-21T17:00:53.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-21T17:00:53.000Z",
+      "birthTime": "2016-11-21T17:00:53.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "404.md",
+      "ext": ".md",
+      "name": "404",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 55419233,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-21T17:00:53.000Z",
+      "ctime": "2016-11-21T17:00:53.000Z",
+      "birthtime": "2016-11-21T17:00:53.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/android-chrome-192x192.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/android-chrome-192x192.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "e9b8b472177371a344d95ccb2bb27c58",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/android-chrome-192x192.png",
+      "relativePath": "android-chrome-192x192.png",
+      "extension": "png",
+      "size": 2568,
+      "prettySize": "2.57 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "android-chrome-192x192.png",
+      "ext": ".png",
+      "name": "android-chrome-192x192",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426478,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/apple-touch-icon.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/apple-touch-icon.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "dc65cc17d9ff3399d5897ce6d272c502",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/apple-touch-icon.png",
+      "relativePath": "apple-touch-icon.png",
+      "extension": "png",
+      "size": 2383,
+      "prettySize": "2.38 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "apple-touch-icon.png",
+      "ext": ".png",
+      "name": "apple-touch-icon",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426479,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/browserconfig.xml absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/browserconfig.xml absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "c5909577cae3db593dc097d9658304a1",
+        "mediaType": "text/xml",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/browserconfig.xml",
+      "relativePath": "browserconfig.xml",
+      "extension": "xml",
+      "size": 222,
+      "prettySize": "222 B",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "browserconfig.xml",
+      "ext": ".xml",
+      "name": "browserconfig",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426493,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon-16x16.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon-16x16.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "fe61df916248fd3c8c8695c85ec12231",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon-16x16.png",
+      "relativePath": "favicon-16x16.png",
+      "extension": "png",
+      "size": 530,
+      "prettySize": "530 B",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "favicon-16x16.png",
+      "ext": ".png",
+      "name": "favicon-16x16",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426494,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon-32x32.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon-32x32.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "7879b183eeeeb5eeb9a38c23f91190c6",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon-32x32.png",
+      "relativePath": "favicon-32x32.png",
+      "extension": "png",
+      "size": 694,
+      "prettySize": "694 B",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "favicon-32x32.png",
+      "ext": ".png",
+      "name": "favicon-32x32",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426495,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon.ico absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon.ico absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "faa357d28258e38301ec5c819ddac5bd",
+        "mediaType": "image/x-icon",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/favicon.ico",
+      "relativePath": "favicon.ico",
+      "extension": "ico",
+      "size": 15086,
+      "prettySize": "15.1 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "favicon.ico",
+      "ext": ".ico",
+      "name": "favicon",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426496,
+      "blocks": 32,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/index.jsx absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/index.jsx absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "73ad723b8b4360de5a787ff6810b46c1",
+        "mediaType": "text/jsx",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/index.jsx",
+      "relativePath": "index.jsx",
+      "extension": "jsx",
+      "size": 3135,
+      "prettySize": "3.13 kB",
+      "modifiedTime": "2017-08-27T18:20:45.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2017-08-27T18:20:45.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "index.jsx",
+      "ext": ".jsx",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426497,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2017-08-27T18:20:45.000Z",
+      "ctime": "2017-08-27T18:20:45.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/mstile-150x150.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/mstile-150x150.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "bd6bb35ee772de41eb8b6054a732a6d3",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/mstile-150x150.png",
+      "relativePath": "mstile-150x150.png",
+      "extension": "png",
+      "size": 1839,
+      "prettySize": "1.84 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "mstile-150x150.png",
+      "ext": ".png",
+      "name": "mstile-150x150",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426498,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/photo.jpg absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/photo.jpg absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "556b91ddf73ee67db228c9f7f507d81a",
+        "mediaType": "image/jpeg",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/photo.jpg",
+      "relativePath": "photo.jpg",
+      "extension": "jpg",
+      "size": 36930,
+      "prettySize": "36.9 kB",
+      "modifiedTime": "2016-11-21T17:00:53.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-21T17:00:53.000Z",
+      "birthTime": "2016-11-21T17:00:53.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "photo.jpg",
+      "ext": ".jpg",
+      "name": "photo",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 55419260,
+      "blocks": 80,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-21T17:00:53.000Z",
+      "ctime": "2016-11-21T17:00:53.000Z",
+      "birthtime": "2016-11-21T17:00:53.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/safari-pinned-tab.svg absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/safari-pinned-tab.svg absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "e7a2408ce6a7519a785c825ade386f03",
+        "mediaType": "image/svg+xml",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/safari-pinned-tab.svg",
+      "relativePath": "safari-pinned-tab.svg",
+      "extension": "svg",
+      "size": 913,
+      "prettySize": "913 B",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages",
+      "base": "safari-pinned-tab.svg",
+      "ext": ".svg",
+      "name": "safari-pinned-tab",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426499,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/.DS_Store absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/.DS_Store absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "51337c554bd4c1f70d9a50cd23ac0866",
+        "mediaType": "application/octet-stream",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/.DS_Store",
+      "relativePath": "articles/.DS_Store",
+      "extension": "",
+      "size": 10244,
+      "prettySize": "10.2 kB",
+      "modifiedTime": "2016-11-26T15:04:33.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-26T15:04:33.000Z",
+      "birthTime": "2016-11-20T04:24:39.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles",
+      "base": ".DS_Store",
+      "ext": "",
+      "name": ".DS_Store",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 55359868,
+      "blocks": 24,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-26T15:04:33.000Z",
+      "ctime": "2016-11-26T15:04:33.000Z",
+      "birthtime": "2016-11-20T04:24:39.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "ffe86ce67ce397cda2b674d2faff93c0",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md",
+      "relativePath": "pages/about/index.md",
+      "extension": "md",
+      "size": 138,
+      "prettySize": "138 B",
+      "modifiedTime": "2016-11-21T17:00:53.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-21T17:00:53.000Z",
+      "birthTime": "2016-11-21T17:00:53.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 55419259,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-21T17:00:53.000Z",
+      "ctime": "2016-11-21T17:00:53.000Z",
+      "birthtime": "2016-11-21T17:00:53.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "ec6f3b517edb73296e7bd4e7b6ecf279",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md",
+      "relativePath": "articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md",
+      "extension": "md",
+      "size": 3989,
+      "prettySize": "3.99 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426480,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "9243f0d2499b066f0e6becf9985a6ac7",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md",
+      "relativePath": "articles/2014-04-14-client-side-exif/index.md",
+      "extension": "md",
+      "size": 7076,
+      "prettySize": "7.08 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426481,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "c3df5eecde07f8ec71d62b5b60de3b73",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md",
+      "relativePath": "articles/2014-04-21-jasmine-and-teaspoon/index.md",
+      "extension": "md",
+      "size": 5571,
+      "prettySize": "5.57 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426482,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "5c531a471c703bf21dd828eda12ba684",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md",
+      "relativePath": "articles/2014-04-28-html5-video-and-audio/index.md",
+      "extension": "md",
+      "size": 7049,
+      "prettySize": "7.05 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426483,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "66ea660928a01e75405976e9d7b93969",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md",
+      "relativePath": "articles/2014-05-04-promises-and-more/index.md",
+      "extension": "md",
+      "size": 5839,
+      "prettySize": "5.84 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426484,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "f7a59713b18c03f54fda74c47e48e9da",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md",
+      "relativePath": "articles/2014-05-11-fragment-factories/index.md",
+      "extension": "md",
+      "size": 5731,
+      "prettySize": "5.73 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426485,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "2df5b43f47fa4fe3698c68d43f0dc792",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md",
+      "relativePath": "articles/2014-05-18-boxview/index.md",
+      "extension": "md",
+      "size": 6432,
+      "prettySize": "6.43 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426486,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "7b6fc0ea56755aab2102b745370fac58",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md",
+      "relativePath": "articles/2014-05-26-sinatra-assets/index.md",
+      "extension": "md",
+      "size": 3495,
+      "prettySize": "3.5 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426487,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "cadf1af66a824d854c060fffb6231ee4",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md",
+      "relativePath": "articles/2014-06-11-boxviewrb/index.md",
+      "extension": "md",
+      "size": 1916,
+      "prettySize": "1.92 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426488,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "ea87da67b05a95a73b754ba181ba9e5f",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md",
+      "relativePath": "articles/2015-07-16-es6/index.md",
+      "extension": "md",
+      "size": 9336,
+      "prettySize": "9.34 kB",
+      "modifiedTime": "2016-11-25T02:42:49.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-25T02:42:49.000Z",
+      "birthTime": "2016-11-25T02:42:49.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56426489,
+      "blocks": 24,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-25T02:42:49.000Z",
+      "ctime": "2016-11-25T02:42:49.000Z",
+      "birthtime": "2016-11-25T02:42:49.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/js-logo.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/js-logo.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "0cded3a3276425911d55a2552bf361bf",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/js-logo.png",
+      "relativePath": "articles/2015-07-16-es6/js-logo.png",
+      "extension": "png",
+      "size": 10268,
+      "prettySize": "10.3 kB",
+      "modifiedTime": "2016-11-21T17:00:53.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-21T17:00:53.000Z",
+      "birthTime": "2016-11-21T17:00:53.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6",
+      "base": "js-logo.png",
+      "ext": ".png",
+      "name": "js-logo",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 55419280,
+      "blocks": 24,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-21T17:00:53.000Z",
+      "ctime": "2016-11-21T17:00:53.000Z",
+      "birthtime": "2016-11-21T17:00:53.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "55ac95f89079f242323d2f6eed46e1b1",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md",
+      "relativePath": "articles/2016-11-21-the-witcher/index.md",
+      "extension": "md",
+      "size": 1125,
+      "prettySize": "1.13 kB",
+      "modifiedTime": "2016-12-01T02:06:27.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-12-01T02:06:27.000Z",
+      "birthTime": "2016-11-29T01:39:28.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56888041,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-12-01T02:06:27.000Z",
+      "ctime": "2016-12-01T02:06:27.000Z",
+      "birthtime": "2016-11-29T01:39:28.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "a08af59d40d5b90e6082e3bda07d2605",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md",
+      "relativePath": "articles/2016-11-25-blog-performance/index.md",
+      "extension": "md",
+      "size": 1619,
+      "prettySize": "1.62 kB",
+      "modifiedTime": "2016-12-01T01:58:42.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-12-01T01:58:42.000Z",
+      "birthTime": "2016-11-29T01:41:29.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56888307,
+      "blocks": 8,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-12-01T01:58:42.000Z",
+      "ctime": "2016-12-01T01:58:42.000Z",
+      "birthtime": "2016-11-29T01:41:29.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/pwmetrics.png absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/pwmetrics.png absPath of file",
+      "children": [],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "098581d9638297dc9d27b478a5c30efc",
+        "mediaType": "image/png",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/pwmetrics.png",
+      "relativePath": "articles/2016-11-25-blog-performance/pwmetrics.png",
+      "extension": "png",
+      "size": 53330,
+      "prettySize": "53.3 kB",
+      "modifiedTime": "2016-11-29T01:39:28.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-11-29T01:39:28.000Z",
+      "birthTime": "2016-11-29T01:39:28.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance",
+      "base": "pwmetrics.png",
+      "ext": ".png",
+      "name": "pwmetrics",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 56888044,
+      "blocks": 112,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-11-29T01:39:28.000Z",
+      "ctime": "2016-11-29T01:39:28.000Z",
+      "birthtime": "2016-11-29T01:39:28.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file",
+      "children": [
+        "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file >>> MarkdownRemark"
+      ],
+      "parent": "___SOURCE___",
+      "internal": {
+        "contentDigest": "435c8ad1b3b47729f0a8fd2efcd31149",
+        "mediaType": "text/x-markdown",
+        "type": "File",
+        "owner": "gatsby-source-filesystem"
+      },
+      "sourceInstanceName": "pages",
+      "absolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md",
+      "relativePath": "articles/2016-11-30-coffee-to-babel/index.md",
+      "extension": "md",
+      "size": 4466,
+      "prettySize": "4.47 kB",
+      "modifiedTime": "2016-12-02T02:27:26.000Z",
+      "accessTime": "2017-08-27T18:28:16.000Z",
+      "changeTime": "2016-12-02T02:27:26.000Z",
+      "birthTime": "2016-12-01T02:07:16.000Z",
+      "root": "/",
+      "dir": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel",
+      "base": "index.md",
+      "ext": ".md",
+      "name": "index",
+      "dev": 16777220,
+      "mode": 33188,
+      "nlink": 1,
+      "uid": 501,
+      "gid": 20,
+      "rdev": 0,
+      "blksize": 4096,
+      "ino": 57105775,
+      "blocks": 16,
+      "atime": "2017-08-27T18:28:16.000Z",
+      "mtime": "2016-12-02T02:27:26.000Z",
+      "ctime": "2016-12-02T02:27:26.000Z",
+      "birthtime": "2016-12-01T02:07:16.000Z"
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file",
+      "internal": {
+        "content": "---\npath: /404.html\nlayout: page\n---\n# NOT FOUND\n\nYou just hit a route that doesn't exist... the sadness.\n",
+        "contentDigest": "cad7bc13ec97081fdff28f0d6731d345",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "",
+        "path": "/404.html",
+        "layout": "page",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/404.md",
+      "fields": {
+        "slug": "/404/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file",
+      "internal": {
+        "content": "---\ntitle: \"About me\"\nlayout: page\npath: \"/about\"\n---\n\nNew York born Android and Web developer. I spend my spare time hiking and cooking.\n",
+        "contentDigest": "41b33baca342d1ef0abe0fd9e7734ab4",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "About me",
+        "layout": "page",
+        "path": "/about",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/pages/about/index.md",
+      "fields": {
+        "slug": "/pages/about/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"Aviary's FeatherJS in Backbone.Marionette\"\ndate: 2014-04-07T01:01:35.000Z\ncomments: true\ncategory: JavaScript\ncategories: [Backbone, Marionette, Aviary]\n---\n\nTo get started head over to the [Developer Page](http://developers.aviary.com/ \"Dev Page\") and sign up. Select the HTML 5 app and generate an api key. Place featherjs in a [script tag or download it](http://feather.aviary.com/js/feather.js \"FeatherJS\").\n\nNow in your Backbone.Marionette app you are going to either create a new ItemView or navigate to an existing one you want aviary to be launched from.\n\n```coffeescript\nclass App.AvatarView extends Backbone.Marionette.ItemView\n  template: 'avatar'\n  className: 'avatar_view'\n```\n\nInitialize Aviary by creating an instance of Feather JS. Do this in the initialize method of the ItemView. Here we construct what Aviary's Editor will do throughout its use. When the user finishes saving the photo, a url is returned. You are left with several options. Insert the url into the DOM using the image id, save the new url to an attribute on your Backbone model, or directly post the url to your server. Make sure you store your api_key somewhere so you can access it from anywhere you might need to launch aviary. For this example I'll store it in window.aviary_api_key.\n\n```coffeescript\ninitialize: ->\n  @featherEditor = new Aviary.Feather\n    apiKey: aviary_api_key\n    apiVersion: 3 # The latest api version\n    tools: ['stickers', 'crop']\n    onSave: (id, url) ->\n      @model.save\n        avatar_url: url\n      return false # ignores the save/confirm dialog\n    theme: 'light' # dark by default\n    noCloseButton: true # You can force the user to continue using aviary this way.\n```\n\nAviary also provides callback methods like onClose and onReady for additional control during various points of user interaction. Another useful param is postUrl. This allows you to post the newly edited photo to a route on your server or wherever you would like.\n\nYou're going to need a method that can start aviary from an event or some other place in your view. Let's call this method launchEditor.\n\n```coffeescript\nlaunchEditor: (id, src) ->\n  # load a url now or pass it into this function\n  @featherEditor.launch\n    image: id\n    url: src\n  return false\n```\n\nIf you would like to add a default cropping ratio you can do so by adding a 'forceCropPreset' to the params on launch like so.\n\n```coffeescript\n@featherEditor.launch\n  image: id\n  url: src\n  forceCropPreset: ['My Default', '1:1']\n  forceCropMessage: 'Please Crop your Avatar'\n```\n\nAt this point you can test that aviary is properly launching after calling the 'launchEditor' method. You may want to add a click listener to launch it. If you have a class named avatar, you could add an event to launch it.\n\n```coffeescript\nevents:\n  'click .avatar' : 'launchEditor'\n```\n\nAviary has [documentation](http://developers.aviary.com/docs/web/setup-guide \"Aviary's Feather Documentation\") on implementing feather. I don't recommend reading the entire thing. Only pieces of it are useful for specific instances of aviary. I went over some of the more useful features you may want when using it with Avatars. But you can mix and match Aviary's editor to fit your needs. Take a look at the various tools the editor offers to see what I mean.\n\nRemember, every external library comes with its hardships. Although it seems very simple to implement, Aviary only allows external resources to be used as (a publicly available file that they process) the url source. The url they return to you is always one from there servers. So if you don't feel comfortable with aviary touching your users data remotely, I would look for other options. Such as manually cropping photos using the HTML 5 Canvas.\n\nNote: I had trouble with IE9, they claim to support it but I received 'Not Enough Storage' errors when launching Feather in IE. It appeared to be an issue with cascading style sheets, let me know if you have a similar result.\n",
+        "contentDigest": "121bef76a6e372306a7b496e62d64109",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Aviary's FeatherJS in Backbone.Marionette",
+        "layout": "post",
+        "date": "2014-04-07T01:01:35.000Z",
+        "comments": true,
+        "category": "JavaScript",
+        "categories": [
+          "Backbone",
+          "Marionette",
+          "Aviary"
+        ],
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/index.md",
+      "fields": {
+        "slug": "/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"Client-Side EXIF\"\ndate: 2014-04-14T09:59:53.000Z\ncomments: true\nsharing: true\ncategory: JavaScript\ncategories: EXIF, Web Worker, Javascript\n---\n\n```coffeescript\n  1        2       3      4         5            6           7          8\n\n######  ######      ##  ##      ##########  ##                  ##  ##########\n##          ##      ##  ##      ##  ##      ##  ##          ##  ##      ##  ##\n####      ####    ####  ####    ##          ##########  ##########          ##\n##          ##      ##  ##\n##          ##  ######  ######\n```\n\n### onStart\nImages with exif data are often not that easy to handle. Manipulating images on the client and passing around metadata can be a slow and painful process. I have used many of the options available to one when trying to get exif in JavaScript. This is a review of several viable options for getting exif from an image.\n\nFor testing purposes throughout this review I recommend using images with exif data intact. Dave Perret has a pack of them [over on github](https://github.com/recurser/exif-orientation-examples) that you can download.\n\n### Image Orientation in Firefox\n\nAlthought this doesn't deal with extracting EXIF, it is worth mentioning for those looking for a solution to orientation problems. The only browser which actually allows for image orientation correction right now is [Firefox 26 beta or above](https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation#Browser_compatibility). Adding this feature is very simple. Just apply the image-orientation style using css to any image tag. [Unfortunately chrome has yet to implement this feature](https://code.google.com/p/chromium/issues/detail?id=158753) and the only way to see correctly oriented images is by having an image at the [top level of the DOM](https://code.google.com/p/chromium/issues/detail?id=56845#c66). As time passes this feature will become adopted, and possibly images will be rotated automatically.\n\n```html\n<img style=\"image-orientation: from-image\" src=\"image.jpg\" />\n```\n\nSee for yourself how this works in [my example](http://jsfiddle.net/L3S7R/). Firefox will return the best results, but you should be able to try it in any browser you have installed. Documentation for the image-orientation style can be [found on w3](http://dev.w3.org/csswg/css3-images/#image-orientation).\n\n### Load-Image Library\nThis library is great at, you guessed it, loading images! It has the idea of mix and matching behind its implementation. You can grab the exif and the main library and start parsing data with very few lines of code. After parsing the exif data out, you have to load the image again. This isn't great for performance but it does work very well. Try it out for yourself [here](https://github.com/blueimp/JavaScript-Load-Image).\n\n```coffeescript\n# Parsing the Metadata\nloadImage.parseMetaData file, (data) ->\n  options = {}\n  if data.exif\n    options.orientation = data.exif.get('Orientation')\n    options.canvas = true # tells loadImage we want a canvas returned\n  # Load the Image with new options\n  loadImage file, (image) ->\n    $('some_div').append(image)\n  , options\n\n# You could also scale an image\ncanvas = loadImage.scale image,\n  left: 0\n  top: 0\n  sourceWidth: image.width\n  sourceHeight: image.height\n  maxWidth: target_width\n  maxHeight: target_height\n```\n\nAs you can see the Load-Image lib allows for a lot more than just exif extraction. You can manipulate images in many ways using this tool. The downsides are that this doesn't use a web worker, so you cannot count on this when doing other performance heavy operations. If you would like to test this out for yourself, they have [a great demo](http://blueimp.github.io/JavaScript-Load-Image/).\n\n### EXIF and BinaryAJAX\nAlthough old, these two files will allow you to extract EXIF meta data from JPEG images. This is best used with the FileReader API available on most modern browsers.\n[EXIF](http://www.nihilogic.dk/labs/exif/exif.js) and [BinaryAJAX](http://www.nihilogic.dk/labs/binaryajax/binaryajax.js) are available at http://nihilogic.dk . Below is an example of using the FileReader to load the image, and then extract the exif with EXIF and BinaryAJAX.\n\n```coffeescript\nimage = @files[0] # Get the first file from the user\nreader = new FileReader\nreader.onloadend = ->\n  exif = EXIF.readFromBinaryFile new BinaryFile @result\nreader.readAsBinaryString image\n```\n\nThe advantage of this library is that it doesn't require much, and you do not have to load the image many times. All it really requires is the use of the File API. The downside is you don't get the advantages of manipulating the images, or resizing properly. All you get is the EXIF data. Seeing as this one is outdated, I would just [give it a try](http://sandbox.juurlink.org/html5imageuploader/) or try the more [code friendly example](http://jsfiddle.net/interstateone/gtLWG/). Visit the github page [here](https://github.com/jseidelin/exif-js) for more information.\n\n### Flickr's EXIF Extraction\n[Flickr has a great write up](http://code.flickr.net/2012/06/01/parsing-exif-client-side-using-javascript-2/) in regards to extracting the metadata using web workers. Web workers appear to be a very performant option. Similarly to the example above, you need to use the FileReader API, but more efficiently slice off only the part of the image that contains the exif data. When working with the exif data in a web worker, the EXIF tag for orientation will be at offset 0x112.\n\n```coffeescript\n# Slice up the section of the file that contains the exif (128 KiloBytes = 131072 Bytes)\nif file.slice\n  filePart = file.slice 0, 131072\nelse if file.webkitSlice\n  filePart = file.webkitSlice 0, 131072\nelse if file.mozSlice\n  filePart = file.mozSlice 0, 131072\nelse\n  filePart = file\n\n# Read part of the file, then send it to our worker for processing\nreader = new FileReader\nreader.onload = ->\n  # Refers to a worker you must define\n  jobBlob = new Blob [workers.exif_processor], {type: \"text/javascript\"}\n  worker = new Worker URL.createObjectURL jobBlob\n  worker.addEventListener 'message', (e) ->\n    console.log \"Exif Orientation Data:\", e.data\n  worker.postMessage\n    binary: @result\nreader.readAsBinaryString filePart\n```\nUsing Web Workers to process the exif data is the fastest way to correcting your images. You may even be able to get web workers working with one of the examples above. Flickr used to acquire most of the metadata server side, but now they moved over to doing it on the client. Hopefully this will convince others to do the same, and we can get the webs images looking better than they have in the past.\n\n### onFinish\nConsistent exif orientation handling is wack on the web, [a great article on this topic](http://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/), goes into detail about the current state of orientation handling. If you think you know a better way, or an alternative to the methods I went over here, please let me know. Extracting EXIF is hard enough, having to manipulate images after is overkill.\n",
+        "contentDigest": "edc9df68b3247afd10fce7e0340c744f",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Client-Side EXIF",
+        "layout": "post",
+        "date": "2014-04-14T09:59:53.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "categories": "EXIF, Web Worker, Javascript",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-14-client-side-exif/index.md",
+      "fields": {
+        "slug": "/articles/2014-04-14-client-side-exif/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"Jasmine and Teaspoon\"\ndate: 2014-04-21T23:59:13.000Z\ncomments: true\nsharing: true\ncategory: JavaScript\ncategories: Jasmine, Teaspoon\n---\n\n### onStart\nIn the case of writing tests for your javascript/coffeescript apps you will find that Jasmine is one of the best options. It is easy to add to by improving its matchers, and it is flexible enough to test more difficult subjects like asynchronous calls or mock/stub events and data. If you are currently looking for a way to test the front end of your website or javascript app you will not regret using jasmine to do so.\n\n### Getting Started with Teaspoon\nWhen testing with Jasmine I found it easiest to use [Teaspoon](https://github.com/modeset/teaspoon) alongside to easily setup a testing environment. Teaspoon has many benefits. They offer support for command line testing as well as testing in the browser. Teaspoon automatically generates a spec helper so that you can easily require your front end app. Combine this with Stub/Mocking with [jasmine-sinon](https://github.com/froots/jasmine-sinon) and [jasmine-jquery](https://github.com/velesin/jasmine-jquery) and you will have all the testing tools you could want on the front end.\n\n```ruby\n# Add these lines to your Gemfile\ngroup :development, :test do\n  gem \"teaspoon\"\n  # Teaspoon can use selenium or phantomjs\n  # gem \"phantomjs\", \">= 1.8.1.1\"\nend\n```\nAfter setting up your gemfile, you can run bundler. Then execute the following line in your terminal. You can specify a framework, in my case I am using Jasmine, but Teaspoon supports other as well, such as Mocha. I also love to use coffeescript when testing, so I append --coffee to the end of the command to tell Teaspoon I will be writing coffee files.\n```\nrails generate teaspoon:install --framework=jasmine --coffee\n```\nYou can run your tests by visiting http://localhost:3000/teaspoon. Where 3000 is the port you run your server on.\nAlternatively you can run the Teaspoon test suites by typing rake teaspoon in the command line. They both have benefits, but ultimately you may find yourself wanting to run your tests using Guard. That way you can run your tests while you develop. If you are interested in using Guard with Teaspoon, I recommend reading about [guard-teaspoon](https://github.com/modeset/guard-teaspoon).\n\n### Writing Jasmine Tests\nNow that you have setup Teaspoon you can get to the fun part. I recommend reading Jasmines documentation, they have a lot of great examples on the various types of tests you may come across when testing a front end. In my case below, I am testing my backbone model Person, and the attributes that exist on it by default. If you want open a new file in the jasmine folder that Teaspoon generated. In my case it would be person_spec.coffee.\n```coffeescript\ndescribe \"Person\", ->\n\n  # If you want to do something before each test\n  beforeEach ->\n    person = new People.Person()\n\n  it 'should be alive', ->\n    expect(person).toBeDefined()\n\n  it 'should have a name', ->\n    expect(person.get('name')).toBeString() # underscore method\n\n  it 'should have a favorite food', ->\n    expect(person.get('food')).toBe(\"Pizza\")\n\n  it 'should have an identification', ->\n    expect(person.get('id')).toBeNumber()\n\n  # If you want to write the boilerplate\n  # for a test you haven't finished yet\n  xit 'can die', ->\n\n  # Testing a method on a model\n  it 'should have a creator', ->\n    expect(person.creator()).toBe(\"Vinny\")\n```\n\n### Creating Matchers\nSo now that you have written a test, maybe you want to expand the tools you have at your disposal when testing in Jasmine. Matchers make it easy to create new tools you can use for testing. If you have the [UnderscoreJS](http://underscorejs.org/) library, you can easily add some matchers to Jasmine that will make testing better. In order to start adding matchers, open up your spec_helper file that Teaspoon generated. At the end of this file you can add any matchers you might want when writing your tests.\n\n```coffeescript\nbeforeEach -> # Executes this code before each test.\n  @addMatchers # Tells Jasmine to add these matchers\n    toBeOfType: (type) ->\n      return typeof @actual is type # @actual points to the expected value\n    toBeNaN: ->\n      return _.isNaN @actual\n    toBeDate: ->\n      return _.isDate @actual\n    toBeEmpty: ->\n      return _.isEmpty @actual\n    toBeArray: ->\n      return _.isArray @actual\n    toBeObject: ->\n      return _.isObject @actual\n    toBeRegExp: ->\n      return _.isRegExp @actual\n    toBeFinite: ->\n      return _.isFinite @actual\n    toBeString: ->\n      return _.isString @actual\n    toBeNumber: ->\n      return _.isNumber @actual\n    toBeElement: ->\n      return _.isElement @actual\n    toBeBoolean: ->\n      return _.isBoolean @actual\n    toBeFunction: ->\n      return _.isFunction @actual\n    toHaveArguments: ->\n      return _.isArguments @actual\n```\nBy using a library like underscore you retain the testing environment that Jasmine creates, even when doing comparisons like expecting a handful of arguments. By adding matchers your tests become more clear and concise. Being able to write thin self explanatory tests is priceless. Especially when the magic is coming from a spec helper that you yourself have written.\n\n### onFinish\nHopefully this brief overview of Teaspoon will give you the jump start you need to get into front end testing. Testing is invaluable, and I recommend doing it for more than just your front end if you can. If you have any problems while testing with Jasmine or just want some help, leave a comment below.\n",
+        "contentDigest": "37d610da1dfedf69579f1cc6f4874b34",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Jasmine and Teaspoon",
+        "layout": "post",
+        "date": "2014-04-21T23:59:13.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "categories": "Jasmine, Teaspoon",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-21-jasmine-and-teaspoon/index.md",
+      "fields": {
+        "slug": "/articles/2014-04-21-jasmine-and-teaspoon/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"HTML5 Video and Audio\"\ndate: 2014-04-28T16:27:05.000Z\ncomments: true\nsharing: true\ncategory: JavaScript\ncategories: HTML5, Coffeescript\n---\n\n### onStart\nHTML5 makes placing an audio or video stream into your web app simple. However, not all browsers can use HTML5 (IE > 8, Chrome > 3, FF > 3). Many great solutions such as [VideoJS](https://github.com/videojs/video.js) and [AudioJS](http://kolber.github.io/audiojs/) try to alleviate that issue. In this article I will be going over how one might implement HTML5 video and audio in a dynamic and reusable fashion. The various features available when templating, and the tribulations when working with video and audio in javascript.\n\n### Video and Audio Templates\nTo begin let's see what HTML5 video and audio tags might look like in a template.\n\n```haml HTML5 Video and Audio Tagging\n# (poster, height, and width are video only features)\n%video#movie{height: 640, width: 480, poster: \"some.png\", controls, autoplay, loop}\n  %source#mp4{src: 'rickroll.mp4', type: 'video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'}\n  %source#ogg - # you can specify as many of these as you like, or just one.\n  Your browser does not support the video type or codec.\n\n%audio#speakers{preload: auto, controls: true, autoplay: true, loop: true}\n  %source#mp3{src: 'getlucky.mp3'}\n  Something terrible has occurred, run for your lives!\n```\nAbove a HAML file contains an HTML5 video and audio tag. Let's go over some of their attributes. Looking at the video tag we can see I specified a height and width just like a div (video only). The controls attribute tells the browser to show the built in controls, it takes a boolean value. Autoplay makes the browser play the media automatically, and it takes a boolean value. Loop causes the media to play indefinitely, and it takes a boolean value. The poster attribute displays an image until the first frame of the video has loaded. An external or local image can be specified (video only). The preload attribute, which can be one of three things, none | metadata | auto. The media can also take a src attribute, but when dynamically controlling html5 video/audio it is easier to place a source tag underneath and specify the source manually or from JS. The source tag also allows for specifying the content type and codec of the video that will be playing. Lastly you can specify in plain text an error message, if the media you are trying to play is not supported. A list of all the [video attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) and [audio attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio) can be found on MDN.\n\n### Dynamic Video and Audio\nHaving control over the video and audio that may be playing is a desirable feature. Unfortunately you may want to use something jQuery to help you do this. Currently jQuery does not support HTML5 video and audio. You are going to have to use straight javascript (in my case coffeescript).\n\n```coffeescript\n# You cannot use jQuery to do this:\n# @$('#movie').load()\n# However you can get the first DOM element.\nmovie = @$('#movie').get(0) # If you want to retain jQuery, use eq(0) instead.\n\n# Optionally set the source in JS.\n@$('#mp4').get(0).src = '/rickroll.mp4'\n\n# First you will need to load the video.\nmovie.load()\n\n# Check if the video can be played, before playing it.\nmovie.canPlayType('video/mp4') # returns 'maybe', 'probably' or ''\n\n# Then you can play it.\nmovie.play()\n\n# To pause you can call pause or trigger the event\nmovie.pause() # or @$('#movie').trigger 'pause'\n\n# For stopping playback all together, their are a few solutions.\nmovie.pause()\nmovie.currentTime = 0\n# or\nmovie.src = ''\n# or\n@$('#movie').remove()\n\n# Several events exist that you can listen in on.\n# How do I know when the first frame has loaded?\nmovie.addEventListener 'loadeddata', -> console.log 'Done loading!'\n# How can I calculate the progress of a video?\nmovie.addEventListener 'progress', -> console.log @buffered.end(0) / @duration\n# How do I know how far along the video is?\nmovie.addEventListener 'timeupdate', -> console.log @currentTime / @duration\n```\nAll of the examples above would also work for audio, just replace the #movie id with the #speakers id. HTML5 is very feature rich. You can get just about any of the information that you could want when using these APIs. I only went over a few of the [events that HTML5 offers](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events). I recommend reading over the rest to get a better grasp of the available tools.\n\n```coffeescript\n# For audio you can use the built in Audio Constructor as well.\nsound = new Audio ['http://musicdomain.com/getlucky.mp3']\n# Preload gets set to auto by default.\n# Sources aren't available as a fallback, so manually detect compatibility.\nunless sound.canPlayType? 'audio/mpeg'\n  # An alternative like flash/silverlight goes here.\n```\n\n### Backbone Example\nBefore wrapping up let's take a look at a real life example. This would be in the case that you were using Backbone, but any structural web application would work similarly. Below I have built a tiny MP3 player that is being controlled and styled through a backbone view, with custom play and pause button ids.\n```coffeescript\nclass MP3Player extends Backbone.View\n  template: 'mp3_player'\n  events:\n    'click #play'  : 'play'\n    'click #pause' : 'pause'\n  initialize: -> @loadAudio()\n  loadAudio: ->\n    @$speakers = @$('#speakers').get(0)\n    @$('#mp3').get(0).src = 'http://musicdomain.com/getlucky.mp3'\n    @load()\n  load: -> @$speakers.load()\n  play: -> @$speakers.play()\n  pause: -> @$speakers.pause()\n```\nI found that when using HTML5 video and audio in a structural app, the code is more readable. Through a combination of backbone and coffeescript you can create a clean and concise video or audio player. Wrapping the video or audio tags in a container allows you to customize many aspects. Which allows for things like custom control interfaces. Using the timeupdate event you could display a message to the user as they progress or finish streaming. Things can get tricky at times because of the lack of jQuery support. But keep in mind that if you fall back to basic javascript things will work out just fine.\n\n### onFinish\nSome may argue that the HTML5 Video and Audio APIs aren't worth introducing yet. Many implementations always have to offer a fallback option using Flash or an alternative like Silverlight. If you take a look at Soundcloud or Youtube, to this day you have to go into some experimental mode just to turn on HTML5 media playback. On top of that browsers differ in their implementation of the HTML5 API and so you have to tiptoe around when using it. This has been the case for most internet related things since the beginning of time, so I doubt this will deter anyone from using it. If you find yourself struggling feel free to contact me. Also the VideoJS and AudioJS libs take care of the majority of failure cases and allow for easy styling out of the box.\n",
+        "contentDigest": "c16519307ddae96a5127f89a2b197fc0",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "HTML5 Video and Audio",
+        "layout": "post",
+        "date": "2014-04-28T16:27:05.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "categories": "HTML5, Coffeescript",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-04-28-html5-video-and-audio/index.md",
+      "fields": {
+        "slug": "/articles/2014-04-28-html5-video-and-audio/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"Promises and More\"\ndate: 2014-05-05T12:30:53.000Z\ncomments: true\nsharing: true\ncategory: JavaScript\ncategories: JavaScript, Promises\n---\n\n### onStart\nI've recently begun using promises in my javascript and even now I understand how useful they can be. I have come across many tools in the last year that I have found to be helpful. Certain situations have just appeared very hard, and then suddenly the perfect tool would allow me to continue on and overcome a hurdle. Promises are a tool such as that.\n\n### jQuery Deferreds\nAlthough jQuery Deferred promises aren't A+ Compliant, I still find them to be very useful. Often when writing Backbone.Marionette apps I have needed to make a major change to a view and immediately after do some work. This happens in almost ever view in every app I have worked on. Say you need to navigate to another part of the app but first require closing the view the user is looking at. Calling the close or remove method on your view will often do the trick, but when you have extra work, timing becomes important. In many examples, I see people calling the event, and then executing the close. This does work, but is only working because of timing. If you use a jquery deferred you can execute the event after the closing of the view.\n\n```coffeescript\n$deferred = $.Deferred()\n$deferred.resolve @close()\n$deferred.done -> App.vent.trigger 'show:dialog'\n```\n\n### Image Loading with jQuery Promises\nMany libraries exist to load images, but I like to rock my own. Using jQuery Deferred promises you can go a step further with image loading. Javascript offers an image object which has a few callbacks on it. onLoad, onError, and onAbort can be used with jQuery promises so that you can be sure that the image has succeeded or failed at loading properly.\n\n```coffeescript\nimageLoader = (url) ->\n  loadImage = (deferred) ->\n\n    loaded = ->\n      unbindEvents()\n      deferred.resolve image\n\n    errored = ->\n      unbindEvents()\n      deferred.reject image\n\n    unbindEvents = ->\n      image.onload = null\n      image.onerror = null\n      image.onabort = null\n\n    image = new Image()\n    image.onload = loaded\n    image.onerror = errored\n    image.onabort = errored\n\n    image.src = url\n\n  # promise causes the resolve/reject methods to not be accessible.\n  $.Deferred(loadImage).promise()\n```\n\nWith the above imageLoader you could do something like the example below.\n\n```coffeescript\n$promise = imageLoader 'http://catgif.com/cat.gif'\n$promise.done (image) -> $('.loading').replaceWith image\n$promise.fail -> $('.loading').replaceWith '<img src=\"sadface.png\"></img>'\n```\n\n### A+ Promises\nA promise is an eventual result of an asynchronous operation. Many people have argued over exactly what the terminology should be and how the inner workings should work. If you aren't looking to argue about this, and just want to take advantage of promises. I recommend starting with q. [Q is an A+ compliant library](http://documentup.com/kriskowal/q/), and it works using the expected when then format.\n\n```coffeescript\n# Normal Q Promise structure\nQ.fcall step1\n.then step2\n.then step3\n.then (value) -> console.log value\n.catch (error) -> console.log error\n.done()\n\n# Any function that returns a promise\npromise = @climber()\npromise.when @climbAMountain() # A when is a static then\npromise.then @fallDown()\n.catch (error) ->\n  # A note on Q promises:\n  # It will catch any errors while you are climbing or falling\n.done()\n\n# Q also offers a try catch finally block\npromise = @anotherPromise()\npromise.then # try some work\npromise.catch # catch some error\npromise.fin # finally do thing\n```\n\nQ is a very flexible promise library. It allows you to chain promises and execute arrays of promises. It is easy to use, and combined with coffeescript becomes one of the most readable solutions.\n\n### Tools\nPromises are great and have helped dig me out of a lot of holes. Having helpers to assist you along the way when building a web app makes development more enjoyable and relaxing. I'll share some of the other tools that I use to help me along the way. Many people might be thinking why build my own when I can just download something like UnderscoreJS. Libraries are great, but occassionally you come up with a great piece that you just carry with you. I recommend building your own set and improving upon them. Share them with the developers you work with and just spread the word.\n\n```coffeescript\n# Cleanup video and audio elements when you are done with them.\ncleanupMedia: ($media) ->\n  return unless $media.length\n  $media[0].pause()\n  $media[0].src = ''\n  $media.children('source').prop 'src', ''\n  $media.remove().length = 0\n\n# Methods to check for HTML5 Video and Audio Support\nsupports_video: -> !!document.createElement('video').canPlayType\nsupports_audio: -> !!document.createElement('audio').canPlayType\n\n# Move the cursor to the end of an input\n$.fn.focusToEnd = -> @each ->\n  v = $(this).val()\n  $(this).focus().val(\"\").val v\n# Then do this:\n$('.input').focusToEnd()\n\n# A contains method for the String class\nif not String::contains then String::contains = -> String::indexOf.apply( this, arguments ) isnt -1\n# Use it like so:\n\"apple\".contains 'app' # returns true\n```\n\n### onFinish\nA promise is not the swiss army knife of javascript tools. However it will get you out of hard and ugly situations with asynchronous code. $.ajax, $.post, and $.get all return deferreds that you can then listen in on. That is where the .done, .fail, .always methods come from in asnychronous jquery. Promises are a great way to finish the job, and at any time. Promise libraries exist other than Q, and I would recommend reading about the various other ones before deciding on Q. May promises help you in your developments. If you have any questions feel free to ask, I will respond, I promise.\n",
+        "contentDigest": "3d40e4f4ee792cc2537a5445e2b26439",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Promises and More",
+        "layout": "post",
+        "date": "2014-05-05T12:30:53.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "categories": "JavaScript, Promises",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-04-promises-and-more/index.md",
+      "fields": {
+        "slug": "/articles/2014-05-04-promises-and-more/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"Fragment Factories\"\ndate: 2014-05-11T20:22:59.000Z\ncomments: true\nsharing: true\ncategory: Android\ncategories: Android, Fragments\n---\n\n### onStart\nAndroid fragments can become a big garbled mess of spaghetti code. I have seen it happen again and again. Other developers I have worked alongside and I agree that generating fragments with the use of factory methods will make your code cleaner and more reusable. Although the material I go over here will mainly pertain to Android, it should help anyone who understands the basics of java. Fragments are the butter to the bread of android apps. They allow for a disconnect of the inner workings of your application. When instantiating a new instance of a fragment you will often want to pass in a bundle of arguments that can be used throughout the lifetime of that fragment. By using factories you create a special place for argument passing to occur. Things become more interesting as you dive deeper into more complex fragments. For now we will begin by taking a look at extending the Android ListFragment.\n\n\n```java An Example ListFragment\npublic class BaseListFragment extends ListFragment {\n\n  /* No Base Factories */\n\n  /* You can override the usual onCreate/onPause/onResume methods here. */\n\n}\n```\n\nLists of information are some of the most important screens in applications these days. Whether they are on your phone or your desktop, lists are where it is at. Just go to google or reddit and you can see how important a good list is. An Android ListFragment is the tool given to you for free in order to make a list in the android ecosystem. By creating a base list fragment in your android application you let yourself abstract the tools you need in every list away from the busy work. It becomes especially important to do this as the application you are building will surely get more and more complicated. It always happens, and helping yourself early in this regard can only make the development process easier.\n\n### Fragment Generation\nSo now that we have our BaseListFragment we can start generating our fragments by extending that class. We are able to override any of the methods we retain from our extended class, and we can add any new ones we may need as well. As you might have already realized I chose not to put a factory in my base class. Some may argue that the base class should be able to be used just like any of the other classes that extend it, but in this case I chose to leave the factory out. By not having a Factory method in the base, you restrict yourself to only generating classes that have extended your base. Leaving your base practically unusable otherwise. Feel free to go against the grain here and try doing this how you like. But I believe that factories do not belong in base classes. Look at the class below for an example of how to create factories in your fragments.\n\n```java A Fragment Factory\npublic class CatGifListFragment extends BaseListFragment {\n\n  /* Just a unique string identifier for use in a fragment transaction. */\n  public static final String FRAGMENT_CAT_GIFS = \"fragment_cat_gifs\";\n\n  public static CatGifListFragment newInstance() {\n    CatGifListFragment f = new CatGifListFragment();\n\n    Bundle args = new Bundle();\n    /* Any extra arguments you might want to add. */\n    f.setArguments(args);\n\n    return f;\n  }\n\n}\n```\n\n### New Instance\nNow that our CatGifListFragment has a method that can return an instantiated copy of itself, let's show it off. In order to show a fragment we can use a fragment manager in an Activity after some user interaction. Below I have an example of a user clicking on a view element called list_cats. This could be anything, but the idea is that it will display our fragment on screen after being clicked. By calling newInstance on our CatGifListFragment we are returning an instantiated version of the class that will contain any arguments we pass into the newInstance method. Simply call show after generating the fragment to display it.\n\n```java New Fragment Instance\npublic class CatActivity extends BaseActivity {\n\n  /* After some user interaction lets show the cat gif list fragment. */\n  @Override\n  public void onClick(View v) {\n    int id = v.getId();\n\n    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();\n\n    switch (id) {\n      case R.id.list_cats:\n        /* You would pass in any arguments you wanted access to in the fragment here. */\n        CatGifListFragment catGifListFragment = CatGifListFragment.newInstance();\n        catGifListFragment.show(ft, CatGifListFragment.FRAGMENT_CAT_GIFS);\n        break;\n      default:\n        break;\n    }\n  }\n\n}\n```\n\nThis is just one example of displaying a fragment. There are countless ways that you could display a fragment, but the way in which you instantiate it is vital. Notice that CatActivity extends a base class as well. Keeping this in mind throughout your application will lead to cleaner code. Cleaner code will make your development process improve, so please keep this in mind throughout every piece of work your produce.\n\n### onFinish\nIf you find yourself reusing similar fragments over and over these tips will be even more helpful to you. Dialog and List fragments being some of the most frequent ones I see in android. Not everyone shares as many cat gifs as my coworkers do, but when they do I want them to be doing it efficiently. Look over your android apps, and review how you instantiated your fragments in your activities. Most android apps I have seen are doing this horribly wrong. If you have a cleaner and more efficient way of instantiating them than this, I would love to hear about it. Also if you have any questions, feel free to ask as always!\n",
+        "contentDigest": "349bf83398900138d9e67ec4adab709b",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Fragment Factories",
+        "layout": "post",
+        "date": "2014-05-11T20:22:59.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "Android",
+        "categories": "Android, Fragments",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-11-fragment-factories/index.md",
+      "fields": {
+        "slug": "/articles/2014-05-11-fragment-factories/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"BoxView\"\ndate: 2014-05-18T21:51:11.000Z\ncomments: true\nsharing: true\ncategory: Ruby\ncategories: Box, Ruby, Rails\n---\n\n### onStart\nThe [BoxViewAPI](https://developers.box.com/view/) is useful for displaying documents in the browser without needing to do any heavy lifting. You can quickly turn any PDF, MS Document, or MS PowerPoint into HTML and display it inline on your website. The HTML is hosted by Box, and you can easily display this on your site by using an iFrame. Alternatively you could download the HTML and display it with viewer.js. Make sure you [signup](https://app.box.com/) and [create a BoxView app](https://app.box.com/developers/services) before you start. The app will have an API key that you will need in all requests you make with Box. I am implementing it in Rails, but you could do this on any backend in exactly the same fashion.\n\n### Upload a Document\nThe first step to making a viewable document is uploading the file to box. I decided to use the net::http library when communicating with the BoxViewAPI. However, you can use any RESTful lib. RestClient is another popular one. Then make a post with the necessary headers. The response if successful will contain a document id.\n\n```ruby\n  # Headers used throughout these examples\n  # Get YOUR_API_KEY from the box view application page\n  BOX_HEADERS = {\n    'Authorization' => \"Token #{YOUR_API_KEY}\",\n    'Content-type' => 'application/json'\n  }\n\n  def upload_document\n    document_uri = URI.parse(\"https://view-api.box.com/1/documents\")\n    data = {\n      'url' => original_url\n      # If thumbnails are desired:\n      #, 'thumbnails' => '100x100'\n    }\n    http = Net::HTTP.new(document_uri.host, document_uri.port)\n    http.use_ssl = true\n    request = Net::HTTP::Post.new(document_uri.path, BOX_HEADERS)\n    request.body = data.to_json\n    response = http.request(request)\n    parsed = JSON.parse response.body\n    document_id = parsed[\"id\"]\n    return document_id\n    # or self.update_attribute :document_id, document_id\n  end\n```\n\n### Create a Session\nNow that you have a document id, you can make upload_document return the id or just save it to a model (This is useful if you're interested in implementing WebHooks). Next you can use that document id to create a session which will begin the conversion of the document, and let you know when it is ready. If you are using this in your web app frequently, I recommend using [Sidekiq](http://sidekiq.org/) to offload all these network calls and possible database saves to an asynchronous process. When successful, box will return a 201, which means the document is ready for viewing. If you don't get a 201 you will get a 202 or 400 response code. A 202 means the document is not yet ready for viewing. A 400 means the conversion has failed. If you'd like to view your file at this point, just head over to [https://view-api.box.com/1/sessions/{session id}/view?theme=light](https://view-api.box.com/1/sessions/{session id}/view?theme=light), where session id is the id you get from the 201 response.\n\n```ruby\n  def create_session(document_id)\n    session_uri = URI.parse(\"https://view-api.box.com/1/sessions\")\n    data = {\n      \"document_id\" => document_id\n      #, \"expires_at\" => Time.now + 1.hour\n      # You could specify an expiration date.\n    }\n    http = Net::HTTP.new(session_uri.host, session_uri.port)\n    http.use_ssl = true\n    request = Net::HTTP::Post.new(session_uri.path, BOX_HEADERS)\n    request.body = data.to_json\n    response = http.request(request)\n    case response.code\n    when \"201\" # Done converting\n      parsed = JSON.parse response.body\n      session_id = parsed[\"id\"]\n      return session_id\n      # or self.update_attribute :session_id, session_id\n    when \"202\" # Session not ready yet\n      time = response['Retry-After'].to_i\n      # here you would retry based on the time variable\n      # You could use sidekiqs perform_in method, or just sleep\n    when \"400\" # An error occurred while converting the document or the document does not exist\n      Rails.logger.debug \"Document failed to convert - #{response.body}\"\n    else\n      raise \"BoxSessionError #{response.inspect}\"\n    end\n  end\n```\n\n### Generate a Thumbnail\nA cool feature BoxView has is thumbnail generation. It can return a thumbnail of any size 16-1024 wide by 16-768 high. This way you can see a preview of the document before displaying it to a user. The BoxView API only requires a height and width, and the document that you want the thumbnail generated from.\n\n```ruby\n  def generate_thumbnail(document_id)\n    query_params = \"?width=100&height=100\"\n    thumbnail_uri = URI.parse(\"https://view-api.box.com/1/documents/#{document_id}/thumbnail\")\n    http = Net::HTTP.new(thumbnail_uri.host, thumbnail_uri.port)\n    http.use_ssl = true\n    thumbnail_path = thumbnail_uri.path + params\n    request = Net::HTTP::Get.new(thumbnail_path, BOX_HEADERS)\n    response = http.request(request)\n    case response.code\n    when \"200\" # Valid thumbnail\n      thumbnail = response.body\n      # Now upload the thumbnail to another server\n      # or use it however you would like\n    when \"202\" # Thumbnail isn't ready yet\n      time = response['Retry-After'].to_i\n      # Same as a session 202, sleep or worker\n    when \"400\" # Width/Height are invalid\n      Rails.logger.debug \"400 Box Thumbnail Width x Height Invalid - #{response.body}\"\n    else\n      raise \"BoxThumbnailError #{response.inspect}\"\n    end\n  end\n```\n\nBox offers a chance of producing the thumbnail earlier in the process. If you state the width and height earlier when uploading the document, box will have the thumbnail ready by the time you call generate_thumbnail. After getting the thumbnail from the response you could upload it to your own server.\n\n### onFinish\nMy examples above are all in ruby, but their also exists a [great python project on GitHub](https://view-upload.herokuapp.com/) that shows how to do the same. If you needed help getting started with BoxView I hope you no longer do. If you require WebHooks with BoxView, they aren't very difficult. Just email api@box.com with your API key and domain to send the responses to a controller. If you want to test that WebHooks work in your testing environment, I recommend using [ngrok](https://ngrok.com). It helped me confirm everything was in a good working condition before using it in other environments. As always, if you need help let me know.\n",
+        "contentDigest": "834bf8ba7443b997b5f76dc17b9b9ef8",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "BoxView",
+        "layout": "post",
+        "date": "2014-05-18T21:51:11.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "Ruby",
+        "categories": "Box, Ruby, Rails",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-18-boxview/index.md",
+      "fields": {
+        "slug": "/articles/2014-05-18-boxview/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"Sinatra Assets\"\ndate: 2014-05-26T15:32:56.000Z\ncomments: true\nsharing: true\ncategory: Ruby\ncategories: Sinatra, Ruby\n---\n\n### onStart\nRails is one of the most popular frameworks right now. It contains a lot of magic, and that can often be credited to its asset pipeline. Frequently when I think of Sinatra I think of it as a slim downed version of Rails. It has its uses, and so does Rails, but what if we wanted to combine Sinatra with an asset pipeline. I decided to do a little digging, and after doing a little research, I discovered that their is only one good solution that exists right now. It is called the [Sinatra AssetPack](https://github.com/rstacruz/sinatra-assetpack).\n\n### Sinatra AssetPack\nIn order to get started using the Sinatra AssetPack you will need to add it to your Gemfile.\n\n```ruby Gemfile\ngem 'sinatra-assetpack', :require => 'sinatra/assetpack'\n```\n\nThen run bundle (or bundle install), and let it install. Once installed you can start taking advantage of the Sinatra AssetPack. I added it to the base of my Sinatra app, I would recommend you do the same.\n\n```ruby Base\nrequire 'sinatra/base'\nrequire 'sinatra/assetpack'\n\nclass MyApp < Sinatra::Base\n  set :root, File.dirname(__FILE__)\n  set :views, settings.root + '/views'\n  set :public_folder, settings.root + '/public'\n\n  register Sinatra::AssetPack\n\n  assets {\n    serve '/js',     from: 'app/js'\n    serve '/css',    from: 'app/css'\n    serve '/images', from: 'app/images'\n\n    # Serve up JS per request\n    js :app, '/js/app.js', [\n      '/js/vendor/**/*.js',\n      '/js/lib/**/*.js'\n    ]\n\n    # Serve up CSS per request\n    css :application, '/css/application.css', [\n      '/css/screen.css'\n    ]\n\n    # jsmin, yui, closure or uglify for js compression\n    js_compression  :uglify\n    # simple, sass, yui, or sqwish for css compression\n    css_compression :sass\n  }\n\n  get '/' do\n    haml :index\n  end\nend\n```\n\nWith the Sinatra AssetPack you can minify/obfuscate your js and css files. It will help you clean up your routes as well. By serving up only the files you need, you can specify exactly what js and css files for your Sinatra app when hitting a particular route. I found out of all the available options, this was the simplest\n\n\n### The Pipeline\nAfter configuring your app like I did above, you will be able to use the pipeline in your static files. In this example I am using haml. It is very simple to include your js/css/haml files using this type of pipeline.\n\n```haml Index\n= haml :browser_compat\n%html\n  %header\n    = haml :header # header contains != css :application\n  %body\n    .container\n      .navigation\n        = haml :navigation\n      .stage\n        = haml :stage\n      .footer\n        = haml :footer\n    #js_footer\n      != js :app\n```\n\nThis results in very clean and readable haml. The pieces here are reusable, and by following this pipeline you start to modularize your Sinatra application. I hope more apps use this, as it brings the magic of Rails to Sinatra apps, which tend to be more simplistic.\n\n### onFinish\nNot everyone will need an asset pipeline in their web app. This is for those that require a clean and reusable code base for an app that is based on Sinatra. I find that modularizing your js and css will help a lot. Especially when you get obfuscation for free with it. Sinatra can be a powerful web application framework, and tools like this can make it even better. If you require any assistance setting up Sinatra AssetPack let me know.\n",
+        "contentDigest": "5d8e2e629e18285d2f6d8510b4444138",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Sinatra Assets",
+        "layout": "post",
+        "date": "2014-05-26T15:32:56.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "Ruby",
+        "categories": "Sinatra, Ruby",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-05-26-sinatra-assets/index.md",
+      "fields": {
+        "slug": "/articles/2014-05-26-sinatra-assets/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file",
+      "internal": {
+        "content": "---\nlayout: post\ntitle: \"boxviewrb\"\ndate: 2014-06-11T20:06:09.000Z\ncomments: true\nsharing: true\ncategory: Ruby\ncategories: Box, Ruby\ndescription: \"A look at integrating BoxView with an existing rails app, and the library that came out of this work.\"\n---\n\n### onStart\n\nI took a bit of a blogging hiatus during my vacation recently. I used this time to start working on an open source project called [boxviewrb](https://github.com/getlua/boxviewrb). [Boxviewrb](https://github.com/getlua/boxviewrb) is a Box View API Wrapper written in ruby. It uses the [HTTParty](http://johnnunemaker.com/httparty/) gem for network calls, and also supports multipart uploading. Alternative gems for Box View do exist. However, they are incomplete implementations, some old that have not been updated (crocodoc), and others that just did not offer a complete feature set. [Boxviewrb](https://github.com/getlua/boxviewrb) works with every request and feature that the Box View API has documented. Test coverage is minimal, only some of the requests have tests, but I am meaning to add more coverage in the future. I attempted to make the documentation as readable and self explanatory as I possibly could. This is my first time ever releasing a piece of open source software, and it certainly will not be my last. Instructions on how to contribute can be found at the bottom of the readme.\n\n### onFinish\n\nIn previous articles I wrote about communicating with the Box View API using Net::HTTP. Based on this primitive example I was able to make an open source gem. If you read over my documentation, you will notice the convenience methods. They came in handy when placing Box View in a production application. At [Lua](http://getlua.com) we now have document viewing right in the browser! If you would like this feature in a site you're running, give my gem a try. As always if you have any concerns or questions drop a comment below.\n",
+        "contentDigest": "106369c9168935b05b9825e59c7052ff",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "boxviewrb",
+        "layout": "post",
+        "date": "2014-06-11T20:06:09.000Z",
+        "comments": true,
+        "sharing": true,
+        "category": "Ruby",
+        "categories": "Box, Ruby",
+        "description": "A look at integrating BoxView with an existing rails app, and the library that came out of this work.",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2014-06-11-boxviewrb/index.md",
+      "fields": {
+        "slug": "/articles/2014-06-11-boxviewrb/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file",
+      "internal": {
+        "content": "---\ntitle: \"ECMAScript 6 - Harmony\"\ndate: 2015-07-16T00:00:00.000Z\nlayout: post\ncomments: true\nsharing: true\ncategory: JavaScript\ndescription: \"The history and future of JavaScript.\"\n---\n\n---\n\n![JSLogo](./js-logo.png)\n\n### 18 Years of Specifications\n\n---\n\n# ECMAScript 1 through 5\n\n- Precursor\n  * Brendan - Mocha\n  * Netscape codenames LiveScript\n  * Netscape announces JavaScript (1995)\n  * Netscape releases JavaScript (1996)\n- 1 ECMA establishes specification (1997)\n- 2 ISO/IEC 16262 I18N (1998)\n- 3 RegExp, String formatting, try/catch, errors (1999)\n- 4 failure, arguing, punted and renamed Harmony (1999-2009)\n- 5 ‘use strict’, JSON, get, set, reflection (2009)\n- 5.1 international standardization (2011)\n\n---\n\n![ECMA](http://www.ecma-international.org/images/logo_printerf.jpg)\n\n![Standards](http://i.imgur.com/eZGm64W.png)\n\n---\n\n# Transpiling\n\n- Firefox, Chrome hot on tail\n- GWT/Type/Clojure/Dart/Coffee/JSX history\n- Compiling to ES5\n- ES6 via Babel (71%) or Traceur (58%)\n- Mana began development with ES6 via Babel\n- ES6 gets standardized (June 2015)\n\n---\n\n![Compiling](http://imgs.xkcd.com/xk3d/303/compiling_4.png)\n\n---\n\n## Constants\n\n- Immutable Variables\n\n```javascript\nconst e = 2.718281828459045;\nconst π = 3.141592653589793;\ne < π; // → true\ne = π; // → Line 4: \"e\" is read-only\n```\n---\n\n## Scoping\n\n- Block-Scoped Variables\n\n```javascript\nlet a = [ 1 ];\nfor (let i = 0; i < a.length; i++) {\n  let x = a[i] + 1;\n}\nconsole.log(i, x, a); // → i is not defined, x is not defined, [1]\n```\n\n- Block-Scoped Functions\n\n```javascript\n{\n  function foo () { return 'hello'; }\n  foo(); // → hello\n  {\n    function foo () { return 'world'; }\n    foo(); // → world\n  }\n  foo(); // → hello\n}\n```\n---\n\n## Arrow Functions\n\n- Expression Bodies\n\n```javascript\nlet admins = collection.map( m => m.get(\"admin\") );\nconsole.log(m); // → m is not defined\n```\n- Statement Bodies\n- Lexical _this_\n\n```javascript\nthis.accepted = [];\nthis.collection.each((m) => {\n  if (m.get(\"state\") === \"accepted\")\n    this.accepted.push(m);\n});\n```\n---\n\n## Extended Parameter\n\n- Defaults\n- Rest Parameter\n\n```javascript\n{\n  initialize: function(options = {}) {\n    _(this.defaults).extend(options);\n  },\n  generateName: function(conversation, names...) {\n    console.log(names); // → [\"Angie\", \"Ariel\", \"Jared\"]\n    conversation.set(\"name\", names.join(\", \"));\n  }\n}\n```\n\n- Spread Operator\n\n```javascript\nvar params = [ \"kana\", [true], 7 ];\n[ 1, 2, ...params ].length; // → 5\n```\n---\n\n## Template Strings\n\n- String Interpolation\n\n```javascript\nvar lastSeenAt = `Last Seen ${manawa(this.model.get(\"sent_at\"))}`;\n```\n\n- Multiline support\n\n```javascript\nconsole.log(`Aloha\nHawaii`); // → Aloha Hawaii\n```\n\n- Raw String Access\n\n```javascript\nString.raw `Hi, \\n World ${ 42 }` === \"Hi, \\\\n World 42\"; // → true\n```\n---\n\n## Extended Literals\n\n- Binary and Octal\n\n```javascript\n0b110010100 === 404; // → true\n```\n\n- Unicode String/RegExp\n\n```javascript\n\"\\u{0CA0}_\\u{0CA0}\" === \"ಠ_ಠ\" // → true\n```\n---\n\n## Enhanced Regular Expression\n\n- Sticky Matching\n- Efficient Parsing\n\n```javascript\nlet regex = /foo.bar/gy;\nregex.sticky; // → true\nregex.lastIndex; // → 0\n\nregex.test('foo-bar'); // → true\n\nregex.lastIndex; // → 7\nregex.test('..foo-bar'); // → false\n\nregex.lastIndex = 2;\nregex.test('..foo-bar'); // → true\n\nregex.lastIndex; // → 9\n```\n---\n\n## Enhanced Object Properties\n\n- Property Shorthand\n\n```javascript\nvar options = { animate, duration };\n```\n\n- Computed Property Names\n- Method Properties\n\n```javascript\nvar properties = {\n  color: \"blue\",\n  [ \"avatar_\" + getSize() ]: 42\n};\n\nvar helpers = {\n    foo (a, b) {\n      // …\n    },\n    *quux (x, y) {\n      //  …\n    }\n};\n```\n---\n\n## Destructuring Assignment\n\n- Array Matching\n\n```javascript\nvar list = [ \"Blue\", \"Red\", \"Yellow\" ];\nvar [ first, , second ] = list;\n[ second, first ] = [ first, second ];\n```\n\n- Object Matching (Deep)\n\n```javascript\nvar { members, meta: { total_count, updated_at } } = payload();\n```\n\n- Parameter Matching\n\n```javascript\nfunction sum ([ x, y ]) { return x + y; }\nfunction msgText ({ name, body }) { return `${name}: ${body}`; }\n```\n\n- Fail-Soft with Defaults\n\n```javascript\nvar [ a = 1, b = 2, c = 3, d ] = [ 4, 5 ];\n```\n---\n\n## Modules\n\n- Export\n\n```javascript\nexport function randomNumber {\n  return Math.floor( Math.random() * 11 );\n}\n```\n\n- Import\n\n```javascript\nimport { Input, Label } from \"react-bootstrap\";\n```\n\n- Default\n\n```javascript\nexport default (x) => x * x;\n```\n\n- Wildcard\n\n```javascript\nimport * as _ from \"underscore\";\n```\n---\n\n## Classes\n\n- Declaration / Inheritance\n- Expressions\n- Base Class Access\n- Static Members\n- Getters / Setters\n\n```javascript\nclass Group extends Party {\n  constructor (name, color) {\n    super(name);\n    this.color = color;\n  }\n  static defaultGroup () {\n    return new Group(\"Engineering\", \"#232b38\");\n  }\n  set name  (name) { this._name = name; }\n  get name  ()     { return this._name; }\n  get color ()     { return this._color; }\n}\nvar engineering = Group.defaultGroup();\nengineering.color === \"#232b38\"\n```\n---\n\n## Symbol Type\n\n- Unique\n- Immutable\n- Optional Descriptions (debug)\n\n```javascript\nlet attributes = {};\nconst avatar = Symbol();\nattributes[avatar] = new Avatar();\n\ntypeof avatar // → \"symbol\"\nObject.getOwnPropertySymbols(attributes); // → [ avatar ]\nSymbol(\"avatar\") === Symbol(\"avatar\"); // → false\n```\n\n- Global Symbols\n\n```javascript\nlet globalAvatar = Symbol.for(\"avatar\");\n\nglobalAvatar === Symbol.for(\"avatar\"); // → true\nSymbol.keyFor(globalAvatar); // → avatar\n```\n---\n\n## Iterators\n\n- Iterable Protocol\n\n```javascript\nlet fibonacci = {\n  [Symbol.iterator]() {\n    let pre = 0, cur = 1;\n    return {\n       next () {\n         [ pre, cur ] = [ cur, pre + cur ];\n         return { done: false, value: cur };\n       }\n    };\n  }\n};\n```\n\n- For \\_ of \\_\n\n```javascript\nfor (let n of fibonacci) {\n  if (n > 1000) break;\n  console.log(n);\n}\n```\n---\n\n## Generators\n\n- Iterator Protocol\n- Direct\n- Matching\n- Control-Flow\n\n```javascript\nfunction* range (start, end, step) {\n    while (start < end) {\n        yield start;\n        start += step;\n    }\n}\n\nlet evens = range(0, 10, 2);\nconsole.log(evens.next().value); // → 0\n\nfor (let n of evens) {\n  console.log(n); // → 2, 4, 6, 8\n}\n```\n---\n\n## Data Structures\n\n- Sets\n\n```javascript\nlet alphabet = new Set();\nalphabet.add(\"A\").add(\"B\").add(\"A\");\nalphabet.size; // → 2\nalphabet.has(\"A\"); // → true\nfor (let key of alphabet.values()) // insertion order\n  console.log(key);\n```\n\n- Maps\n\n```javascript\nlet member = new Map();\nmember.set(\"id\", 42);\nmember.set(state, \"accepted\");\nmember.get(state); // → \"accepted\"\nmember.size; // → 2\nfor (let [ key, val ] of member.entries())\n  console.log(key + \" = \" + val);\n```\n---\n\n## Typed Arrays\n\n- Arbitrary byte-based data structures\n- Network Protocols\n- Cryptography Algorithms\n- File Format Manipulations\n\n```javascript\nlet buffer = new ArrayBuffer(24); // generic\n\nlet amountDue = new Float32Array(buffer, 20,  1);\n\nlet imageData = new Uint8ClampedArray([42, 1337]);\nconsole.log(imageData[1]); // → 255\n```\n---\n\n## Additional Built-in Methods\n\n- Object Property Assignment\n- Array Element Finding\n- String Repeating and Searching\n- Number Type and Safety Checking\n- Number Comparison / Truncation / Sign Determination\n\n```javascript\nObject.assign({a: 1}, {b: 2}, {c: 3}); // → { a: 1, b: 2, c: 3 }\n[ 1, 3, 4, 2 ].find(x => x > 3); // → 4\n\n\"aloha\".repeat(3); // alohaalohaaloha\n\"/networks/lua/latest\".includes(\"networks\"); // → true\n\"reddit\".endsWith(\"it\"); // → true\n\"facebook\".startsWith(\"face\"); // → true\n\nNumber.isNaN(NaN); // → true\nNumber.isFinite(Infinity); // → false\nNumber.isSafeInteger(10007199254740992); // → false\nNumber.EPSILON; // instead of 2.22e-16\n\nMath.trunc(-42.7); // → -42\nMath.sign(-7); // → -1\n```\n---\n\n## Promises\n\n- Async Callback\n- Chaining\n\n```javascript\nlet networkPromises = this.networks.each((network) => {\n  return new Promise((resolve, reject) => {\n    return network.fetch((response) => {\n      if (response.body) {\n        resolve(response.body);\n      } else {\n        reject(response.error);\n      }\n    });\n  });\n});\n\nPromise.all(networkPromises).then((data) => {\n  NetworkActions.setNetworks(data);\n}, (error) => {\n  errorHandler(error);\n});\n```\n---\n\n## Meta Programming\n\n- Proxying\n\n```javascript\nvar artist = { name: \"Michelangelo\", paintings: 253 };\nvar interceptor = {\n  set: function (receiver, property, value) {\n    console.log(property, 'is changed to', value);\n    receiver[property] = value;\n  }\n};\n\nartist = Proxy(artist, interceptor);\nartist.paintings = 254; // → paintings is changed to 254\n```\n\n- Reflection\n\n```javascript\nlet obj = { a: 1 };\nObject.defineProperty(obj, \"b\", { value: 2 });\nobj[Symbol(\"c\")] = 3;\nReflect.ownKeys(obj); // → [ \"a\", \"b\", Symbol(c) ]\n```\n---\n\n# What is next?\n\n- ES7\n  * Object.observe\n  * Async (Event Loop Concurrency)\n  * Comprehensions\n  * Guards (user defined invariants!)\n- ES8\n  * a long ways out\n  * Macros (make your own syntax)\n  * Parallel arrays\n\n![XKCD](http://i.imgur.com/PsVj5Nl.png)\n---\n\n# Finito\n\n- Compatibility Table:\nhttp://kangax.github.io/compat-table/es6/\n\n- Future of JS:\nhttp://www.2ality.com/2011/09/es6-8.html\n\n- REPL:\nhttps://babeljs.io/repl/#?experimental=true\n\n- Feature List\nhttp://es6-features.org\n",
+        "contentDigest": "14fc30b1427a1843f7c7bad9fd9ce519",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "ECMAScript 6 - Harmony",
+        "date": "2015-07-16T00:00:00.000Z",
+        "layout": "post",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "description": "The history and future of JavaScript.",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2015-07-16-es6/index.md",
+      "fields": {
+        "slug": "/articles/2015-07-16-es6/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file",
+      "internal": {
+        "content": "---\ntitle: \"The Witcher\"\ndate: 2016-11-22T02:14:03.000Z\nlayout: post\ncomments: true\nsharing: true\ncategory: Books\ndescription: \"Words from Andrzej Sapkowski.\"\n---\n\nAfter having read most of The Witcher by Andrzej Sapkowski some words stood out more than others. Below are some of my favorites from the series. I will update this as I finish the rest of the books.\n\n<dl>\n  <dt>\n    <dfn>Gravamen</dfn>\n  </dt>\n  <dt>\n    noun | gra·va·men | \\grə-ˈvā-mən\\\n  </dt>\n  <dd>\n    plural Gravamens or Gravamina\n  </dd>\n  <dd>\n    ¶ The material or significant part of a grievance or complaint\n  </dd>\n  <br>\n  <dt><dfn>Riposte</dfn></dt>\n  <dt>noun | ri·poste | \\ri-ˈpōst\\</dt>\n  <dd>\n    ¶ A quick and clever reply\n  </dd>\n  <br>\n  <dt><dfn>Akimbo</dfn></dt>\n  <dd>\n    ¶ Of the arms : with the hands on the hips and the elbows turned outward\n  </dd>\n  <dd>\n    ¶ Of the legs : spread apart in a bent position\n  </dd>\n  <br>\n  <dt><dfn>Dentata</dfn></dt>\n  <dd>\n    ¶ Latin for Toothed\n  </dd>\n  <br>\n  <dt><dfn>Milliner</dfn></dt>\n  <dd>\n    ¶ A person who designs, makes, trims, or sells women's hats\n  </dd>\n</dl>\n",
+        "contentDigest": "f4b8da45e8df6ce19aff2d309432973c",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "The Witcher",
+        "date": "2016-11-22T02:14:03.000Z",
+        "layout": "post",
+        "comments": true,
+        "sharing": true,
+        "category": "Books",
+        "description": "Words from Andrzej Sapkowski.",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-21-the-witcher/index.md",
+      "fields": {
+        "slug": "/articles/2016-11-21-the-witcher/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file",
+      "internal": {
+        "content": "---\ntitle: \"Blog Performance\"\ndate: 2016-11-25T02:06:00.000Z\nlayout: post\ncomments: true\nsharing: true\ncategory: JavaScript\ndescription: \"Gatsby and Metrics for the new blog.\"\n---\n\nRecently I revamped this blog site using the amazing [GatsbyJS](https://github.com/gatsbyjs). I noticed immediately how much faster it was, and that was in part due to how much work has gone into making gatsby produce an optimized site. I recently watched a [video](https://www.youtube.com/watch?list=PLNYkxOF6rcICc687SxHQRuo9TVNOJelSZ&v=6m_E-mC0y3Y) by Sam Saccone and Paul Irish about performance and metrics. They spoke about two tools [Lighthouse](https://github.com/GoogleChrome/lighthouse) and [PWMetrics](https://github.com/paulirish/pwmetrics) which you can use today to measure your site performance in a useful way. I was able to quickly grasp what bottlenecks were having an adverse affect on the blogs load times.\n\nThrough diagnosis I was able to drastically improve the score. Here is what I get from pwmetrics today.\n\n[![PWMetrics](./pwmetrics.png)](./pwmetrics.png)\n\nYou can even generate it yourself. Just try out the commands below.\n\n```bash\nyarn global add pwmetrics\npwmetrics https://vincenttaverna.com\n```\n\n```bash\nyarn global add lighthouse\nlighthouse https://vincenttaverna.com\n```\n\nThe next version of GatsbyJS, v1, is being developed right now. It will improve performance even more so, and I am really looking forward to it. Between inline CSS, offline support via service workers, and more, it will be the best release yet. If I find spare time I will definitely be contributing to it and I think you should to!\n",
+        "contentDigest": "63ad7d565f372fb8c986fe831571236d",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Blog Performance",
+        "date": "2016-11-25T02:06:00.000Z",
+        "layout": "post",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "description": "Gatsby and Metrics for the new blog.",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-25-blog-performance/index.md",
+      "fields": {
+        "slug": "/articles/2016-11-25-blog-performance/"
+      }
+    },
+    "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file >>> MarkdownRemark": {
+      "id": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file >>> MarkdownRemark",
+      "children": [],
+      "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file",
+      "internal": {
+        "content": "---\ntitle: \"Coffee to Babel in 24 hours\"\ndate: 2016-11-30T09:17:00.000Z\nlayout: post\ncomments: true\nsharing: true\ncategory: JavaScript\ndescription: \"How I quickly translated an entire frontend codebase from coffee to babel.\"\n---\n\nRecently I was tasked with modernizing a CoffeeScript codebase to use Babel. I've used babel (and 6to5) across various projects for almost two years, not to mention I have been writing CoffeeScript since it has been in the hands of the public. I was told to convert the code to coffee to babel as quickly as I could. Fortunately the project I was working with was already setup with webpack which made using the `babel-loader` alongside the `coffee-loader` a possibility if I failed to convert everything on time. With that in mind I configured a basic `.eslintrc` and `.babelrc` and started the process of translation.\n\nSurprisingly the process didn't start with actual translations. Manual translation would not be quick enough. Dredging through hundreds of coffee files was going to take me way more time than I had. So I started searching around for tools that could convert CoffeeScript to Babel. Tons of tools exist, but nothing to do this exact conversion. Luckily you can get something working pretty well if you use the right combination of tools. You will come across some files that don't fully convert, and you may even need to tweak the conversion tool to get it working to your liking. Given a time crunch like I had, you would be glad to have this as an option.\n\n### [CJSX-Codemod](https://github.com/jsdf/cjsx-codemod)\n\nIf you aren't using JSX, or you don't know what JSX is, you can ignore this tool. It is only required if you were previously using JSX, and you can move on to the next tool I used in this process. For everyone else, this tool lets us convert JSX to coffee. So lines like `<div />` will translate to `React.createElement('div', null)`. You can globally install this package and then run it over a directory of scripts of your choosing. It will fire off some workers and tell you if it had any trouble along the way. If you are lucky everything will go smoothly. I recommend sanity checking throughout each step, and committing the changes that you are making so you don't end up wasting any time.\n\n```bash\nyarn global add cjsx-codemod\ncjsx-codemod ./scripts\n```\n\n### [Decaffeinate](https://github.com/decaffeinate/decaffeinate)\n\nThis next tool will convert a coffee file to a babel compatible file. I couldn't find a great way to run the tool over a directory of scripts. Fortunately you can just run the command on a list of coffee files by piping it through xargs. If you don't know what the command below does let me explain. I search for files in a folder of my choice and then filter by coffee files. Next I run the decaffeinate command on each file that has been found. You should end up with a bunch of new javascript files, and your existing coffee files should remain untouched. Feel free to delete the coffee files now that they are unnecessary.\n\n```bash\nyarn global add decaffeinate\nfind ./scripts | grep .coffee | xargs -n 1 -P 5 decaffeinate\n```\n\n### [React-Codemod](https://github.com/reactjs/react-codemod)\n\nAgain, you should be able to ignore this if you aren't using JSX. This tool lets us turn those `React.createElement` calls back into JSX. You will need to add jscodeshift first, as this is just a script we tell it to use on a directory of javascript files. Make sure everything looks good, and move on to the final step.\n\n```bash\nyarn global add jscodeshift\ngit clone https://github.com/reactjs/react-codemod.git\ncd ./react-codemod\nyarn --no-lockfile\njscodeshift -t ./react-codemod/transforms/create-element-to-jsx.js ./scripts --no-explicit-require\n```\n\n### [ESLint](https://github.com/eslint/eslint)\n\nI recommend configuring a `.eslintrc`. You can install ESLint and have it automatically fix up the transpiled code. This final step will give you a much more readable and clean result.\n\n```bash\nyarn add eslint --dev\n./node_modules/eslint/bin/eslint.js --fix ./scripts\n```\n\n### Others\n\nBelow are some other tools that I found useful. You may find they give you false positives, so make sure to review all your changes carefully before committing. I hope these tools will help you out of a tight situation like the one I was in.\n\n* [Lebab](https://github.com/lebab/lebab)\n* [CoffeeScript](http://coffeescript.org/#usage)\n* [CoffeeToES6](https://github.com/kriszyp/coffeetoes6)\n",
+        "contentDigest": "6326f81a49b7704dcba7f888d084d307",
+        "type": "MarkdownRemark",
+        "owner": "gatsby-transformer-remark",
+        "fieldOwners": {
+          "slug": "default-site-plugin"
+        }
+      },
+      "frontmatter": {
+        "title": "Coffee to Babel in 24 hours",
+        "date": "2016-11-30T09:17:00.000Z",
+        "layout": "post",
+        "comments": true,
+        "sharing": true,
+        "category": "JavaScript",
+        "description": "How I quickly translated an entire frontend codebase from coffee to babel.",
+        "parent": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md absPath of file"
+      },
+      "fileAbsolutePath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/articles/2016-11-30-coffee-to-babel/index.md",
+      "fields": {
+        "slug": "/articles/2016-11-30-coffee-to-babel/"
+      }
+    },
+    "SitePage /404/": {
+      "path": "/404/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/404/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "404.json",
+      "internalComponentName": "Component404",
+      "updatedAt": 1503858497042,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /404/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "57ca336d9ff49f8027665f831ffb8414",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /pages/about/": {
+      "path": "/pages/about/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/pages/about/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "pages-about.json",
+      "internalComponentName": "ComponentPagesAbout",
+      "updatedAt": 1503858497044,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /pages/about/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "82ef58e78472e72b986e1f54537ebc62",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/": {
+      "path": "/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-04-07-aviarys-featherjs-in-backbone-dot-marionette.json",
+      "internalComponentName": "ComponentArticles20140407AviarysFeatherjsInBackboneDotMarionette",
+      "updatedAt": 1503858497044,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-04-07-aviarys-featherjs-in-backbone-dot-marionette/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "529e0947a4b5d3372290f8c13dda6896",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-04-14-client-side-exif/": {
+      "path": "/articles/2014-04-14-client-side-exif/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-04-14-client-side-exif/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-04-14-client-side-exif.json",
+      "internalComponentName": "ComponentArticles20140414ClientSideExif",
+      "updatedAt": 1503858497045,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-04-14-client-side-exif/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "5b395cdd8a2ce58ae42ad778ed8a97cb",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-04-21-jasmine-and-teaspoon/": {
+      "path": "/articles/2014-04-21-jasmine-and-teaspoon/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-04-21-jasmine-and-teaspoon/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-04-21-jasmine-and-teaspoon.json",
+      "internalComponentName": "ComponentArticles20140421JasmineAndTeaspoon",
+      "updatedAt": 1503858497045,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-04-21-jasmine-and-teaspoon/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "e9c6c5025cd391ad147e87746ccf35cd",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-04-28-html5-video-and-audio/": {
+      "path": "/articles/2014-04-28-html5-video-and-audio/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-04-28-html5-video-and-audio/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-04-28-html-5-video-and-audio.json",
+      "internalComponentName": "ComponentArticles20140428Html5VideoAndAudio",
+      "updatedAt": 1503858497046,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-04-28-html5-video-and-audio/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "66fa48563f684e0b3ed3e014c4fc8d54",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-05-04-promises-and-more/": {
+      "path": "/articles/2014-05-04-promises-and-more/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-05-04-promises-and-more/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-05-04-promises-and-more.json",
+      "internalComponentName": "ComponentArticles20140504PromisesAndMore",
+      "updatedAt": 1503858497046,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-05-04-promises-and-more/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "e3a446b1a49007725d7c89496967b5f6",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-05-11-fragment-factories/": {
+      "path": "/articles/2014-05-11-fragment-factories/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-05-11-fragment-factories/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-05-11-fragment-factories.json",
+      "internalComponentName": "ComponentArticles20140511FragmentFactories",
+      "updatedAt": 1503858497047,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-05-11-fragment-factories/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "91c7650343878a617ca0074f81083054",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-05-18-boxview/": {
+      "path": "/articles/2014-05-18-boxview/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-05-18-boxview/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-05-18-boxview.json",
+      "internalComponentName": "ComponentArticles20140518Boxview",
+      "updatedAt": 1503858497047,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-05-18-boxview/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "1ff9de439f884625480864b7d0053468",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-05-26-sinatra-assets/": {
+      "path": "/articles/2014-05-26-sinatra-assets/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-05-26-sinatra-assets/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-05-26-sinatra-assets.json",
+      "internalComponentName": "ComponentArticles20140526SinatraAssets",
+      "updatedAt": 1503858497048,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-05-26-sinatra-assets/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "c697258b01569e0579fb374814124cb7",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2014-06-11-boxviewrb/": {
+      "path": "/articles/2014-06-11-boxviewrb/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2014-06-11-boxviewrb/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2014-06-11-boxviewrb.json",
+      "internalComponentName": "ComponentArticles20140611Boxviewrb",
+      "updatedAt": 1503858497049,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2014-06-11-boxviewrb/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "48a05bc48a7d269039dac271f1b66a83",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2015-07-16-es6/": {
+      "path": "/articles/2015-07-16-es6/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2015-07-16-es6/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2015-07-16-es-6.json",
+      "internalComponentName": "ComponentArticles20150716Es6",
+      "updatedAt": 1503858497050,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2015-07-16-es6/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "8c39ce26ebe54eb8801770208469478d",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2016-11-21-the-witcher/": {
+      "path": "/articles/2016-11-21-the-witcher/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2016-11-21-the-witcher/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2016-11-21-the-witcher.json",
+      "internalComponentName": "ComponentArticles20161121TheWitcher",
+      "updatedAt": 1503858497050,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2016-11-21-the-witcher/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "2ecac07d66279a0aab966a9669452b84",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2016-11-25-blog-performance/": {
+      "path": "/articles/2016-11-25-blog-performance/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2016-11-25-blog-performance/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2016-11-25-blog-performance.json",
+      "internalComponentName": "ComponentArticles20161125BlogPerformance",
+      "updatedAt": 1503858497055,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2016-11-25-blog-performance/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "3d393c29bf64cdb7432431e5e2b613b3",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /articles/2016-11-30-coffee-to-babel/": {
+      "path": "/articles/2016-11-30-coffee-to-babel/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/articles/2016-11-30-coffee-to-babel/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "articles-2016-11-30-coffee-to-babel.json",
+      "internalComponentName": "ComponentArticles20161130CoffeeToBabel",
+      "updatedAt": 1503858497056,
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /articles/2016-11-30-coffee-to-babel/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "83789f3bb3da72ffd6c21da246bc7483",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /404.html": {
+      "path": "/404.html",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "context": {
+        "slug": "/404/"
+      },
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "layout": "index",
+      "jsonName": "404-html.json",
+      "internalComponentName": "Component404Html",
+      "updatedAt": 1503858497089,
+      "pluginCreator___NODE": "Plugin prod-404",
+      "pluginCreatorId": "Plugin prod-404",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/templates/blog-post.js",
+      "id": "SitePage /404.html",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "09ce65940730fd33d82546b2bde304eb",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /": {
+      "path": "/",
+      "component": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/index.jsx",
+      "componentChunkName": "component---src-pages-index-jsx",
+      "layout": "index",
+      "jsonName": "index.json",
+      "internalComponentName": "ComponentIndex",
+      "updatedAt": 1503858497122,
+      "context": {},
+      "pluginCreator___NODE": "Plugin component-page-creator",
+      "pluginCreatorId": "Plugin component-page-creator",
+      "componentPath": "/Users/vinnymac/Sites/vinnymac.github.io/src/pages/index.jsx",
+      "id": "SitePage /",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "7ccd18cb7402c8c590ea3a788b2d8924",
+        "owner": "internal-data-bridge"
+      }
+    }
+  },
+  "status": {
+    "plugins": {},
+    "PLUGINS_HASH": "4a4dea126e9b27967fc092bebcbe3532"
+  },
+  "componentDataDependencies": {
+    "nodes": {},
+    "connections": {}
+  }
+}
