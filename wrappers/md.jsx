@@ -2,11 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import SitePost from '../components/SitePost'
 import SitePage from '../components/SitePage'
-import { config } from 'config'
 
 class MarkdownWrapper extends React.Component {
     render() {
-        const {route} = this.props
+        const {route, data} = this.props
         const post = route.page.data
         let layout, template
 
@@ -20,7 +19,7 @@ class MarkdownWrapper extends React.Component {
 
         return (
           <div>
-            <Helmet title={ `${post.title} - ${config.siteTitle}` }/>
+            <Helmet title={ `${post.title} - ${data.site.siteMetadata.title}` }/>
             { template }
           </div>
         );
@@ -28,7 +27,17 @@ class MarkdownWrapper extends React.Component {
 }
 
 MarkdownWrapper.propTypes = {
-    route: React.PropTypes.object,
+  route: React.PropTypes.object,
 }
+
+export const pageQuery = graphql`
+  query SiteMetadataLookup($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;
 
 export default MarkdownWrapper
