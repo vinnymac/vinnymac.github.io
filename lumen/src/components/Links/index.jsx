@@ -7,11 +7,11 @@ class Links extends React.Component {
   render() {
     const author = this.props.data;
     const links = {
-      telegram: author.telegram,
+      // telegram: author.telegram,
       twitter: author.twitter,
       github: author.github,
-      vk: author.vk,
-      rss: author.rss,
+      // vk: author.vk,
+      // rss: author.rss,
       email: author.email
     };
 
@@ -28,11 +28,11 @@ class Links extends React.Component {
               <i className="icon-github" />
             </a>
           </li>
-          <li className="links__list-item">
+          {/* <li className="links__list-item">
             <a href={links.vk}>
               <i className="icon-vkontakte" />
             </a>
-          </li>
+          </li> */}
         </ul>
         <ul className="links__list">
           <li className="links__list-item">
@@ -40,19 +40,19 @@ class Links extends React.Component {
               <i className="icon-mail" />
             </a>
           </li>
-          <li className="links__list-item">
+          {/* <li className="links__list-item">
             <a href={`telegram:${links.telegram}`}>
               <i className="icon-paper-plane" />
             </a>
-          </li>
+          </li> */}
         </ul>
-        <ul className="links__list">
+        {/* <ul className="links__list">
           <li className="links__list-item">
             <a href={links.rss}>
-              <i className="icon-rss" />
+          <i className="icon-rss" />
             </a>
           </li>
-        </ul>
+        </ul> */}
       </div>
     );
   }

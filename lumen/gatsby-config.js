@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    url: 'https://alxshelepenok.github.com/gatsby-starter-lumen',
-    title: 'Blog by John Doe',
-    subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    url: 'https://vincenttaverna.com',
+    title: 'Dev Continuum',
+    subtitle: 'Software Engineer',
     copyright: '© All rights reserved.',
     menu: [
       {
@@ -12,18 +12,14 @@ module.exports = {
       {
         label: 'About me',
         path: '/about/'
-      },
-      {
-        label: 'Contact me',
-        path: '/contact/'
       }
     ],
     author: {
-      name: 'John Doe',
-      email: '#',
+      name: 'Vincent Taverna',
+      email: 'vinnymac@gmail.com',
       telegram: '#',
-      twitter: '#',
-      github: '#',
+      twitter: 'https://twitter.com/kidtheflash',
+      github: 'https://github.com/vinnymac',
       rss: '#',
       vk: '#'
     }
@@ -52,7 +48,7 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => (
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
               allMarkdownRemark.edges.map(edge =>
                 Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.frontmatter.description,
@@ -61,8 +57,7 @@ module.exports = {
                   guid: site.siteMetadata.url + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }]
                 })
-              )
-            ),
+              ),
             query: `
               {
                 allMarkdownRemark(
@@ -121,7 +116,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: ''
+        trackingId: 'UA-87784359-1'
       }
     },
     {
