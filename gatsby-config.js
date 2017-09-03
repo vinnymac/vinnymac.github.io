@@ -1,3 +1,9 @@
+// const rucksack = require("rucksack-css");
+// const lost = require("lost");
+// const cssnext = require("postcss-cssnext");
+//
+// console.log("plg", rucksack, lost, cssnext);
+
 module.exports = {
   siteMetadata: {
     title: "Dev Continuum",
@@ -13,6 +19,18 @@ module.exports = {
     linkPrefix: ""
   },
   plugins: [
+    // {
+    //   resolve: "postcss-loader",
+    //   options: {
+    //     plugins: [
+    //       lost(),
+    //       rucksack(),
+    //       cssnext({
+    //         browsers: [">1%", "last 2 versions"]
+    //       })
+    //     ]
+    //   }
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

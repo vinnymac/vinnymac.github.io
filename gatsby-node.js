@@ -87,15 +87,40 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 };
 
 exports.modifyWebpackConfig = ({ config, stage }, options = {}) => {
-  config.merge({
-    postcss: [
+  // console.log(config);
+  // config.loader("css", {
+  //   {
+  //     loader: 'postcss-loader',
+  //     options: {
+  //       plugins: [
+  //         lost(),
+  //         rucksack(),
+  //         cssnext({
+  //           browsers: [">1%", "last 2 versions"]
+  //         })
+  //       ]
+  //     }
+  //   }
+  // })
+  config.merge(current => {
+    current.postcss = [
       lost(),
       rucksack(),
       cssnext({
         browsers: [">1%", "last 2 versions"]
       })
-    ]
+    ];
+    return current;
   });
+  // config.merge({
+  //   postcss: [
+  //     lost(),
+  //     rucksack(),
+  //     cssnext({
+  //       browsers: [">1%", "last 2 versions"]
+  //     })
+  //   ]
+  // });
 
   config.loader("svg", {
     test: /\.(svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

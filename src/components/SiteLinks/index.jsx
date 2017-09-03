@@ -85,10 +85,7 @@ export const pageQuery = graphql`
   query SiteMetadataLookup($slug: String!) {
     site {
       siteMetadata {
-        rssUrl
-        telegramUrl
         emailUrl
-        vkUrl
         githubUrl
         twitterUrl
       }
