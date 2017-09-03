@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sinatra Assets"
-date: 2014-05-26T15:32:56.000Z
+date: "2014-05-26T15:32:56.000Z"
 comments: true
 sharing: true
 draft: false

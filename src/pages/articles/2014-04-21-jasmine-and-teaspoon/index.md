@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jasmine and Teaspoon"
-date: 2014-04-21T23:59:13.000Z
+date: "2014-04-21T23:59:13.000Z"
 sharing: true
 comments: true
 draft: false

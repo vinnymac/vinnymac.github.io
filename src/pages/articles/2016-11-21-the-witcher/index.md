@@ -1,6 +1,6 @@
 ---
 title: "The Witcher"
-date: 2016-11-22T02:14:03.000Z
+date: "2016-11-22T02:14:03.000Z"
 layout: post
 comments: true
 sharing: true

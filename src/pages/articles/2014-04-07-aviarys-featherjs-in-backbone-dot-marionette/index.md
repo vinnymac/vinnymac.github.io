@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Aviary's FeatherJS in Backbone.Marionette"
-date: 2014-04-07T01:01:35.000Z
+date: "2014-04-07T01:01:35.000Z"
 comments: true
 draft: false
 path: "/posts/aviarys-featherjs-in-backbone-marionette/"
