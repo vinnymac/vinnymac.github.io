@@ -1,0 +1,2 @@
+webpackJsonp([0xd8001e2c397cb000],{"./node_modules/json-loader/index.js!./.cache/json/posts-aviarys-featherjs-in-backbone-marionette.json":function(e,o){e.exports={pathContext:{slug:"/posts/aviarys-featherjs-in-backbone-marionette/"}}}});
+//# sourceMappingURL=path---posts-aviarys-featherjs-in-backbone-marionette-016c1b6f7475ca13c72a.js.map

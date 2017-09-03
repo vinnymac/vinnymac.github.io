@@ -1,0 +1,2 @@
+webpackJsonp([0xcc90138ef9d04000],{"./node_modules/json-loader/index.js!./.cache/json/posts-sinatra-assets.json":function(s,o){s.exports={pathContext:{slug:"/posts/sinatra-assets/"}}}});
+//# sourceMappingURL=path---posts-sinatra-assets-ad152ea5d98c3cd54c0b.js.map

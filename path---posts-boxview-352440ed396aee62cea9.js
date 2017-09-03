@@ -1,0 +1,2 @@
+webpackJsonp([0x82a826885961f800],{"./node_modules/json-loader/index.js!./.cache/json/posts-boxview.json":function(o,s){o.exports={pathContext:{slug:"/posts/boxview/"}}}});
+//# sourceMappingURL=path---posts-boxview-352440ed396aee62cea9.js.map

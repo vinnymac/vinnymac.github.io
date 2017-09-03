@@ -1,0 +1,250 @@
+{
+  "assetsByChunkName": {
+    "component---src-templates-tag-template-js": [
+      "component---src-templates-tag-template-js-637c2e45354ff70f84aa.js",
+      "component---src-templates-tag-template-js-637c2e45354ff70f84aa.js.map"
+    ],
+    "path---posts-client-side-exif": [
+      "path---posts-client-side-exif-296750155e3781cdf54c.js",
+      "path---posts-client-side-exif-296750155e3781cdf54c.js.map"
+    ],
+    "path---categories-java-script": [
+      "path---categories-java-script-5c5543dee32de484bae4.js",
+      "path---categories-java-script-5c5543dee32de484bae4.js.map"
+    ],
+    "path---posts-boxviewrb": [
+      "path---posts-boxviewrb-301c6c6b8b05b198ad5e.js",
+      "path---posts-boxviewrb-301c6c6b8b05b198ad5e.js.map"
+    ],
+    "path---categories": [
+      "path---categories-91f138c8f0933eaef823.js",
+      "path---categories-91f138c8f0933eaef823.js.map"
+    ],
+    "component---src-pages-tags-jsx": [
+      "component---src-pages-tags-jsx-408d739508aa1b100597.js",
+      "component---src-pages-tags-jsx-408d739508aa1b100597.js.map"
+    ],
+    "path---categories-books": [
+      "path---categories-books-f01ecdd98839564894ce.js",
+      "path---categories-books-f01ecdd98839564894ce.js.map"
+    ],
+    "path---posts-blog-performance": [
+      "path---posts-blog-performance-c69245c426b706bad87d.js",
+      "path---posts-blog-performance-c69245c426b706bad87d.js.map"
+    ],
+    "path---tags-coffee-script": [
+      "path---tags-coffee-script-c8e1782074eaea3742aa.js",
+      "path---tags-coffee-script-c8e1782074eaea3742aa.js.map"
+    ],
+    "path---tags-exif": [
+      "path---tags-exif-ff79a6de2da7b3881c81.js",
+      "path---tags-exif-ff79a6de2da7b3881c81.js.map"
+    ],
+    "path---tags": [
+      "path---tags-1fb43d9be6ea311ee6ca.js",
+      "path---tags-1fb43d9be6ea311ee6ca.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---tags-box": [
+      "path---tags-box-0edfb756a5260c68ae23.js",
+      "path---tags-box-0edfb756a5260c68ae23.js.map"
+    ],
+    "component---src-templates-category-template-js": [
+      "component---src-templates-category-template-js-7ae44dfffe577a6fa0f2.js",
+      "component---src-templates-category-template-js-7ae44dfffe577a6fa0f2.js.map"
+    ],
+    "path---posts-html-5-video-and-audio": [
+      "path---posts-html-5-video-and-audio-68026fff240bfcd09b9c.js",
+      "path---posts-html-5-video-and-audio-68026fff240bfcd09b9c.js.map"
+    ],
+    "component---src-layouts-index-jsx": [
+      "component---src-layouts-index-jsx-a3736c22bd45d9090a53.js",
+      "component---src-layouts-index-jsx-a3736c22bd45d9090a53.js.map"
+    ],
+    "path---tags-performance": [
+      "path---tags-performance-5ba7bc4abf11aebcbd7b.js",
+      "path---tags-performance-5ba7bc4abf11aebcbd7b.js.map"
+    ],
+    "component---node-modules-gatsby-plugin-offline-app-shell-js": [
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
+    ],
+    "path---posts-promises-and-more": [
+      "path---posts-promises-and-more-a98782b5a1c8782b0778.js",
+      "path---posts-promises-and-more-a98782b5a1c8782b0778.js.map"
+    ],
+    "path---tags-coffeescript": [
+      "path---tags-coffeescript-42c055f85a32a5765524.js",
+      "path---tags-coffeescript-42c055f85a32a5765524.js.map"
+    ],
+    "path---categories-android": [
+      "path---categories-android-b49793ea5372ccf55cd9.js",
+      "path---categories-android-b49793ea5372ccf55cd9.js.map"
+    ],
+    "path---posts-coffee-to-babel": [
+      "path---posts-coffee-to-babel-a444a3848303c3974c1b.js",
+      "path---posts-coffee-to-babel-a444a3848303c3974c1b.js.map"
+    ],
+    "path---tags-ecma": [
+      "path---tags-ecma-92ae34dccc8b8d890645.js",
+      "path---tags-ecma-92ae34dccc8b8d890645.js.map"
+    ],
+    "path---tags-gatsby": [
+      "path---tags-gatsby-e25410a9d77e478da43e.js",
+      "path---tags-gatsby-e25410a9d77e478da43e.js.map"
+    ],
+    "path---tags-promises": [
+      "path---tags-promises-53119d46eb52cfdc1e65.js",
+      "path---tags-promises-53119d46eb52cfdc1e65.js.map"
+    ],
+    "path---tags-fiction": [
+      "path---tags-fiction-de393d14da9aa31acb68.js",
+      "path---tags-fiction-de393d14da9aa31acb68.js.map"
+    ],
+    "component---src-pages-categories-jsx": [
+      "component---src-pages-categories-jsx-1f1007225bc666f2b051.js",
+      "component---src-pages-categories-jsx-1f1007225bc666f2b051.js.map"
+    ],
+    "path---index": [
+      "path---index-5456cff386c53a1696d1.js",
+      "path---index-5456cff386c53a1696d1.js.map"
+    ],
+    "path---tags-rails": [
+      "path---tags-rails-dcd99a3ec595c8b119de.js",
+      "path---tags-rails-dcd99a3ec595c8b119de.js.map"
+    ],
+    "path---posts-boxview": [
+      "path---posts-boxview-57ae88dbe989028c48b3.js",
+      "path---posts-boxview-57ae88dbe989028c48b3.js.map"
+    ],
+    "path---tags-harmony": [
+      "path---tags-harmony-f68aa9c7ec512271a136.js",
+      "path---tags-harmony-f68aa9c7ec512271a136.js.map"
+    ],
+    "path---tags-jasmine": [
+      "path---tags-jasmine-a54642b212f623b5c202.js",
+      "path---tags-jasmine-a54642b212f623b5c202.js.map"
+    ],
+    "path---tags-html-5": [
+      "path---tags-html-5-5d1bee662b76098ce72d.js",
+      "path---tags-html-5-5d1bee662b76098ce72d.js.map"
+    ],
+    "path---categories-ruby": [
+      "path---categories-ruby-8228feff0c08093b2003.js",
+      "path---categories-ruby-8228feff0c08093b2003.js.map"
+    ],
+    "path---tags-sinatra": [
+      "path---tags-sinatra-d97f1926166174891d50.js",
+      "path---tags-sinatra-d97f1926166174891d50.js.map"
+    ],
+    "commons": [
+      "commons-c183ca4612be999afa6d.js",
+      "build-js-styles.css",
+      "commons-c183ca4612be999afa6d.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---posts-jasmine-and-teaspoon": [
+      "path---posts-jasmine-and-teaspoon-66ee54195c355ce0f59f.js",
+      "path---posts-jasmine-and-teaspoon-66ee54195c355ce0f59f.js.map"
+    ],
+    "path---tags-marionette": [
+      "path---tags-marionette-859769f88629a668c963.js",
+      "path---tags-marionette-859769f88629a668c963.js.map"
+    ],
+    "path---404-html": [
+      "path---404-html-19e6f13ed44a5428d0d3.js",
+      "path---404-html-19e6f13ed44a5428d0d3.js.map"
+    ],
+    "component---src-pages-404-jsx": [
+      "component---src-pages-404-jsx-3d0441dd1a11b2f3a35b.js",
+      "component---src-pages-404-jsx-3d0441dd1a11b2f3a35b.js.map"
+    ],
+    "path---tags-fragments": [
+      "path---tags-fragments-de5a61842b640b7f2357.js",
+      "path---tags-fragments-de5a61842b640b7f2357.js.map"
+    ],
+    "component---src-templates-post-template-js": [
+      "component---src-templates-post-template-js-04736e8380e99b530338.js",
+      "component---src-templates-post-template-js-04736e8380e99b530338.js.map"
+    ],
+    "path---tags-books": [
+      "path---tags-books-c6c1cdb7b954a4139823.js",
+      "path---tags-books-c6c1cdb7b954a4139823.js.map"
+    ],
+    "path---posts-fragment-factories": [
+      "path---posts-fragment-factories-21ac9f84e934ab9dd9f9.js",
+      "path---posts-fragment-factories-21ac9f84e934ab9dd9f9.js.map"
+    ],
+    "path---posts-ecmascript-6-harmony": [
+      "path---posts-ecmascript-6-harmony-eedb2f8eca1e2e07aaf7.js",
+      "path---posts-ecmascript-6-harmony-eedb2f8eca1e2e07aaf7.js.map"
+    ],
+    "path---offline-plugin-app-shell-fallback": [
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---tags-java-script": [
+      "path---tags-java-script-a39e7a5be077415f01a1.js",
+      "path---tags-java-script-a39e7a5be077415f01a1.js.map"
+    ],
+    "component---src-pages-index-jsx": [
+      "component---src-pages-index-jsx-86b9cf32b2f5d1669723.js",
+      "component---src-pages-index-jsx-86b9cf32b2f5d1669723.js.map"
+    ],
+    "path---posts-the-witcher": [
+      "path---posts-the-witcher-7bb0f191f9732ad95e1c.js",
+      "path---posts-the-witcher-7bb0f191f9732ad95e1c.js.map"
+    ],
+    "path---posts-sinatra-assets": [
+      "path---posts-sinatra-assets-8e25c2ddf911777d7d79.js",
+      "path---posts-sinatra-assets-8e25c2ddf911777d7d79.js.map"
+    ],
+    "app": [
+      "app-7ca3e74bd562b33bc807.js",
+      "app-7ca3e74bd562b33bc807.js.map"
+    ],
+    "component---src-templates-page-template-js": [
+      "component---src-templates-page-template-js-a508b0aa5646ea486451.js",
+      "component---src-templates-page-template-js-a508b0aa5646ea486451.js.map"
+    ],
+    "path---posts-aviarys-featherjs-in-backbone-marionette": [
+      "path---posts-aviarys-featherjs-in-backbone-marionette-208011219235939a8015.js",
+      "path---posts-aviarys-featherjs-in-backbone-marionette-208011219235939a8015.js.map"
+    ],
+    "path---tags-aviary": [
+      "path---tags-aviary-79dd285bd7acbcb1c534.js",
+      "path---tags-aviary-79dd285bd7acbcb1c534.js.map"
+    ],
+    "path---404": [
+      "path---404-19e6f13ed44a5428d0d3.js",
+      "path---404-19e6f13ed44a5428d0d3.js.map"
+    ],
+    "path---tags-backbone": [
+      "path---tags-backbone-d413a28fab4ee7138b0a.js",
+      "path---tags-backbone-d413a28fab4ee7138b0a.js.map"
+    ],
+    "path---tags-web-worker": [
+      "path---tags-web-worker-84d8115908364668d7e2.js",
+      "path---tags-web-worker-84d8115908364668d7e2.js.map"
+    ],
+    "path---tags-android": [
+      "path---tags-android-0d8f79c1d7d919be97d3.js",
+      "path---tags-android-0d8f79c1d7d919be97d3.js.map"
+    ],
+    "path---tags-teaspoon": [
+      "path---tags-teaspoon-20124ba5daa4bea29960.js",
+      "path---tags-teaspoon-20124ba5daa4bea29960.js.map"
+    ],
+    "path---about": [
+      "path---about-d78bca78cdae960a04a6.js",
+      "path---about-d78bca78cdae960a04a6.js.map"
+    ],
+    "path---tags-ruby": [
+      "path---tags-ruby-a5202d58a7aa87639038.js",
+      "path---tags-ruby-a5202d58a7aa87639038.js.map"
+    ]
+  }
+}

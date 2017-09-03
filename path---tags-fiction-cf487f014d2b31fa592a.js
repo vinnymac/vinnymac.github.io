@@ -1,0 +1,2 @@
+webpackJsonp([0x80cc69facf67b800],{"./node_modules/json-loader/index.js!./.cache/json/tags-fiction.json":function(o,n){o.exports={pathContext:{tag:"Fiction"}}}});
+//# sourceMappingURL=path---tags-fiction-cf487f014d2b31fa592a.js.map

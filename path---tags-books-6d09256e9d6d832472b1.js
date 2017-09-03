@@ -1,0 +1,2 @@
+webpackJsonp([0xb602dc5342407000],{"./node_modules/json-loader/index.js!./.cache/json/tags-books.json":function(o,s){o.exports={pathContext:{tag:"Books"}}}});
+//# sourceMappingURL=path---tags-books-6d09256e9d6d832472b1.js.map

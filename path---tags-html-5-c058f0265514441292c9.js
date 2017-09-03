@@ -1,0 +1,2 @@
+webpackJsonp([0x8c8512c05c9e5800],{"./node_modules/json-loader/index.js!./.cache/json/tags-html-5.json":function(o,e){o.exports={pathContext:{tag:"HTML5"}}}});
+//# sourceMappingURL=path---tags-html-5-c058f0265514441292c9.js.map
