@@ -2,10 +2,15 @@
 layout: post
 title: "Client-Side EXIF"
 date: 2014-04-14T09:59:53.000Z
-comments: true
 sharing: true
+comments: true
+draft: false
+path: "/posts/client-side-exif/"
 category: JavaScript
-categories: EXIF, Web Worker, Javascript
+tags:
+  - "EXIF"
+  - "Web Worker"
+  - "JavaScript"
 ---
 
 ```coffeescript

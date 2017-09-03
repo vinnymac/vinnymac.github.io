@@ -4,8 +4,12 @@ title: "Fragment Factories"
 date: 2014-05-11T20:22:59.000Z
 comments: true
 sharing: true
+draft: false
+path: "/posts/fragment-factories/"
 category: Android
-categories: Android, Fragments
+tags:
+  - "Android"
+  - "Fragments"
 ---
 
 ### onStart

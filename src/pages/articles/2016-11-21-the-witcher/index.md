@@ -4,7 +4,12 @@ date: 2016-11-22T02:14:03.000Z
 layout: post
 comments: true
 sharing: true
+draft: false
+path: "/posts/the-witcher/"
 category: Books
+tags:
+  - "Books"
+  - "Fiction"
 description: "Words from Andrzej Sapkowski."
 ---
 

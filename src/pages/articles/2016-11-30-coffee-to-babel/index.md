@@ -4,7 +4,12 @@ date: 2016-11-30T09:17:00.000Z
 layout: post
 comments: true
 sharing: true
+draft: false
+path: "/posts/coffee-to-babel/"
 category: JavaScript
+tags:
+  - "JavaScript"
+  - "CoffeeScript"
 description: "How I quickly translated an entire frontend codebase from coffee to babel."
 ---
 

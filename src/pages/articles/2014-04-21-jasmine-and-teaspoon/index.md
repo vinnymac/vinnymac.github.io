@@ -2,10 +2,15 @@
 layout: post
 title: "Jasmine and Teaspoon"
 date: 2014-04-21T23:59:13.000Z
-comments: true
 sharing: true
+comments: true
+draft: false
+path: "/posts/jasmine-and-teaspoon/"
 category: JavaScript
-categories: Jasmine, Teaspoon
+tags:
+  - "Jasmine"
+  - "Teaspoon"
+  - "JavaScript"
 ---
 
 ### onStart

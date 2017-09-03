@@ -4,8 +4,13 @@ title: "BoxView"
 date: 2014-05-18T21:51:11.000Z
 comments: true
 sharing: true
+draft: false
+path: "/posts/boxview/"
 category: Ruby
-categories: Box, Ruby, Rails
+tags:
+  - "Box"
+  - "Ruby"
+  - "Rails"
 ---
 
 ### onStart

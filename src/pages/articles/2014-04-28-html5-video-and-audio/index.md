@@ -2,10 +2,15 @@
 layout: post
 title: "HTML5 Video and Audio"
 date: 2014-04-28T16:27:05.000Z
-comments: true
 sharing: true
+comments: true
+draft: false
+path: "/posts/html5-video-and-audio/"
 category: JavaScript
-categories: HTML5, Coffeescript
+tags:
+  - "Coffeescript"
+  - "HTML5"
+  - "JavaScript"
 ---
 
 ### onStart

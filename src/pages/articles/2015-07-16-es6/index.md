@@ -4,7 +4,13 @@ date: 2015-07-16T00:00:00.000Z
 layout: post
 comments: true
 sharing: true
+draft: false
+path: "/posts/ecmascript-6-harmony/"
 category: JavaScript
+tags:
+  - "JavaScript"
+  - "ECMA"
+  - "Harmony"
 description: "The history and future of JavaScript."
 ---
 

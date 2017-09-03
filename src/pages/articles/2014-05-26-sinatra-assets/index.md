@@ -4,8 +4,12 @@ title: "Sinatra Assets"
 date: 2014-05-26T15:32:56.000Z
 comments: true
 sharing: true
+draft: false
+path: "/posts/sinatra-assets/"
 category: Ruby
-categories: Sinatra, Ruby
+tags:
+  - "Sinatra"
+  - "Ruby"
 ---
 
 ### onStart

@@ -1,112 +1,99 @@
-import React from "react";
-import Link from "gatsby-link";
-import sortBy from "lodash/sortBy";
-import moment from "moment";
-import Helmet from "react-helmet";
-import access from "safe-access";
-import SitePost from "../components/SitePost";
-import SiteSidebar from "../components/SiteSidebar";
-import appleTouchIcon from "./apple-touch-icon.png";
-import favicon32 from "./favicon-32x32.png";
-import favicon16 from "./favicon-16x16.png";
-import safariPinnedTab from "./safari-pinned-tab.svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import Post from '../components/Post';
+import Sidebar from '../components/Sidebar';
+import appleTouchIcon from './favicons/apple-touch-icon.png';
+import favicon32 from './favicons/favicon-32x32.png';
+import favicon16 from './favicons/favicon-16x16.png';
+import safariPinnedTab from './favicons/safari-pinned-tab.svg';
 
-class SiteIndex extends React.Component {
+class IndexRoute extends React.Component {
   render() {
-    const pageLinks = [];
-    // Sort pages.
-    const sortedPages = sortBy(this.props.route.pages, page =>
-      access(page, "data.date")
-    ).reverse();
-    sortedPages.forEach((page, i) => {
-      if (
-        access(page, "file.ext") === "md" &&
-        access(page, "data.layout") === "post"
-      ) {
-        const title = access(page, "data.title") || page.path;
-        const description = access(page, "data.description");
-        const datePublished = access(page, "data.date");
-        const category = access(page, "data.category");
-
-        pageLinks.push(
-          <div className="blog-post" key={i}>
-            <time dateTime={moment(datePublished).format("MMMM D, YYYY")}>
-              {moment(datePublished).format("MMMM YYYY")}
-            </time>
-            <span style={{ padding: "5px" }} />
-            <span className="blog-category">
-              {category}
-            </span>
-            <h2>
-              <Link style={{ borderBottom: "none" }} to={page.path}>
-                {" "}{title}{" "}
-              </Link>
-            </h2>
-            <p dangerouslySetInnerHTML={{ __html: description }} />
-            <Link className="readmore" to={page.path}>
-              {" "}Read
-            </Link>
-          </div>
-        );
-      }
+    const items = [];
+    const { title, subtitle } = this.props.data.site.siteMetadata;
+    const posts = this.props.data.allMarkdownRemark.edges;
+    posts.forEach((post) => {
+      items.push(<Post data={post} key={post.node.fields.slug} />);
     });
 
     return (
       <div>
-        <Helmet
-          title={this.props.data.site.siteMetadata.title}
-          meta={[{ name: "theme-color", content: "#ffffff" }]}
-          link={[
-            { rel: "manifest", href: "/manifest.json" },
-            {
-              rel: "apple-touch-icon",
-              sizes: "180x180",
-              href: appleTouchIcon
-            },
-            {
-              rel: "icon",
-              sizes: "32x32",
-              href: favicon32,
-              type: "image/png"
-            },
-            {
-              rel: "icon",
-              sizes: "16x16",
-              href: favicon16,
-              type: "image/png"
-            },
-            {
-              rel: "mask-icon",
-              href: safariPinnedTab,
-              color: "#5bbad5"
-            }
-          ]}
-        />
-        <SiteSidebar {...this.props} />
+        <Helmet>
+          <title>{title}</title>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+          <link rel="icon" sizes="32x32" href={favicon32} type="image/png" />
+          <link rel="icon" sizes="16x16" href={favicon16} type="image/png" />
+          <link rel="mask-icon" color="#5bbad5" href={safariPinnedTab} />
+          <meta name="description" content={subtitle} />
+        </Helmet>
+        <Sidebar {...this.props} />
         <div className="content">
-          <div className="main">
-            <div className="main-inner">
-              {pageLinks}
-            </div>
-          </div>
+          <div className="content__inner">{items}</div>
         </div>
       </div>
     );
   }
 }
 
-SiteIndex.propTypes = {
-  route: React.PropTypes.object
+IndexRoute.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired
+      })
+    }),
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array.isRequired
+    })
+  })
 };
 
+export default IndexRoute;
+
 export const pageQuery = graphql`
-  query SiteMetadataLookup($slug: String!) {
+  query IndexQuery {
     site {
       siteMetadata {
         title
+        subtitle
+        copyright
+        menu {
+          label
+          path
+        }
+        author {
+          name
+          email
+          telegram
+          twitter
+          github
+          rss
+          vk
+        }
+      }
+    }
+    allMarkdownRemark(
+      limit: 1000
+      filter: { frontmatter: { layout: { eq: "post" }, draft: { ne: true } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            categorySlug
+          }
+          frontmatter {
+            title
+            date
+            category
+            description
+          }
+        }
       }
     }
   }
 `;
-
-export default SiteIndex;

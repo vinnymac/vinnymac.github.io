@@ -4,8 +4,12 @@ title: "boxviewrb"
 date: 2014-06-11T20:06:09.000Z
 comments: true
 sharing: true
+draft: false
+path: "/posts/boxviewrb/"
 category: Ruby
-categories: Box, Ruby
+tags:
+  - "Box"
+  - "Ruby"
 description: "A look at integrating BoxView with an existing rails app, and the library that came out of this work."
 ---
 

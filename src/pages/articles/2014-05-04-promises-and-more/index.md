@@ -2,10 +2,14 @@
 layout: post
 title: "Promises and More"
 date: 2014-05-05T12:30:53.000Z
-comments: true
 sharing: true
+comments: true
+draft: false
+path: "/posts/promises-and-more/"
 category: JavaScript
-categories: JavaScript, Promises
+tags:
+  - "Promises"
+  - "JavaScript"
 ---
 
 ### onStart

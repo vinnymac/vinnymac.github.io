@@ -4,7 +4,13 @@ date: 2016-11-25T02:06:00.000Z
 layout: post
 comments: true
 sharing: true
+draft: false
+path: "/posts/blog-performance/"
 category: JavaScript
+tags:
+  - "JavaScript"
+  - "Gatsby"
+  - "Performance"
 description: "Gatsby and Metrics for the new blog."
 ---
 
