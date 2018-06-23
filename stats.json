@@ -17,12 +17,16 @@
       "path---posts-boxviewrb-301c6c6b8b05b198ad5e.js.map"
     ],
     "path---categories": [
-      "path---categories-91f138c8f0933eaef823.js",
-      "path---categories-91f138c8f0933eaef823.js.map"
+      "path---categories-b506494f6aa6032937dc.js",
+      "path---categories-b506494f6aa6032937dc.js.map"
     ],
     "component---src-pages-tags-jsx": [
       "component---src-pages-tags-jsx-408d739508aa1b100597.js",
       "component---src-pages-tags-jsx-408d739508aa1b100597.js.map"
+    ],
+    "path---tags-elixir": [
+      "path---tags-elixir-8e6662756b7569098d9a.js",
+      "path---tags-elixir-8e6662756b7569098d9a.js.map"
     ],
     "path---categories-books": [
       "path---categories-books-f01ecdd98839564894ce.js",
@@ -36,17 +40,25 @@
       "path---tags-coffee-script-c8e1782074eaea3742aa.js",
       "path---tags-coffee-script-c8e1782074eaea3742aa.js.map"
     ],
+    "path---tags-phoenix": [
+      "path---tags-phoenix-639a2703e2289e79a9e8.js",
+      "path---tags-phoenix-639a2703e2289e79a9e8.js.map"
+    ],
     "path---tags-exif": [
       "path---tags-exif-ff79a6de2da7b3881c81.js",
       "path---tags-exif-ff79a6de2da7b3881c81.js.map"
     ],
     "path---tags": [
-      "path---tags-1fb43d9be6ea311ee6ca.js",
-      "path---tags-1fb43d9be6ea311ee6ca.js.map"
+      "path---tags-07aac5c2f3e27a137e2a.js",
+      "path---tags-07aac5c2f3e27a137e2a.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
       "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---posts-programming-phoenix": [
+      "path---posts-programming-phoenix-73be6e4bcea081453920.js",
+      "path---posts-programming-phoenix-73be6e4bcea081453920.js.map"
     ],
     "path---tags-box": [
       "path---tags-box-0edfb756a5260c68ae23.js",
@@ -109,8 +121,8 @@
       "component---src-pages-categories-jsx-1f1007225bc666f2b051.js.map"
     ],
     "path---index": [
-      "path---index-5456cff386c53a1696d1.js",
-      "path---index-5456cff386c53a1696d1.js.map"
+      "path---index-2f113bdae23cd61afeea.js",
+      "path---index-2f113bdae23cd61afeea.js.map"
     ],
     "path---tags-rails": [
       "path---tags-rails-dcd99a3ec595c8b119de.js",
@@ -140,6 +152,10 @@
       "path---tags-sinatra-d97f1926166174891d50.js",
       "path---tags-sinatra-d97f1926166174891d50.js.map"
     ],
+    "path---categories-elixir": [
+      "path---categories-elixir-fd9dfefb8b83bd008f93.js",
+      "path---categories-elixir-fd9dfefb8b83bd008f93.js.map"
+    ],
     "commons": [
       "commons-c183ca4612be999afa6d.js",
       "build-js-styles.css",
@@ -161,6 +177,10 @@
     "component---src-pages-404-jsx": [
       "component---src-pages-404-jsx-3d0441dd1a11b2f3a35b.js",
       "component---src-pages-404-jsx-3d0441dd1a11b2f3a35b.js.map"
+    ],
+    "path---tags-erlang": [
+      "path---tags-erlang-848fc72dcf1706a84d06.js",
+      "path---tags-erlang-848fc72dcf1706a84d06.js.map"
     ],
     "path---tags-fragments": [
       "path---tags-fragments-de5a61842b640b7f2357.js",
@@ -203,8 +223,8 @@
       "path---posts-sinatra-assets-8e25c2ddf911777d7d79.js.map"
     ],
     "app": [
-      "app-a93f4e0461b660b63fe0.js",
-      "app-a93f4e0461b660b63fe0.js.map"
+      "app-0c387d2893b7365b328c.js",
+      "app-0c387d2893b7365b328c.js.map"
     ],
     "component---src-templates-page-template-js": [
       "component---src-templates-page-template-js-a508b0aa5646ea486451.js",

@@ -43,6 +43,11 @@
 <url> <loc>https://vincenttaverna.com/posts/coffee-to-babel/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://vincenttaverna.com/tags/coffee-script/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://vincenttaverna.com/about</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://vincenttaverna.com/posts/programming-phoenix/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://vincenttaverna.com/tags/elixir/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://vincenttaverna.com/tags/erlang/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://vincenttaverna.com/tags/phoenix/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://vincenttaverna.com/categories/elixir/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://vincenttaverna.com/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://vincenttaverna.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://vincenttaverna.com/tags/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

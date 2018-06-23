@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Continuum]]></title><description><![CDATA[Dev Continuum]]></description><link>http://github.com/dylang/node-rss</link><generator>RSS for Node</generator><lastBuildDate>Wed, 04 Oct 2017 02:05:47 GMT</lastBuildDate><item><title><![CDATA[Coffee to Babel in 24 hours]]></title><description><![CDATA[How I quickly translated an entire frontend codebase from coffee to babel.]]></description><link>https://vincenttaverna.com/posts/coffee-to-babel/</link><guid isPermaLink="false">https://vincenttaverna.com/posts/coffee-to-babel/</guid><pubDate>Wed, 30 Nov 2016 09:17:00 GMT</pubDate><content:encoded>&lt;p&gt;Recently I was tasked with modernizing a CoffeeScript codebase to use Babel. I’ve used babel (and 6to5) across various projects for almost two years, not to mention I have been writing CoffeeScript since it has been in the hands of the public. I was told to convert the code to coffee to babel as quickly as I could. Fortunately the project I was working with was already setup with webpack which made using the &lt;code&gt;babel-loader&lt;/code&gt; alongside the &lt;code&gt;coffee-loader&lt;/code&gt; a possibility if I failed to convert everything on time. With that in mind I configured a basic &lt;code&gt;.eslintrc&lt;/code&gt; and &lt;code&gt;.babelrc&lt;/code&gt; and started the process of translation.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Continuum]]></title><description><![CDATA[Dev Continuum]]></description><link>http://github.com/dylang/node-rss</link><generator>RSS for Node</generator><lastBuildDate>Sat, 23 Jun 2018 12:45:32 GMT</lastBuildDate><item><title><![CDATA[Programming Phoenix]]></title><description><![CDATA[Quotes from Programming Phoenix that inspire]]></description><link>https://vincenttaverna.com/posts/programming-phoenix/</link><guid isPermaLink="false">https://vincenttaverna.com/posts/programming-phoenix/</guid><pubDate>Sat, 23 Jun 2018 08:38:00 GMT</pubDate><content:encoded>&lt;p&gt;Some quotes from Programming Phoenix that inspire&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In July 2015, we (Chris McCord) compared
+Phoenix with Ruby on Rails. The firebird was nearly an order of magnitude
+faster than the locomotive, and it used just over one fourth of the processing
+power and just under one sixth of the total memory. Those numbers are
+staggering, but not many Rails users are after naked power.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In Phoenix, you won’t have to read through dozens of
+skip&lt;em&gt;before&lt;/em&gt;filter commands to know how your code works. You’ll just build a
+pipeline for each group of routes that work the same way.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;One continuous problem with web frameworks is that they tend to bloat over
+time, sometimes fatally. If the underlying abstractions for extending the
+framework are wrong, each new feature will increase complexity until the
+framework collapses under its own weight. Sometimes, the problem is that
+the web framework doesn’t include enough, and the abstractions for extending
+the framework aren’t right.
+This problem is particularly acute with object-oriented languages. Inheritance
+is simply not a rich enough abstraction to represent the entire ecosystem of
+a web platform. Inheritance works best when a single feature extends a
+framework across a single dimension. Unfortunately, many ambitious features
+span several different dimensions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As a developer,
+until now, you’ve been forced to make a choice between applications that
+intentionally forget important details to scale and applications that try to
+remember too much and break under load.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Phoenix has:
+isolation and concurrency. Isolation guarantees that if a bug affects one
+channel, all other channels continue running. Breaking one feature won’t
+bleed into other site functionality. Concurrency means one channel can never
+block another one, whether code is waiting on the database or crunching
+data. This key advantage means that the UI never becomes unresponsive
+because the user started a heavy action.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The problem for Rails developers is
+that the scope of problems it’s best able to solve is rapidly narrowing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you’re a Java developer looking for where to go next, or a JVM-language
+developer looking for a better concurrency story, Phoenix would mean leaving
+the JVM behind. Maybe that’s a good thing. You’ll find a unified, integrated
+story in Phoenix with sound abstractions on top. You’ll see a syntax that
+provides Clojure-style metaprogramming on syntax that we think is richer
+and cleaner than Scala’s.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A web server is a natural problem for
+a functional language to solve.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In Phoenix, that connection is the whole universe of things we need to know
+about a user’s request.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We process data in the model; we read or write that data through
+the controller. Ecto allows us to organize our code in this way. It separates
+the code with side effects, which changes the world around us, from the code
+that’s only transforming data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;the atom table isn’t garbage-collected.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your application is a series of plugs, beginning with an endpoint
+and ending with a controller&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mix ecto.gen.migration create_user&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[Coffee to Babel in 24 hours]]></title><description><![CDATA[How I quickly translated an entire frontend codebase from coffee to babel.]]></description><link>https://vincenttaverna.com/posts/coffee-to-babel/</link><guid isPermaLink="false">https://vincenttaverna.com/posts/coffee-to-babel/</guid><pubDate>Wed, 30 Nov 2016 09:17:00 GMT</pubDate><content:encoded>&lt;p&gt;Recently I was tasked with modernizing a CoffeeScript codebase to use Babel. I’ve used babel (and 6to5) across various projects for almost two years, not to mention I have been writing CoffeeScript since it has been in the hands of the public. I was told to convert the code to coffee to babel as quickly as I could. Fortunately the project I was working with was already setup with webpack which made using the &lt;code&gt;babel-loader&lt;/code&gt; alongside the &lt;code&gt;coffee-loader&lt;/code&gt; a possibility if I failed to convert everything on time. With that in mind I configured a basic &lt;code&gt;.eslintrc&lt;/code&gt; and &lt;code&gt;.babelrc&lt;/code&gt; and started the process of translation.&lt;/p&gt;
 &lt;p&gt;Surprisingly the process didn’t start with actual translations. Manual translation would not be quick enough. Dredging through hundreds of coffee files was going to take me way more time than I had. So I started searching around for tools that could convert CoffeeScript to Babel. Tons of tools exist, but nothing to do this exact conversion. Luckily you can get something working pretty well if you use the right combination of tools. You will come across some files that don’t fully convert, and you may even need to tweak the conversion tool to get it working to your liking. Given a time crunch like I had, you would be glad to have this as an option.&lt;/p&gt;
 &lt;h3&gt;&lt;a href=&quot;https://github.com/jsdf/cjsx-codemod&quot;&gt;CJSX-Codemod&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;If you aren’t using JSX, or you don’t know what JSX is, you can ignore this tool. It is only required if you were previously using JSX, and you can move on to the next tool I used in this process. For everyone else, this tool lets us convert JSX to coffee. So lines like &lt;code&gt;&amp;#x3C;div /&gt;&lt;/code&gt; will translate to &lt;code&gt;React.createElement(&apos;div&apos;, null)&lt;/code&gt;. You can globally install this package and then run it over a directory of scripts of your choosing. It will fire off some workers and tell you if it had any trouble along the way. If you are lucky everything will go smoothly. I recommend sanity checking throughout each step, and committing the changes that you are making so you don’t end up wasting any time.&lt;/p&gt;
