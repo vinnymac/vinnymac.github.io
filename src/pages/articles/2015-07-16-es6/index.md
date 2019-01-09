@@ -38,9 +38,9 @@ description: "The history and future of JavaScript."
 
 ---
 
-![ECMA](http://www.ecma-international.org/images/logo_printerf.jpg)
+![ECMA](https://www.ecma-international.org/images/logo_printerf.jpg)
 
-![Standards](http://i.imgur.com/eZGm64W.png)
+![Standards](https://i.imgur.com/eZGm64W.png)
 
 ---
 
@@ -55,7 +55,7 @@ description: "The history and future of JavaScript."
 
 ---
 
-![Compiling](http://imgs.xkcd.com/xk3d/303/compiling_4.png)
+![Compiling](https://imgs.xkcd.com/xk3d/303/compiling_4.png)
 
 ---
 
@@ -528,19 +528,19 @@ Reflect.ownKeys(obj); // → [ "a", "b", Symbol(c) ]
   * Macros (make your own syntax)
   * Parallel arrays
 
-![XKCD](http://i.imgur.com/PsVj5Nl.png)
+![XKCD](https://i.imgur.com/PsVj5Nl.png)
 ---
 
 # Finito
 
 - Compatibility Table:
-http://kangax.github.io/compat-table/es6/
+https://kangax.github.io/compat-table/es6/
 
 - Future of JS:
-http://www.2ality.com/2011/09/es6-8.html
+https://www.2ality.com/2011/09/es6-8.html
 
 - REPL:
 https://babeljs.io/repl/#?experimental=true
 
 - Feature List
-http://es6-features.org
+https://es6-features.org
