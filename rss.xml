@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Continuum]]></title><description><![CDATA[Dev Continuum]]></description><link>http://github.com/dylang/node-rss</link><generator>RSS for Node</generator><lastBuildDate>Sat, 23 Jun 2018 12:45:32 GMT</lastBuildDate><item><title><![CDATA[Programming Phoenix]]></title><description><![CDATA[Quotes from Programming Phoenix that inspire]]></description><link>https://vincenttaverna.com/posts/programming-phoenix/</link><guid isPermaLink="false">https://vincenttaverna.com/posts/programming-phoenix/</guid><pubDate>Sat, 23 Jun 2018 08:38:00 GMT</pubDate><content:encoded>&lt;p&gt;Some quotes from Programming Phoenix that inspire&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Continuum]]></title><description><![CDATA[Dev Continuum]]></description><link>http://github.com/dylang/node-rss</link><generator>RSS for Node</generator><lastBuildDate>Wed, 09 Jan 2019 02:13:32 GMT</lastBuildDate><item><title><![CDATA[Programming Phoenix]]></title><description><![CDATA[Quotes from Programming Phoenix that inspire]]></description><link>https://vincenttaverna.com/posts/programming-phoenix/</link><guid isPermaLink="false">https://vincenttaverna.com/posts/programming-phoenix/</guid><pubDate>Sat, 23 Jun 2018 08:38:00 GMT</pubDate><content:encoded>&lt;p&gt;Some quotes from Programming Phoenix that inspire&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;In July 2015, we (Chris McCord) compared
 Phoenix with Ruby on Rails. The firebird was nearly an order of magnitude
@@ -236,8 +236,8 @@ lighthouse https://vincenttaverna.com
 &lt;li&gt;5.1 international standardization (2011)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;http://www.ecma-international.org/images/logo_printerf.jpg&quot; alt=&quot;ECMA&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/eZGm64W.png&quot; alt=&quot;Standards&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.ecma-international.org/images/logo_printerf.jpg&quot; alt=&quot;ECMA&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/eZGm64W.png&quot; alt=&quot;Standards&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1&gt;Transpiling&lt;/h1&gt;
 &lt;ul&gt;
@@ -249,7 +249,7 @@ lighthouse https://vincenttaverna.com
 &lt;li&gt;ES6 gets standardized (June 2015)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;http://imgs.xkcd.com/xk3d/303/compiling_4.png&quot; alt=&quot;Compiling&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/xk3d/303/compiling_4.png&quot; alt=&quot;Compiling&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2&gt;Constants&lt;/h2&gt;
 &lt;ul&gt;
@@ -746,16 +746,16 @@ Reflect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;&lt;img src=&quot;http://i.imgur.com/PsVj5Nl.png&quot; alt=&quot;XKCD&quot;&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;img src=&quot;https://i.imgur.com/PsVj5Nl.png&quot; alt=&quot;XKCD&quot;&gt;&lt;/h2&gt;
 &lt;h1&gt;Finito&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Compatibility Table:
-&lt;a href=&quot;http://kangax.github.io/compat-table/es6/&quot;&gt;http://kangax.github.io/compat-table/es6/&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://kangax.github.io/compat-table/es6/&quot;&gt;https://kangax.github.io/compat-table/es6/&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Future of JS:
-&lt;a href=&quot;http://www.2ality.com/2011/09/es6-8.html&quot;&gt;http://www.2ality.com/2011/09/es6-8.html&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://www.2ality.com/2011/09/es6-8.html&quot;&gt;https://www.2ality.com/2011/09/es6-8.html&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;REPL:
@@ -763,7 +763,7 @@ Reflect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Feature List
-&lt;a href=&quot;http://es6-features.org&quot;&gt;http://es6-features.org&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;https://es6-features.org&quot;&gt;https://es6-features.org&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[boxviewrb]]></title><description><![CDATA[A look at integrating BoxView with an existing rails app, and the library that came out of this work.]]></description><link>https://vincenttaverna.com/posts/boxviewrb/</link><guid isPermaLink="false">https://vincenttaverna.com/posts/boxviewrb/</guid><pubDate>Wed, 11 Jun 2014 20:06:09 GMT</pubDate><content:encoded>&lt;h3&gt;onStart&lt;/h3&gt;
 &lt;p&gt;I took a bit of a blogging hiatus during my vacation recently. I used this time to start working on an open source project called &lt;a href=&quot;https://github.com/getlua/boxviewrb&quot;&gt;boxviewrb&lt;/a&gt;. &lt;a href=&quot;https://github.com/getlua/boxviewrb&quot;&gt;Boxviewrb&lt;/a&gt; is a Box View API Wrapper written in ruby. It uses the &lt;a href=&quot;http://johnnunemaker.com/httparty/&quot;&gt;HTTParty&lt;/a&gt; gem for network calls, and also supports multipart uploading. Alternative gems for Box View do exist. However, they are incomplete implementations, some old that have not been updated (crocodoc), and others that just did not offer a complete feature set. &lt;a href=&quot;https://github.com/getlua/boxviewrb&quot;&gt;Boxviewrb&lt;/a&gt; works with every request and feature that the Box View API has documented. Test coverage is minimal, only some of the requests have tests, but I am meaning to add more coverage in the future. I attempted to make the documentation as readable and self explanatory as I possibly could. This is my first time ever releasing a piece of open source software, and it certainly will not be my last. Instructions on how to contribute can be found at the bottom of the readme.&lt;/p&gt;
