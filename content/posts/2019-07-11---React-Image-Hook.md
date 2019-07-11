@@ -35,7 +35,7 @@ export default (url, crossOrigin) => {
 }
 ```
 
-We haven't implemented our promise API properly yet however. We need to tell the promise whether or not the image downloaded successfully or failed. This can be done with `addEventListener` or the older `on` event callbacks, such as `onload`, `onerror`, or `onabort`.
+We haven't implemented our promise API properly yet however. We need to fulfill our promise when the image loads, and handle it failing as well. This can be done with `addEventListener` or the older `on` event callbacks, such as `onload`, `onerror`, or `onabort`. Let's try using them below.
 
 ```js
 export default (url, crossOrigin) => {
@@ -68,12 +68,12 @@ import loadImage from './loadImage.js'
 
 async function getImage(url) {
     try {
-        const img = await loadImage(url, false)
-        // Use `img` however we want, cache it or measure it
-        console.log(img.src, img.height, img.width)
+      const img = await loadImage(url, false)
+      // Use `img` however we want, cache it or measure it
+      console.log(img.src, img.height, img.width)
     } catch (err) {
-        // report error, load fallback, retry, et cetera
-        console.error(err)
+      // report error, load fallback, retry, et cetera
+      console.error(err)
     }
 }
 
