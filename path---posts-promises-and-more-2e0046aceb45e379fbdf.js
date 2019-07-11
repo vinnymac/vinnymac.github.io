@@ -1,2 +1,0 @@
-webpackJsonp([0x67aaa2879779cc00],{"./node_modules/json-loader/index.js!./.cache/json/posts-promises-and-more.json":function(o,s){o.exports={pathContext:{slug:"/posts/promises-and-more/"}}}});
-//# sourceMappingURL=path---posts-promises-and-more-2e0046aceb45e379fbdf.js.map

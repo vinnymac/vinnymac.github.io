@@ -1,2 +1,0 @@
-webpackJsonp([0x91947847a7a93000],{"./node_modules/json-loader/index.js!./.cache/json/categories-ruby.json":function(o,e){o.exports={pathContext:{category:"Ruby"}}}});
-//# sourceMappingURL=path---categories-ruby-1705fde4dba480c794d8.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([0x4d8e5f384e499000],{"./node_modules/json-loader/index.js!./.cache/json/tags-performance.json":function(e,o){e.exports={pathContext:{tag:"Performance"}}}});
-//# sourceMappingURL=path---tags-performance-351f87470945afe767fa.js.map

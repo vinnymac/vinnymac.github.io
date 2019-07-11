@@ -1,2 +1,0 @@
-webpackJsonp([0xfbf85b35cd4be800],{"./node_modules/json-loader/index.js!./.cache/json/tags-ruby.json":function(o,e){o.exports={pathContext:{tag:"Ruby"}}}});
-//# sourceMappingURL=path---tags-ruby-3f52f79ea2913c655c66.js.map

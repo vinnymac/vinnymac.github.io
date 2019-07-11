@@ -1,2 +1,0 @@
-webpackJsonp([0xf35a50db9e640800],{"./node_modules/json-loader/index.js!./.cache/json/tags-web-worker.json":function(e,o){e.exports={pathContext:{tag:"Web Worker"}}}});
-//# sourceMappingURL=path---tags-web-worker-2731fd7475eb2c991b92.js.map

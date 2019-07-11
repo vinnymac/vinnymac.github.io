@@ -1,2 +1,0 @@
-webpackJsonp([0x94b761b297b3a800],{"./node_modules/json-loader/index.js!./.cache/json/tags-sinatra.json":function(a,n){a.exports={pathContext:{tag:"Sinatra"}}}});
-//# sourceMappingURL=path---tags-sinatra-b7d36af1b173644ee388.js.map

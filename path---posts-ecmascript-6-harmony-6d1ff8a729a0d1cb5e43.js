@@ -1,2 +1,0 @@
-webpackJsonp([0xbee2c139e32f5000],{"./node_modules/json-loader/index.js!./.cache/json/posts-ecmascript-6-harmony.json":function(o,s){o.exports={pathContext:{slug:"/posts/ecmascript-6-harmony/"}}}});
-//# sourceMappingURL=path---posts-ecmascript-6-harmony-6d1ff8a729a0d1cb5e43.js.map

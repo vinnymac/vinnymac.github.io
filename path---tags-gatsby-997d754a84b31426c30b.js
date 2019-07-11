@@ -1,2 +1,0 @@
-webpackJsonp([0x7ab76f7a7e614000],{"./node_modules/json-loader/index.js!./.cache/json/tags-gatsby.json":function(a,o){a.exports={pathContext:{tag:"Gatsby"}}}});
-//# sourceMappingURL=path---tags-gatsby-997d754a84b31426c30b.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([0xa2868bfb69fc9000],{"./node_modules/json-loader/index.js!./.cache/json/404-html.json":function(t,e){t.exports={data:{site:{siteMetadata:{title:"Dev Continuum",subtitle:"Software Engineer",copyright:"© All rights reserved.",menu:[{label:"Articles",path:"/"},{label:"About me",path:"/about/"}],author:{name:"Vincent Taverna",email:"vinnymac@gmail.com",telegram:"#",twitter:"https://twitter.com/kidtheflash",github:"https://github.com/vinnymac",rss:"#",vk:"#"}}}},pathContext:{}}}});
-//# sourceMappingURL=path---404-html-19e6f13ed44a5428d0d3.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([832020132629192e4],{"./node_modules/json-loader/index.js!./.cache/json/posts-coffee-to-babel.json":function(o,e){o.exports={pathContext:{slug:"/posts/coffee-to-babel/"}}}});
-//# sourceMappingURL=path---posts-coffee-to-babel-392fcc10f9e1cc1f7171.js.map

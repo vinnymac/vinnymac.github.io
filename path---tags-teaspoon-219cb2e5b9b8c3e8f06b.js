@@ -1,2 +1,0 @@
-webpackJsonp([0xf493761d22246800],{"./node_modules/json-loader/index.js!./.cache/json/tags-teaspoon.json":function(o,n){o.exports={pathContext:{tag:"Teaspoon"}}}});
-//# sourceMappingURL=path---tags-teaspoon-219cb2e5b9b8c3e8f06b.js.map

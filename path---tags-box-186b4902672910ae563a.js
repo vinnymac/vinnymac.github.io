@@ -1,2 +1,0 @@
-webpackJsonp([0x3a14198ad3a19000],{"./node_modules/json-loader/index.js!./.cache/json/tags-box.json":function(o,a){o.exports={pathContext:{tag:"Box"}}}});
-//# sourceMappingURL=path---tags-box-186b4902672910ae563a.js.map

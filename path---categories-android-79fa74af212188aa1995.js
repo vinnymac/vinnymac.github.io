@@ -1,2 +1,0 @@
-webpackJsonp([0x70f04029f30ea800],{"./node_modules/json-loader/index.js!./.cache/json/categories-android.json":function(o,e){o.exports={pathContext:{category:"Android"}}}});
-//# sourceMappingURL=path---categories-android-79fa74af212188aa1995.js.map

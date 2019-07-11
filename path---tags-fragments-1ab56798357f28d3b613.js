@@ -1,2 +1,0 @@
-webpackJsonp([0xafcadce7f33e5000],{"./node_modules/json-loader/index.js!./.cache/json/tags-fragments.json":function(e,n){e.exports={pathContext:{tag:"Fragments"}}}});
-//# sourceMappingURL=path---tags-fragments-1ab56798357f28d3b613.js.map
