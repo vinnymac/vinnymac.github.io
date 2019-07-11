@@ -1,68 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import PageTemplateDetails from '../components/PageTemplateDetails'
+// @flow
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Sidebar from '../components/Sidebar';
+import Page from '../components/Page';
+import { useSiteMetadata } from '../hooks';
+import type { MarkdownRemark } from '../types';
 
-class PageTemplate extends React.Component {
-  render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata
-    const page = this.props.data.markdownRemark
-
-    let description
-    if (page.frontmatter.description !== null) {
-      description = page.frontmatter.description
-    } else {
-      description = subtitle
-    }
-
-    return (
-      <div>
-        <Helmet>
-          <title>{`${page.frontmatter.title} - ${title}`}</title>
-          <meta name="description" content={description} />
-        </Helmet>
-        <PageTemplateDetails {...this.props} />
-      </div>
-    )
+type Props = {
+  data: {
+    markdownRemark: MarkdownRemark
   }
-}
+};
 
-PageTemplate.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string.isRequired,
-      }),
-    }),
-    markdownRemark: PropTypes.object.isRequired,
-  }),
-}
+const PageTemplate = ({ data }: Props) => {
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+  const { html: pageBody } = data.markdownRemark;
+  const { title: pageTitle, description: pageDescription } = data.markdownRemark.frontmatter;
+  const metaDescription = pageDescription !== null ? pageDescription : siteSubtitle;
 
-export default PageTemplate
+  return (
+    <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
+      <Sidebar />
+      <Page title={pageTitle}>
+        <div dangerouslySetInnerHTML={{ __html: pageBody }} />
+      </Page>
+    </Layout>
+  );
+};
 
-export const pageQuery = graphql`
+export const query = graphql`
   query PageBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        menu {
-          label
-          path
-        }
-        author {
-          name
-          email
-          telegram
-          twitter
-          github
-          rss
-          vk
-        }
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
@@ -74,3 +42,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export default PageTemplate;

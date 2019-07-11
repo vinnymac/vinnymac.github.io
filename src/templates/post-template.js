@@ -1,71 +1,45 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import PostTemplateDetails from '../components/PostTemplateDetails';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import Post from '../components/Post';
+import { useSiteMetadata } from '../hooks';
+import type { MarkdownRemark } from '../types';
 
-class PostTemplate extends React.Component {
-  render() {
-    const { title, subtitle } = this.props.data.site.siteMetadata;
-    const post = this.props.data.markdownRemark;
-
-    let description;
-    if (post.frontmatter.description !== null) {
-      description = post.frontmatter.description;
-    } else {
-      description = subtitle;
-    }
-
-    return (
-      <div>
-        <Helmet>
-          <title>{`${post.frontmatter.title} - ${title}`}</title>
-          <meta name="description" content={description} />
-        </Helmet>
-        <PostTemplateDetails {...this.props} />
-      </div>
-    );
-  }
-}
-
-PostTemplate.propTypes = {
-  data: PropTypes.shape({
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string.isRequired
-      })
-    }),
-    markdownRemark: PropTypes.object.isRequired
-  })
+type Props = {
+  data: MarkdownRemark
 };
 
-export default PostTemplate;
+const PostTemplate = ({ data }: Props) => {
+  const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
+  const { title: postTitle, description: postDescription } = data.markdownRemark.frontmatter;
+  const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
-export const pageQuery = graphql`
+  return (
+    <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
+      <Post post={data.markdownRemark} />
+    </Layout>
+  );
+};
+
+
+export const query = graphql`
   query PostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        subtitle
-        copyright
-        author {
-          name
-          twitter
-        }
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
       fields {
+        slug
         tagSlugs
       }
       frontmatter {
-        title
-        tags
         date
         description
+        tags
+        title
       }
     }
   }
 `;
+
+
+export default PostTemplate;

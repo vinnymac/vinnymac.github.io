@@ -1,5 +1,16 @@
-language: ruby
-rvm:
-  - 2.0.0
-  - 1.9.3
-script: bundle exec rake install; bundle exec rake generate
+language: node_js
+node_js:
+  - '10'
+install:
+  - npm install -g codecov
+script:
+  - yarn install
+  - yarn flow-typed
+  - yarn lint
+  - yarn test:coverage --runInBand --no-cache
+  - yarn test --runInBand --no-cache
+  - codecov
+cache:
+  directories:
+    - node_modules
+    - flow-typed

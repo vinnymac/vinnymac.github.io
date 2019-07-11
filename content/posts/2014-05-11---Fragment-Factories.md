@@ -1,0 +1,83 @@
+---
+template: post
+title: "Fragment Factories"
+date: "2014-05-11T20:22:59.000Z"
+comments: true
+sharing: true
+draft: false
+slug: "/posts/fragment-factories/"
+category: Android
+tags:
+  - "Android"
+  - "Fragments"
+---
+
+### onStart
+Android fragments can become a big garbled mess of spaghetti code. I have seen it happen again and again. Other developers I have worked alongside and I agree that generating fragments with the use of factory methods will make your code cleaner and more reusable. Although the material I go over here will mainly pertain to Android, it should help anyone who understands the basics of java. Fragments are the butter to the bread of android apps. They allow for a disconnect of the inner workings of your application. When instantiating a new instance of a fragment you will often want to pass in a bundle of arguments that can be used throughout the lifetime of that fragment. By using factories you create a special place for argument passing to occur. Things become more interesting as you dive deeper into more complex fragments. For now we will begin by taking a look at extending the Android ListFragment.
+
+
+```java An Example ListFragment
+public class BaseListFragment extends ListFragment {
+
+  /* No Base Factories */
+
+  /* You can override the usual onCreate/onPause/onResume methods here. */
+
+}
+```
+
+Lists of information are some of the most important screens in applications these days. Whether they are on your phone or your desktop, lists are where it is at. Just go to google or reddit and you can see how important a good list is. An Android ListFragment is the tool given to you for free in order to make a list in the android ecosystem. By creating a base list fragment in your android application you let yourself abstract the tools you need in every list away from the busy work. It becomes especially important to do this as the application you are building will surely get more and more complicated. It always happens, and helping yourself early in this regard can only make the development process easier.
+
+### Fragment Generation
+So now that we have our BaseListFragment we can start generating our fragments by extending that class. We are able to override any of the methods we retain from our extended class, and we can add any new ones we may need as well. As you might have already realized I chose not to put a factory in my base class. Some may argue that the base class should be able to be used just like any of the other classes that extend it, but in this case I chose to leave the factory out. By not having a Factory method in the base, you restrict yourself to only generating classes that have extended your base. Leaving your base practically unusable otherwise. Feel free to go against the grain here and try doing this how you like. But I believe that factories do not belong in base classes. Look at the class below for an example of how to create factories in your fragments.
+
+```java A Fragment Factory
+public class CatGifListFragment extends BaseListFragment {
+
+  /* Just a unique string identifier for use in a fragment transaction. */
+  public static final String FRAGMENT_CAT_GIFS = "fragment_cat_gifs";
+
+  public static CatGifListFragment newInstance() {
+    CatGifListFragment f = new CatGifListFragment();
+
+    Bundle args = new Bundle();
+    /* Any extra arguments you might want to add. */
+    f.setArguments(args);
+
+    return f;
+  }
+
+}
+```
+
+### New Instance
+Now that our CatGifListFragment has a method that can return an instantiated copy of itself, let's show it off. In order to show a fragment we can use a fragment manager in an Activity after some user interaction. Below I have an example of a user clicking on a view element called list_cats. This could be anything, but the idea is that it will display our fragment on screen after being clicked. By calling newInstance on our CatGifListFragment we are returning an instantiated version of the class that will contain any arguments we pass into the newInstance method. Simply call show after generating the fragment to display it.
+
+```java New Fragment Instance
+public class CatActivity extends BaseActivity {
+
+  /* After some user interaction lets show the cat gif list fragment. */
+  @Override
+  public void onClick(View v) {
+    int id = v.getId();
+
+    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+    switch (id) {
+      case R.id.list_cats:
+        /* You would pass in any arguments you wanted access to in the fragment here. */
+        CatGifListFragment catGifListFragment = CatGifListFragment.newInstance();
+        catGifListFragment.show(ft, CatGifListFragment.FRAGMENT_CAT_GIFS);
+        break;
+      default:
+        break;
+    }
+  }
+
+}
+```
+
+This is just one example of displaying a fragment. There are countless ways that you could display a fragment, but the way in which you instantiate it is vital. Notice that CatActivity extends a base class as well. Keeping this in mind throughout your application will lead to cleaner code. Cleaner code will make your development process improve, so please keep this in mind throughout every piece of work your produce.
+
+### onFinish
+If you find yourself reusing similar fragments over and over these tips will be even more helpful to you. Dialog and List fragments being some of the most frequent ones I see in android. Not everyone shares as many cat gifs as my coworkers do, but when they do I want them to be doing it efficiently. Look over your android apps, and review how you instantiated your fragments in your activities. Most android apps I have seen are doing this horribly wrong. If you have a cleaner and more efficient way of instantiating them than this, I would love to hear about it. Also if you have any questions, feel free to ask as always!
