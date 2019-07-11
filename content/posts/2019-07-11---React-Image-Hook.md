@@ -13,7 +13,7 @@ tags:
 description: "Writing an effective image loader using react hooks"
 ---
 
-A frequent problem I run into across codebases and OSS is image loading. The web has built-ins for this, such as `<img />` and `<picture />`. They are not that useful when you are in JS land though. What if you need fallbacks, or want to do something fancy with low quality image placeholders then you may need something fancier. Image loading in JS also needs to have a flexible API that happens to work across any browser, lets say IE10 and up, as well as the last 2 versions of Firefox, Chrome, Edge, et cetera. It would be nice if we could use the modern `Promise` API instead of the old `onload` and `onerror` callbacks we are used to.
+A frequent problem I run into in web development is image loading. The web has built-ins for this, such as `<img />` and `<picture />`. They are not that powerful or flexible however. What if you need fallbacks, or want to do something fancy with low quality image placeholders then you may need something better. Image loading in JS also needs to have a flexible API that happens to work across any browser, lets say IE10 and up, as well as the last 2 versions of Firefox, Chrome, Edge, et cetera. This comes with a lot of trade offs, and you can feel like you are walking on egg shells at times. It would be nice if we could use the modern `Promise` API instead of the old `onload` and `onerror` callbacks we are used to. By the end of this short read, you should feel like you can load images for any use case, and even better with React Hooks!
 
 So lets start by creating a module `loadImage.js`.
 
