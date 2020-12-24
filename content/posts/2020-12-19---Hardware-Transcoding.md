@@ -16,11 +16,11 @@ tags:
 description: "Plex Transcoding with Nvidia GPUs"
 ---
 
-This holiday season I had some down time. My wife and I were watching a home video on Plex when I noticed some artifacting on our Samsung TV. While this can be easily solved by transcoding all of my media to the lowest common denominator client device, it would require a lot of processing power and time to go through the entire content library. Additionally, without knowing which devices my family all use, I would have no way of creating a reliable experience for them. For my own needs, changing to a client device that supports the media I was playing is definitely the most straightforward route. For those who are sharing their Plex with family and friends, you will want to look closer at your hardware.
+This holiday season I had some down time. My wife and I were watching a home video on Plex when I noticed some artifacting on our Samsung TV. While this can be easily solved by transcoding all of my media to the lowest common denominator client device, it would require a lot of processing power and time to go through the entire content library. Additionally, without knowing which devices my family members all use, I would have no way of creating a reliable experience for them. For my own needs, changing to a client device that supports the media I was playing is the most straightforward solution. For those who are sharing their Plex with family and friends, you will want to look closer at your hardware.
 
 ### Research
 
-I began researching why this was happening to my headless Ubuntu server. Starting with the hardware, I knew that out of the box Plex will use your integrated graphics chip on the processor to handle any decoding or encoding, and will only fallback to the CPU if it has to. The server is currently running on fairly old hardware, the CPU is actually an **i7-4790k**. A quick search reveals an Intel specification [here](https://ark.intel.com/content/www/us/en/ark/products/80807/intel-core-i7-4790k-processor-8m-cache-up-to-4-40-ghz.html). This page explains that the CPU has the following Processor Graphics.
+I began researching why this was happening to my headless Ubuntu server. Starting with the hardware, I knew that out of the box, Plex will use your integrated graphics chip on the processor to handle any decoding or encoding, and will ultimately fallback to the CPU. The server in my basement today is currently running on fairly old hardware, the CPU is actually an **i7-4790k**. A quick search reveals an Intel specification [here](https://ark.intel.com/content/www/us/en/ark/products/80807/intel-core-i7-4790k-processor-8m-cache-up-to-4-40-ghz.html). This page explains that the CPU has the following Processor Graphics.
 
 ```
 Processor Graphics ‡ Intel® HD Graphics 4600
@@ -43,7 +43,7 @@ Intel® Clear Video HD Technology Yes
 Device ID 0x412
 ```
 
-While the Intel® HD Graphics 4600 is very capable for it's time, it isn't as powerful as more modern integrated graphics. Using Intel's integrated graphics worked well for years, and I highly recommend using it if your server has a newer chipset, such as a [UHD 630](https://ark.intel.com/content/www/us/en/ark/products/graphics/126790/intel-uhd-graphics-630.html). However, in my case, upgrading my entire 1150 LGA system was not within budget. So I began looking at alternative solutions, such as a dedicated GPU.
+While the Intel® HD Graphics 4600 is very capable for it's time, it isn't as powerful as more modern integrated graphics. Using Intel's integrated graphics worked well for years, and I highly recommend using it if your server has a newer chipset, such as a [UHD 630](https://ark.intel.com/content/www/us/en/ark/products/graphics/126790/intel-uhd-graphics-630.html). However, in my case, upgrading my entire 1150 LGA system was not within budget. So I looked at alternative solutions, such as a dedicated GPU.
 
 
 ### Purchase
@@ -52,7 +52,7 @@ Knowing that I wanted a dedicated GPU over an integrated one, I made a list of r
 
 [![Screenshot of 1080p to 720p GPU Transcode Comparison](/plex/transcode_chart.png)](/plex/transcode_chart.png)
 
-Looking at the chart above, these GPUs can support upto twenty simultaneous transcode streams. While all the GeForce GTX GPUs are limited to three simultaneous transcodes, a [driver patch](https://github.com/keylase/nvidia-patch) can be applied on Windows and Linux to remove this unnecessary limitation. Once the limitation is removed, the devices are capable of a theoretically unlimited number of transcode sessions. The next likely bottleneck for your GPU to run into is VRAM, and the options I chose above all have 6GBs memory (while the Intel® HD Graphics 4600 had a measly 2GB). Of course, if you just go with a Quadro GPU instead, you don't have to deal with this headache. However, Quadro GPUs tend to be more expensive, which makes them a less desirable option in this scenario, but they are certainly the easier choice.
+Looking at the chart above, these GPUs can support upto twenty simultaneous transcode streams. While all the GeForce GTX GPUs are limited to three simultaneous transcodes, a [driver patch](https://github.com/keylase/nvidia-patch) can be applied on Windows and Linux to remove this unnecessary limitation. Once the limitation is removed, the devices are capable of a theoretically unlimited number of transcode sessions. The next likely bottleneck for the GPU to run into is VRAM, and the options I chose above, all have 6GBs memory (while the Intel® HD Graphics 4600 had a measly 2GB). Of course, if you just go with a Quadro GPU instead, you don't have to deal with this headache. However, Quadro GPUs tend to be more expensive, which makes them a less desirable option in this scenario, but they are certainly the easier choice.
 
 And so my hunt for a GPU began. I shopped around, and found some decent deals, but nothing was as good as what I saw on eBay, OfferUp, Mercari, and Craigslist. After being outbid on a couple `GeForce GTX 1660 (6GB)`, I ended up snagging an MSI Aero `GeForce GTX 1060 (6 GB)` in an ITX Form Factor on Mercari for $100. The GPU arrived in the mail in 5 days, and was in really great condition.
 
@@ -60,7 +60,7 @@ And so my hunt for a GPU began. I shopped around, and found some decent deals, b
 
 ### Installation
 
-Installing the GeForce GTX 1660 inside of my server was easy. I shut down the computer safely, and unplugged all of my peripheral devices. Removed the metallic door on the server, and took a peak inside. Despite the machines age, it is in pretty good condition, at least when ignoring the hideous cable management.
+Installing the GeForce GTX 1660 inside of my server was easy. I shut down the computer safely, and unplugged all of my peripheral devices. Removed the metallic door on the server, and took a peek inside. Despite the machines age, it is in pretty good condition, at least when ignoring the hideous cable management.
 
 [![Ugly Photo of the inside of the Server](/plex/ugly_server_internals.jpg)](/plex/ugly_server_internals.jpg)
 
