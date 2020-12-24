@@ -18,6 +18,10 @@
     "test:watch": "jest --watch --config ./jest/jest-config.js",
     "release": "standard-version"
   },
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22"
+  },
   "repository": "https://github.com/alxshelepenok/gatsby-starter-lumen",
   "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
   "license": "MIT",
