@@ -1,6 +1,7 @@
 ---
 title: "About me"
 template: page
+socialImage: "/media/image-1.jpg"
 ---
 
 New York born full stack developer. I spend my spare time hiking and cooking.

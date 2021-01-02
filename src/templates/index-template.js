@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -24,7 +24,6 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     prevPagePath,
     nextPagePath
   } = pageContext;
-
 
   const { edges } = data.allMarkdownRemark;
   const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;

@@ -9,6 +9,7 @@ module.exports = {
   disqusShortname: 'devcontinuum',
   postsPerPage: 12,
   // googleAnalyticsId: 'UA-73379983-2',
+  useKatex: false,
   menu: [
     {
       label: 'Articles',
@@ -28,8 +29,18 @@ module.exports = {
       telegram: '#',
       twitter: 'kidtheflash',
       github: 'vinnymac',
-      rss: '#',
-      vkontakte: '#'
+      rss: 'rss.xml',
+      facebook: '#',
+      vkontakte: '',
+      linkedin: 'vincent-taverna-5bb49a62',
+      instagram: '#',
+      line: '',
+      gitlab: '',
+      weibo: '',
+      codepen: '',
+      youtube: '',
+      soundcloud: '',
+      medium: '',
     }
   }
 };

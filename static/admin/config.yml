@@ -5,16 +5,22 @@ backend:
 media_folder: "static/media"
 public_folder: "/media"
 
+# Uncomment to leverage Netlify CMS UI authoring flow
+# see: https://www.netlifycms.org/docs/configuration-options/#publish-mode
+# publish_mode: editorial_workflow
+
 collections:
   - name: "posts"
     label: "Posts"
     folder: "content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "posts/{{fields.slug}}"
     fields:
       - {label: "Template", name: "template", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Social Image", name: "socialImage", widget: "image"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
@@ -31,5 +37,6 @@ collections:
       - {label: "Template", name: "template", widget: "hidden", default: "page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Social Image", name: "socialImage", widget: "image"}
       - {label: "Draft", name: "draft", widget: "boolean", default: true}
       - {label: "Body", name: "body", widget: "markdown"}
