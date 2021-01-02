@@ -5,7 +5,7 @@ template: post
 comments: true
 sharing: true
 draft: false
-slug: "blog-performance/"
+slug: "blog-performance"
 category: JavaScript
 tags:
   - "JavaScript"

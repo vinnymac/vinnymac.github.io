@@ -5,7 +5,7 @@ template: post
 comments: true
 sharing: true
 draft: false
-slug: "react-image-hook/"
+slug: "react-image-hook"
 category: Javascript
 tags:
   - "Javascript"

@@ -5,7 +5,7 @@ template: post
 comments: true
 sharing: true
 draft: false
-slug: "the-witcher/"
+slug: "the-witcher"
 category: Books
 tags:
   - "Books"

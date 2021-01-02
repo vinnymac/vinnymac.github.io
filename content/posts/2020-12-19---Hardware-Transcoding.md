@@ -5,7 +5,7 @@ template: post
 comments: true
 sharing: true
 draft: false
-slug: "hardware-transcoding/"
+slug: "hardware-transcoding"
 category: plex
 tags:
   - "plex"
