@@ -5,7 +5,7 @@ date: "2014-05-26T15:32:56.000Z"
 comments: true
 sharing: true
 draft: false
-slug: "/posts/sinatra-assets/"
+slug: "sinatra-assets/"
 category: Ruby
 tags:
   - "Sinatra"

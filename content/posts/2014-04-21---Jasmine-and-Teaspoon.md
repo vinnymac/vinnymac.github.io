@@ -5,7 +5,7 @@ date: "2014-04-21T23:59:13.000Z"
 sharing: true
 comments: true
 draft: false
-slug: "/posts/jasmine-and-teaspoon/"
+slug: "jasmine-and-teaspoon/"
 category: JavaScript
 tags:
   - "Jasmine"

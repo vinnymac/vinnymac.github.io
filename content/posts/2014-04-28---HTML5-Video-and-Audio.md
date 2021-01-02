@@ -5,7 +5,7 @@ date: "2014-04-28T16:27:05.000Z"
 sharing: true
 comments: true
 draft: false
-slug: "/posts/html5-video-and-audio/"
+slug: "html5-video-and-audio/"
 category: JavaScript
 tags:
   - "Coffeescript"

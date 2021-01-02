@@ -5,7 +5,7 @@ template: post
 comments: true
 sharing: true
 draft: false
-slug: "/posts/coffee-to-babel/"
+slug: "coffee-to-babel/"
 category: JavaScript
 tags:
   - "JavaScript"

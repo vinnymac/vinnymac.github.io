@@ -5,7 +5,7 @@ template: post
 comments: true
 sharing: true
 draft: false
-slug: "/posts/programming-phoenix/"
+slug: "programming-phoenix/"
 category: Elixir
 tags:
   - "Elixir"
