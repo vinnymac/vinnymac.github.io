@@ -62,7 +62,7 @@ This left me with nothing but a faceplate, a screen, and the original battery ad
 
 [![Faceplate with Battery](/ipod4g/faceplate_with_original_battery.jpeg)](/ipod4g/faceplate_with_original_battery.jpeg)
 
-Removing the original battery isn't too difficult, but the glue is strong, so if you have trouble you may need something sharp and with patients gentle pry the battery away from the clickwheel, being careful not to damage the faceplate in the process. I also went ahead and removed the screen, so I could clean the protective transparent layer with some rubbing alcohol.
+Removing the original battery isn't too difficult, but the glue is strong. If you have trouble you may need something sharp. However with some patience, you can gently pry the battery away from the clickwheel. Be careful not to damage the faceplate in the process. I also went ahead and removed the screen, so I could clean the protective transparent layer with some rubbing alcohol.
 
 [![Faceplate alone](/ipod4g/faceplate_alone.jpeg)](/ipod4g/faceplate_alone.jpeg)
 
