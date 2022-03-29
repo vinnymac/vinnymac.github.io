@@ -1,4 +1,652 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Continuum]]></title><description><![CDATA[Software Engineer]]></description><link>https://vincenttaverna.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Feb 2021 16:52:50 GMT</lastBuildDate><item><title><![CDATA[Hardware Transcoding]]></title><description><![CDATA[Plex Transcoding with Nvidia GPUs]]></description><link>https://vincenttaverna.com/posts/hardware-transcoding</link><guid isPermaLink="false">https://vincenttaverna.com/posts/hardware-transcoding</guid><pubDate>Sat, 19 Dec 2020 05:38:00 GMT</pubDate><content:encoded>&lt;p&gt;This holiday season I had some down time. I was watching a home video on Plex when I noticed some artifacting on my Samsung TV. While this can be easily solved by transcoding all of my media to the lowest common denominator client device, it would require a lot of processing power and time to go through the entire content library. Additionally, without knowing which devices my family members all use, I would have no way of creating a reliable experience for them. For my own needs, changing to a client device that supports the media I was playing is the most straightforward solution. For those who are sharing their Plex with family and friends, you will want to look closer at your hardware.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Dev Continuum]]></title><description><![CDATA[Software Engineer]]></description><link>https://vincenttaverna.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Mar 2022 18:39:29 GMT</lastBuildDate><item><title><![CDATA[iPod Classic Revival]]></title><description><![CDATA[Reviving an iPod Classic from the dead]]></description><link>https://vincenttaverna.com/posts/ipod-classic-revival</link><guid isPermaLink="false">https://vincenttaverna.com/posts/ipod-classic-revival</guid><pubDate>Tue, 29 Mar 2022 05:24:00 GMT</pubDate><content:encoded>&lt;p&gt;I’ve always had my hand in electronics since I was a kid, digging through boxes and finding some old device, such as a Camera that was five times my age. My curiosity always got the best of me, and I’d end up with a table full of parts by the end of the night, trying to determine which one was preventing the device from functioning. I found myself recently experiencing this same child-like adventure, after unpacking a box of old electronics in my basement. I came across an old iPod 4th Generation, and after rummaging around for a cable, and painfully waiting to see if the battery still functioned, I discovered that it was in fact dead.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/the_4g_specimen.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 825px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 134.16666666666669%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAIBAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQIA/9oADAMBAAIQAxAAAAHm6Ht5LbCEVLaDv//EAB0QAAEDBQEAAAAAAAAAAAAAAAIAAREDBBIiMSH/2gAIAQEAAQUCuScQGrUyXmMCi7GuzousTxk6mV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAeEAABBAEFAAAAAAAAAAAAAAABABARIQISICIxkf/aAAgBAQAGPwIaTFocz21iVeA8e9v/xAAbEAADAAMBAQAAAAAAAAAAAAAAAREhMUFRYf/aAAgBAQABPyFtsZ8GRsUUeGyTn4qEhqMbS2kI1eBB2D7lbM//2gAMAwEAAgADAAAAEAM+zv/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABgRAAIDAAAAAAAAAAAAAAAAAAABEBEx/9oACAECAQE/EBZCs//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFBMVFhwfD/2gAIAQEAAT8QaCcXYCF4whrJZ4mC6ZbedqCalfE5Gkwo3mPNya7lUsGyVU1uoU+s+4QFdjP/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/92bc43843b0a68bf27392dff2ea2562b/8ac56/the_4g_specimen.webp 240w,
+/static/92bc43843b0a68bf27392dff2ea2562b/d3be9/the_4g_specimen.webp 480w,
+/static/92bc43843b0a68bf27392dff2ea2562b/0244e/the_4g_specimen.webp 825w&quot;
+          sizes=&quot;(max-width: 825px) 100vw, 825px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/92bc43843b0a68bf27392dff2ea2562b/09b79/the_4g_specimen.jpg 240w,
+/static/92bc43843b0a68bf27392dff2ea2562b/7cc5e/the_4g_specimen.jpg 480w,
+/static/92bc43843b0a68bf27392dff2ea2562b/0ea46/the_4g_specimen.jpg 825w&quot;
+          sizes=&quot;(max-width: 825px) 100vw, 825px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/92bc43843b0a68bf27392dff2ea2562b/0ea46/the_4g_specimen.jpg&quot;
+          alt=&quot;iPod 4G&quot;
+          title=&quot;iPod 4G&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;research&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#research&quot; aria-label=&quot;research permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Research&lt;/h3&gt;
+&lt;p&gt;To begin diagnosing the problem, I decided I would charge it for 5 hours, unplug it, and then let it rest for 30 minutes. Then finally, charge for another 5 hours. After having completed this cycle, I held down &lt;code class=&quot;language-text&quot;&gt;MENU + SELECT&lt;/code&gt; simultaneously, and I could hear the disk spinning up and down. With each wurr of the hard drive, it was as if it was attempting to come to life, but could not. The screen was blank and soulless, and I wasn’t quite sure exactly how a 20 year old device that held the secrets of my childhood playlists could possibly function again.&lt;/p&gt;
+&lt;p&gt;I was relatively sure that the hard drive could be fixed, and that the battery had some amount of juice in it. I assumed that either the headphone jack was broken (since if it was stuck in &lt;code class=&quot;language-text&quot;&gt;HOLD&lt;/code&gt; it would not respond to button presses), or that the clickwheel itself had malfunctioned. Additionally, the screen was not turning on, and did not show a charging indicator. So I knew something else must have been wrong. To determine what exactly was going on, I would have to find a way to open the iPod and diagnose the issue further.&lt;/p&gt;
+&lt;p&gt;Fortunately, this is not the first time I have attmepted a fix like this, and I have some great tools I’ve collected over the years from upgrading phones or fixing electrical tools. iFixit’s &lt;a href=&quot;https://www.ifixit.com/Store/Tools/Mako-Driver-Kit--64-Precision-Bits/IF145-299?o=4&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Mako Driver Kit&lt;/a&gt; ($35 at the time of writing), is a wonderful bit set that I find invaluable for these types of tear downs of small devices. It has so many different bits, and I’ve used it now to repair, chainsaws, phones, consoles, handhelds, speakers and more.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/ifixit_mako_driverset.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 836px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 151.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMCBAUB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAaSnps2DoHmJnJi4AV//xAAeEAABAwQDAAAAAAAAAAAAAAACAAMRAQQQIRITM//aAAgBAQABBQI55q12yeLLxPDBQMb66oWDqv/EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/ASH/xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BTIuz/8QAHBAAAgICAwAAAAAAAAAAAAAAAAEQIQIxQXGB/9oACAEBAAY/AnfMKfRQ+yzZTxR//8QAHhABAAIBBQEBAAAAAAAAAAAAAQARMSFBUWGBobH/2gAIAQEAAT8h1FWW/cbrLD7mU+v7HEVI4cx9TmVaNbFh2g7oK7hC9AXP/9oADAMBAAIAAwAAABA/F8//xAAYEQEAAwEAAAAAAAAAAAAAAAABABARIf/aAAgBAwEBPxAdg8hiv//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEQ/9oACAECAQE/EEYGtLLz/8QAIBABAAICAgEFAAAAAAAAAAAAAQARIUFRYaExcYGx4f/aAAgBAQABPxBNDGsvpStN1dsvTmiz7/sVs3aojW0YovXLBd0PBBTm3buVVFutl5lH83wRSpkH5auCm65Z+oXRXYPQzP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/9e09810115b60db791ee7ea2cae79257/8ac56/ifixit_mako_driverset.webp 240w,
+/static/9e09810115b60db791ee7ea2cae79257/d3be9/ifixit_mako_driverset.webp 480w,
+/static/9e09810115b60db791ee7ea2cae79257/05152/ifixit_mako_driverset.webp 836w&quot;
+          sizes=&quot;(max-width: 836px) 100vw, 836px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/9e09810115b60db791ee7ea2cae79257/09b79/ifixit_mako_driverset.jpg 240w,
+/static/9e09810115b60db791ee7ea2cae79257/7cc5e/ifixit_mako_driverset.jpg 480w,
+/static/9e09810115b60db791ee7ea2cae79257/49e4f/ifixit_mako_driverset.jpg 836w&quot;
+          sizes=&quot;(max-width: 836px) 100vw, 836px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/9e09810115b60db791ee7ea2cae79257/49e4f/ifixit_mako_driverset.jpg&quot;
+          alt=&quot;iFixit Mako Driver Set&quot;
+          title=&quot;iFixit Mako Driver Set&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Opening the iPod required finding a thin jig, ideally made of plastic and not too hard. I ended up using a couple guitar picks and some old SIM cards to release one of the 12 tabs holding the front face plate in its casing. This avoided damaging the aluminum back that holds onto the faceplate. Be extra careful if you are attempting this, as it can require a lot of force, and you may require something sharp to release the tabs. With a lot of elbow grease and prayer, I was able to dislodge the faceplate from the aluminum backplate without any damage.&lt;/p&gt;
+&lt;p&gt;As soon as the faceplate was removed, I noticed a major issue. The headphone jack was disconnected from the main board, and the wire itself was missing entirely. What happened to it, I will never know, likely only 14 year old me knows the answer to that mystery. Since my iPod 4G was a &lt;code class=&quot;language-text&quot;&gt;A1059&lt;/code&gt; model, I would need to find a &lt;code class=&quot;language-text&quot;&gt;632-0260&lt;/code&gt; cable for my headphone jack. I used a multimeter to verify the battery was functional, and also tested the other iPod components. After reseating the cable that connected to the display, I was able to get a picture, showing the device was charging. A small victory, but still I would not be able to use the clickwheel or headphone jack without further diagnostics, and while the battery was functional it was not holding a charge.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/signs_of_life.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 634px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 163.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAhABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcuX2KzixbrsrRnTGQWTC//EAB8QAAEDAwUAAAAAAAAAAAAAAAEAAgMREzIEEBIhMf/aAAgBAQABBQKcliuuThQuhug6QKTIGjX+yZDtlApCOWwX/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAHxAAAQMDBQAAAAAAAAAAAAAAAAEQEQISQSAhMTKR/9oACAEBAAY/AqbY3Qx41Kzg7MhLIc6f/8QAHRAAAwACAgMAAAAAAAAAAAAAAAERITFBgRBRYf/aAAgBAQABPyHC2w6qJ79QhqWjSSDgIuhI51EmEa0La+E5XAqZQYwfHnQ//9oADAMBAAIAAwAAABC3BbKH7//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QX//EABYRAAMAAAAAAAAAAAAAAAAAAAABIP/aAAgBAgEBPxAU/wD/xAAeEAEAAwACAgMAAAAAAAAAAAABABEhMUFRYRCBsf/aAAgBAQABPxCv6pBS37hxp2powH6DhLQGKqu4rO4mrej8mz0op5gqJdgOpW+RYc0IKYDhzq+YYRQBkOPuHPwf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/417a8efdc2d58ee68e26d49eb96f4bcd/8ac56/signs_of_life.webp 240w,
+/static/417a8efdc2d58ee68e26d49eb96f4bcd/d3be9/signs_of_life.webp 480w,
+/static/417a8efdc2d58ee68e26d49eb96f4bcd/14369/signs_of_life.webp 634w&quot;
+          sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/417a8efdc2d58ee68e26d49eb96f4bcd/09b79/signs_of_life.jpg 240w,
+/static/417a8efdc2d58ee68e26d49eb96f4bcd/7cc5e/signs_of_life.jpg 480w,
+/static/417a8efdc2d58ee68e26d49eb96f4bcd/f2afa/signs_of_life.jpg 634w&quot;
+          sizes=&quot;(max-width: 634px) 100vw, 634px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/417a8efdc2d58ee68e26d49eb96f4bcd/f2afa/signs_of_life.jpg&quot;
+          alt=&quot;Apple Logo&quot;
+          title=&quot;Apple Logo&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After surfing the web for a while, I came across a great resource called &lt;code class=&quot;language-text&quot;&gt;Elite Obsolete Electronics&lt;/code&gt;, where &lt;a href=&quot;https://eoe.works/collections/ipod-monochrome-4th-generation-parts&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;iPod 4G replacement parts&lt;/a&gt; are readily available for purchase. The &lt;a href=&quot;https://eoe.works/collections/ipod-monochrome-4th-generation-parts/products/headphone-jack-hold-switch-flex-cable-for-apple-ipod-classic-monochrome-4th-generation&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;headphone jack&lt;/a&gt; has three options to choose from, I went with the &lt;code class=&quot;language-text&quot;&gt;Flex Cable Only&lt;/code&gt; option, since my headphone jack appeared to be okay. Additionally I added a &lt;a href=&quot;https://eoe.works/collections/ipod-monochrome-4th-generation-parts/products/insten-1300mah-li-ion-replacement-battery-for-apple-ipod-classic-4th-generation-monochrome-photo&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;1300mah Li-ion replacement battery&lt;/a&gt; to my cart, since it would be nice to actually be able to use the device once repaired.&lt;/p&gt;
+&lt;h3 id=&quot;repair&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#repair&quot; aria-label=&quot;repair permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Repair&lt;/h3&gt;
+&lt;p&gt;Once the cable and battery arrived I began surgery. Installing the flex cable was pretty simple, just take it out of the static bag it came in, and slide it in to the port on the left side looking into the internals of the iPod. If you are repairing the entire headphone jack, you need to remove the 3 screws holding the entire electronic to the top of the aluminum backplate instead.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/headphone_jack_flex_cable_installed.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 573px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 150.41666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMEBQL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAcSMR7rwbn1XLaNH/8QAHRAAAwACAgMAAAAAAAAAAAAAAQIDABEEMxITIv/aAAgBAQABBQJ6Mji51JvYl+0DON1XH1Ke8mug0iziHjkwVX//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAbEAACAgMBAAAAAAAAAAAAAAAAARAxESGBYf/aAAgBAQAGPwJ7LTMjjp0tDXsWbP/EABwQAQADAQEAAwAAAAAAAAAAAAEAETEhgRChwf/aAAgBAQABPyEywYZB9IfqZmu1OvhDXpNV6vyFsvYJCNRQlAtjCwLFBW1vk//aAAwDAQACAAMAAAAQmCu9/8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQMBAT8QY//EABYRAQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxBMj//EACAQAQACAgIBBQAAAAAAAAAAAAEAIRFRMUFhgaHB4fD/2gAIAQEAAT8QZgQpyHO07mRcAUj6CYDFYjrJqHIukPaIpUqUuAcLztEPFGdwSmWxrgizLtkVb8fc0RwRD5jIJug/Yn//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/c2e4e3bf1211126b3c06e18f410fa814/8ac56/headphone_jack_flex_cable_installed.webp 240w,
+/static/c2e4e3bf1211126b3c06e18f410fa814/d3be9/headphone_jack_flex_cable_installed.webp 480w,
+/static/c2e4e3bf1211126b3c06e18f410fa814/351b3/headphone_jack_flex_cable_installed.webp 573w&quot;
+          sizes=&quot;(max-width: 573px) 100vw, 573px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/c2e4e3bf1211126b3c06e18f410fa814/09b79/headphone_jack_flex_cable_installed.jpg 240w,
+/static/c2e4e3bf1211126b3c06e18f410fa814/7cc5e/headphone_jack_flex_cable_installed.jpg 480w,
+/static/c2e4e3bf1211126b3c06e18f410fa814/eda93/headphone_jack_flex_cable_installed.jpg 573w&quot;
+          sizes=&quot;(max-width: 573px) 100vw, 573px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/c2e4e3bf1211126b3c06e18f410fa814/eda93/headphone_jack_flex_cable_installed.jpg&quot;
+          alt=&quot;Flex Cable Installed&quot;
+          title=&quot;Flex Cable Installed&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Installing a new battery is more difficult however. As the wires are snaked underneath the motherboard, and the battery itself is adhered with a strong glue to the faceplate ontop of the clickwheel.&lt;/p&gt;
+&lt;p&gt;First I removed the 20 GB hard drive.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/ipod_4g_20gb_harddrive.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 572px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 132.08333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAaABQDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAAAAUBAgYE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAZ564yKl9Ny1U3Vln//EAB0QAAEEAgMAAAAAAAAAAAAAAAIAAQMREiITIUH/2gAIAQEAAQUCJyc+1E+jU7jHaHVCVKHGpK5fQEbABw//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAwEBPwEj/8QAFxEAAwEAAAAAAAAAAAAAAAAAAQIQEf/aAAgBAgEBPwEtMn//xAAfEAACAAUFAAAAAAAAAAAAAAAAARAhIjGRAhEyUWH/2gAIAQEABj8CdTucnkmODXsJtGvbuFkKlYP/xAAdEAEAAQQDAQAAAAAAAAAAAAABABEhMUFRYYGx/9oACAEBAAE/IbYhwZScjcqilYqJtmAZgFxXTE7mYH2O6iOkA0lA+U6fx//aAAwDAQACAAMAAAAQzOoz/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAEDAQE/EACsX//EABcRAAMBAAAAAAAAAAAAAAAAAAABIRH/2gAIAQIBAT8QZsHaLdNP/8QAHRABAAMAAQUAAAAAAAAAAAAAAQARIVExQXGBsf/aAAgBAQABPxAQD0BgELMiP2sCbXYqJp9YYAbQBralucgny/YakldzDPaUVY4XEaHXiOsf1jUVXTTln//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/25f91603c6de208f63d54230ccc2f756/8ac56/ipod_4g_20gb_harddrive.webp 240w,
+/static/25f91603c6de208f63d54230ccc2f756/d3be9/ipod_4g_20gb_harddrive.webp 480w,
+/static/25f91603c6de208f63d54230ccc2f756/a64e8/ipod_4g_20gb_harddrive.webp 572w&quot;
+          sizes=&quot;(max-width: 572px) 100vw, 572px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/25f91603c6de208f63d54230ccc2f756/09b79/ipod_4g_20gb_harddrive.jpg 240w,
+/static/25f91603c6de208f63d54230ccc2f756/7cc5e/ipod_4g_20gb_harddrive.jpg 480w,
+/static/25f91603c6de208f63d54230ccc2f756/8d13f/ipod_4g_20gb_harddrive.jpg 572w&quot;
+          sizes=&quot;(max-width: 572px) 100vw, 572px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/25f91603c6de208f63d54230ccc2f756/8d13f/ipod_4g_20gb_harddrive.jpg&quot;
+          alt=&quot;Hard Drive&quot;
+          title=&quot;Hard Drive&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This gave me access to the rest of the motherboard, and I went ahead and disconnected the battery. Be careful when doing this, as the battery cables are not that strong, I recommend using something thin, or even small need nose pliers to lift straight up and away from the board. I also removed the display connector (ended up having to replace the clasp on this connector, as it was partially damaged) and clickwheel connectors on the left hand side of the motherboard.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/ipod_4g_internals_with_harddrive_removed_white.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 801px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 140.41666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAcABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMCBQT/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAcwqLrptHO17RFDf/8QAHRAAAwACAgMAAAAAAAAAAAAAAQIDABEEEyExM//aAAgBAQABBQLkO4cO+lO1shNlV1EvMqU1UXzj/IzUnqTJ+v/EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAEDAQE/ASP/xAAVEQEBAAAAAAAAAAAAAAAAAAABIP/aAAgBAgEBPwFj/8QAHxAAAgEDBQEAAAAAAAAAAAAAAAECECExAzIzYXGR/9oACAEBAAY/ArSaRfVmJjML6R8NvRx0ujFP/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFBYVGBof/aAAgBAQABPyFyVjhim2awXOwC5TqZyTeHth2SARU0cu5hx9wFAuhdxuivmAcfcFMt3P/aAAwDAQACAAMAAAAQRDDz/8QAFhEBAQEAAAAAAAAAAAAAAAAAASBB/9oACAEDAQE/EEbH/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARMf/aAAgBAgEBPxAryLGG/8QAHhABAAICAwADAAAAAAAAAAAAAQARIUExUYFxscH/2gAIAQEAAT8QHPgpVUpUNgFOJlq67fJAAicT0Bn37i4d1QY8gigEUGtSzXA4X2liAQMqoitgFc83+zhTG/MviwdZStKL77zP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/4b7fb9aa166ae753f8dc24f59261c1fb/8ac56/ipod_4g_internals_with_harddrive_removed_white.webp 240w,
+/static/4b7fb9aa166ae753f8dc24f59261c1fb/d3be9/ipod_4g_internals_with_harddrive_removed_white.webp 480w,
+/static/4b7fb9aa166ae753f8dc24f59261c1fb/99a1d/ipod_4g_internals_with_harddrive_removed_white.webp 801w&quot;
+          sizes=&quot;(max-width: 801px) 100vw, 801px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/4b7fb9aa166ae753f8dc24f59261c1fb/09b79/ipod_4g_internals_with_harddrive_removed_white.jpg 240w,
+/static/4b7fb9aa166ae753f8dc24f59261c1fb/7cc5e/ipod_4g_internals_with_harddrive_removed_white.jpg 480w,
+/static/4b7fb9aa166ae753f8dc24f59261c1fb/d5834/ipod_4g_internals_with_harddrive_removed_white.jpg 801w&quot;
+          sizes=&quot;(max-width: 801px) 100vw, 801px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/4b7fb9aa166ae753f8dc24f59261c1fb/d5834/ipod_4g_internals_with_harddrive_removed_white.jpg&quot;
+          alt=&quot;Internals without Hard Drive&quot;
+          title=&quot;Internals without Hard Drive&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After those connections were removed, I was able to pull out the entire motherboard and set it aside.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/motherboard.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 758px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 145%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAdABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBQT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABgtLjpilHPXI0A6RBf//EABsQAAMBAAMBAAAAAAAAAAAAAAECAwAEERIx/9oACAEBAAEFArVoHRyGxg7FIsAPk3Vh7XBlOlLvLxguE1G//8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQMBAT8BI//EABYRAAMAAAAAAAAAAAAAAAAAAAERIP/aAAgBAgEBPwEuP//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQITFB/9oACAEBAAY/AnUmkW5yeG7R5i0dRpoezpw//8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFRYYHx/9oACAEBAAE/IRER1BD4eFyEpcWsp1vzsNEepYXLrZ9KCavcG5U0rudQaiP/2gAMAwEAAgADAAAAEIDM/P/EABYRAQEBAAAAAAAAAAAAAAAAAAEgQf/aAAgBAwEBPxBGx//EABYRAAMAAAAAAAAAAAAAAAAAAAEgQf/aAAgBAgEBPxAIT//EAB0QAQACAwEAAwAAAAAAAAAAAAEAESExQWGBkdH/2gAIAQEAAT8Qcq/JZ5D2G20Xm+auISzUMpFGb7+S31N2tvqI0tAKTCRdpGxzKdn8YyQBpTqIms6rGY+WTlQNw3iHrP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/d0fab2786fee9c7e2ac4b7715103548e/8ac56/motherboard.webp 240w,
+/static/d0fab2786fee9c7e2ac4b7715103548e/d3be9/motherboard.webp 480w,
+/static/d0fab2786fee9c7e2ac4b7715103548e/c4e8e/motherboard.webp 758w&quot;
+          sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/d0fab2786fee9c7e2ac4b7715103548e/09b79/motherboard.jpg 240w,
+/static/d0fab2786fee9c7e2ac4b7715103548e/7cc5e/motherboard.jpg 480w,
+/static/d0fab2786fee9c7e2ac4b7715103548e/ad059/motherboard.jpg 758w&quot;
+          sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/d0fab2786fee9c7e2ac4b7715103548e/ad059/motherboard.jpg&quot;
+          alt=&quot;Motherboard&quot;
+          title=&quot;Motherboard&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This left me with nothing but a faceplate, a screen, and the original battery adhered to the clickwheel.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/faceplate_with_original_battery.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 114.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIEA//EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB6TPPKGxpk3hAs//EABsQAAICAwEAAAAAAAAAAAAAAAIDARMAERIi/9oACAEBAAEFAmtMCW4yK9m2+2SPGULmQ0w5SHJJsz//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAfEAACAQMFAQAAAAAAAAAAAAAAARECIaESIjEyQWH/2gAIAQEABj8CslBEI7YPiRqpeRyvTfctSJ8H/8QAHBAAAgMAAwEAAAAAAAAAAAAAAREAITFBUWGB/9oACAEBAAE/IV9iKJExS8ELzS+AigH01biQYIIobjpd6igD1fMZ7KiYIm4U/9oADAMBAAIAAwAAABD7KL3/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERD/2gAIAQMBAT8QXI//xAAXEQEBAQEAAAAAAAAAAAAAAAARAQAQ/9oACAECAQE/ECq40nP/xAAeEAEBAAICAgMAAAAAAAAAAAABEQAhMUFhgVFxwf/aAAgBAQABPxAk1ZSr339YPeoqvrzz8zCiMIBxPbje3SailZefWEIqNxF2S5Z1Sb57/cDZ0QZBtmGv7tCj1gRemHnWf//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/cb13083e051c161636517e477b5948ae/8ac56/faceplate_with_original_battery.webp 240w,
+/static/cb13083e051c161636517e477b5948ae/d3be9/faceplate_with_original_battery.webp 480w,
+/static/cb13083e051c161636517e477b5948ae/e46b2/faceplate_with_original_battery.webp 960w,
+/static/cb13083e051c161636517e477b5948ae/77d2c/faceplate_with_original_battery.webp 1035w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/cb13083e051c161636517e477b5948ae/09b79/faceplate_with_original_battery.jpg 240w,
+/static/cb13083e051c161636517e477b5948ae/7cc5e/faceplate_with_original_battery.jpg 480w,
+/static/cb13083e051c161636517e477b5948ae/6a068/faceplate_with_original_battery.jpg 960w,
+/static/cb13083e051c161636517e477b5948ae/af659/faceplate_with_original_battery.jpg 1035w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/cb13083e051c161636517e477b5948ae/6a068/faceplate_with_original_battery.jpg&quot;
+          alt=&quot;Faceplate with Battery&quot;
+          title=&quot;Faceplate with Battery&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Removing the original battery isn’t too difficult, but the glue is strong, so if you have trouble you may need something sharp and with patients gentle pry the battery away from the clickwheel, being careful not to damage the faceplate in the process. I also went ahead and removed the screen, so I could clean the protective transparent layer with some rubbing alcohol.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/faceplate_alone.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 922px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 139.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAcABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgQD/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHpGW1aSBE7pI3yyVG//8QAHxAAAgEEAgMAAAAAAAAAAAAAAQIAAxESIRAUMTJC/9oACAEBAAEFAvm/BrazMHhC2XXYz1KaYVXlzP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EAB0QAAICAQUAAAAAAAAAAAAAAAABAhAxESFhkaH/2gAIAQEABj8CVrRdmI0lHdkfRrkTM1//xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhMWFBgf/aAAgBAQABPyFa9oJayGgw6AogOlDZz5+RBAjhF+K+xXjw67o4xA7l2raz/9oADAMBAAIAAwAAABCjE77/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAgEBPxBj/8QAHRABAAIDAAMBAAAAAAAAAAAAAQARITFBUWHBsf/aAAgBAQABPxCygWnZyeUAhjtR+8BxLMAKod3ymB+HWb/Y2hAmK0ld0SG3xEEoLQERrg7iK+lj79i4GV6Dct8r9xS7wV7P/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/8ac56/faceplate_alone.webp 240w,
+/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/d3be9/faceplate_alone.webp 480w,
+/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/88718/faceplate_alone.webp 922w&quot;
+          sizes=&quot;(max-width: 922px) 100vw, 922px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/09b79/faceplate_alone.jpg 240w,
+/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/7cc5e/faceplate_alone.jpg 480w,
+/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/b6249/faceplate_alone.jpg 922w&quot;
+          sizes=&quot;(max-width: 922px) 100vw, 922px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/7de1620a8b78ccd3f7b5e1b74ccabfbb/b6249/faceplate_alone.jpg&quot;
+          alt=&quot;Faceplate alone&quot;
+          title=&quot;Faceplate alone&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The new battery I purchased is slightly larger at 1300 mAh, and is a perfect fit for the old one. In the future, I may upgrade to an even larger battery, but for now I just wanted to see if I could get the device booting.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/new_battery.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAXc4r5aAP//EABsQAAIBBQAAAAAAAAAAAAAAAAECAAMQERMy/9oACAEBAAEFAtiktUVYhyB0ii3/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAeEAACAQMFAAAAAAAAAAAAAAAAAQIDEVEQEiExQf/aAAgBAQAGPwKW6fuRONS/OS4zpaf/xAAbEAACAwADAAAAAAAAAAAAAAABEQAhMUFxkf/aAAgBAQABPyEEScAVSmUgGLsRgVs11AGHMNT8oKE//9oADAMBAAIAAwAAABBAL//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQEAAgIDAQAAAAAAAAAAAAERACExYUFxgbH/2gAIAQEAAT8Qn4jOYCcdtzfGuWkYkvd+YSiHVfQ/MdYO/jvEAjZyMAAEDQGf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f294ffe2514dc9e033751bf3a0432158/8ac56/new_battery.webp 240w,
+/static/f294ffe2514dc9e033751bf3a0432158/d3be9/new_battery.webp 480w,
+/static/f294ffe2514dc9e033751bf3a0432158/e46b2/new_battery.webp 960w,
+/static/f294ffe2514dc9e033751bf3a0432158/bcae2/new_battery.webp 1283w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f294ffe2514dc9e033751bf3a0432158/09b79/new_battery.jpg 240w,
+/static/f294ffe2514dc9e033751bf3a0432158/7cc5e/new_battery.jpg 480w,
+/static/f294ffe2514dc9e033751bf3a0432158/6a068/new_battery.jpg 960w,
+/static/f294ffe2514dc9e033751bf3a0432158/3e9c5/new_battery.jpg 1283w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f294ffe2514dc9e033751bf3a0432158/6a068/new_battery.jpg&quot;
+          alt=&quot;New Battery&quot;
+          title=&quot;New Battery&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;After having installed the new battery and the headphone jack flex cable, the device spun up and booted for the first time in over a decade. I then set out on backing up my music to my hackintosh, and beginning some new research while I waited. I knew that the largest point of failure in this was the 20 year old hard drive that has a spinning disk inside of it, and should have died a long time ago. Not to mention 20 GBs of space in 2022 would just not cut it. So I set out to learn what options I had for replacing it with better storage, that wouldn’t fail on me any time soon.&lt;/p&gt;
+&lt;h3 id=&quot;upgrade&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#upgrade&quot; aria-label=&quot;upgrade permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Upgrade&lt;/h3&gt;
+&lt;p&gt;Having surfed the depths of the web, I came across a cheap but effective solution that used a Compact Flash to IDE 50-Pin Adapter. The Toshiba 20 GB hard drive was using a 50-Pin interface, so the adapter would be perfect for comunicating with flash memory. Additionally I found a Compact Flash to dual MicroSD card adapter, that could work alongside the 50-Pin Adapter. I already had two 256 GB MicroSD cards on hand, so all I had to do was wait for these adapters to arrive, and then give them a try. Finding a place to purchase these adapters can be difficult, as you can imagine, these aren’t commonly purchased products. The CF adapter may be more readily available, since it has usages outside of the iPod. If you are looking for the same ones, I recommend searching Amazon and Aliexpress as I found several versions of the adapters I ended up purchasing on those sites. While the adapters were shipping, I wiped and reformatted the two MicroSD cards as Fat32. Then I waited patiently for the adapters to arrive in the mail.&lt;/p&gt;
+&lt;p&gt;With the adapters finally on hand, I began replacing the hard drive with a flash storage solution.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/adapters_arrived.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABl3OxQwl//8QAGhAAAwEAAwAAAAAAAAAAAAAAAQISABETMv/aAAgBAQABBQI0xl+JB3SmIlU8/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAwEBPwGH/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgICAwAAAAAAAAAAAAAAAAERIQIxEiJC/9oACAEBAAY/AvQuGWqOyUmiMaLcn//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQVH/2gAIAQEAAT8h1zDuEvITtGqspA4O9d+RvQvrP//aAAwDAQACAAMAAAAQl9//xAAXEQEBAQEAAAAAAAAAAAAAAAABACER/9oACAEDAQE/EBV2N2//xAAXEQADAQAAAAAAAAAAAAAAAAAAESEB/9oACAECAQE/EE4bD//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExgVH/2gAIAQEAAT8Q1RLYBN9gO4FHLRx4wwlgWrPIgbwrsEAq693vYk6B+s//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/ff1faa033f39737f59d7e9d1c934429c/8ac56/adapters_arrived.webp 240w,
+/static/ff1faa033f39737f59d7e9d1c934429c/d3be9/adapters_arrived.webp 480w,
+/static/ff1faa033f39737f59d7e9d1c934429c/e46b2/adapters_arrived.webp 960w,
+/static/ff1faa033f39737f59d7e9d1c934429c/6970a/adapters_arrived.webp 1411w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/ff1faa033f39737f59d7e9d1c934429c/09b79/adapters_arrived.jpg 240w,
+/static/ff1faa033f39737f59d7e9d1c934429c/7cc5e/adapters_arrived.jpg 480w,
+/static/ff1faa033f39737f59d7e9d1c934429c/6a068/adapters_arrived.jpg 960w,
+/static/ff1faa033f39737f59d7e9d1c934429c/e2d85/adapters_arrived.jpg 1411w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/ff1faa033f39737f59d7e9d1c934429c/6a068/adapters_arrived.jpg&quot;
+          alt=&quot;Adapters&quot;
+          title=&quot;Adapters&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I started by inserting the two 256 GB MicroSD cards into the Compact Flash adapter.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/cf_adapter_with_microsd.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 790px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMCAQT/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgP/2gAMAwEAAhADEAAAAYZpWdqC8fVwNA//xAAcEAACAgIDAAAAAAAAAAAAAAABAgADEhMEETP/2gAIAQEAAQUCzbM2vKSWTomNVjOP560mtTAoWf/EABcRAQADAAAAAAAAAAAAAAAAAAERICH/2gAIAQMBAT8BAjaf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECETIhIjFRgf/aAAgBAQAGPwKScq1Mi2Pps2uz0xOCkj//xAAcEAADAAIDAQAAAAAAAAAAAAAAAREhMUFRYXH/2gAIAQEAAT8hzJjDQglLvhdtdE7xoFI9hdG76JZSD2lF+Ej/2gAMAwEAAgADAAAAEMQXQv/EABkRAAIDAQAAAAAAAAAAAAAAAAABEBEhMf/aAAgBAwEBPxBRKaPuluP/xAAWEQEBAQAAAAAAAAAAAAAAAAABERD/2gAIAQIBAT8QVrMmf//EAB4QAQEAAwABBQAAAAAAAAAAAAERACExUUFhgZGh/9oACAEBAAE/EGaJp4njluJoLoBr8x5tEGTWQxpII3f3krdNhZ6z2zijAC/GGiK7pnWl7tyFTNh5z//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/9a3fd3982f933e9e70583784a840e6cc/8ac56/cf_adapter_with_microsd.webp 240w,
+/static/9a3fd3982f933e9e70583784a840e6cc/d3be9/cf_adapter_with_microsd.webp 480w,
+/static/9a3fd3982f933e9e70583784a840e6cc/02aff/cf_adapter_with_microsd.webp 790w&quot;
+          sizes=&quot;(max-width: 790px) 100vw, 790px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/9a3fd3982f933e9e70583784a840e6cc/09b79/cf_adapter_with_microsd.jpg 240w,
+/static/9a3fd3982f933e9e70583784a840e6cc/7cc5e/cf_adapter_with_microsd.jpg 480w,
+/static/9a3fd3982f933e9e70583784a840e6cc/b1591/cf_adapter_with_microsd.jpg 790w&quot;
+          sizes=&quot;(max-width: 790px) 100vw, 790px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/9a3fd3982f933e9e70583784a840e6cc/b1591/cf_adapter_with_microsd.jpg&quot;
+          alt=&quot;Compact Flash with MicroSD&quot;
+          title=&quot;Compact Flash with MicroSD&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then I attached the Compact Flash adapter to the 50-Pin Adapter.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/assembled_adapters.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 734px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 122.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQD/2gAMAwEAAhADEAAAAZZug5W4FkqO+dZuU//EAB0QAAEEAgMAAAAAAAAAAAAAAAIAAQMRIjMEITL/2gAIAQEAAQUCnJW9tRJzzNyBBkMu2+uNlDNuFB5//8QAFxEBAQEBAAAAAAAAAAAAAAAAAQIQEf/aAAgBAwEBPwElcK4Z/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8BpD//xAAfEAACAgEEAwAAAAAAAAAAAAAAAQIRMRIgISJhgZH/2gAIAQEABj8CSjLGRdn9LRpqPtC6Q58FsdVg5kLZ/8QAHBABAAMBAAMBAAAAAAAAAAAAAQARMSFBcZGx/9oACAEBAAE/Ib1owCFo7Qh/SJ3YDjdCmj4VLR0gaUCh2XuB9IbD3qTT0Tcwn//aAAwDAQACAAMAAAAQqDRA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEhEDH/2gAIAQMBAT8Q4mREiH//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/EAh07n//xAAhEAACAgIBBAMAAAAAAAAAAAABEQAhMUGBEFFhcZGx8P/aAAgBAQABPxBqcxAgOtwVSISiO4AsWKI/EqHY8wFmok62i/EPSCeUFBNQQPD3jMD0CkiRAWMmuIMJBBg+5+N26f2J/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/c8cbde3efaa52b9ecf5272f7ba143afd/8ac56/assembled_adapters.webp 240w,
+/static/c8cbde3efaa52b9ecf5272f7ba143afd/d3be9/assembled_adapters.webp 480w,
+/static/c8cbde3efaa52b9ecf5272f7ba143afd/a242a/assembled_adapters.webp 734w&quot;
+          sizes=&quot;(max-width: 734px) 100vw, 734px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/c8cbde3efaa52b9ecf5272f7ba143afd/09b79/assembled_adapters.jpg 240w,
+/static/c8cbde3efaa52b9ecf5272f7ba143afd/7cc5e/assembled_adapters.jpg 480w,
+/static/c8cbde3efaa52b9ecf5272f7ba143afd/7043a/assembled_adapters.jpg 734w&quot;
+          sizes=&quot;(max-width: 734px) 100vw, 734px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/c8cbde3efaa52b9ecf5272f7ba143afd/7043a/assembled_adapters.jpg&quot;
+          alt=&quot;Adapters Assembled&quot;
+          title=&quot;Adapters Assembled&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you look at the text written on the PCB of the 50-Pin Adapter, you’ll notice that it has a little arrow pointing at PIN 1, and says “Notice this before use!“. This is very important, as this is the most left PIN we want to use when installing this in the iPod. The adapter also came with a jumper, but fortunately mine was already configured how I needed it. Installing this monstrosity into the iPod wasn’t the easiest, as it doesn’t fit perfectly, the hard drive has a little hole that a tab enters to add some strength between the original flex cable and drive. This tab gets in the way of the adapters. You can shave this down with an xacto knife, or just force it, it’s entirely up to you.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/adapters_installed.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 91.25000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAASABQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAMCAQQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAevCmx0gT1ORpiv/xAAaEAEAAgMBAAAAAAAAAAAAAAACAQMQERIT/9oACAEBAAEFAlNvbbial0Go9GoVYWjrP//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABsQAAIBBQAAAAAAAAAAAAAAAAAxARIgISJx/9oACAEBAAY/AppQzJItuW//xAAaEAADAQEBAQAAAAAAAAAAAAAAARExIVFx/9oACAEBAAE/IYT4cGZNuDqboltvhj1OscqCTYhpbOj0/9oADAMBAAIAAwAAABAcN3//xAAWEQEBAQAAAAAAAAAAAAAAAAABESD/2gAIAQMBAT8QQhHH/8QAFhEAAwAAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/ECv/xAAcEAEBAAMBAAMAAAAAAAAAAAABEQAhQTFRkdH/2gAIAQEAAT8Q3KCzT5lcT1fn8y+hMX6wNmtIemYqLbIrE1kRyi3WNiZezOI4s3hODP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/5b9c79f93d712c9ee0244847c667d921/8ac56/adapters_installed.webp 240w,
+/static/5b9c79f93d712c9ee0244847c667d921/d3be9/adapters_installed.webp 480w,
+/static/5b9c79f93d712c9ee0244847c667d921/e46b2/adapters_installed.webp 960w,
+/static/5b9c79f93d712c9ee0244847c667d921/acaf1/adapters_installed.webp 1058w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/5b9c79f93d712c9ee0244847c667d921/09b79/adapters_installed.jpg 240w,
+/static/5b9c79f93d712c9ee0244847c667d921/7cc5e/adapters_installed.jpg 480w,
+/static/5b9c79f93d712c9ee0244847c667d921/6a068/adapters_installed.jpg 960w,
+/static/5b9c79f93d712c9ee0244847c667d921/3e9cd/adapters_installed.jpg 1058w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/5b9c79f93d712c9ee0244847c667d921/6a068/adapters_installed.jpg&quot;
+          alt=&quot;Adapters installed&quot;
+          title=&quot;Adapters installed&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Later I would add some protective layer such as foam padding between the adapters and the motherboard for extra care, and to prevent potential rattling while the device was in motion. With everything installed, I could factory reset it and give it a boot.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/adapters_functioning.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 866px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 162.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAhABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBBAUC/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQACA//aAAwDAQACEAMQAAABTYh27LNY5NLhikuGeDMAyAC//8QAHBAAAgMAAwEAAAAAAAAAAAAAAQIAAxESITIx/9oACAEBAAEFAq0BBpXLEw19Ly5RlBj/AA4C75GIM6WWNpPqzxP/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAYEQACAwAAAAAAAAAAAAAAAAACERIgIf/aAAgBAgEBPwEYrbf/xAAbEAACAgMBAAAAAAAAAAAAAAAAASAhEBFxEv/aAAgBAQAGPwK4rmF5YuGiyof/xAAbEAEBAQACAwAAAAAAAAAAAAABEQAxkRBBcf/aAAgBAQABPyEthE9afPZdAU40CEwl40BkpR1Qx2tGq70dVJPFxfccb//aAAwDAQACAAMAAAAQw+JM8+//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEg/9oACAEDAQE/EDbgL//EABcRAQADAAAAAAAAAAAAAAAAAAEQIFH/2gAIAQIBAT8QQ0ox/8QAIRABAAICAQMFAAAAAAAAAAAAAQARITFBEHGhUWGRscH/2gAIAQEAAT8QUS0jaGXM9HpeQ2fEemAPDun5FSSW21zG8kVVDxEk2gPLNChzUQTsfadon2yrjfFQEYZxwuHWAbE0zwPQ/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/9521722943f1c77d5b83d8a1bb3077b1/8ac56/adapters_functioning.webp 240w,
+/static/9521722943f1c77d5b83d8a1bb3077b1/d3be9/adapters_functioning.webp 480w,
+/static/9521722943f1c77d5b83d8a1bb3077b1/e299d/adapters_functioning.webp 866w&quot;
+          sizes=&quot;(max-width: 866px) 100vw, 866px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/9521722943f1c77d5b83d8a1bb3077b1/09b79/adapters_functioning.jpg 240w,
+/static/9521722943f1c77d5b83d8a1bb3077b1/7cc5e/adapters_functioning.jpg 480w,
+/static/9521722943f1c77d5b83d8a1bb3077b1/0a151/adapters_functioning.jpg 866w&quot;
+          sizes=&quot;(max-width: 866px) 100vw, 866px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/9521722943f1c77d5b83d8a1bb3077b1/0a151/adapters_functioning.jpg&quot;
+          alt=&quot;Adapters installed&quot;
+          title=&quot;Adapters installed&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you have an old iPod of your own, and would like to use a less hacky approach, instead of so many adapters, iFlash has a great product &lt;a href=&quot;https://www.iflash.xyz/store/iflash-quad/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;, that supports up to four MicroSD cards simultaneously. The adapters will certainly be cheaper, but they are a less robust solution than what iFlash has to offer. While it’s likely possible to get a terabyte running with this method, it’s questionable whether the iPods software will support it, instead you may find that &lt;a href=&quot;https://www.rockbox.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Rockbox&lt;/a&gt; is the only way to utilize flash storage sizes of that caliber. Keep in mind, if you do go this route, and you have a 4th generation iPod like me, you will need &lt;a href=&quot;https://www.iflash.xyz/store/4th-gen-iflash-converter/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;this adapter&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;software&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#software&quot; aria-label=&quot;software permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Software&lt;/h3&gt;
+&lt;p&gt;Surprisingly, Apple Music (RIP iTunes) actually works out of the box with this device. Finder even has a built-in integration for syncing with iPods, and it works similarly to what you would expect when you plugin in an iPad or iPhone. The actual process of managing or syncing songs or playlists with the iPod hasn’t really changed at all. So it’s full of quirks, and unless you have a lot of Apple owned music, you may want to try a different approach.&lt;/p&gt;
+&lt;p&gt;For my needs, Apple Music worked just fine however. I was able to reset the iPod to factory settings, and then begin restoring my old music. I was pleasantly surprised by how quick it had backed up my old 20 GB drive, and now restoring was even faster. Back when the iPod was released, I recall it taking hours to sync. I am curious what changed that made the backup take only 15 minutes today. The restore was ludicrously quick, but I imagine that had something to do with using flash memory instead of a spinning disk drive.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/factory_reset.png&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVQoz2PIzi3wDQgyNDY1MjEHIiBDV9+QMDIw0tbRYzAwNNLQ0FRVVVNRVVcFIyVlFWSkrKIKRGiCSiqqigqKDJISEtJSUtLSYCQFRqhASgqoREIKQ1xGSopBBgnIwgCykLKqho62tpKSkgwakJZmkJOTA6qGkHBTwSbISUuIKujYFE/evnrLPk+/MGFhQaAyhF6gzerq6iYmJqampjo6OvLy8oqKigoKCiBHAi2VFFE28cmcda5/3raqyiZVFWWQa8HuAmJJKWkGoBUQDYowoKqqqqmpqaysIszPLaFuk9B9bMKUdce3bDE2txQREYFYDtUMdjxy8EgpKyubmZkBQ9jN2c7WN6Vk3pnDNx6d2Xt0XV6rpqKKpLSULEgv2Nky2ADQCGAIOzrYW9u7GFu5BIcEB/n6BZk7KsnJg1wOU4NdMyTMgY4UExUWFxMRFBQUAgIxEbhOaGjL4AZyUCAPBUhBDQw1SUkpAPx2ad8bI3QcAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/4026fd57eaa9c33c018458fc5c3d21f8/8ac56/factory_reset.webp 240w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/d3be9/factory_reset.webp 480w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/e46b2/factory_reset.webp 960w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/f992d/factory_reset.webp 1440w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/882b9/factory_reset.webp 1920w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/8d1ad/factory_reset.webp 2026w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/4026fd57eaa9c33c018458fc5c3d21f8/8ff5a/factory_reset.png 240w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/e85cb/factory_reset.png 480w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/d9199/factory_reset.png 960w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/07a9c/factory_reset.png 1440w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/29114/factory_reset.png 1920w,
+/static/4026fd57eaa9c33c018458fc5c3d21f8/d8d63/factory_reset.png 2026w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/4026fd57eaa9c33c018458fc5c3d21f8/d9199/factory_reset.png&quot;
+          alt=&quot;Getting Started with iPod&quot;
+          title=&quot;Getting Started with iPod&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If I didn’t get Apple Music working, I would have setup &lt;a href=&quot;https://www.rockbox.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Rockbox&lt;/a&gt;, an alternative firmware for the iPod, instead. This way I could manage all the music and content on the iPod, like a flashdrive. One of the cool features of Rockbox is that it has &lt;a href=&quot;http://themes.rockbox.org/?target=ipod4g&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;themes&lt;/a&gt;, even for the greyscale iPod 4G display. This &lt;a href=&quot;http://themes.rockbox.org/index.php?themeid=2951&amp;#x26;target=ipod4g&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;theme in particular&lt;/a&gt; I found to be pretty intruiging. I may experiment in the future with Rockbox, but for now I am happy using the OG firmware.&lt;/p&gt;
+&lt;p&gt;Now that all my original music was restored, and I had a lot of extra space, I looked into migrating music off of Apple Music and Spotify. I found an incredible command line tool for spotify called &lt;a href=&quot;https://github.com/spotDL/spotify-downloader&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;spotdl&lt;/a&gt;. This allowed me to easily download music I have on my Spotify account by identifying the music and downloading it from alternative sources. If you want to keep your playlists, you’ll have to do that by hand, as transferring playlists from Spotify to Apple Music is not trivial. Some paid services do exist, but it wasn’t worth the effort in my opinion. Once I had downloaded all the music I wanted, it was as simple as dragging and dropping the files into the &lt;code class=&quot;language-text&quot;&gt;Automatically Add to Music&lt;/code&gt; directory in my users &lt;code class=&quot;language-text&quot;&gt;/Music/iTunes/iTunes Media/&lt;/code&gt; directory. After a short sync, everything was loaded on my iPod and ready to go.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/spotdl.png&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVQoz3WSWW7DMAxEHUsitdlxvcZJ7n/NKUnVRYEiHw+iCWs01KibpgkpJcQY4ZyD9x632w3EBE4MIkIuCXXIKFXXgpSlzwEcG4E9XHLgTOiO48A4jgYzI4Rggj6IuPzYdR24BqSJEe+EOJLV+Q/WXwl1Keje7zeez6cxzzNKKSi5yGkM550JhsmDd3GzfWCVA0/GsNbmcF1X7PuOWqsJKJ5kjNAE6e5tEy+fSYc6lP2Px8Ocnedpd3kJ2r38CNqGU8Z6fObX4SbO1KEK6v39daiY+Oibk/k/caa27j93eI2sLjVRTfkSpES49ZJ49YhTC4PvGhAZrdae1BJKnmRCdaZs24ZlWez5eOftyfSubw6/5PsIoK2FQ7s3rpqF9JSRNxlZ0329XiamopfDIO8sDRG97xHFaR0ShpqRa5TwkqG19lKRdznJ//eEb8aLyVmb10C2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/88cdce09f0b29a0f63bcf779b08171b2/8ac56/spotdl.webp 240w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/d3be9/spotdl.webp 480w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/e46b2/spotdl.webp 960w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/f992d/spotdl.webp 1440w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/882b9/spotdl.webp 1920w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/f9fc3/spotdl.webp 2170w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/88cdce09f0b29a0f63bcf779b08171b2/8ff5a/spotdl.png 240w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/e85cb/spotdl.png 480w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/d9199/spotdl.png 960w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/07a9c/spotdl.png 1440w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/29114/spotdl.png 1920w,
+/static/88cdce09f0b29a0f63bcf779b08171b2/a628a/spotdl.png 2170w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/88cdce09f0b29a0f63bcf779b08171b2/d9199/spotdl.png&quot;
+          alt=&quot;CLI showing SpotDL&quot;
+          title=&quot;CLI showing SpotDL&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;whats-next&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#whats-next&quot; aria-label=&quot;whats next permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What’s next?&lt;/h3&gt;
+&lt;p&gt;This project was enjoyable to work on, as it allowed me to rediscover a lot of music that I had otherwise forgotten about. It is not every day I can open up a box of electronics from my childhood, and restore them to a healthy state. Sustainability is something I truly care about, so keeping my old electronics out of a landfill is important to me. I also learned a lot about the inner workings of an iPod, something I haven’t thought about in over a decade. In the future, I may write more on this if I get the itch. Perhaps I will expand the battery capacity even further, replace the faceplate with a new look, or attempt to restore a broken iPod 5 with video support. For now I will just be listening to some beach boys while I program.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/ipod4g/beachboys.jpeg&quot;&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAFsKdYqDIB//8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIDEgAEERP/2gAIAQEAAQUCnPYQlWFzhux2SGiX2Uf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAdEAACAgEFAAAAAAAAAAAAAAAAAQIRMRMhIjJB/9oACAEBAAY/Ampun4LU62cd0Wylmyo4P//EABsQAQADAQADAAAAAAAAAAAAAAEAESFBMVGx/9oACAEBAAE/IfMCYPkvlKUx7EVg4waVtt2JlGhMm0p6XP/aAAwDAQACAAMAAAAQlw//xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQMBAT8Qla//xAAYEQADAQEAAAAAAAAAAAAAAAAAAREhUf/aAAgBAgEBPxBOYRdP/8QAHxABAAIBAwUAAAAAAAAAAAAAAQARMSFBcVFhgZHR/9oACAEBAAE/EAzgEUqbvMY1RLObBrhliwzHbpGpoKI+ykiMEXrx3mVOuhz7n//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/1c181c57f2f569c798114f87fa3df84f/8ac56/beachboys.webp 240w,
+/static/1c181c57f2f569c798114f87fa3df84f/d3be9/beachboys.webp 480w,
+/static/1c181c57f2f569c798114f87fa3df84f/e46b2/beachboys.webp 960w,
+/static/1c181c57f2f569c798114f87fa3df84f/6970a/beachboys.webp 1411w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/1c181c57f2f569c798114f87fa3df84f/09b79/beachboys.jpg 240w,
+/static/1c181c57f2f569c798114f87fa3df84f/7cc5e/beachboys.jpg 480w,
+/static/1c181c57f2f569c798114f87fa3df84f/6a068/beachboys.jpg 960w,
+/static/1c181c57f2f569c798114f87fa3df84f/e2d85/beachboys.jpg 1411w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/1c181c57f2f569c798114f87fa3df84f/6a068/beachboys.jpg&quot;
+          alt=&quot;Beach Boys&quot;
+          title=&quot;Beach Boys&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hardware Transcoding]]></title><description><![CDATA[Plex Transcoding with Nvidia GPUs]]></description><link>https://vincenttaverna.com/posts/hardware-transcoding</link><guid isPermaLink="false">https://vincenttaverna.com/posts/hardware-transcoding</guid><pubDate>Sat, 19 Dec 2020 05:38:00 GMT</pubDate><content:encoded>&lt;p&gt;This holiday season I had some down time. I was watching a home video on Plex when I noticed some artifacting on my Samsung TV. While this can be easily solved by transcoding all of my media to the lowest common denominator client device, it would require a lot of processing power and time to go through the entire content library. Additionally, without knowing which devices my family members all use, I would have no way of creating a reliable experience for them. For my own needs, changing to a client device that supports the media I was playing is the most straightforward solution. For those who are sharing their Plex with family and friends, you will want to look closer at your hardware.&lt;/p&gt;
 &lt;h3 id=&quot;research&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#research&quot; aria-label=&quot;research permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Research&lt;/h3&gt;
 &lt;p&gt;I began researching why this was happening to my headless Ubuntu server. Starting with the hardware, I knew that out of the box, Plex will use your integrated graphics chip on the processor to handle any decoding or encoding, and will ultimately fallback to the CPU. The server in my basement today is currently running on fairly old hardware, the CPU is actually an &lt;strong&gt;i7-4790k&lt;/strong&gt;. A quick search reveals an Intel specification &lt;a href=&quot;https://ark.intel.com/content/www/us/en/ark/products/80807/intel-core-i7-4790k-processor-8m-cache-up-to-4-40-ghz.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. This page explains that the CPU has the following Processor Graphics.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Processor Graphics ‡ Intel® HD Graphics 4600
