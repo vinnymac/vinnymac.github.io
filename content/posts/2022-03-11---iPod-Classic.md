@@ -50,7 +50,7 @@ First I removed the 20 GB hard drive.
 
 [![Hard Drive](/ipod4g/ipod_4g_20gb_harddrive.jpeg)](/ipod4g/ipod_4g_20gb_harddrive.jpeg)
 
-This gave me access to the rest of the motherboard, and I went ahead and disconnected the battery. Be careful when doing this, as the battery cables are not that strong, I recommend using something thin, or even small need nose pliers to lift straight up and away from the board. I also removed the display connector (ended up having to replace the clasp on this connector, as it was partially damaged) and clickwheel connectors on the left hand side of the motherboard.
+This gave me access to the rest of the motherboard, and I went ahead and disconnected the battery. Be careful when doing this, as the battery cables are not that strong, I recommend using something thin, or even small needle nose pliers to lift straight up and away from the board. I also removed the display connector (ended up having to replace the clasp on this connector, as it was partially damaged) and clickwheel connectors on the left hand side of the motherboard.
 
 [![Internals without Hard Drive](/ipod4g/ipod_4g_internals_with_harddrive_removed_white.jpeg)](/ipod4g/ipod_4g_internals_with_harddrive_removed_white.jpeg)
 
