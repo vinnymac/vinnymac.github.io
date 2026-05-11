@@ -228,7 +228,7 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
       status.hidden = true;
       list.hidden = false;
     } catch (err) {
-      console.error('[BlueskyComments]', err);
+      if (import.meta.env.DEV) console.error('[BlueskyComments]', err);
       status.textContent = 'Could not load comments.';
     }
   };

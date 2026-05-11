@@ -19,7 +19,6 @@
   }
 }
 
-// Typographic rhythm helpers (port of Lumen's leading-based mixins).
 @mixin line-height($number) {
   line-height: #{$number * $typographic-leading}px;
 }
