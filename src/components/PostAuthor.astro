@@ -24,7 +24,7 @@ const blueskyUrl = `https://bsky.app/profile/${blueskyHandle}`;
   @use '../styles/mixins' as *;
 
   .author {
-    border-top: 1px solid $color-gray-border;
+    border-top: 1px solid var(--color-gray-border);
     max-width: $layout-post-width;
     padding-top: 20px;
     @include line-height(1);

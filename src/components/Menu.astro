@@ -14,6 +14,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
         <li class="menu__list-item">
           <a
             href={item.path}
+            aria-current={isActive ? 'page' : undefined}
             class:list={[
               'menu__list-item-link',
               isActive && 'menu__list-item-link--active',
@@ -45,19 +46,19 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
         &-link {
           font-size: $typographic-base-font-size;
-          color: $typographic-base-font-color;
+          color: var(--text);
           font-weight: normal;
           border: 0;
 
           &:hover,
-          &:focus {
-            color: $color-primary;
-            border-bottom: 1px solid $color-primary;
+          &:focus-visible {
+            color: var(--link);
+            border-bottom: 1px solid var(--link);
           }
 
           &--active {
-            color: $color-base;
-            border-bottom: 1px solid $color-base;
+            color: var(--text);
+            border-bottom: 1px solid var(--text);
           }
         }
       }

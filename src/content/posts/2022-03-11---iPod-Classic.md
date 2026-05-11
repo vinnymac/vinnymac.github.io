@@ -1,16 +1,16 @@
 ---
-title: "iPod Classic Revival"
-date: "2022-03-29T05:24:00.000Z"
+title: 'iPod Classic Revival'
+date: '2022-03-29T05:24:00.000Z'
 draft: false
-slug: "ipod-classic-revival"
+slug: 'ipod-classic-revival'
 category: apple
 tags:
-  - "ipod"
-  - "classic"
-  - "apple"
-  - "sustainability"
-  - "music"
-description: "Reviving an iPod Classic from the dead"
+  - 'ipod'
+  - 'classic'
+  - 'apple'
+  - 'sustainability'
+  - 'music'
+description: 'Reviving an iPod Classic from the dead'
 ---
 
 I've always had my hand in electronics since I was a kid, digging through boxes and finding some old device, such as a Camera that was five times my age. My curiosity always got the best of me, and I'd end up with a table full of parts by the end of the night, trying to determine which one was preventing the device from functioning. I found myself recently experiencing this same child-like adventure, after unpacking a box of old electronics in my basement. I came across an old iPod 4th Generation, and after rummaging around for a cable, and painfully waiting to see if the battery still functioned, I discovered that it was in fact dead.
@@ -94,7 +94,6 @@ Later I would add some protective layer such as foam padding between the adapter
 [![Adapters installed](/ipod4g/adapters_functioning.jpeg)](/ipod4g/adapters_functioning.jpeg)
 
 If you have an old iPod of your own, and would like to use a less hacky approach, instead of so many adapters, iFlash has a great product [here](https://www.iflash.xyz/store/iflash-quad/), that supports up to four MicroSD cards simultaneously. The adapters will certainly be cheaper, but they are a less robust solution than what iFlash has to offer. While it's likely possible to get a terabyte running with this method, it's questionable whether the iPods software will support it, instead you may find that [Rockbox](https://www.rockbox.org/) is the only way to utilize flash storage sizes of that caliber. Keep in mind, if you do go this route, and you have a 4th generation iPod like me, you will need [this adapter](https://www.iflash.xyz/store/4th-gen-iflash-converter/).
-
 
 ### Software
 

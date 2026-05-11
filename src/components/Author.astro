@@ -1,5 +1,7 @@
 ---
+import { Picture } from 'astro:assets';
 import siteConfig from '../site.config';
+import authorPhoto from '../assets/photo.jpg';
 
 interface Props {
   isIndex?: boolean;
@@ -12,11 +14,16 @@ const TitleTag = isIndex ? 'h1' : 'h2';
 
 <div class="author">
   <a href="/">
-    <img
-      src={author.photo}
+    <Picture
+      src={authorPhoto}
       class="author__photo"
-      width="75"
-      height="75"
+      width={150}
+      height={150}
+      densities={[1, 2]}
+      formats={['avif', 'webp']}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
       alt={author.name}
     />
   </a>
@@ -33,6 +40,8 @@ const TitleTag = isIndex ? 'h1' : 'h2';
   .author {
     &__photo {
       display: inline-block;
+      width: 75px;
+      height: 75px;
       margin-bottom: 0;
       border-radius: 50%;
       background-clip: padding-box;
@@ -45,17 +54,17 @@ const TitleTag = isIndex ? 'h1' : 'h2';
       @include margin(0.5, 0, 0.5, 0);
 
       &-link {
-        color: $color-base;
+        color: var(--text);
 
         &:hover,
-        &:focus {
-          color: $color-base;
+        &:focus-visible {
+          color: var(--text);
         }
       }
     }
 
     &__subtitle {
-      color: $color-gray;
+      color: var(--text-muted);
       @include line-height(1);
       @include margin-bottom(1);
     }

@@ -41,13 +41,22 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
     <template data-template>
       <li class="bsky-comments__item">
         <a class="bsky-comments__avatar-link" target="_blank" rel="noopener noreferrer">
-          <img class="bsky-comments__avatar" alt="" loading="lazy" />
+          <img
+            class="bsky-comments__avatar"
+            alt=""
+            width="40"
+            height="40"
+            loading="lazy"
+            decoding="async"
+          />
         </a>
         <div class="bsky-comments__body">
           <div class="bsky-comments__author">
             <a class="bsky-comments__author-name" target="_blank" rel="noopener noreferrer"></a>
             <a class="bsky-comments__author-handle" target="_blank" rel="noopener noreferrer"></a>
-            <time class="bsky-comments__time"></time>
+            <a class="bsky-comments__time-link" target="_blank" rel="noopener noreferrer">
+              <time class="bsky-comments__time"></time>
+            </a>
           </div>
           <div class="bsky-comments__text"></div>
           <div class="bsky-comments__stats">
@@ -78,9 +87,23 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
     displayName?: string;
     avatar?: string;
   }
+  interface BskyFacetFeature {
+    $type:
+      | 'app.bsky.richtext.facet#link'
+      | 'app.bsky.richtext.facet#mention'
+      | 'app.bsky.richtext.facet#tag';
+    uri?: string;
+    did?: string;
+    tag?: string;
+  }
+  interface BskyFacet {
+    index: { byteStart: number; byteEnd: number };
+    features: BskyFacetFeature[];
+  }
   interface BskyPostRecord {
     text?: string;
     createdAt?: string;
+    facets?: BskyFacet[];
   }
   interface BskyPost {
     uri: string;
@@ -100,6 +123,8 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
   }
 
   const APPVIEW = 'https://public.api.bsky.app';
+  const MAX_NESTED_DEPTH = 4;
+  const RETRY_DELAY_MS = 1000;
 
   /** Parse a Bluesky web URL into the AT URI we need for getPostThread. */
   const parseThreadUrl = (url: string): { handle: string; rkey: string } | null => {
@@ -113,46 +138,135 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
     }
   };
 
+  /** Fetch with a single retry — masks transient AppView 429/5xx blips. */
+  const fetchWithRetry = async (url: string): Promise<Response> => {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return res;
+      if (res.status < 500 && res.status !== 429) {
+        throw new Error(`${url}: ${res.status}`);
+      }
+      // 429 or 5xx — back off once then retry.
+    } catch {
+      // Network failure — retry once.
+    }
+    await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+    const retry = await fetch(url);
+    if (!retry.ok) throw new Error(`${url}: ${retry.status}`);
+    return retry;
+  };
+
   const resolveDid = async (handle: string): Promise<string> => {
-    const res = await fetch(
+    const res = await fetchWithRetry(
       `${APPVIEW}/xrpc/com.atproto.identity.resolveHandle?handle=${encodeURIComponent(handle)}`,
     );
-    if (!res.ok) throw new Error(`resolveHandle failed: ${res.status}`);
     const data = (await res.json()) as { did: string };
     return data.did;
   };
 
   const fetchThread = async (atUri: string): Promise<BskyThreadResponse> => {
-    const res = await fetch(
+    const res = await fetchWithRetry(
       `${APPVIEW}/xrpc/app.bsky.feed.getPostThread?uri=${encodeURIComponent(atUri)}&depth=10`,
     );
-    if (!res.ok) throw new Error(`getPostThread failed: ${res.status}`);
     return (await res.json()) as BskyThreadResponse;
   };
 
-  const escapeHtml = (text: string): string =>
-    text.replace(/[&<>"']/g, (c) => {
-      switch (c) {
-        case '&': return '&amp;';
-        case '<': return '&lt;';
-        case '>': return '&gt;';
-        case '"': return '&quot;';
-        default: return '&#39;';
+  /**
+   * Split post text into segments along facet boundaries.
+   * Bluesky facet offsets are UTF-8 byte indices — slicing the JS string directly
+   * is wrong whenever the text contains multi-byte characters (emoji, accents, CJK).
+   */
+  const segmentText = (
+    text: string,
+    facets: BskyFacet[] = [],
+  ): Array<{ text: string; feature?: BskyFacetFeature }> => {
+    if (!facets.length) return [{ text }];
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+    const bytes = encoder.encode(text);
+    const sorted = facets.toSorted((a, b) => a.index.byteStart - b.index.byteStart);
+    const segments: Array<{ text: string; feature?: BskyFacetFeature }> = [];
+    let cursor = 0;
+    for (const facet of sorted) {
+      const { byteStart, byteEnd } = facet.index;
+      // Skip malformed or overlapping facets rather than throw.
+      if (byteEnd <= byteStart || byteStart < cursor || byteEnd > bytes.length) continue;
+      if (byteStart > cursor) {
+        segments.push({ text: decoder.decode(bytes.slice(cursor, byteStart)) });
       }
+      segments.push({
+        text: decoder.decode(bytes.slice(byteStart, byteEnd)),
+        feature: facet.features[0],
+      });
+      cursor = byteEnd;
+    }
+    if (cursor < bytes.length) {
+      segments.push({ text: decoder.decode(bytes.slice(cursor)) });
+    }
+    return segments;
+  };
+
+  /** Append a plain-text segment, preserving `\n` as <br>. Uses textContent — safe. */
+  const appendPlainText = (target: HTMLElement, value: string) => {
+    const lines = value.split('\n');
+    lines.forEach((line, i) => {
+      if (line) target.appendChild(document.createTextNode(line));
+      if (i < lines.length - 1) target.appendChild(document.createElement('br'));
     });
+  };
+
+  /** Render post text + facets into `target` as real DOM nodes (no innerHTML). */
+  const renderFacetedText = (
+    target: HTMLElement,
+    text: string,
+    facets?: BskyFacet[],
+  ) => {
+    target.replaceChildren();
+    for (const segment of segmentText(text, facets)) {
+      const feature = segment.feature;
+      if (!feature) {
+        appendPlainText(target, segment.text);
+        continue;
+      }
+      const anchor = document.createElement('a');
+      anchor.target = '_blank';
+      anchor.textContent = segment.text;
+      if (feature.$type === 'app.bsky.richtext.facet#link' && feature.uri) {
+        anchor.href = feature.uri;
+        anchor.rel = 'noopener noreferrer nofollow';
+      } else if (feature.$type === 'app.bsky.richtext.facet#mention' && feature.did) {
+        anchor.href = `https://bsky.app/profile/${feature.did}`;
+        anchor.rel = 'noopener noreferrer';
+      } else if (feature.$type === 'app.bsky.richtext.facet#tag' && feature.tag) {
+        anchor.href = `https://bsky.app/hashtag/${encodeURIComponent(feature.tag)}`;
+        anchor.rel = 'noopener noreferrer';
+      } else {
+        // Unknown feature — fall back to plain text.
+        appendPlainText(target, segment.text);
+        continue;
+      }
+      target.appendChild(anchor);
+    }
+  };
 
   const renderReply = (
     template: HTMLTemplateElement,
     reply: BskyThreadView,
+    depth: number,
   ): HTMLElement | null => {
     const { post } = reply;
     if (!post?.author || !post.record) return null;
     const fragment = template.content.cloneNode(true) as DocumentFragment;
     const item = fragment.querySelector('.bsky-comments__item') as HTMLElement;
+    if (depth > 0) {
+      item.classList.add('bsky-comments__item--nested');
+      item.style.setProperty('--depth', String(Math.min(depth, MAX_NESTED_DEPTH)));
+    }
     const avatarLink = fragment.querySelector('.bsky-comments__avatar-link') as HTMLAnchorElement;
     const avatar = fragment.querySelector('.bsky-comments__avatar') as HTMLImageElement;
     const nameLink = fragment.querySelector('.bsky-comments__author-name') as HTMLAnchorElement;
     const handleLink = fragment.querySelector('.bsky-comments__author-handle') as HTMLAnchorElement;
+    const timeLink = fragment.querySelector('.bsky-comments__time-link') as HTMLAnchorElement;
     const time = fragment.querySelector('.bsky-comments__time') as HTMLTimeElement;
     const text = fragment.querySelector('.bsky-comments__text') as HTMLElement;
     const likes = fragment.querySelector('[data-likes]') as HTMLElement;
@@ -170,6 +284,8 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
     nameLink.textContent = post.author.displayName ?? post.author.handle;
     handleLink.href = profileUrl;
     handleLink.textContent = `@${post.author.handle}`;
+    timeLink.href = postUrl;
+    timeLink.setAttribute('aria-label', `View reply on Bluesky`);
     if (post.record.createdAt) {
       time.dateTime = post.record.createdAt;
       time.textContent = new Date(post.record.createdAt).toLocaleDateString('en-US', {
@@ -179,20 +295,29 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
       });
     }
     if (post.record.text) {
-      text.innerHTML = escapeHtml(post.record.text).replace(/\n/g, '<br>');
+      renderFacetedText(text, post.record.text, post.record.facets);
     }
     likes.textContent = `♥ ${post.likeCount ?? 0}`;
     reposts.textContent = `↻ ${post.repostCount ?? 0}`;
     replies.textContent = `💬 ${post.replyCount ?? 0}`;
 
-    // Allow click on body region to open the reply on Bluesky for additional context.
-    item.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('a')) return;
-      window.open(postUrl, '_blank', 'noopener,noreferrer');
-    });
-
     return item;
+  };
+
+  /** Walk the thread tree depth-first, flattening into rendered elements. */
+  const renderTree = (
+    template: HTMLTemplateElement,
+    replies: BskyThreadView[],
+    depth: number,
+    out: HTMLElement[],
+  ) => {
+    for (const reply of replies) {
+      const el = renderReply(template, reply, depth);
+      if (el) out.push(el);
+      if (reply.replies?.length) {
+        renderTree(template, reply.replies, depth + 1, out);
+      }
+    }
   };
 
   const init = async () => {
@@ -221,13 +346,13 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
         status.textContent = 'No replies yet — be the first to comment on Bluesky.';
         return;
       }
-      for (const reply of replies) {
-        const el = renderReply(template, reply);
-        if (el) list.appendChild(el);
-      }
+      const items: HTMLElement[] = [];
+      renderTree(template, replies, 0, items);
+      for (const el of items) list.appendChild(el);
       status.hidden = true;
       list.hidden = false;
     } catch (err) {
+      // oxlint-disable-next-line no-console
       if (import.meta.env.DEV) console.error('[BlueskyComments]', err);
       status.textContent = 'Could not load comments.';
     }
@@ -250,7 +375,7 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
     @include margin-top(2);
     @include margin-bottom(2);
     padding-top: 24px;
-    border-top: 1px solid $color-gray-border;
+    border-top: 1px solid var(--color-gray-border);
 
     &__header {
       display: flex;
@@ -270,20 +395,20 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
       height: $button-height;
       line-height: $button-height;
       padding: 0 18px;
-      border: 1px solid $color-gray-border;
+      border: 1px solid var(--color-gray-border);
       border-radius: $button-border-radius;
-      color: $color-base;
+      color: var(--color-base);
       font-size: $typographic-small-font-size;
 
       &:hover,
-      &:focus {
-        color: $color-primary;
-        border-color: $color-primary;
+      &:focus-visible {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
       }
     }
 
     &__status {
-      color: $color-gray;
+      color: var(--color-gray);
       font-style: italic;
       margin: 16px 0;
     }
@@ -298,15 +423,21 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
       display: flex;
       gap: 12px;
       padding: 16px 0;
-      border-bottom: 1px solid $color-gray-bg;
-      cursor: pointer;
+      border-bottom: 1px solid var(--color-gray-bg);
+
+      // Nested replies — `--depth` is set inline by the renderer (1..4).
+      &--nested {
+        margin-left: calc(var(--depth, 1) * 24px);
+        padding-left: 12px;
+        border-left: 2px solid var(--color-gray-bg);
+      }
     }
 
     &__avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: $color-gray-bg;
+      background: var(--color-gray-bg);
       display: block;
     }
 
@@ -325,16 +456,25 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
 
     &__author-name {
       font-weight: 600;
-      color: $color-base;
+      color: var(--color-base);
     }
 
     &__author-handle {
-      color: $color-gray;
+      color: var(--color-gray);
+    }
+
+    &__time-link {
+      margin-left: auto;
+      color: var(--color-gray);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-primary);
+      }
     }
 
     &__time {
-      color: $color-gray;
-      margin-left: auto;
+      color: inherit;
     }
 
     &__text {
@@ -348,12 +488,12 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
       display: flex;
       gap: 16px;
       font-size: $typographic-small-font-size;
-      color: $color-gray;
+      color: var(--color-gray);
     }
 
     &--empty {
       font-style: italic;
-      color: $color-gray;
+      color: var(--color-gray);
     }
   }
 </style>

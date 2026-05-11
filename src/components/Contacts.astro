@@ -38,7 +38,9 @@ const { contacts } = siteConfig;
       list-style: none;
       padding: 0;
       margin: 10px -3px;
-      width: 200px;
+      // Width is tuned so at most three 35px + 8px margin items fit per row,
+      // matching the Lumen/Gatsby layout.
+      width: 150px;
 
       &-item {
         padding: 0;
@@ -52,16 +54,16 @@ const { contacts } = siteConfig;
         line-height: $button-height;
         border-radius: 50%;
         text-align: center;
-        border: 1px solid $color-gray-bg;
+        border: 1px solid var(--color-gray-bg);
 
         &-link {
           border: 0;
           display: flex;
-          color: $color-base;
+          color: var(--color-base);
 
           &:hover,
-          &:focus {
-            color: $color-primary;
+          &:focus-visible {
+            color: var(--color-primary);
           }
         }
       }

@@ -1,0 +1,23 @@
+// Native cross-document view transitions.
+// Works in every Chromium-based browser and Safari 18.2+. Firefox falls back to a normal load.
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/@view-transition
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(root) {
+  animation-duration: 220ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+::view-transition-group(post-title) {
+  animation-duration: 320ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}

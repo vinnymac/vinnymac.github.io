@@ -6,7 +6,7 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<main class="page">
+<main id="main" tabindex="-1" class="page">
   <div class="page__inner">
     {title && <h1 class="page__title">{title}</h1>}
     <div class="page__body">

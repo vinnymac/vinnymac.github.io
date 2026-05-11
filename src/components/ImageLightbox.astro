@@ -1,0 +1,137 @@
+---
+/**
+ * Image lightbox using <dialog>.showModal() — the background goes inert automatically,
+ * Esc closes, click outside the image closes. Works for every post body image, regardless
+ * of whether it came from astro:assets, /public/, or external URL.
+ */
+---
+
+<dialog class="lightbox" data-image-lightbox aria-label="Image preview">
+  <button type="button" class="lightbox__close" data-lightbox-close aria-label="Close preview">
+    ✕
+  </button>
+  <img class="lightbox__image" alt="" />
+</dialog>
+
+<script>
+  const init = () => {
+    const dialog = document.querySelector<HTMLDialogElement>('[data-image-lightbox]');
+    if (!dialog) return;
+    const lightboxImg = dialog.querySelector<HTMLImageElement>('.lightbox__image');
+    const closeBtn = dialog.querySelector<HTMLButtonElement>('[data-lightbox-close]');
+    if (!lightboxImg || !closeBtn) return;
+
+    const open = (src: string, alt: string) => {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      dialog.showModal();
+    };
+
+    const close = () => {
+      dialog.close();
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
+    };
+
+    // Click delegation on every post-body image.
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const img = target.closest<HTMLImageElement>('.content__body img');
+      if (!img) return;
+      // Don't lightbox images that are inside links — let the link navigate.
+      if (img.closest('a')) return;
+      e.preventDefault();
+      open(img.currentSrc || img.src, img.alt || '');
+    });
+
+    // Click on the dialog's backdrop (outside the image) closes.
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) close();
+    });
+
+    closeBtn.addEventListener('click', close);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style lang="scss">
+  .lightbox {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow: visible;
+
+    &::backdrop {
+      background: color-mix(in oklch, black, transparent 20%);
+      backdrop-filter: blur(4px);
+    }
+
+    // Smooth open/close with @starting-style.
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 200ms ease,
+      transform 200ms ease,
+      overlay 200ms ease allow-discrete,
+      display 200ms ease allow-discrete;
+
+    &[open] {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @starting-style {
+      &[open] {
+        opacity: 0;
+        transform: scale(0.96);
+      }
+    }
+
+    &::backdrop {
+      transition: background 200ms ease, backdrop-filter 200ms ease;
+    }
+  }
+
+  .lightbox__image {
+    display: block;
+    max-width: 95vw;
+    max-height: 95vh;
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    cursor: zoom-out;
+  }
+
+  .lightbox__close {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.92);
+    color: #222;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background: #fff;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lightbox {
+      transition: none;
+    }
+  }
+</style>

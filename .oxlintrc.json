@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "jsx-a11y"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn"
+  },
+  "rules": {
+    "no-console": "warn",
+    "typescript/no-explicit-any": "error",
+    "import/no-unassigned-import": "off",
+    "no-underscore-dangle": ["error", { "allow": ["__dirname", "__filename"] }]
+  },
+  "overrides": [
+    {
+      "files": ["src/env.d.ts"],
+      "rules": {
+        "typescript/triple-slash-reference": "off"
+      }
+    },
+    {
+      "files": ["scripts/**/*.mjs", "scripts/**/*.js"],
+      "rules": {
+        "no-await-in-loop": "off",
+        "no-console": "off"
+      }
+    }
+  ],
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "node": true
+  },
+  "ignorePatterns": ["dist/", ".astro/", "public/", "node_modules/"]
+}

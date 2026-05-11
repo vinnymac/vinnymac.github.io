@@ -3,6 +3,7 @@ import Author from './Author.astro';
 import Menu from './Menu.astro';
 import Contacts from './Contacts.astro';
 import Copyright from './Copyright.astro';
+import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   isIndex?: boolean;
@@ -13,10 +14,17 @@ const { isIndex = false } = Astro.props;
 
 <aside class="sidebar">
   <div class="sidebar__inner">
-    <Author isIndex={isIndex} />
-    <Menu />
-    <Contacts />
-    <Copyright />
+    <div class="sidebar__header">
+      <Author isIndex={isIndex} />
+      <Menu />
+    </div>
+    <footer class="sidebar__footer">
+      <Contacts />
+      <div class="sidebar__theme">
+        <ThemeToggle />
+      </div>
+      <Copyright />
+    </footer>
   </div>
 </aside>
 
@@ -24,24 +32,52 @@ const { isIndex = false } = Astro.props;
   @use '../styles/variables' as *;
   @use '../styles/mixins' as *;
 
+  // Mobile: flatten the sidebar so __header and __footer become direct flex
+  // items of .layout alongside <main class="page">. Then push __footer past the
+  // page with `order`, so the most relevant content (Author/Menu, then articles)
+  // is at the top and secondary chrome is at the bottom of the viewport.
   .sidebar {
     width: 100%;
+    display: contents;
+
     &__inner {
-      position: relative;
+      display: contents;
+    }
+
+    &__header {
       padding: 25px 20px 0;
+    }
+
+    &__footer {
+      order: 2;
+      padding: 30px 20px;
+      margin-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    &__theme {
+      @include margin-bottom(0.5);
     }
   }
 
-  @include breakpoint-sm {
+  // Desktop: restore the original two-column sidebar — __header and __footer
+  // stack inside __inner as before, and the flex sizing from BaseLayout takes
+  // over again.
+  @container layout (min-width: #{$layout-breakpoint-sm}) {
     .sidebar {
+      display: block;
+
       &__inner {
+        display: block;
+        position: relative;
         padding: 30px 20px 0;
+
         &::after {
           background: linear-gradient(
             to bottom,
-            $color-gray-border 0%,
-            $color-gray-border 48%,
-            $color-white 100%
+            var(--border-subtle) 0%,
+            var(--border-subtle) 48%,
+            var(--surface) 100%
           );
           position: absolute;
           content: '';
@@ -52,10 +88,21 @@ const { isIndex = false } = Astro.props;
           bottom: 0;
         }
       }
+
+      &__header,
+      &__footer {
+        padding: 0;
+      }
+
+      &__footer {
+        order: 0;
+        margin-top: 0;
+        border-top: 0;
+      }
     }
   }
 
-  @include breakpoint-md {
+  @container layout (min-width: #{$layout-breakpoint-md}) {
     .sidebar {
       &__inner {
         padding: 40px;

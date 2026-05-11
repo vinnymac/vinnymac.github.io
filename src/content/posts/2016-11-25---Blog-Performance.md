@@ -1,14 +1,14 @@
 ---
-title: "Blog Performance"
-date: "2016-11-25T02:06:00.000Z"
+title: 'Blog Performance'
+date: '2016-11-25T02:06:00.000Z'
 draft: false
-slug: "blog-performance"
+slug: 'blog-performance'
 category: JavaScript
 tags:
-  - "JavaScript"
-  - "Gatsby"
-  - "Performance"
-description: "Gatsby and Metrics for the new blog."
+  - 'JavaScript'
+  - 'Gatsby'
+  - 'Performance'
+description: 'Gatsby and Metrics for the new blog.'
 ---
 
 Recently I revamped this blog site using the amazing [GatsbyJS](https://github.com/gatsbyjs). I noticed immediately how much faster it was, and that was in part due to how much work has gone into making gatsby produce an optimized site. I recently watched a [video](https://www.youtube.com/watch?list=PLNYkxOF6rcICc687SxHQRuo9TVNOJelSZ&v=6m_E-mC0y3Y) by Sam Saccone and Paul Irish about performance and metrics. They spoke about two tools [Lighthouse](https://github.com/GoogleChrome/lighthouse) and [PWMetrics](https://github.com/paulirish/pwmetrics) which you can use today to measure your site performance in a useful way. I was able to quickly grasp what bottlenecks were having an adverse affect on the blogs load times.

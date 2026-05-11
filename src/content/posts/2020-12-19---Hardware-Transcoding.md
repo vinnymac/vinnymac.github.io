@@ -1,16 +1,16 @@
 ---
-title: "Hardware Transcoding"
-date: "2020-12-19T05:38:00.000Z"
+title: 'Hardware Transcoding'
+date: '2020-12-19T05:38:00.000Z'
 draft: false
-slug: "hardware-transcoding"
+slug: 'hardware-transcoding'
 category: plex
 tags:
-  - "plex"
-  - "nvidia"
-  - "transcoding"
-  - "linux"
-  - "ubuntu"
-description: "Plex Transcoding with Nvidia GPUs"
+  - 'plex'
+  - 'nvidia'
+  - 'transcoding'
+  - 'linux'
+  - 'ubuntu'
+description: 'Plex Transcoding with Nvidia GPUs'
 ---
 
 This holiday season I had some down time. I was watching a home video on Plex when I noticed some artifacting on my Samsung TV. While this can be easily solved by transcoding all of my media to the lowest common denominator client device, it would require a lot of processing power and time to go through the entire content library. Additionally, without knowing which devices my family members all use, I would have no way of creating a reliable experience for them. For my own needs, changing to a client device that supports the media I was playing is the most straightforward solution. For those who are sharing their Plex with family and friends, you will want to look closer at your hardware.
@@ -42,7 +42,6 @@ Device ID 0x412
 
 While the Intel® HD Graphics 4600 is very capable for it's time, it isn't as powerful as more modern integrated graphics. Using Intel's integrated graphics worked well for years, and I highly recommend using it if your server has a newer chipset, such as a [UHD 630](https://ark.intel.com/content/www/us/en/ark/products/graphics/126790/intel-uhd-graphics-630.html). However, in my case, upgrading my entire 1150 LGA system was not within budget. So I looked at alternative solutions, such as a dedicated GPU.
 
-
 ### Purchase
 
 Knowing that I wanted a dedicated GPU over an integrated one, I made a list of requirements comparing various GPUs on sale. Mainly something that was not too expensive (under $150), energy-efficient, and somewhat future-proof. Fortunately a [Plex Hardware Transcoding chart](https://www.elpamsoft.com/?p=Plex-Hardware-Transcoding) was built that makes considering which GPU to get a breeze. I made note of the `Quadro P3000 (6GB)`, `GeForce GTX 1060 (6GB)`, `Geforce GTX 1660 (6GB)`, and `GeForce GTX 1660 Ti (6GB)` options.
@@ -68,7 +67,6 @@ Removing the Graphics Card alleviated the issue, but of course that is not the g
 ### Nvidia Drivers
 
 Before running the `nvidia-patch` to remove the limitation on the GeForce GTX 1060 I needed to install the approriate nvidia drivers. While you can follow the instructions as described in the [Github README](https://github.com/keylase/nvidia-patch) of `nvidia-patch`, you can also do this using your OS' package manager.
-
 
 I started by running the following command, which recommended a driver for my graphics card. Below you can see the recommended driver is `nvidia-driver-455`. This happened to be the same one `nvidia-patch` recommended, so if you have a different list, keep an eye out that the driver is compatible with the patch you are applying.
 
@@ -174,13 +172,13 @@ I use version 3.7 of `docker-compose`, so unfortunately configuring the nvidia r
 
 ```json
 {
-    "default-runtime": "nvidia",
-    "runtimes": {
-        "nvidia": {
-            "path": "nvidia-container-runtime",
-            "runtimeArgs": []
-        }
+  "default-runtime": "nvidia",
+  "runtimes": {
+    "nvidia": {
+      "path": "nvidia-container-runtime",
+      "runtimeArgs": []
     }
+  }
 }
 ```
 
@@ -250,10 +248,3 @@ Analyzing these logs, I saw that both **nvdec** (Nvidia Decoding) and **nvenc** 
 ### Was it all worth it?
 
 I can now watch videos without weird artifacts appearing on my TV, and my family and friends can do so without having to worry so much about which device they are using. If you are interested in reading more about hardware accelerated streaming with Plex, they have a great article on the subject [here](https://support.plex.tv/articles/115002178853-using-hardware-accelerated-streaming/). While this was an afforable and fun upgrade for my server, your system will likely have different needs and requirements. If you are building from scratch, the easiest path will certainly be to get an Intel processor that has powerful integrated graphics. The newer (2021) [Rocket Lake](https://en.wikipedia.org/wiki/Rocket_Lake#GPU) processors for example will support hardware decoding for HEVC 12-bit, 4:2:2/4:4:4; VP9 12-bit 4:4:4 and AV1 8K 10-bit 4:2:0. When considering building a Plex Server of your own, I recommend reusing what you can. Many users of Plex have it running on nothing but a Raspberry PI, but for those users, you can be sure they are mostly utilizing direct play over transcoding.
-
-
-
-
-
-
-

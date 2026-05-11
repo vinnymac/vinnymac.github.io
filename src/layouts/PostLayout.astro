@@ -4,45 +4,71 @@ import PostMeta from '../components/PostMeta.astro';
 import PostTags from '../components/PostTags.astro';
 import PostAuthor from '../components/PostAuthor.astro';
 import BlueskyComments from '../components/BlueskyComments.astro';
+import ShareMenu from '../components/ShareMenu.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
 import siteConfig from '../site.config';
 import type { Post } from '../lib/posts';
+import { buildPostGraph } from '../lib/structured-data';
 
 interface Props {
   post: Post;
 }
 
 const { post } = Astro.props;
-const { title, description, socialImage, date, tags, blueskyThreadUrl } = post.data;
+const { title, description, socialImage, date, tags, category, blueskyThreadUrl } = post.data;
 const pageTitle = `${title} - ${siteConfig.title}`;
+const titleTransitionName = `post-title-${post.id.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()}`;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+const imageUrl = new URL(socialImage ?? siteConfig.author.photo, siteConfig.url).toString();
+
+const article = {
+  publishedTime: date,
+  section: category,
+  tags,
+};
+
+const structuredData = buildPostGraph(post, canonicalUrl, imageUrl);
 ---
 
 <BaseLayout
   title={pageTitle}
   description={description ?? siteConfig.subtitle}
   socialImage={socialImage}
+  article={article}
+  structuredData={structuredData}
 >
-  <article class="post">
-    <a class="post__home-button" href="/">All Articles</a>
+  <main id="main" tabindex="-1" class="post-main">
+    <div class="reading-progress" aria-hidden="true"></div>
+    <article class="post">
+      <a class="post__home-button" href="/">All Articles</a>
 
-    <div class="post__content">
-      <div class="content">
-        <h1 class="content__title">{title}</h1>
-        <div class="content__body">
-          <slot />
+      <div class="post__content">
+        <div class="content">
+          <h1 class="content__title" style={`view-transition-name: ${titleTransitionName};`}>
+            {title}
+          </h1>
+          <div class="content__body">
+            <slot />
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="post__footer">
-      <PostMeta date={date} />
-      {tags && tags.length > 0 && <PostTags tags={tags} />}
-      <PostAuthor />
-    </div>
+      <div class="post__footer">
+        <PostMeta date={date} />
+        {tags && tags.length > 0 && <PostTags tags={tags} />}
+        <div class="post__share">
+          <ShareMenu threadUrl={blueskyThreadUrl} />
+        </div>
+        <PostAuthor />
+      </div>
 
-    <div class="post__comments">
-      <BlueskyComments threadUrl={blueskyThreadUrl} />
-    </div>
-  </article>
+      <div class="post__comments">
+        <BlueskyComments threadUrl={blueskyThreadUrl} />
+      </div>
+    </article>
+    <ImageLightbox />
+  </main>
 </BaseLayout>
 
 <style lang="scss">
@@ -59,6 +85,13 @@ const pageTitle = `${title} - ${siteConfig.title}`;
       padding: 0 15px;
     }
 
+    &__share {
+      display: flex;
+      justify-content: center;
+      @include margin-top(0.5);
+      @include margin-bottom(0.5);
+    }
+
     &__home-button {
       display: block;
       max-width: 90px;
@@ -66,8 +99,8 @@ const pageTitle = `${title} - ${siteConfig.title}`;
       padding: 0 24px;
       line-height: $button-height;
       text-align: center;
-      color: $color-base;
-      border: 1px solid $color-gray-border;
+      color: var(--text);
+      border: 1px solid var(--border-subtle);
       border-radius: $button-border-radius;
       font-size: $typographic-base-font-size;
       font-weight: normal;
@@ -76,9 +109,34 @@ const pageTitle = `${title} - ${siteConfig.title}`;
       @include margin-top(1);
 
       &:hover,
-      &:focus {
-        color: $color-primary;
+      &:focus-visible {
+        color: var(--link);
       }
+    }
+  }
+
+  // Reading progress bar — fills as you scroll the article.
+  .reading-progress {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: var(--link);
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 100;
+    animation: reading-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  @keyframes reading-progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reading-progress {
+      display: none;
     }
   }
 
@@ -131,6 +189,12 @@ const pageTitle = `${title} - ${siteConfig.title}`;
 
       :global(img) {
         max-width: 100%;
+        cursor: zoom-in;
+      }
+
+      :global(a img) {
+        // When the image is part of a link, navigation wins; remove the zoom hint.
+        cursor: pointer;
       }
 
       :global(pre) {
@@ -139,7 +203,7 @@ const pageTitle = `${title} - ${siteConfig.title}`;
     }
   }
 
-  @include breakpoint-md {
+  @container layout (min-width: #{$layout-breakpoint-md}) {
     .post {
       &__footer,
       &__comments {
@@ -152,6 +216,17 @@ const pageTitle = `${title} - ${siteConfig.title}`;
         margin: 0;
         top: 30px;
         left: 30px;
+        // Scroll-driven shadow: gains depth once the page has scrolled.
+        animation: home-button-elevate linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 120px;
+      }
+    }
+
+    @keyframes home-button-elevate {
+      to {
+        box-shadow: 0 4px 16px color-mix(in oklch, var(--text), transparent 80%);
+        background: var(--surface);
       }
     }
 

@@ -1,0 +1,134 @@
+---
+/**
+ * Three-state theme cycle: auto → light → dark → auto.
+ * - "auto" removes the data-theme attribute, letting color-scheme follow the OS.
+ * - "light" / "dark" set data-theme explicitly and persist to localStorage.
+ * - The swap is wrapped in document.startViewTransition() for a crossfade.
+ *
+ * An anti-flash script in BaseLayout runs synchronously before paint and reads
+ * localStorage to set data-theme — keep both in sync.
+ */
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-label="Cycle color theme"
+>
+  <span class="theme-toggle__indicator" aria-hidden="true">
+    <span class="theme-toggle__glyph" data-theme-glyph>◐</span>
+  </span>
+  <span class="theme-toggle__label" data-theme-label>Auto</span>
+</button>
+
+<script>
+  type ThemeMode = 'auto' | 'light' | 'dark';
+
+  const STORAGE_KEY = 'theme';
+  const ORDER: ThemeMode[] = ['auto', 'light', 'dark'];
+  const GLYPH: Record<ThemeMode, string> = {
+    auto: '◐',
+    light: '☀',
+    dark: '☾',
+  };
+  const LABEL: Record<ThemeMode, string> = {
+    auto: 'Auto',
+    light: 'Light',
+    dark: 'Dark',
+  };
+
+  const readMode = (): ThemeMode => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored === 'light' || stored === 'dark') return stored;
+    return 'auto';
+  };
+
+  const applyMode = (mode: ThemeMode) => {
+    if (mode === 'auto') {
+      delete document.documentElement.dataset.theme;
+      localStorage.removeItem(STORAGE_KEY);
+    } else {
+      document.documentElement.dataset.theme = mode;
+      localStorage.setItem(STORAGE_KEY, mode);
+    }
+  };
+
+  const updateUi = (btn: HTMLButtonElement, mode: ThemeMode) => {
+    const glyph = btn.querySelector<HTMLElement>('[data-theme-glyph]');
+    const label = btn.querySelector<HTMLElement>('[data-theme-label]');
+    if (glyph) glyph.textContent = GLYPH[mode];
+    if (label) label.textContent = LABEL[mode];
+    btn.setAttribute('aria-label', `Color theme: ${LABEL[mode]}. Click to cycle.`);
+  };
+
+  const init = () => {
+    const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+    if (!btn) return;
+    updateUi(btn, readMode());
+    btn.addEventListener('click', () => {
+      const current = readMode();
+      const next = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length];
+      const swap = () => {
+        applyMode(next);
+        updateUi(btn, next);
+      };
+      // Respect prefers-reduced-motion — the global * { transition: 0.01ms } rule
+      // doesn't reach View Transition pseudo-elements, so opt out here.
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const startViewTransition = (document as Document & {
+        startViewTransition?: (cb: () => void) => unknown;
+      }).startViewTransition;
+      if (!reduced && typeof startViewTransition === 'function') {
+        startViewTransition.call(document, swap);
+      } else {
+        swap();
+      }
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .theme-toggle {
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: $button-height;
+    padding: 0 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: $button-border-radius;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: $typographic-small-font-size;
+    transition: color 0.15s, border-color 0.15s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--link);
+      border-color: var(--link);
+    }
+  }
+
+  .theme-toggle__indicator {
+    display: inline-flex;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+  }
+
+  .theme-toggle__glyph {
+    font-size: 1.2em;
+    line-height: 1;
+  }
+</style>

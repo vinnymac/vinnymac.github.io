@@ -3,13 +3,16 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Post = CollectionEntry<'posts'>;
 
 /**
- * Stable URL path for a post.
- * The glob loader's `id` is the file path without extension — preserving Lumen's `/posts/<slug>` URLs.
+ * The slug segment of a post's URL — single source of truth.
+ * The glob loader uses the frontmatter `slug` field when present (falling back
+ * to the filename), so this also preserves Lumen's `/posts/<slug>` URLs.
  */
-export const postPath = (post: Post): string => `/posts/${post.id}`;
+export const postSlug = (post: Post): string => post.id;
 
-export const categoryPath = (category: string): string =>
-  `/category/${kebabCase(category)}`;
+/** Full URL path for a post — composed from postSlug. */
+export const postPath = (post: Post): string => `/posts/${postSlug(post)}`;
+
+export const categoryPath = (category: string): string => `/category/${kebabCase(category)}`;
 
 export const tagPath = (tag: string): string => `/tag/${kebabCase(tag)}`;
 
@@ -22,7 +25,7 @@ export const kebabCase = (value: string): string =>
 /** Posts visible on the site — drafts excluded — sorted newest first. */
 export const getPublishedPosts = async (): Promise<Post[]> => {
   const all = await getCollection('posts', ({ data }) => !data.draft);
-  return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  return all.toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime());
 };
 
 export interface CategoryCount {
@@ -39,7 +42,7 @@ export const summarizeCategories = (posts: Post[]): CategoryCount[] => {
   }
   return [...counts.entries()]
     .map(([name, count]) => ({ name, count }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .toSorted((a, b) => a.name.localeCompare(b.name));
 };
 
 export const summarizeTags = (posts: Post[]): CategoryCount[] => {
@@ -51,7 +54,7 @@ export const summarizeTags = (posts: Post[]): CategoryCount[] => {
   }
   return [...counts.entries()]
     .map(([name, count]) => ({ name, count }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .toSorted((a, b) => a.name.localeCompare(b.name));
 };
 
 export const formatPostDate = (date: Date): string =>

@@ -1,0 +1,44 @@
+// Design tokens — emitted as CSS custom properties so they can be themed at runtime.
+// Compile-time math (layout widths, typographic leading) lives in _variables.scss.
+//
+// Each color uses light-dark() so the *active* value follows `color-scheme`.
+// The theme toggle in <Sidebar /> writes data-theme="light" or data-theme="dark"
+// on <html>; in its absence, color-scheme falls back to the OS preference.
+
+:root {
+  color-scheme: light dark;
+
+  // Brand (same hue in both themes)
+  --color-primary: light-dark(#5d93ff, #8ab4ff);
+  --color-secondary: light-dark(#f7a046, #ffb867);
+
+  // Surfaces & text
+  --color-base: light-dark(#222, #e8e8e8);
+  --color-white: light-dark(#fff, #0f1115);
+  --color-gray: light-dark(#888, #9a9a9a);
+  --color-gray-border: light-dark(#e6e6e6, #2a2e36);
+  --color-gray-bg: light-dark(#ebebeb, #1a1d23);
+
+  // Semantic aliases — components should prefer these.
+  --text: var(--color-base);
+  --surface: var(--color-white);
+  --link: var(--color-primary);
+  --link-hover: var(--color-secondary);
+  --border-subtle: var(--color-gray-border);
+  --bg-muted: var(--color-gray-bg);
+  --text-muted: var(--color-gray);
+
+  // Typography
+  --font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    'Helvetica Neue', sans-serif;
+}
+
+// Explicit user choice overrides color-scheme.
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}

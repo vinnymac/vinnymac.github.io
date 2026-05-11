@@ -1,17 +1,21 @@
 {
-  "name": "Vincent Taverna's Dev Blog",
-  "short_name": "DevContinuum",
-  "start_url": "/index.html",
-  "manifest_version": 2,
-  "version": "1.0",
-  "default_locale": "en",
-  "theme_color": "#ffffff",
+  "name": "Dev Continuum",
+  "short_name": "Dev Continuum",
+  "description": "A personal blog by Vincent Taverna.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#F7A046",
   "background_color": "#ffffff",
-  "display": "browser",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]

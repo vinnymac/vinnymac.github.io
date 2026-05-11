@@ -1,14 +1,14 @@
 ---
-title: "Programming Phoenix"
-date: "2018-06-23T08:38:00.000Z"
+title: 'Programming Phoenix'
+date: '2018-06-23T08:38:00.000Z'
 draft: false
-slug: "programming-phoenix"
+slug: 'programming-phoenix'
 category: Elixir
 tags:
-  - "Elixir"
-  - "Erlang"
-  - "Phoenix"
-description: "Quotes from Programming Phoenix that inspire"
+  - 'Elixir'
+  - 'Erlang'
+  - 'Phoenix'
+description: 'Quotes from Programming Phoenix that inspire'
 ---
 
 Some quotes from Programming Phoenix that inspire

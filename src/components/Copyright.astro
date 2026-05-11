@@ -7,11 +7,10 @@ const { copyright } = siteConfig;
 <div class="copyright">{copyright}</div>
 
 <style lang="scss">
-  @use 'sass:color';
   @use '../styles/variables' as *;
 
   .copyright {
-    color: color.adjust($color-gray, $lightness: 18%);
+    color: color-mix(in oklch, var(--color-gray), white 35%);
     font-size: $typographic-small-font-size;
   }
 </style>

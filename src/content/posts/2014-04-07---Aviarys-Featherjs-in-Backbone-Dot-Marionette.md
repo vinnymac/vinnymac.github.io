@@ -1,17 +1,17 @@
 ---
 title: "Aviary's FeatherJS in Backbone.Marionette"
-date: "2014-04-07T01:01:35.000Z"
+date: '2014-04-07T01:01:35.000Z'
 draft: false
-slug: "aviarys-featherjs-in-backbone-marionette"
+slug: 'aviarys-featherjs-in-backbone-marionette'
 category: JavaScript
 tags:
-  - "JavaScript"
-  - "Backbone"
-  - "Marionette"
-  - "Aviary"
+  - 'JavaScript'
+  - 'Backbone'
+  - 'Marionette'
+  - 'Aviary'
 ---
 
-To get started head over to the [Developer Page](http://developers.aviary.com/ "Dev Page") and sign up. Select the HTML 5 app and generate an api key. Place featherjs in a [script tag or download it](http://feather.aviary.com/js/feather.js "FeatherJS").
+To get started head over to the [Developer Page](http://developers.aviary.com/ 'Dev Page') and sign up. Select the HTML 5 app and generate an api key. Place featherjs in a [script tag or download it](http://feather.aviary.com/js/feather.js 'FeatherJS').
 
 Now in your Backbone.Marionette app you are going to either create a new ItemView or navigate to an existing one you want aviary to be launched from.
 

@@ -1,13 +1,13 @@
 ---
-title: "Coffee to Babel in 24 hours"
-date: "2016-11-30T09:17:00.000Z"
+title: 'Coffee to Babel in 24 hours'
+date: '2016-11-30T09:17:00.000Z'
 draft: false
-slug: "coffee-to-babel"
+slug: 'coffee-to-babel'
 category: JavaScript
 tags:
-  - "JavaScript"
-  - "CoffeeScript"
-description: "How I quickly translated an entire frontend codebase from coffee to babel."
+  - 'JavaScript'
+  - 'CoffeeScript'
+description: 'How I quickly translated an entire frontend codebase from coffee to babel.'
 ---
 
 Recently I was tasked with modernizing a CoffeeScript codebase to use Babel. I've used babel (and 6to5) across various projects for almost two years, not to mention I have been writing CoffeeScript since it has been in the hands of the public. I was told to convert the code to coffee to babel as quickly as I could. Fortunately the project I was working with was already setup with webpack which made using the `babel-loader` alongside the `coffee-loader` a possibility if I failed to convert everything on time. With that in mind I configured a basic `.eslintrc` and `.babelrc` and started the process of translation.
@@ -57,6 +57,6 @@ yarn add eslint --dev
 
 Below are some other tools that I found useful. You may find they give you false positives, so make sure to review all your changes carefully before committing. I hope these tools will help you out of a tight situation like the one I was in.
 
-* [Lebab](https://github.com/lebab/lebab)
-* [CoffeeScript](http://coffeescript.org/#usage)
-* [CoffeeToES6](https://github.com/kriszyp/coffeetoes6)
+- [Lebab](https://github.com/lebab/lebab)
+- [CoffeeScript](http://coffeescript.org/#usage)
+- [CoffeeToES6](https://github.com/kriszyp/coffeetoes6)

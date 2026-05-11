@@ -1,13 +1,13 @@
 ---
-title: "The Witcher"
-date: "2016-11-22T02:14:03.000Z"
+title: 'The Witcher'
+date: '2016-11-22T02:14:03.000Z'
 draft: false
-slug: "the-witcher"
+slug: 'the-witcher'
 category: Books
 tags:
-  - "Books"
-  - "Fiction"
-description: "Words from Andrzej Sapkowski."
+  - 'Books'
+  - 'Fiction'
+description: 'Words from Andrzej Sapkowski.'
 ---
 
 After having read most of The Witcher by Andrzej Sapkowski some words stood out more than others. Below are some of my favorites from the series. I will update this as I finish the rest of the books.

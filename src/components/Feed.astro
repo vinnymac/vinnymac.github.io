@@ -9,40 +9,43 @@ const { posts } = Astro.props;
 ---
 
 <div class="feed">
-  {posts.map((post) => (
-    <article class="feed__item">
-      <div class="feed__item-meta">
-        <time
-          class="feed__item-meta-time"
-          datetime={post.data.date.toISOString()}
-        >
-          {formatPostDate(post.data.date)}
-        </time>
-        {post.data.category && (
-          <>
-            <span class="feed__item-meta-divider" />
-            <span class="feed__item-meta-category">
-              <a
-                class="feed__item-meta-category-link"
-                href={categoryPath(post.data.category)}
-              >
-                {post.data.category}
-              </a>
-            </span>
-          </>
+  {posts.map((post) => {
+    const transitionName = `post-title-${post.id.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()}`;
+    return (
+      <article class="feed__item">
+        <div class="feed__item-meta">
+          <time
+            class="feed__item-meta-time"
+            datetime={post.data.date.toISOString()}
+          >
+            {formatPostDate(post.data.date)}
+          </time>
+          {post.data.category && (
+            <>
+              <span class="feed__item-meta-divider" />
+              <span class="feed__item-meta-category">
+                <a
+                  class="feed__item-meta-category-link"
+                  href={categoryPath(post.data.category)}
+                >
+                  {post.data.category}
+                </a>
+              </span>
+            </>
+          )}
+        </div>
+        <h2 class="feed__item-title" style={`view-transition-name: ${transitionName};`}>
+          <a class="feed__item-title-link" href={postPath(post)} data-astro-prefetch>
+            {post.data.title}
+          </a>
+        </h2>
+        {post.data.description && (
+          <p class="feed__item-description">{post.data.description}</p>
         )}
-      </div>
-      <h2 class="feed__item-title">
-        <a class="feed__item-title-link" href={postPath(post)}>
-          {post.data.title}
-        </a>
-      </h2>
-      {post.data.description && (
-        <p class="feed__item-description">{post.data.description}</p>
-      )}
-      <a class="feed__item-readmore" href={postPath(post)}>Read</a>
-    </article>
-  ))}
+        <a class="feed__item-readmore" href={postPath(post)} data-astro-prefetch>Read</a>
+      </article>
+    );
+  })}
 </div>
 
 <style lang="scss">
@@ -64,12 +67,12 @@ const { posts } = Astro.props;
         @include margin-bottom(0.5);
 
         &-link {
-          color: $color-base;
+          color: var(--text);
 
           &:hover,
-          &:focus {
-            color: $color-base;
-            border-bottom: 1px solid $color-base;
+          &:focus-visible {
+            color: var(--text);
+            border-bottom: 1px solid var(--text);
           }
         }
       }
@@ -83,7 +86,7 @@ const { posts } = Astro.props;
       &-meta {
         &-time {
           font-size: $typographic-small-font-size;
-          color: $color-base;
+          color: var(--text);
           font-weight: 600;
           text-transform: uppercase;
         }
@@ -95,13 +98,13 @@ const { posts } = Astro.props;
         &-category {
           &-link {
             font-size: $typographic-small-font-size;
-            color: $color-secondary;
+            color: var(--color-secondary);
             font-weight: 600;
             text-transform: uppercase;
 
             &:hover,
-            &:focus {
-              color: $color-primary;
+            &:focus-visible {
+              color: var(--link);
             }
           }
         }
@@ -109,12 +112,12 @@ const { posts } = Astro.props;
 
       &-readmore {
         font-size: $typographic-base-font-size;
-        color: $color-primary;
+        color: var(--link);
 
         &:hover,
-        &:focus {
-          color: $color-primary;
-          border-bottom: 1px solid $color-primary;
+        &:focus-visible {
+          color: var(--link);
+          border-bottom: 1px solid var(--link);
         }
       }
     }

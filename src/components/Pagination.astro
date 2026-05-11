@@ -9,29 +9,32 @@ const { prevUrl, nextUrl } = Astro.props;
 
 <nav class="pagination" aria-label="Pagination">
   <div class="pagination__prev">
-    <a
-      rel="prev"
-      href={prevUrl ?? '/'}
-      class:list={['pagination__prev-link', !prevUrl && 'pagination__prev-link--disable']}
-      aria-disabled={!prevUrl}
-    >
-      ← Prev
-    </a>
+    {prevUrl ? (
+      <a rel="prev" href={prevUrl} class="pagination__prev-link" data-astro-prefetch>← Prev</a>
+    ) : (
+      <span
+        class="pagination__prev-link pagination__prev-link--disable"
+        aria-disabled="true"
+      >
+        ← Prev
+      </span>
+    )}
   </div>
   <div class="pagination__next">
-    <a
-      rel="next"
-      href={nextUrl ?? '/'}
-      class:list={['pagination__next-link', !nextUrl && 'pagination__next-link--disable']}
-      aria-disabled={!nextUrl}
-    >
-      Next →
-    </a>
+    {nextUrl ? (
+      <a rel="next" href={nextUrl} class="pagination__next-link" data-astro-prefetch>Next →</a>
+    ) : (
+      <span
+        class="pagination__next-link pagination__next-link--disable"
+        aria-disabled="true"
+      >
+        Next →
+      </span>
+    )}
   </div>
 </nav>
 
 <style lang="scss">
-  @use 'sass:color';
   @use '../styles/variables' as *;
   @use '../styles/mixins' as *;
 
@@ -53,18 +56,17 @@ const { prevUrl, nextUrl } = Astro.props;
 
     &__prev-link,
     &__next-link {
-      color: $color-secondary;
+      color: var(--color-secondary);
       font-size: 26px;
       font-weight: bold;
 
       &:hover,
-      &:focus {
-        color: $color-primary;
+      &:focus-visible {
+        color: var(--color-primary);
       }
 
       &--disable {
-        pointer-events: none;
-        color: color.adjust($color-gray, $lightness: 20%);
+        color: color-mix(in srgb, var(--color-gray) 70%, white);
       }
     }
   }

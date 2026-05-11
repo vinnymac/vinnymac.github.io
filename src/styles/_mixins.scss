@@ -35,11 +35,21 @@
   @if $left == null and $bottom == null {
     margin: #{$top * $typographic-leading}px #{$right * $typographic-leading}px;
   } @else if $left == null {
-    margin: #{$top * $typographic-leading}px #{$right * $typographic-leading}px
-      #{$bottom * $typographic-leading}px;
+    margin: #{$top *
+      $typographic-leading}px
+      #{$right *
+      $typographic-leading}px
+      #{$bottom *
+      $typographic-leading}px;
   } @else {
-    margin: #{$top * $typographic-leading}px #{$right * $typographic-leading}px
-      #{$bottom * $typographic-leading}px #{$left * $typographic-leading}px;
+    margin: #{$top *
+      $typographic-leading}px
+      #{$right *
+      $typographic-leading}px
+      #{$bottom *
+      $typographic-leading}px
+      #{$left *
+      $typographic-leading}px;
   }
 }
 
@@ -47,10 +57,20 @@
   @if $left == null and $bottom == null {
     padding: #{$top * $typographic-leading}px #{$right * $typographic-leading}px;
   } @else if $left == null {
-    padding: #{$top * $typographic-leading}px #{$right * $typographic-leading}px
-      #{$bottom * $typographic-leading}px;
+    padding: #{$top *
+      $typographic-leading}px
+      #{$right *
+      $typographic-leading}px
+      #{$bottom *
+      $typographic-leading}px;
   } @else {
-    padding: #{$top * $typographic-leading}px #{$right * $typographic-leading}px
-      #{$bottom * $typographic-leading}px #{$left * $typographic-leading}px;
+    padding: #{$top *
+      $typographic-leading}px
+      #{$right *
+      $typographic-leading}px
+      #{$bottom *
+      $typographic-leading}px
+      #{$left *
+      $typographic-leading}px;
   }
 }

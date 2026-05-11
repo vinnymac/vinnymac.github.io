@@ -1,190 +1,333 @@
 @use 'variables' as *;
 @use 'mixins' as *;
+@use 'tokens';
+@use 'view-transitions';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer reset, tokens, base, components, utilities;
 
-html {
-  font-size: $typographic-root-font-size * 1%;
-}
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0 0 0 calc(100vw - 100%);
-  font-family: $typographic-font-family;
-  color: $typographic-base-font-color;
-  line-height: $typographic-base-line-height;
-  font-size: $typographic-base-font-size;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+  html {
+    font-size: $typographic-root-font-size * 1%;
+    // Replaces the legacy `body { margin: 0 0 0 calc(100vw - 100%); }` hack.
+    scrollbar-gutter: stable;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $typographic-font-family;
-  font-weight: 600;
-}
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text);
+    line-height: $typographic-base-line-height;
+    font-size: $typographic-base-font-size;
+    background: var(--surface);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
 
-h1 {
-  font-size: $typographic-base-font-size * 2.5;
-  @include line-height(2);
-  @include margin-top(4);
-  @include margin-bottom(1);
-}
+  img {
+    border: 0;
+    max-width: 100%;
+    display: block;
+    margin: inherit auto;
+  }
 
-h2 {
-  font-size: $typographic-base-font-size * 1.6875;
-  @include line-height(1.5);
-  @include margin-top(2);
-  @include margin-bottom(0.5);
-}
+  // Skip link — visible only when keyboard-focused.
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 1000;
+    padding: 8px 16px;
+    background: var(--surface);
+    color: var(--link);
+    border: 1px solid var(--border-subtle);
+    border-radius: $button-border-radius;
+    font-size: $typographic-small-font-size;
+    font-weight: 600;
+    text-decoration: none;
 
-h3 {
-  font-size: $typographic-base-font-size * 1.375;
-  @include line-height(1);
-  @include margin-top(2);
-  @include margin-bottom(0.5);
-}
-
-h4 {
-  font-size: $typographic-base-font-size * 1.2;
-  @include line-height(1);
-  @include margin-top(1.5);
-  @include margin-bottom(0.5);
-}
-
-h5,
-h6 {
-  font-size: $typographic-base-font-size;
-  @include line-height(1);
-  @include margin-top(2.5);
-  @include margin-bottom(0.5);
-}
-
-img {
-  border: 0;
-  max-width: 100%;
-  display: block;
-  margin: inherit auto;
-}
-
-hr {
-  margin-top: 52px;
-  margin-bottom: 52px;
-  border: 0;
-  color: $color-base;
-  display: block;
-  height: 26px;
-  margin-right: auto;
-  margin-left: auto;
-  background-size: 100% 26px;
-  background-image: linear-gradient(
-    to bottom,
-    transparent 1px,
-    transparent 11px,
-    $color-base 11px,
-    $color-base 15px,
-    transparent 15px,
-    transparent 26px
-  );
-  width: 100px;
-}
-
-a {
-  color: $typographic-link-p-font-color;
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: $typographic-link-s-font-color;
+    &:focus,
+    &:focus-visible {
+      left: 12px;
+      top: 12px;
+      outline: 2px solid var(--link);
+      outline-offset: 2px;
+    }
   }
 }
 
-b,
-strong {
-  font-weight: 600;
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family);
+    font-weight: 600;
+  }
 
-ul {
-  list-style: square;
-  @include margin-bottom(1);
+  h1,
+  h2,
+  h3 {
+    // Avoid lonely last words and unbalanced wraps in headlines.
+    text-wrap: balance;
+  }
 
-  & li {
-    padding: 0 5px;
-    margin-bottom: 10px;
+  h1 {
+    font-size: $typographic-base-font-size * 2.5;
+    @include line-height(2);
+    @include margin-top(4);
+    @include margin-bottom(1);
+  }
+
+  h2 {
+    font-size: $typographic-base-font-size * 1.6875;
+    @include line-height(1.5);
+    @include margin-top(2);
+    @include margin-bottom(0.5);
+  }
+
+  h3 {
+    font-size: $typographic-base-font-size * 1.375;
+    @include line-height(1);
+    @include margin-top(2);
+    @include margin-bottom(0.5);
+  }
+
+  h4 {
+    font-size: $typographic-base-font-size * 1.2;
+    @include line-height(1);
+    @include margin-top(1.5);
+    @include margin-bottom(0.5);
+  }
+
+  h5,
+  h6 {
+    font-size: $typographic-base-font-size;
+    @include line-height(1);
+    @include margin-top(2.5);
+    @include margin-bottom(0.5);
+  }
+
+  hr {
+    margin-top: 52px;
+    margin-bottom: 52px;
+    border: 0;
+    color: var(--text);
+    display: block;
+    height: 26px;
+    margin-right: auto;
+    margin-left: auto;
+    background-size: 100% 26px;
+    background-image: linear-gradient(
+      to bottom,
+      transparent 1px,
+      transparent 11px,
+      currentColor 11px,
+      currentColor 15px,
+      transparent 15px,
+      transparent 26px
+    );
+    width: 100px;
+  }
+
+  a {
+    color: var(--link);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      color: var(--link-hover);
+    }
+  }
+
+  b,
+  strong {
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: square;
+    @include margin-bottom(1);
+
+    & li {
+      padding: 0 5px;
+      margin-bottom: 10px;
+    }
+  }
+
+  p {
+    @include line-height(1);
+    @include margin-bottom(1);
+    // Better last-line breaks in prose.
+    text-wrap: pretty;
+  }
+
+  blockquote {
+    padding: 0;
+    font-style: italic;
+    text-align: center;
+  }
+
+  figure {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    @include line-height(0.75);
+    @include margin-top(0.25);
+    color: var(--text);
+    font-size: $typographic-small-font-size;
+    font-style: italic;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  // Astro/Shiki produces inline-styled <pre><code>; this just gives it some breathing room.
+  pre {
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 0.875em;
+    line-height: 1.5;
+    margin: 1.5em 0;
+  }
+
+  :not(pre) > code {
+    background: var(--bg-muted);
+    border-radius: 3px;
+    padding: 0.15em 0.35em;
+    font-size: 0.875em;
   }
 }
 
-p {
-  @include line-height(1);
-  @include margin-bottom(1);
-}
+@layer components {
+  .code-block {
+    position: relative;
 
-blockquote {
-  padding: 0;
-  font-style: italic;
-  text-align: center;
-}
+    &__copy {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      appearance: none;
+      cursor: pointer;
+      padding: 4px 10px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.75rem;
+      opacity: 0;
+      transition:
+        opacity 0.15s,
+        color 0.15s,
+        border-color 0.15s;
 
-figure {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+      &:hover,
+      &:focus-visible {
+        color: var(--link);
+        border-color: var(--link);
+        opacity: 1;
+      }
 
-figcaption {
-  @include line-height(0.75);
-  @include margin-top(0.25);
-  color: $color-base;
-  font-size: $typographic-small-font-size;
-  font-style: italic;
-  margin-bottom: 0;
-  text-align: center;
-}
+      &[data-copied] {
+        color: var(--link);
+        border-color: var(--link);
+        opacity: 1;
+      }
+    }
 
-.anchor {
-  margin-left: -30px !important;
-  padding-right: 14px !important;
-}
-
-// Astro/Shiki produces inline-styled <pre><code>; this just gives it some breathing room.
-pre {
-  padding: 16px;
-  border-radius: 6px;
-  overflow-x: auto;
-  font-size: 0.875em;
-  line-height: 1.5;
-  margin: 1.5em 0;
-}
-
-:not(pre) > code {
-  background: $color-gray-bg;
-  border-radius: 3px;
-  padding: 0.15em 0.35em;
-  font-size: 0.875em;
-}
-
-@include breakpoint-sm {
-  figure.float-left,
-  figure.float-right {
-    max-width: 310px;
-    @include padding(0, 1, 0, 1);
+    &:hover &__copy,
+    &:focus-within &__copy {
+      opacity: 1;
+    }
   }
 
-  .float-right {
-    float: right;
+  .anchor {
+    margin-left: 0.4em;
+    color: var(--text-muted);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    text-decoration: none;
+    font-weight: 400;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--link);
+    }
   }
 
-  .float-left {
-    float: left;
+  h1:hover .anchor,
+  h2:hover .anchor,
+  h3:hover .anchor,
+  h4:hover .anchor,
+  h5:hover .anchor,
+  h6:hover .anchor,
+  .anchor:focus-visible {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  @include breakpoint-sm {
+    figure.float-left,
+    figure.float-right {
+      max-width: 310px;
+      @include padding(0, 1, 0, 1);
+    }
+
+    .float-right {
+      float: right;
+    }
+
+    .float-left {
+      float: left;
+    }
+  }
+
+  // Shiki dual-theme bridge — Astro emits `--shiki-dark` vars but no toggle CSS.
+  // Apply the dark vars when the OS or the user picks dark.
+  @mixin shiki-dark {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+
+  :root[data-theme='dark'] .astro-code,
+  :root[data-theme='dark'] .astro-code span {
+    @include shiki-dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .astro-code,
+    :root:not([data-theme='light']) .astro-code span {
+      @include shiki-dark;
+    }
+  }
+}
+
+// Honor user preference for reduced motion. Outside @layer so it always wins.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

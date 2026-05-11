@@ -2,16 +2,14 @@
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
-import { getPublishedPosts, postPath } from '../../lib/posts';
+import { getPublishedPosts, postSlug } from '../../lib/posts';
 
 export const getStaticPaths = (async () => {
   const posts = await getPublishedPosts();
-  return posts.map((post) => {
-    const path = postPath(post);
-    // postPath returns "/posts/<slug>"; the dynamic route only needs the trailing segment.
-    const slug = path.replace(/^\/posts\//, '');
-    return { params: { slug }, props: { post } };
-  });
+  return posts.map((post) => ({
+    params: { slug: postSlug(post) },
+    props: { post },
+  }));
 }) satisfies GetStaticPaths;
 
 const { post } = Astro.props;

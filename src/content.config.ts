@@ -13,6 +13,11 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     socialImage: z.string().optional(),
     blueskyThreadUrl: z.url().optional(),
+    // Optional override for the URL slug. Astro's glob loader uses this as the
+    // entry id, preserving the original Lumen `/posts/<slug>` URLs across the
+    // migration. Declared here so the contract is reviewable and future Astro
+    // upgrades can't silently break inbound links.
+    slug: z.string().optional(),
   }),
 });
 

@@ -1,0 +1,180 @@
+---
+/**
+ * Share menu built on the native Popover API + CSS Anchor Positioning.
+ * No runtime JS for open/close — the browser handles dismissal (outside click, Escape, light-dismiss).
+ * Inline TypeScript handles clipboard + navigator.share() progressive enhancement.
+ */
+interface Props {
+  threadUrl?: string;
+}
+
+const { threadUrl } = Astro.props;
+const popoverId = 'share-menu';
+---
+
+<div class="share">
+  <button
+    type="button"
+    class="share__trigger"
+    popovertarget={popoverId}
+    aria-label="Share this post"
+  >
+    <span aria-hidden="true">↗</span> Share
+  </button>
+  <div id={popoverId} popover="auto" class="share__menu" data-share-menu>
+    <button type="button" class="share__item" data-share-copy>
+      Copy link
+    </button>
+    <button type="button" class="share__item" data-share-native hidden>
+      Share via…
+    </button>
+    {threadUrl && (
+      <a
+        class="share__item share__item--link"
+        href={threadUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open thread on Bluesky
+      </a>
+    )}
+  </div>
+</div>
+
+<script>
+  const init = () => {
+    const menu = document.querySelector<HTMLElement>('[data-share-menu]');
+    if (!menu) return;
+    const copyBtn = menu.querySelector<HTMLButtonElement>('[data-share-copy]');
+    const nativeBtn = menu.querySelector<HTMLButtonElement>('[data-share-native]');
+
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        const original = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => {
+          copyBtn.textContent = original;
+        }, 1500);
+      } catch (err) {
+        // oxlint-disable-next-line no-console
+        if (import.meta.env.DEV) console.error('[ShareMenu] clipboard write failed', err);
+      }
+    });
+
+    if (typeof navigator.share === 'function' && nativeBtn) {
+      nativeBtn.hidden = false;
+      nativeBtn.addEventListener('click', async () => {
+        try {
+          await navigator.share({
+            title: document.title,
+            url: window.location.href,
+          });
+          (menu as HTMLElement & { hidePopover?: () => void }).hidePopover?.();
+        } catch {
+          // User cancelled — no-op.
+        }
+      });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+
+  .share {
+    display: inline-block;
+  }
+
+  .share__trigger {
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: $button-height;
+    padding: 0 18px;
+    border: 1px solid var(--border-subtle);
+    border-radius: $button-border-radius;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: $typographic-small-font-size;
+    anchor-name: --share-trigger;
+    transition: color 0.15s, border-color 0.15s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--link);
+      border-color: var(--link);
+    }
+  }
+
+  .share__menu {
+    inset: unset;
+    padding: 6px;
+    margin: 0;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: 0 12px 32px color-mix(in oklch, var(--text), transparent 85%);
+    min-width: 220px;
+    // Anchor positioning — placed below the trigger, right-aligned.
+    position-anchor: --share-trigger;
+    position-area: bottom span-left;
+    margin-top: 8px;
+
+    // Open transitions via @starting-style + transition-behavior: allow-discrete.
+    opacity: 0;
+    transform: translateY(-4px);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      overlay 180ms ease allow-discrete,
+      display 180ms ease allow-discrete;
+
+    &:popover-open {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @starting-style {
+      &:popover-open {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+    }
+  }
+
+  .share__item {
+    display: block;
+    width: 100%;
+    appearance: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: $typographic-base-font-size;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--bg-muted);
+      color: var(--link);
+    }
+
+    &--link {
+      // Styled identically to button items.
+    }
+  }
+</style>
