@@ -1,9 +1,6 @@
 ---
-template: post
 title: "boxviewrb"
 date: "2014-06-11T20:06:09.000Z"
-comments: true
-sharing: true
 draft: false
 slug: "boxviewrb"
 category: Ruby

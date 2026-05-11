@@ -1,9 +1,6 @@
 ---
 title: "React Image Hook"
 date: "2019-07-11T05:57:00.000Z"
-template: post
-comments: true
-sharing: true
 draft: false
 slug: "react-image-hook"
 category: Javascript

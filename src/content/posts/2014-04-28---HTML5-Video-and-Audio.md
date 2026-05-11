@@ -1,9 +1,6 @@
 ---
-template: post
 title: "HTML5 Video and Audio"
 date: "2014-04-28T16:27:05.000Z"
-sharing: true
-comments: true
 draft: false
 slug: "html5-video-and-audio"
 category: JavaScript

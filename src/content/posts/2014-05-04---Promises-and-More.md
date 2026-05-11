@@ -1,9 +1,6 @@
 ---
-template: post
 title: "Promises and More"
 date: "2014-05-05T12:30:53.000Z"
-sharing: true
-comments: true
 draft: false
 slug: "promises-and-more"
 category: JavaScript

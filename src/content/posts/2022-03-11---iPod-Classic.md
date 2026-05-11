@@ -1,9 +1,6 @@
 ---
 title: "iPod Classic Revival"
 date: "2022-03-29T05:24:00.000Z"
-template: post
-comments: true
-sharing: true
 draft: false
 slug: "ipod-classic-revival"
 category: apple

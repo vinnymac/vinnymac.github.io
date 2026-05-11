@@ -1,9 +1,6 @@
 ---
 title: "Hardware Transcoding"
 date: "2020-12-19T05:38:00.000Z"
-template: post
-comments: true
-sharing: true
 draft: false
 slug: "hardware-transcoding"
 category: plex

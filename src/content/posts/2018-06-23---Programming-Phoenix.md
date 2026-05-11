@@ -1,9 +1,6 @@
 ---
 title: "Programming Phoenix"
 date: "2018-06-23T08:38:00.000Z"
-template: post
-comments: true
-sharing: true
 draft: false
 slug: "programming-phoenix"
 category: Elixir

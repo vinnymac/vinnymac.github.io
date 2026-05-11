@@ -1,9 +1,6 @@
 ---
 title: "Coffee to Babel in 24 hours"
 date: "2016-11-30T09:17:00.000Z"
-template: post
-comments: true
-sharing: true
 draft: false
 slug: "coffee-to-babel"
 category: JavaScript

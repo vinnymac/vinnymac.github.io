@@ -1,9 +1,6 @@
 ---
 title: "Blog Performance"
 date: "2016-11-25T02:06:00.000Z"
-template: post
-comments: true
-sharing: true
 draft: false
 slug: "blog-performance"
 category: JavaScript
