@@ -3,10 +3,6 @@ export interface IconShape {
   path: string;
 }
 
-/**
- * SVG icon definitions for social/contact links.
- * Paths preserved from Lumen, plus a new BLUESKY icon (butterfly mark).
- */
 export const ICONS: Record<string, IconShape> = {
   email: {
     viewBox: '0 0 28 28',

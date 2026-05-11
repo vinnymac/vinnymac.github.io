@@ -1,7 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const posts = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -9,24 +11,17 @@ const posts = defineCollection({
     category: z.string().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
-    comments: z.boolean().default(true),
-    sharing: z.boolean().default(true),
-    /** Optional social image, relative to /public. */
     socialImage: z.string().optional(),
-    /** Optional Bluesky thread URL — when set, replies to this post drive the comments section. */
-    blueskyThreadUrl: z.string().url().optional(),
-    /** Lumen leftover; ignored. */
-    template: z.string().optional(),
+    blueskyThreadUrl: z.url().optional(),
   }),
 });
 
 const pages = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
     socialImage: z.string().optional(),
-    template: z.string().optional(),
   }),
 });
 

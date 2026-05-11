@@ -20,18 +20,18 @@ Built with [Astro](https://astro.build). Content lives as Markdown under `src/co
 ## Development
 
 ```sh
-nvm use         # picks up Node 22 from .nvmrc
-npm install
-npm run dev     # http://localhost:4321
+mise install    # installs Node + pnpm pinned in mise.toml
+pnpm install
+pnpm dev        # http://localhost:4321
 ```
 
 Other scripts:
 
 | Command | Description |
 | --- | --- |
-| `npm run build` | Build the static site to `dist/` |
-| `npm run check` | Type-check Astro + TypeScript |
-| `npm run preview` | Serve the production build locally |
+| `pnpm build` | Build the static site to `dist/` |
+| `pnpm check` | Type-check Astro + TypeScript |
+| `pnpm preview` | Serve the production build locally |
 
 ## Authoring a post
 

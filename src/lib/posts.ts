@@ -4,10 +4,9 @@ export type Post = CollectionEntry<'posts'>;
 
 /**
  * Stable URL path for a post.
- * Astro uses the frontmatter `slug` if present, otherwise the filename — both via `post.slug`.
- * This preserves Lumen's `/posts/<slug>` URLs.
+ * The glob loader's `id` is the file path without extension — preserving Lumen's `/posts/<slug>` URLs.
  */
-export const postPath = (post: Post): string => `/posts/${post.slug}`;
+export const postPath = (post: Post): string => `/posts/${post.id}`;
 
 export const categoryPath = (category: string): string =>
   `/category/${kebabCase(category)}`;
