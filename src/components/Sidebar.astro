@@ -20,10 +20,12 @@ const { isIndex = false } = Astro.props;
     </div>
     <footer class="sidebar__footer">
       <Contacts />
-      <div class="sidebar__theme">
-        <ThemeToggle />
+      <div class="sidebar__footer-aside">
+        <div class="sidebar__theme">
+          <ThemeToggle />
+        </div>
+        <Copyright />
       </div>
-      <Copyright />
     </footer>
   </div>
 </aside>
@@ -53,10 +55,30 @@ const { isIndex = false } = Astro.props;
       padding: 30px 20px;
       margin-top: 24px;
       border-top: 1px solid var(--border-subtle);
+
+      // Mobile two-section footer:
+      //   [icon row 1]   [theme toggle]
+      //   [icon row 2]   [© All rights]
+      // space-between horizontally pins icons left, aside right;
+      // align-items: stretch makes the aside column match the icons' height
+      // so the inner space-between can pin theme top and copyright bottom.
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 20px;
     }
 
-    &__theme {
-      @include margin-bottom(0.5);
+    &__footer-aside {
+      // Two equal-height rows that mirror the two icon rows on the left:
+      //   row 1 → theme toggle (aligned with icon row 1)
+      //   row 2 → copyright    (aligned with icon row 2)
+      // The wrapper stretches to the icons' height (via the parent's
+      // align-items: stretch), 1fr 1fr splits it 50/50, then each item is
+      // vertically centered in its row and right-justified.
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      justify-items: end;
     }
   }
 
@@ -95,9 +117,22 @@ const { isIndex = false } = Astro.props;
       }
 
       &__footer {
+        // Drop the mobile-only flex; let children flow naturally inside the
+        // sidebar column again.
+        display: block;
         order: 0;
         margin-top: 0;
         border-top: 0;
+        gap: 0;
+      }
+
+      &__footer-aside {
+        // Flatten the wrapper so theme + copyright stack as direct sidebar children.
+        display: contents;
+      }
+
+      &__theme {
+        @include margin-bottom(0.5);
       }
     }
   }
