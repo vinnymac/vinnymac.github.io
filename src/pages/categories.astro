@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Page from '../components/Page.astro';
+import siteConfig from '../site.config';
+import {
+  categoryPath,
+  getPublishedPosts,
+  summarizeCategories,
+} from '../lib/posts';
+
+const posts = await getPublishedPosts();
+const categories = summarizeCategories(posts);
+---
+
+<BaseLayout
+  title={`Categories - ${siteConfig.title}`}
+  description={siteConfig.subtitle}
+>
+  <Sidebar />
+  <Page title="Categories">
+    <ul>
+      {categories.map((cat) => (
+        <li>
+          <a href={categoryPath(cat.name)}>
+            {cat.name} ({cat.count})
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Page>
+</BaseLayout>

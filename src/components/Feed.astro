@@ -1,0 +1,122 @@
+---
+import { postPath, categoryPath, formatPostDate, type Post } from '../lib/posts';
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div class="feed">
+  {posts.map((post) => (
+    <article class="feed__item">
+      <div class="feed__item-meta">
+        <time
+          class="feed__item-meta-time"
+          datetime={post.data.date.toISOString()}
+        >
+          {formatPostDate(post.data.date)}
+        </time>
+        {post.data.category && (
+          <>
+            <span class="feed__item-meta-divider" />
+            <span class="feed__item-meta-category">
+              <a
+                class="feed__item-meta-category-link"
+                href={categoryPath(post.data.category)}
+              >
+                {post.data.category}
+              </a>
+            </span>
+          </>
+        )}
+      </div>
+      <h2 class="feed__item-title">
+        <a class="feed__item-title-link" href={postPath(post)}>
+          {post.data.title}
+        </a>
+      </h2>
+      {post.data.description && (
+        <p class="feed__item-description">{post.data.description}</p>
+      )}
+      <a class="feed__item-readmore" href={postPath(post)}>Read</a>
+    </article>
+  ))}
+</div>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .feed {
+    &__item {
+      @include margin-bottom(1.25);
+
+      &:last-child {
+        @include margin-bottom(0.5);
+      }
+
+      &-title {
+        font-size: $typographic-base-font-size * 1.6875;
+        @include line-height(1.5);
+        @include margin-top(0);
+        @include margin-bottom(0.5);
+
+        &-link {
+          color: $color-base;
+
+          &:hover,
+          &:focus {
+            color: $color-base;
+            border-bottom: 1px solid $color-base;
+          }
+        }
+      }
+
+      &-description {
+        font-size: $typographic-base-font-size;
+        @include line-height(1);
+        @include margin-bottom(0.75);
+      }
+
+      &-meta {
+        &-time {
+          font-size: $typographic-small-font-size;
+          color: $color-base;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        &-divider {
+          margin: 0 5px;
+        }
+
+        &-category {
+          &-link {
+            font-size: $typographic-small-font-size;
+            color: $color-secondary;
+            font-weight: 600;
+            text-transform: uppercase;
+
+            &:hover,
+            &:focus {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+
+      &-readmore {
+        font-size: $typographic-base-font-size;
+        color: $color-primary;
+
+        &:hover,
+        &:focus {
+          color: $color-primary;
+          border-bottom: 1px solid $color-primary;
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PostMeta from '../components/PostMeta.astro';
+import PostTags from '../components/PostTags.astro';
+import PostAuthor from '../components/PostAuthor.astro';
+import BlueskyComments from '../components/BlueskyComments.astro';
+import siteConfig from '../site.config';
+import type { Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { title, description, socialImage, date, tags, blueskyThreadUrl } = post.data;
+const pageTitle = `${title} - ${siteConfig.title}`;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={description ?? siteConfig.subtitle}
+  socialImage={socialImage}
+>
+  <article class="post">
+    <a class="post__home-button" href="/">All Articles</a>
+
+    <div class="post__content">
+      <div class="content">
+        <h1 class="content__title">{title}</h1>
+        <div class="content__body">
+          <slot />
+        </div>
+      </div>
+    </div>
+
+    <div class="post__footer">
+      <PostMeta date={date} />
+      {tags && tags.length > 0 && <PostTags tags={tags} />}
+      <PostAuthor />
+    </div>
+
+    <div class="post__comments">
+      <BlueskyComments threadUrl={blueskyThreadUrl} />
+    </div>
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .post {
+    width: 100%;
+
+    &__footer,
+    &__comments {
+      max-width: $layout-post-width;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    &__home-button {
+      display: block;
+      max-width: 90px;
+      height: $button-height;
+      padding: 0 24px;
+      line-height: $button-height;
+      text-align: center;
+      color: $color-base;
+      border: 1px solid $color-gray-border;
+      border-radius: $button-border-radius;
+      font-size: $typographic-base-font-size;
+      font-weight: normal;
+      margin-left: auto;
+      margin-right: auto;
+      @include margin-top(1);
+
+      &:hover,
+      &:focus {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .content {
+    max-width: $layout-post-single-width;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    &__title {
+      font-size: $typographic-base-font-size * 2;
+      max-width: $layout-post-width;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 600;
+      text-align: center;
+      @include line-height(1.65);
+      @include margin-top(1);
+      @include margin-bottom(0);
+    }
+
+    &__body {
+      :global(figure) {
+        @include margin-bottom(1);
+
+        :global(blockquote) {
+          font-style: italic;
+          text-align: center;
+          margin-top: 0;
+          @include padding(1, 0);
+
+          :global(p) {
+            max-width: $layout-post-width;
+            font-size: $typographic-base-font-size * 1.6817;
+            margin-top: 0;
+            @include margin-bottom(1);
+            @include line-height(1.5);
+          }
+        }
+      }
+
+      :global(a) {
+        text-decoration: underline;
+      }
+
+      :global(*) {
+        max-width: $layout-post-width;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      :global(img) {
+        max-width: 100%;
+      }
+
+      :global(pre) {
+        max-width: $layout-post-width;
+      }
+    }
+  }
+
+  @include breakpoint-md {
+    .post {
+      &__footer,
+      &__comments {
+        padding: 0;
+      }
+
+      &__home-button {
+        position: fixed;
+        max-width: none;
+        margin: 0;
+        top: 30px;
+        left: 30px;
+      }
+    }
+
+    .content {
+      padding: 0;
+
+      &__title {
+        font-size: $typographic-base-font-size * 3;
+        @include line-height(2.25);
+        @include margin-top(2.25);
+        @include margin-bottom(1.5);
+      }
+
+      &__body {
+        font-size: $typographic-base-font-size * 1.125;
+        @include line-height(1.125);
+        @include margin-bottom(1.125);
+
+        :global(p) {
+          font-size: $typographic-base-font-size * 1.125;
+          @include line-height(1.125);
+          @include margin-bottom(1.125);
+        }
+      }
+    }
+  }
+</style>

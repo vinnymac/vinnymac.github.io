@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Page from '../../components/Page.astro';
+import Feed from '../../components/Feed.astro';
+import Pagination from '../../components/Pagination.astro';
+import siteConfig from '../../site.config';
+import { getPublishedPosts } from '../../lib/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  const pageSize = siteConfig.postsPerPage;
+  const totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
+  // Page 1 lives at "/"; only emit /page/2..N here.
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const pageNum = i + 2;
+    const start = (pageNum - 1) * pageSize;
+    return {
+      params: { page: String(pageNum) },
+      props: {
+        pageNum,
+        totalPages,
+        pagePosts: posts.slice(start, start + pageSize),
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { pageNum, totalPages, pagePosts } = Astro.props;
+const prevUrl = pageNum === 2 ? '/' : `/page/${pageNum - 1}`;
+const nextUrl = pageNum < totalPages ? `/page/${pageNum + 1}` : undefined;
+const title = `Posts - Page ${pageNum} - ${siteConfig.title}`;
+---
+
+<BaseLayout title={title} description={siteConfig.subtitle}>
+  <Sidebar />
+  <Page>
+    <Feed posts={pagePosts} />
+    <Pagination prevUrl={prevUrl} nextUrl={nextUrl} />
+  </Page>
+</BaseLayout>

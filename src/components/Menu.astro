@@ -1,0 +1,66 @@
+---
+import siteConfig from '../site.config';
+
+const { menu } = siteConfig;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<nav class="menu">
+  <ul class="menu__list">
+    {menu.map((item) => {
+      const itemPath = item.path.replace(/\/$/, '') || '/';
+      const isActive = itemPath === currentPath;
+      return (
+        <li class="menu__list-item">
+          <a
+            href={item.path}
+            class:list={[
+              'menu__list-item-link',
+              isActive && 'menu__list-item-link--active',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .menu {
+    @include margin-bottom(1);
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      &-item {
+        padding: 0;
+        margin: 10px 0;
+
+        &-link {
+          font-size: $typographic-base-font-size;
+          color: $typographic-base-font-color;
+          font-weight: normal;
+          border: 0;
+
+          &:hover,
+          &:focus {
+            color: $color-primary;
+            border-bottom: 1px solid $color-primary;
+          }
+
+          &--active {
+            color: $color-base;
+            border-bottom: 1px solid $color-base;
+          }
+        }
+      }
+    }
+  }
+</style>

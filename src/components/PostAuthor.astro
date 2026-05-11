@@ -1,0 +1,46 @@
+---
+import siteConfig from '../site.config';
+
+const { author, blueskyHandle } = siteConfig;
+const blueskyUrl = `https://bsky.app/profile/${blueskyHandle}`;
+---
+
+<div class="author">
+  <p class="author__bio">
+    {author.bio}
+    <a
+      class="author__bio-bluesky"
+      href={blueskyUrl}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <strong>{author.name}</strong> on Bluesky
+    </a>
+  </p>
+</div>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .author {
+    border-top: 1px solid $color-gray-border;
+    max-width: $layout-post-width;
+    padding-top: 20px;
+    @include line-height(1);
+    @include margin-top(1);
+    @include margin-bottom(2);
+
+    &__bio-bluesky {
+      display: block;
+      text-decoration: underline;
+    }
+  }
+
+  @include breakpoint-sm {
+    .author {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>

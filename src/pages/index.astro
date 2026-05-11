@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Page from '../components/Page.astro';
+import Feed from '../components/Feed.astro';
+import Pagination from '../components/Pagination.astro';
+import siteConfig from '../site.config';
+import { getPublishedPosts } from '../lib/posts';
+
+// The home route renders the first page of posts; subsequent pages live at /page/[N].
+const posts = await getPublishedPosts();
+const pageSize = siteConfig.postsPerPage;
+const pagePosts = posts.slice(0, pageSize);
+const totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
+const nextUrl = totalPages > 1 ? '/page/2' : undefined;
+---
+
+<BaseLayout title={siteConfig.title} description={siteConfig.subtitle}>
+  <Sidebar isIndex />
+  <Page>
+    <Feed posts={pagePosts} />
+    <Pagination nextUrl={nextUrl} />
+  </Page>
+</BaseLayout>

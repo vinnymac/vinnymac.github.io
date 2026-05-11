@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import siteConfig from '../site.config';
+
+const { contacts } = siteConfig;
+---
+
+<div class="contacts">
+  <ul class="contacts__list">
+    {contacts.map((contact) => (
+      <li class="contacts__list-item">
+        <a
+          class="contacts__list-item-link"
+          href={contact.href}
+          rel="noopener noreferrer"
+          target={contact.href.startsWith('mailto:') ? undefined : '_blank'}
+          aria-label={contact.label}
+        >
+          <Icon name={contact.label} />
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .contacts {
+    @include margin-bottom(1);
+
+    &__list {
+      display: flex;
+      flex-flow: row wrap;
+      flex-grow: 0;
+      flex-shrink: 0;
+      list-style: none;
+      padding: 0;
+      margin: 10px -3px;
+      width: 200px;
+
+      &-item {
+        padding: 0;
+        margin: 4px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        height: $button-height;
+        width: $button-height;
+        line-height: $button-height;
+        border-radius: 50%;
+        text-align: center;
+        border: 1px solid $color-gray-bg;
+
+        &-link {
+          border: 0;
+          display: flex;
+          color: $color-base;
+
+          &:hover,
+          &:focus {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+</style>

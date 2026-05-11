@@ -1,0 +1,43 @@
+---
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Page from '../../components/Page.astro';
+import Feed from '../../components/Feed.astro';
+import siteConfig from '../../site.config';
+import {
+  getPublishedPosts,
+  kebabCase,
+  summarizeTags,
+  type Post,
+} from '../../lib/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  const tags = summarizeTags(posts);
+  return tags.map((tag) => ({
+    params: { tag: kebabCase(tag.name) },
+    props: {
+      tagName: tag.name,
+      posts: posts.filter((p) => p.data.tags.includes(tag.name)),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  tagName: string;
+  posts: Post[];
+}
+
+const { tagName, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`All Posts tagged as "${tagName}" - ${siteConfig.title}`}
+  description={siteConfig.subtitle}
+>
+  <Sidebar />
+  <Page title={tagName}>
+    <Feed posts={posts} />
+  </Page>
+</BaseLayout>

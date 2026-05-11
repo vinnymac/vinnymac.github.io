@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Page from '../components/Page.astro';
+import siteConfig from '../site.config';
+import { getPublishedPosts, summarizeTags, tagPath } from '../lib/posts';
+
+const posts = await getPublishedPosts();
+const tags = summarizeTags(posts);
+---
+
+<BaseLayout
+  title={`Tags - ${siteConfig.title}`}
+  description={siteConfig.subtitle}
+>
+  <Sidebar />
+  <Page title="Tags">
+    <ul>
+      {tags.map((tag) => (
+        <li>
+          <a href={tagPath(tag.name)}>
+            {tag.name} ({tag.count})
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Page>
+</BaseLayout>

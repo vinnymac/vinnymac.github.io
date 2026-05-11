@@ -1,0 +1,71 @@
+---
+interface Props {
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const { prevUrl, nextUrl } = Astro.props;
+---
+
+<nav class="pagination" aria-label="Pagination">
+  <div class="pagination__prev">
+    <a
+      rel="prev"
+      href={prevUrl ?? '/'}
+      class:list={['pagination__prev-link', !prevUrl && 'pagination__prev-link--disable']}
+      aria-disabled={!prevUrl}
+    >
+      ← Prev
+    </a>
+  </div>
+  <div class="pagination__next">
+    <a
+      rel="next"
+      href={nextUrl ?? '/'}
+      class:list={['pagination__next-link', !nextUrl && 'pagination__next-link--disable']}
+      aria-disabled={!nextUrl}
+    >
+      Next →
+    </a>
+  </div>
+</nav>
+
+<style lang="scss">
+  @use 'sass:color';
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .pagination {
+    @include margin-top(2);
+    display: flex;
+
+    &__prev,
+    &__next {
+      width: 50%;
+    }
+
+    &__prev {
+      text-align: left;
+    }
+    &__next {
+      text-align: right;
+    }
+
+    &__prev-link,
+    &__next-link {
+      color: $color-secondary;
+      font-size: 26px;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: $color-primary;
+      }
+
+      &--disable {
+        pointer-events: none;
+        color: color.adjust($color-gray, $lightness: 20%);
+      }
+    }
+  }
+</style>

@@ -1,0 +1,359 @@
+---
+/**
+ * Bluesky / ATProto–powered comments.
+ *
+ * Workflow:
+ *   1. Author posts about a new article on Bluesky and copies the post URL
+ *      (https://bsky.app/profile/<handle>/post/<rkey>) into the post's
+ *      frontmatter as `blueskyThreadUrl`.
+ *   2. At page load, this component resolves the thread via the public
+ *      app.bsky.feed.getPostThread XRPC endpoint and renders the replies.
+ *   3. Readers reply on Bluesky; their reply appears here on the next page load.
+ *
+ * No tracking, no script tags from third parties, no account required to read.
+ */
+import siteConfig from '../site.config';
+
+interface Props {
+  threadUrl?: string;
+}
+
+const { threadUrl } = Astro.props;
+const { blueskyHandle } = siteConfig;
+const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
+---
+
+{threadUrl ? (
+  <section class="bsky-comments" data-thread-url={threadUrl}>
+    <header class="bsky-comments__header">
+      <h2 class="bsky-comments__title">Comments</h2>
+      <a
+        class="bsky-comments__reply-cta"
+        href={threadUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reply on Bluesky
+      </a>
+    </header>
+    <p class="bsky-comments__status" data-status>Loading replies…</p>
+    <ol class="bsky-comments__list" data-list hidden></ol>
+    <template data-template>
+      <li class="bsky-comments__item">
+        <a class="bsky-comments__avatar-link" target="_blank" rel="noopener noreferrer">
+          <img class="bsky-comments__avatar" alt="" loading="lazy" />
+        </a>
+        <div class="bsky-comments__body">
+          <div class="bsky-comments__author">
+            <a class="bsky-comments__author-name" target="_blank" rel="noopener noreferrer"></a>
+            <a class="bsky-comments__author-handle" target="_blank" rel="noopener noreferrer"></a>
+            <time class="bsky-comments__time"></time>
+          </div>
+          <div class="bsky-comments__text"></div>
+          <div class="bsky-comments__stats">
+            <span class="bsky-comments__stat" data-likes>♥ 0</span>
+            <span class="bsky-comments__stat" data-reposts>↻ 0</span>
+            <span class="bsky-comments__stat" data-replies>💬 0</span>
+          </div>
+        </div>
+      </li>
+    </template>
+  </section>
+) : (
+  <section class="bsky-comments bsky-comments--empty">
+    <h2 class="bsky-comments__title">Comments</h2>
+    <p>
+      This post doesn't have a discussion thread yet. Find me at
+      <a href={profileUrl} target="_blank" rel="noopener noreferrer">
+        @{blueskyHandle}
+      </a> on Bluesky to chat.
+    </p>
+  </section>
+)}
+
+<script>
+  interface BskyAuthor {
+    did: string;
+    handle: string;
+    displayName?: string;
+    avatar?: string;
+  }
+  interface BskyPostRecord {
+    text?: string;
+    createdAt?: string;
+  }
+  interface BskyPost {
+    uri: string;
+    cid: string;
+    author: BskyAuthor;
+    record: BskyPostRecord;
+    likeCount?: number;
+    repostCount?: number;
+    replyCount?: number;
+  }
+  interface BskyThreadView {
+    post: BskyPost;
+    replies?: BskyThreadView[];
+  }
+  interface BskyThreadResponse {
+    thread: BskyThreadView | { notFound: true } | { blocked: true };
+  }
+
+  const APPVIEW = 'https://public.api.bsky.app';
+
+  /** Parse a Bluesky web URL into the AT URI we need for getPostThread. */
+  const parseThreadUrl = (url: string): { handle: string; rkey: string } | null => {
+    try {
+      const u = new URL(url);
+      const match = u.pathname.match(/^\/profile\/([^/]+)\/post\/([^/]+)\/?$/);
+      if (!match) return null;
+      return { handle: match[1], rkey: match[2] };
+    } catch {
+      return null;
+    }
+  };
+
+  const resolveDid = async (handle: string): Promise<string> => {
+    const res = await fetch(
+      `${APPVIEW}/xrpc/com.atproto.identity.resolveHandle?handle=${encodeURIComponent(handle)}`,
+    );
+    if (!res.ok) throw new Error(`resolveHandle failed: ${res.status}`);
+    const data = (await res.json()) as { did: string };
+    return data.did;
+  };
+
+  const fetchThread = async (atUri: string): Promise<BskyThreadResponse> => {
+    const res = await fetch(
+      `${APPVIEW}/xrpc/app.bsky.feed.getPostThread?uri=${encodeURIComponent(atUri)}&depth=10`,
+    );
+    if (!res.ok) throw new Error(`getPostThread failed: ${res.status}`);
+    return (await res.json()) as BskyThreadResponse;
+  };
+
+  const escapeHtml = (text: string): string =>
+    text.replace(/[&<>"']/g, (c) => {
+      switch (c) {
+        case '&': return '&amp;';
+        case '<': return '&lt;';
+        case '>': return '&gt;';
+        case '"': return '&quot;';
+        default: return '&#39;';
+      }
+    });
+
+  const renderReply = (
+    template: HTMLTemplateElement,
+    reply: BskyThreadView,
+  ): HTMLElement | null => {
+    const { post } = reply;
+    if (!post?.author || !post.record) return null;
+    const fragment = template.content.cloneNode(true) as DocumentFragment;
+    const item = fragment.querySelector('.bsky-comments__item') as HTMLElement;
+    const avatarLink = fragment.querySelector('.bsky-comments__avatar-link') as HTMLAnchorElement;
+    const avatar = fragment.querySelector('.bsky-comments__avatar') as HTMLImageElement;
+    const nameLink = fragment.querySelector('.bsky-comments__author-name') as HTMLAnchorElement;
+    const handleLink = fragment.querySelector('.bsky-comments__author-handle') as HTMLAnchorElement;
+    const time = fragment.querySelector('.bsky-comments__time') as HTMLTimeElement;
+    const text = fragment.querySelector('.bsky-comments__text') as HTMLElement;
+    const likes = fragment.querySelector('[data-likes]') as HTMLElement;
+    const reposts = fragment.querySelector('[data-reposts]') as HTMLElement;
+    const replies = fragment.querySelector('[data-replies]') as HTMLElement;
+
+    const profileUrl = `https://bsky.app/profile/${post.author.handle}`;
+    const rkey = post.uri.split('/').pop();
+    const postUrl = `${profileUrl}/post/${rkey}`;
+
+    avatarLink.href = profileUrl;
+    if (post.author.avatar) avatar.src = post.author.avatar;
+    avatar.alt = post.author.displayName ?? post.author.handle;
+    nameLink.href = profileUrl;
+    nameLink.textContent = post.author.displayName ?? post.author.handle;
+    handleLink.href = profileUrl;
+    handleLink.textContent = `@${post.author.handle}`;
+    if (post.record.createdAt) {
+      time.dateTime = post.record.createdAt;
+      time.textContent = new Date(post.record.createdAt).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      });
+    }
+    if (post.record.text) {
+      text.innerHTML = escapeHtml(post.record.text).replace(/\n/g, '<br>');
+    }
+    likes.textContent = `♥ ${post.likeCount ?? 0}`;
+    reposts.textContent = `↻ ${post.repostCount ?? 0}`;
+    replies.textContent = `💬 ${post.replyCount ?? 0}`;
+
+    // Allow click on body region to open the reply on Bluesky for additional context.
+    item.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('a')) return;
+      window.open(postUrl, '_blank', 'noopener,noreferrer');
+    });
+
+    return item;
+  };
+
+  const init = async () => {
+    const root = document.querySelector<HTMLElement>('.bsky-comments[data-thread-url]');
+    if (!root) return;
+    const threadUrl = root.dataset.threadUrl;
+    if (!threadUrl) return;
+
+    const status = root.querySelector<HTMLElement>('[data-status]')!;
+    const list = root.querySelector<HTMLElement>('[data-list]')!;
+    const template = root.querySelector<HTMLTemplateElement>('[data-template]')!;
+
+    try {
+      const parsed = parseThreadUrl(threadUrl);
+      if (!parsed) throw new Error('Invalid Bluesky thread URL');
+      const did = await resolveDid(parsed.handle);
+      const atUri = `at://${did}/app.bsky.feed.post/${parsed.rkey}`;
+      const data = await fetchThread(atUri);
+      const thread = data.thread;
+      if (!('post' in thread)) {
+        status.textContent = 'Thread is unavailable.';
+        return;
+      }
+      const replies = thread.replies ?? [];
+      if (replies.length === 0) {
+        status.textContent = 'No replies yet — be the first to comment on Bluesky.';
+        return;
+      }
+      for (const reply of replies) {
+        const el = renderReply(template, reply);
+        if (el) list.appendChild(el);
+      }
+      status.hidden = true;
+      list.hidden = false;
+    } catch (err) {
+      console.error('[BlueskyComments]', err);
+      status.textContent = 'Could not load comments.';
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .bsky-comments {
+    max-width: $layout-post-width;
+    margin: 0 auto;
+    @include margin-top(2);
+    @include margin-bottom(2);
+    padding-top: 24px;
+    border-top: 1px solid $color-gray-border;
+
+    &__header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    &__title {
+      font-size: $typographic-base-font-size * 1.375;
+      margin: 0;
+    }
+
+    &__reply-cta {
+      display: inline-block;
+      height: $button-height;
+      line-height: $button-height;
+      padding: 0 18px;
+      border: 1px solid $color-gray-border;
+      border-radius: $button-border-radius;
+      color: $color-base;
+      font-size: $typographic-small-font-size;
+
+      &:hover,
+      &:focus {
+        color: $color-primary;
+        border-color: $color-primary;
+      }
+    }
+
+    &__status {
+      color: $color-gray;
+      font-style: italic;
+      margin: 16px 0;
+    }
+
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+    }
+
+    &__item {
+      display: flex;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid $color-gray-bg;
+      cursor: pointer;
+    }
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: $color-gray-bg;
+      display: block;
+    }
+
+    &__body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__author {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: $typographic-small-font-size;
+    }
+
+    &__author-name {
+      font-weight: 600;
+      color: $color-base;
+    }
+
+    &__author-handle {
+      color: $color-gray;
+    }
+
+    &__time {
+      color: $color-gray;
+      margin-left: auto;
+    }
+
+    &__text {
+      margin-top: 4px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    &__stats {
+      margin-top: 6px;
+      display: flex;
+      gap: 16px;
+      font-size: $typographic-small-font-size;
+      color: $color-gray;
+    }
+
+    &--empty {
+      font-style: italic;
+      color: $color-gray;
+    }
+  }
+</style>

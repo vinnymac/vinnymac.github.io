@@ -1,0 +1,63 @@
+---
+import siteConfig from '../site.config';
+
+interface Props {
+  isIndex?: boolean;
+}
+
+const { isIndex = false } = Astro.props;
+const { author } = siteConfig;
+const TitleTag = isIndex ? 'h1' : 'h2';
+---
+
+<div class="author">
+  <a href="/">
+    <img
+      src={author.photo}
+      class="author__photo"
+      width="75"
+      height="75"
+      alt={author.name}
+    />
+  </a>
+  <TitleTag class="author__title">
+    <a class="author__title-link" href="/">{author.name}</a>
+  </TitleTag>
+  <p class="author__subtitle">{author.bio}</p>
+</div>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .author {
+    &__photo {
+      display: inline-block;
+      margin-bottom: 0;
+      border-radius: 50%;
+      background-clip: padding-box;
+    }
+
+    &__title {
+      font-size: $typographic-base-font-size * 1.125;
+      font-weight: 600;
+      @include line-height(1.125);
+      @include margin(0.5, 0, 0.5, 0);
+
+      &-link {
+        color: $color-base;
+
+        &:hover,
+        &:focus {
+          color: $color-base;
+        }
+      }
+    }
+
+    &__subtitle {
+      color: $color-gray;
+      @include line-height(1);
+      @include margin-bottom(1);
+    }
+  }
+</style>

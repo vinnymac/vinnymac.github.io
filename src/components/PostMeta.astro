@@ -1,0 +1,19 @@
+---
+import { formatFullDate } from '../lib/posts';
+
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<div class="meta">
+  <p class="meta__date">Published {formatFullDate(date)}</p>
+</div>
+
+<style lang="scss">
+  .meta__date {
+    font-style: italic;
+  }
+</style>

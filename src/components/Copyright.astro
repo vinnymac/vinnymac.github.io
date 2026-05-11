@@ -1,0 +1,17 @@
+---
+import siteConfig from '../site.config';
+
+const { copyright } = siteConfig;
+---
+
+<div class="copyright">{copyright}</div>
+
+<style lang="scss">
+  @use 'sass:color';
+  @use '../styles/variables' as *;
+
+  .copyright {
+    color: color.adjust($color-gray, $lightness: 18%);
+    font-size: $typographic-small-font-size;
+  }
+</style>
