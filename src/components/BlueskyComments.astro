@@ -320,9 +320,7 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
     }
   };
 
-  const init = async () => {
-    const root = document.querySelector<HTMLElement>('.bsky-comments[data-thread-url]');
-    if (!root) return;
+  const loadComments = async (root: HTMLElement) => {
     const threadUrl = root.dataset.threadUrl;
     if (!threadUrl) return;
 
@@ -356,6 +354,36 @@ const profileUrl = `https://bsky.app/profile/${blueskyHandle}`;
       if (import.meta.env.DEV) console.error('[BlueskyComments]', err);
       status.textContent = 'Could not load comments.';
     }
+  };
+
+  /**
+   * Defer the AppView XRPC call until the comments section is near the
+   * viewport. Visitors who never scroll past the post body skip the network
+   * entirely. The 600px rootMargin keeps perceived latency near-zero — by the
+   * time the user scrolls to the comments, the fetch is usually done.
+   */
+  const init = () => {
+    const root = document.querySelector<HTMLElement>('.bsky-comments[data-thread-url]');
+    if (!root) return;
+
+    if (!('IntersectionObserver' in window)) {
+      loadComments(root);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries, observer) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            observer.disconnect();
+            loadComments(root);
+            return;
+          }
+        }
+      },
+      { rootMargin: '600px 0px' },
+    );
+    io.observe(root);
   };
 
   if (document.readyState === 'loading') {
