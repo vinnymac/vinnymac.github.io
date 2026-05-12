@@ -7,6 +7,11 @@
  *
  * An anti-flash script in BaseLayout runs synchronously before paint and reads
  * localStorage to set data-theme — keep both in sync.
+ *
+ * Icons are inline SVG (Bootstrap Icons: circle-half / sun-fill / moon-fill)
+ * rather than unicode glyphs — on iOS Safari, U+2600 ☀ defaults to emoji
+ * presentation and the three glyphs render from different fonts with mismatched
+ * metrics, causing the icon to jitter on each cycle.
  */
 ---
 
@@ -17,9 +22,22 @@
   aria-label="Cycle color theme"
 >
   <span class="theme-toggle__indicator" aria-hidden="true">
-    <span class="theme-toggle__glyph" data-theme-glyph>◐</span>
+    <svg
+      class="theme-toggle__icon"
+      data-theme-icon
+      viewBox="0 0 16 16"
+      width="16"
+      height="16"
+      fill="currentColor"
+      focusable="false"
+    >
+      <path d="M8 15A7 7 0 1 1 8 1zm0 1A8 8 0 1 0 8 0v16z"></path>
+    </svg>
   </span>
-  <span class="theme-toggle__label" data-theme-label>Auto</span>
+  <span class="theme-toggle__label">
+    <span class="theme-toggle__label-ghost" aria-hidden="true">Light</span>
+    <span class="theme-toggle__label-active" data-theme-label>Auto</span>
+  </span>
 </button>
 
 <script>
@@ -27,10 +45,11 @@
 
   const STORAGE_KEY = 'theme';
   const ORDER: ThemeMode[] = ['auto', 'light', 'dark'];
-  const GLYPH: Record<ThemeMode, string> = {
-    auto: '◐',
-    light: '☀',
-    dark: '☾',
+  const ICON_PATH: Record<ThemeMode, string> = {
+    auto: 'M8 15A7 7 0 1 1 8 1zm0 1A8 8 0 1 0 8 0v16z',
+    light:
+      'M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708',
+    dark: 'M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278',
   };
   const LABEL: Record<ThemeMode, string> = {
     auto: 'Auto',
@@ -55,9 +74,9 @@
   };
 
   const updateUi = (btn: HTMLButtonElement, mode: ThemeMode) => {
-    const glyph = btn.querySelector<HTMLElement>('[data-theme-glyph]');
+    const iconPath = btn.querySelector<SVGPathElement>('[data-theme-icon] path');
     const label = btn.querySelector<HTMLElement>('[data-theme-label]');
-    if (glyph) glyph.textContent = GLYPH[mode];
+    if (iconPath) iconPath.setAttribute('d', ICON_PATH[mode]);
     if (label) label.textContent = LABEL[mode];
     btn.setAttribute('aria-label', `Color theme: ${LABEL[mode]}. Click to cycle.`);
   };
@@ -102,7 +121,7 @@
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     height: $button-height;
     padding: 0 14px;
     border: 1px solid var(--border-subtle);
@@ -122,13 +141,34 @@
 
   .theme-toggle__indicator {
     display: inline-flex;
-    width: 1em;
-    height: 1em;
-    line-height: 1;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    align-items: center;
+    justify-content: center;
   }
 
-  .theme-toggle__glyph {
-    font-size: 1.2em;
+  .theme-toggle__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  // Stack the active label over an invisible "Light" (the widest of the three)
+  // so the button width is locked to the widest label regardless of font.
+  .theme-toggle__label {
+    display: inline-grid;
     line-height: 1;
+    text-align: center;
+  }
+
+  .theme-toggle__label-ghost,
+  .theme-toggle__label-active {
+    grid-area: 1 / 1;
+  }
+
+  .theme-toggle__label-ghost {
+    visibility: hidden;
   }
 </style>
