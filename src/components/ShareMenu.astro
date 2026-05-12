@@ -1,8 +1,9 @@
 ---
 /**
  * Share menu built on the native Popover API + CSS Anchor Positioning.
- * No runtime JS for open/close — the browser handles dismissal (outside click, Escape, light-dismiss).
- * Inline TypeScript handles clipboard + navigator.share() progressive enhancement.
+ * Where the browser supports `popover`, dismissal (outside click, Escape, light-dismiss)
+ * is handled by the platform. Where it doesn't (Safari < 17), the script below falls
+ * back to a JS-driven open/close + outside-click + Escape handler.
  */
 interface Props {
   threadUrl?: string;
@@ -42,11 +43,70 @@ const popoverId = 'share-menu';
 </div>
 
 <script>
+  const SUPPORTS_POPOVER = 'popover' in HTMLElement.prototype;
+
+  type PopoverHost = HTMLElement & {
+    showPopover?: () => void;
+    hidePopover?: () => void;
+  };
+
   const init = () => {
-    const menu = document.querySelector<HTMLElement>('[data-share-menu]');
+    const menu = document.querySelector<PopoverHost>('[data-share-menu]');
     if (!menu) return;
+    const trigger = document.querySelector<HTMLButtonElement>('.share__trigger');
     const copyBtn = menu.querySelector<HTMLButtonElement>('[data-share-copy]');
     const nativeBtn = menu.querySelector<HTMLButtonElement>('[data-share-native]');
+
+    // Fallback open/close for browsers that don't support the popover attribute.
+    // In supporting browsers the popovertarget button + UA dismissal drive
+    // everything, and closeMenu() goes through the native hidePopover() API.
+    const closeMenu = () => {
+      if (SUPPORTS_POPOVER) {
+        menu.hidePopover?.();
+      } else {
+        menu.classList.remove('share__menu--fallback-open');
+        menu.hidden = true;
+        trigger?.setAttribute('aria-expanded', 'false');
+      }
+    };
+
+    if (!SUPPORTS_POPOVER && trigger) {
+      // The popover attribute is ignored — wire the trigger by hand. Without
+      // popover, the UA's `display: none` on a closed popover doesn't apply
+      // either, so we use the `hidden` attribute to keep the menu out of flow.
+      menu.hidden = true;
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-haspopup', 'menu');
+
+      const openMenu = () => {
+        menu.hidden = false;
+        menu.classList.add('share__menu--fallback-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      };
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (menu.classList.contains('share__menu--fallback-open')) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('share__menu--fallback-open')) return;
+        const target = e.target as Node;
+        if (menu.contains(target) || trigger.contains(target)) return;
+        closeMenu();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        if (!menu.classList.contains('share__menu--fallback-open')) return;
+        closeMenu();
+        trigger.focus();
+      });
+    }
 
     copyBtn?.addEventListener('click', async () => {
       try {
@@ -70,7 +130,7 @@ const popoverId = 'share-menu';
             title: document.title,
             url: window.location.href,
           });
-          (menu as HTMLElement & { hidePopover?: () => void }).hidePopover?.();
+          closeMenu();
         } catch {
           // User cancelled — no-op.
         }
@@ -123,6 +183,8 @@ const popoverId = 'share-menu';
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     background: var(--surface);
+    // Fallback for browsers without color-mix support (Safari < 16.2).
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     box-shadow: 0 12px 32px color-mix(in oklch, var(--text), transparent 85%);
     min-width: 220px;
     // Anchor positioning — placed below the trigger, right-aligned.
@@ -149,6 +211,17 @@ const popoverId = 'share-menu';
         opacity: 0;
         transform: translateY(-4px);
       }
+    }
+
+    // Fallback open state — applied by the script when the popover attribute
+    // isn't honored. Anchor positioning is also Safari 17+; absolute positioning
+    // against the inline-block .share parent is close enough on older builds.
+    // The class is never set in browsers that do support popover.
+    &.share__menu--fallback-open {
+      opacity: 1;
+      transform: translateY(0);
+      position: absolute;
+      right: 0;
     }
   }
 

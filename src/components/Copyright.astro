@@ -10,6 +10,8 @@ const { copyright } = siteConfig;
   @use '../styles/variables' as *;
 
   .copyright {
+    // Fallback for Safari < 16.2 / older Firefox without color-mix support.
+    color: #aaa;
     color: color-mix(in oklch, var(--color-gray), white 35%);
     font-size: $typographic-small-font-size;
   }

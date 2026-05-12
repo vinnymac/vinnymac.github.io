@@ -1,5 +1,4 @@
 ---
-import { createHash } from 'node:crypto';
 import siteConfig from '../site.config';
 import '../styles/global.scss';
 
@@ -35,8 +34,6 @@ const canonicalUrl = new URL(Astro.url.pathname, url).toString();
 const twitterCard = socialImage ? 'summary_large_image' : 'summary';
 const ogType = article ? 'article' : 'website';
 
-// Inline script bodies — fixed across all pages. Defined as constants so the
-// CSP sha256 hash matches the exact bytes the browser parses.
 const antiFlashScript = `(()=>{try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}})();`;
 const speculationRules = JSON.stringify({
   prerender: [
@@ -48,18 +45,15 @@ const speculationRules = JSON.stringify({
 });
 const structuredDataJson = structuredData ? JSON.stringify(structuredData) : null;
 
-const sha256 = (body: string): string =>
-  `'sha256-${createHash('sha256').update(body, 'utf8').digest('base64')}'`;
-
-const scriptSources = ["'self'", sha256(antiFlashScript), sha256(speculationRules)];
-if (structuredDataJson) scriptSources.push(sha256(structuredDataJson));
-
-// Scoped <style> blocks Astro emits are inlined → style-src still needs 'unsafe-inline'.
-// We do NOT need 'unsafe-inline' on script-src now that every inline script is hashed.
+// 'unsafe-inline' on script-src is intentional: Astro emits hoisted component scripts
+// as inline <script type="module"> blocks, and pre-hashing every emitted chunk would
+// fight the bundler. Every inline script on this site is author-controlled and emitted
+// at build time — there is no user-input render path. To re-introduce strict hashing,
+// turn on experimental.csp in astro.config.mjs (Astro 6+ auto-computes hashes).
 const csp = [
   "default-src 'self'",
   "img-src 'self' https: data:",
-  `script-src ${scriptSources.join(' ')}`,
+  "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
   "connect-src 'self' https://public.api.bsky.app",
   "font-src 'self'",
@@ -117,42 +111,42 @@ const csp = [
     )}
     <slot name="head" />
   </head>
-  <script>
-    // Wire up code-block copy buttons (injected by the rehypeCodeCopy plugin).
-    const initCodeCopy = () => {
-      document.querySelectorAll<HTMLButtonElement>('[data-code-copy]').forEach((btn) => {
-        if (btn.dataset.codeCopyBound) return;
-        btn.dataset.codeCopyBound = 'true';
-        btn.addEventListener('click', async () => {
-          const pre = btn.nextElementSibling;
-          const code = pre?.querySelector('code')?.textContent ?? pre?.textContent ?? '';
-          try {
-            await navigator.clipboard.writeText(code);
-            const original = btn.textContent;
-            btn.textContent = 'Copied!';
-            btn.dataset.copied = 'true';
-            setTimeout(() => {
-              btn.textContent = original;
-              delete btn.dataset.copied;
-            }, 1500);
-          } catch (err) {
-            // oxlint-disable-next-line no-console
-            if (import.meta.env.DEV) console.error('[code-copy] clipboard write failed', err);
-          }
-        });
-      });
-    };
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCodeCopy);
-    } else {
-      initCodeCopy();
-    }
-  </script>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="layout">
       <slot />
     </div>
+    <script>
+      // Wire up code-block copy buttons (injected by the rehypeCodeCopy plugin).
+      const initCodeCopy = () => {
+        document.querySelectorAll<HTMLButtonElement>('[data-code-copy]').forEach((btn) => {
+          if (btn.dataset.codeCopyBound) return;
+          btn.dataset.codeCopyBound = 'true';
+          btn.addEventListener('click', async () => {
+            const pre = btn.nextElementSibling;
+            const code = pre?.querySelector('code')?.textContent ?? pre?.textContent ?? '';
+            try {
+              await navigator.clipboard.writeText(code);
+              const original = btn.textContent;
+              btn.textContent = 'Copied!';
+              btn.dataset.copied = 'true';
+              setTimeout(() => {
+                btn.textContent = original;
+                delete btn.dataset.copied;
+              }, 1500);
+            } catch (err) {
+              // oxlint-disable-next-line no-console
+              if (import.meta.env.DEV) console.error('[code-copy] clipboard write failed', err);
+            }
+          });
+        });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCodeCopy);
+      } else {
+        initCodeCopy();
+      }
+    </script>
   </body>
 </html>
 
