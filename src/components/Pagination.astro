@@ -66,6 +66,8 @@ const { prevUrl, nextUrl } = Astro.props;
       }
 
       &--disable {
+        // Fallback for Safari < 16.2 without color-mix support.
+        color: #bdbdbd;
         color: color-mix(in srgb, var(--color-gray) 70%, white);
       }
     }

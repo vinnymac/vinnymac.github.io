@@ -225,6 +225,8 @@ const structuredData = buildPostGraph(post, canonicalUrl, imageUrl);
 
     @keyframes home-button-elevate {
       to {
+        // Fallback for browsers without color-mix support (Safari < 16.2).
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         box-shadow: 0 4px 16px color-mix(in oklch, var(--text), transparent 80%);
         background: var(--surface);
       }

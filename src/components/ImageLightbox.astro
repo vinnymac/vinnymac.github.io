@@ -69,6 +69,8 @@
     overflow: visible;
 
     &::backdrop {
+      // Fallback for browsers without color-mix support (Safari < 16.2).
+      background: rgba(0, 0, 0, 0.8);
       background: color-mix(in oklch, black, transparent 20%);
       backdrop-filter: blur(4px);
     }

@@ -1,23 +1,44 @@
 // Design tokens — emitted as CSS custom properties so they can be themed at runtime.
 // Compile-time math (layout widths, typographic leading) lives in _variables.scss.
 //
-// Each color uses light-dark() so the *active* value follows `color-scheme`.
-// The theme toggle in <Sidebar /> writes data-theme="light" or data-theme="dark"
-// on <html>; in its absence, color-scheme falls back to the OS preference.
+// Color tokens are duplicated across light/dark blocks rather than using the
+// light-dark() CSS function — that function only shipped in Safari 17.5 and
+// pre-17.5 browsers treat the entire `--color-*` declaration as invalid,
+// dropping the value and cascading every consumer back to UA defaults.
+//
+// The theme toggle in <Sidebar /> writes data-theme="light"/"dark" on <html>;
+// in its absence, prefers-color-scheme picks based on OS preference.
+
+@mixin light-tokens {
+  // Brand
+  --color-primary: #5d93ff;
+  --color-secondary: #f7a046;
+
+  // Surfaces & text
+  --color-base: #222;
+  --color-white: #fff;
+  --color-gray: #888;
+  --color-gray-border: #e6e6e6;
+  --color-gray-bg: #ebebeb;
+}
+
+@mixin dark-tokens {
+  // Brand
+  --color-primary: #8ab4ff;
+  --color-secondary: #ffb867;
+
+  // Surfaces & text
+  --color-base: #e8e8e8;
+  --color-white: #0f1115;
+  --color-gray: #9a9a9a;
+  --color-gray-border: #2a2e36;
+  --color-gray-bg: #1a1d23;
+}
 
 :root {
   color-scheme: light dark;
 
-  // Brand (same hue in both themes)
-  --color-primary: light-dark(#5d93ff, #8ab4ff);
-  --color-secondary: light-dark(#f7a046, #ffb867);
-
-  // Surfaces & text
-  --color-base: light-dark(#222, #e8e8e8);
-  --color-white: light-dark(#fff, #0f1115);
-  --color-gray: light-dark(#888, #9a9a9a);
-  --color-gray-border: light-dark(#e6e6e6, #2a2e36);
-  --color-gray-bg: light-dark(#ebebeb, #1a1d23);
+  @include light-tokens;
 
   // Semantic aliases — components should prefer these.
   --text: var(--color-base);
@@ -34,11 +55,19 @@
     'Helvetica Neue', sans-serif;
 }
 
-// Explicit user choice overrides color-scheme.
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-tokens;
+  }
+}
+
+// Explicit user choice via the theme toggle takes precedence over OS preference.
 :root[data-theme='light'] {
   color-scheme: light;
+  @include light-tokens;
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
+  @include dark-tokens;
 }
