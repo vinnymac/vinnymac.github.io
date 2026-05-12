@@ -58,6 +58,14 @@ export default defineConfig({
   trailingSlash: 'ignore',
   prefetch: { defaultStrategy: 'hover' },
   integrations: [sitemap()],
+  build: {
+    // Inline every project stylesheet into <style> tags. The two layout
+    // stylesheets (BaseLayout ~6.4 KB, Page ~4.4 KB) exceed Astro's default
+    // 4 KB threshold and otherwise render-block the LCP element on first
+    // paint. Vite's `assetsInlineLimit` does NOT control this — it only
+    // affects image/font base64 inlining.
+    inlineStylesheets: 'always',
+  },
   markdown: {
     shikiConfig: {
       // Dual themes — Shiki emits CSS variables consumed by both modes.

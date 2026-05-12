@@ -38,6 +38,9 @@ const structuredData = buildPostGraph(post, canonicalUrl, imageUrl);
   article={article}
   structuredData={structuredData}
 >
+  {blueskyThreadUrl && (
+    <link slot="head" rel="dns-prefetch" href="https://public.api.bsky.app" />
+  )}
   <main id="main" tabindex="-1" class="post-main">
     <div class="reading-progress" aria-hidden="true"></div>
     <article class="post">

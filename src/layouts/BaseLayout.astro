@@ -50,12 +50,17 @@ const structuredDataJson = structuredData ? JSON.stringify(structuredData) : nul
 // fight the bundler. Every inline script on this site is author-controlled and emitted
 // at build time — there is no user-input render path. To re-introduce strict hashing,
 // turn on experimental.csp in astro.config.mjs (Astro 6+ auto-computes hashes).
+// Cloudflare auto-injects the Web Analytics beacon from
+// static.cloudflareinsights.com and the beacon POSTs metrics back to the apex
+// cloudflareinsights.com (no `static.` prefix). Both hosts are allowlisted
+// here so the beacon doesn't trip a CSP error → no console error → Best
+// Practices score stays at 100.
 const csp = [
   "default-src 'self'",
   "img-src 'self' https: data:",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
   "style-src 'self' 'unsafe-inline'",
-  "connect-src 'self' https://public.api.bsky.app",
+  "connect-src 'self' https://public.api.bsky.app https://cloudflareinsights.com",
   "font-src 'self'",
   "base-uri 'self'",
   "form-action 'none'",
