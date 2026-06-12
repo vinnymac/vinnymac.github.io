@@ -17,6 +17,13 @@ interface Props {
   article?: ArticleMeta;
   /** schema.org JSON-LD payload — emitted as <script type="application/ld+json">. */
   structuredData?: Record<string, unknown>;
+  /**
+   * Per-post Standard.site document record AT-URI. The publication AT-URI is
+   * site-wide (from config) and emitted on every page; the document tag only
+   * appears on pages that pass this prop. Bluesky's crawler runs no JS, so
+   * these must be server-rendered — which they are, in this static build.
+   */
+  standardDocumentUri?: string;
 }
 
 const {
@@ -25,6 +32,7 @@ const {
   socialImage,
   article,
   structuredData,
+  standardDocumentUri,
 } = Astro.props;
 const { author, url } = siteConfig;
 const metaImage = socialImage ?? author.photo;
@@ -85,6 +93,13 @@ const csp = [
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png" type="image/png" />
     <link rel="mask-icon" color="#5bbad5" href="/safari-pinned-tab.svg" />
     <link rel="alternate" type="application/rss+xml" title={siteConfig.title} href="/rss.xml" />
+    {/* Standard.site (AT Protocol) discovery — lets Bluesky render enhanced link cards. */}
+    {siteConfig.standardSite && (
+      <link rel="site.standard.publication" href={siteConfig.standardSite.publicationUri} />
+    )}
+    {siteConfig.standardSite && standardDocumentUri && (
+      <link rel="site.standard.document" href={standardDocumentUri} />
+    )}
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     {/* Browser chrome color — dark variant matches --color-white in dark mode (_tokens.scss). */}
     <meta name="theme-color" content="#F7A046" media="(prefers-color-scheme: light)" />

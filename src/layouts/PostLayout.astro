@@ -15,7 +15,8 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, socialImage, date, tags, category, blueskyThreadUrl } = post.data;
+const { title, description, socialImage, date, tags, category, blueskyThreadUrl, standardDocumentUri } =
+  post.data;
 const pageTitle = `${title} - ${siteConfig.title}`;
 const titleTransitionName = `post-title-${post.id.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()}`;
 
@@ -37,6 +38,7 @@ const structuredData = buildPostGraph(post, canonicalUrl, imageUrl);
   socialImage={socialImage}
   article={article}
   structuredData={structuredData}
+  standardDocumentUri={standardDocumentUri}
 >
   {blueskyThreadUrl && (
     <link slot="head" rel="dns-prefetch" href="https://public.api.bsky.app" />

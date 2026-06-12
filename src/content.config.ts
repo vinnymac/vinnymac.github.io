@@ -13,6 +13,12 @@ const posts = defineCollection({
     draft: z.boolean().default(false),
     socialImage: z.string().optional(),
     blueskyThreadUrl: z.url().optional(),
+    // Standard.site document record AT-URI, written back into frontmatter by
+    // `sequoia publish`. Emitted as <link rel="site.standard.document"> so
+    // Bluesky can attach this post to its publication. Optional: posts that
+    // haven't been published to the PDS simply omit the document link tag.
+    // NOTE: confirm this key matches the one Sequoia writes before publishing.
+    standardDocumentUri: z.string().optional(),
     // Optional override for the URL slug. Astro's glob loader uses this as the
     // entry id, preserving the original Lumen `/posts/<slug>` URLs across the
     // migration. Declared here so the contract is reviewable and future Astro

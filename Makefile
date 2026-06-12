@@ -1,4 +1,4 @@
-.PHONY: install_hooks uninstall_hooks activate
+.PHONY: install_hooks uninstall_hooks activate publish-atproto
 
 install_hooks:
 	@git config core.hooksPath .githooks
@@ -21,3 +21,14 @@ activate:
 	@mise trust --quiet
 	@mise install --quiet
 	@mise env -s bash
+
+# Publish/update Standard.site records to the PDS via Sequoia, then write each
+# post's document AT-URI back into its frontmatter. Run before deploying so the
+# emitted <link> tags resolve. Requires the global CLI: `bun i -g sequoia-cli`.
+# See README → "Standard.site / AT Protocol".
+publish-atproto:
+	@command -v sequoia >/dev/null 2>&1 || { \
+		echo "sequoia CLI not found — install it with: bun i -g sequoia-cli" >&2; \
+		exit 1; \
+	}
+	sequoia publish

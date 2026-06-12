@@ -15,6 +15,7 @@ Built with [Astro](https://astro.build). Content lives as Markdown under `src/co
 | RSS                   | `@astrojs/rss`                                         |
 | Sitemap               | `@astrojs/sitemap`                                     |
 | Comments              | Bluesky `app.bsky.feed.getPostThread`                  |
+| Publishing            | Standard.site (AT Protocol) records via Sequoia        |
 | Hosting               | GitHub Pages (deployed via GitHub Actions)             |
 
 ## Development
@@ -55,6 +56,7 @@ slug: 'stable-url-slug' # optional; falls back to filename
 socialImage: '/media/foo.jpg' # optional, lives under public/
 draft: false
 blueskyThreadUrl: 'https://bsky.app/profile/vinnymac.dev/post/...' # optional; enables comments
+standardDocumentUri: 'at://did:plc:.../site.standard.document/...' # set by `sequoia publish`; don't edit by hand
 ---
 ```
 
@@ -87,6 +89,48 @@ in `pnpm dev`, `pnpm preview`, and production. The only thing that has to exist
 is the Bluesky post itself.
 
 The fetch logic, threading, and rendering live in `src/components/BlueskyComments.astro`.
+
+## Standard.site / AT Protocol
+
+The site publishes [Standard.site](https://standard.site) records to the AT Protocol so
+that sharing a post on Bluesky yields an **enhanced link card** (showing the publication
+and author) instead of a plain preview. This is handled by [Sequoia](https://sequoia.pub),
+a CLI that mints the records on your PDS; the blog only emits the discovery `<link>` tags
+the records need.
+
+**How it fits together:**
+
+- A site-wide `<link rel="site.standard.publication">` is emitted on every page, and a
+  per-post `<link rel="site.standard.document">` on each published post. Both come from
+  `BaseLayout.astro`. Bluesky's crawler runs **no JavaScript**, so these are
+  server-rendered into the static HTML.
+- The publication AT-URI + DID live in `src/site.config.ts` (`standardSite`). Each post's
+  document AT-URI lives in its frontmatter (`standardDocumentUri`), written by Sequoia.
+- Sequoia also writes the verification file to `public/.well-known/site.standard.publication`,
+  which ships verbatim in the build. Keep it committed.
+
+**One-time setup:**
+
+1. Install the CLI: `bun i -g sequoia-cli`.
+2. Run `sequoia init` in the repo root. It opens an OAuth login for `@vinnymac.dev`'s PDS,
+   creates the publication record, and writes the verification file under `public/.well-known/`.
+3. Copy the reported DID and publication AT-URI into `standardSite` in `src/site.config.ts`
+   (uncomment the block).
+
+> When `standardSite` is unset, the link tags are simply not emitted — the site builds
+> and deploys exactly as before, so you can land this wiring before publishing anything.
+
+**Per release** (whenever posts are added or changed):
+
+```sh
+make publish-atproto   # → sequoia publish: mints/updates document records,
+                       #   writes standardDocumentUri back into each post's frontmatter
+```
+
+Publish **before** deploying so the emitted AT-URIs resolve. There's a brief gap between
+record creation and the site going live; indexers re-verify, so it self-heals. Confirm the
+frontmatter key Sequoia writes matches `standardDocumentUri` in `src/content.config.ts` the
+first time you run it.
 
 ## Deployment
 
