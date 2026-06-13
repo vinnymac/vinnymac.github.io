@@ -1,0 +1,12 @@
+name: Ask Me Anything
+description: Ask Vincent a question — it'll appear on vincenttaverna.com/ama once answered.
+title: ''
+labels: ['ama']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Put your question in the **Title** field above, then click **Submit new issue**.
+
+        Questions are answered publicly on [vincenttaverna.com/ama](https://vincenttaverna.com/ama).
+        You can also submit directly on the AMA page without a GitHub account.

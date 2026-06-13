@@ -1,0 +1,36 @@
+name: AMA — Acknowledge new question
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  acknowledge:
+    # Only fires when the `ama` label is applied (covers both template submissions
+    # and manual questions created directly on GitHub).
+    if: github.event.label.name == 'ama'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Post acknowledgment comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "Thanks for your question! I'll answer it soon and publish the response on [my AMA page](https://vincenttaverna.com/ama). 🙌",
+            });
+
+      # Optional: uncomment and configure to send a webhook notification
+      # (e.g. to a Cloudflare Worker that emails you via Cloudflare Email Routing).
+      #
+      # - name: Notify via webhook
+      #   env:
+      #     NOTIFY_URL: ${{ secrets.AMA_NOTIFY_WEBHOOK_URL }}
+      #   run: |
+      #     curl -s -X POST "$NOTIFY_URL" \
+      #       -H "Content-Type: application/json" \
+      #       -d '{"title":"${{ github.event.issue.title }}","url":"${{ github.event.issue.html_url }}"}'

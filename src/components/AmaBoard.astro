@@ -1,0 +1,530 @@
+---
+import siteConfig from '../site.config';
+
+const { githubRepo } = siteConfig;
+const submitUrl = import.meta.env.PUBLIC_AMA_SUBMIT_URL as string | undefined;
+const githubNewIssueUrl = `https://github.com/${githubRepo}/issues/new?labels=ama&template=ama.yml`;
+---
+
+<section
+  class="ama-board"
+  data-repo={githubRepo}
+  data-submit-url={submitUrl}
+>
+  <div class="ama-board__submit">
+    <p class="ama-board__intro">
+      Got a question about engineering, side projects, travel hacking, or anything else?
+      Ask away — I read every question and answer publicly on this page.
+    </p>
+
+    {submitUrl ? (
+      <>
+        <form class="ama-board__form" data-form novalidate>
+          {/* Honeypot — visually removed from flow; bots fill it, humans skip it. */}
+          <div class="ama-board__honey" aria-hidden="true">
+            <label for="ama-website">Leave this blank</label>
+            <input type="text" id="ama-website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="ama-board__field">
+            <label class="ama-board__label" for="ama-q">Your question</label>
+            <textarea
+              id="ama-q"
+              name="question"
+              class="ama-board__textarea"
+              rows="4"
+              maxlength="500"
+              placeholder="What would you like to know?"
+              required
+            ></textarea>
+            <span class="ama-board__counter" data-counter aria-live="polite">0 / 500</span>
+          </div>
+
+          <div class="ama-board__field">
+            <label class="ama-board__label" for="ama-name">
+              Your name <span class="ama-board__opt">(optional)</span>
+            </label>
+            <input
+              id="ama-name"
+              name="name"
+              class="ama-board__input"
+              type="text"
+              maxlength="100"
+              placeholder="Anonymous"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="ama-board__form-actions">
+            <button class="ama-board__btn" type="submit">Submit question</button>
+            <p class="ama-board__form-msg" role="status" data-form-msg hidden></p>
+          </div>
+        </form>
+
+        <p class="ama-board__success" data-success hidden>
+          Thanks for asking! I'll answer your question and publish it here. 🙌
+        </p>
+      </>
+    ) : (
+      <a
+        href={githubNewIssueUrl}
+        class="ama-board__btn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ask a question on GitHub ↗
+      </a>
+    )}
+  </div>
+
+  <div class="ama-board__divider" role="separator" aria-hidden="true"></div>
+
+  <div class="ama-board__answered">
+    <h2 class="ama-board__section-title">Answered</h2>
+    <p class="ama-board__status" data-qa-status>Loading…</p>
+    <ol class="ama-board__qa-list" data-qa-list hidden></ol>
+  </div>
+
+  <div class="ama-board__pending" data-pending-section hidden>
+    <h2 class="ama-board__section-title">Pending</h2>
+    <ul class="ama-board__pending-list" data-pending-list></ul>
+  </div>
+
+  <template data-qa-tpl>
+    <li class="ama-board__qa-item">
+      <h3 class="ama-board__qa-q"></h3>
+      <div class="ama-board__qa-a"></div>
+      <footer class="ama-board__qa-meta">
+        <time class="ama-board__qa-date"></time>
+        <a class="ama-board__qa-link" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+      </footer>
+    </li>
+  </template>
+
+  <template data-pending-tpl>
+    <li class="ama-board__pending-item">
+      <a class="ama-board__pending-link" target="_blank" rel="noopener noreferrer"></a>
+    </li>
+  </template>
+</section>
+
+<script>
+  interface GHIssue {
+    number: number;
+    title: string;
+    body_html: string | null;
+    html_url: string;
+    created_at: string;
+    closed_at: string | null;
+    pull_request?: unknown;
+  }
+
+  const GITHUB_API = 'https://api.github.com';
+  // application/vnd.github.full+json includes body_html alongside raw body.
+  const GH_ACCEPT = 'application/vnd.github.full+json';
+
+  async function fetchIssues(repo: string, state: 'open' | 'closed'): Promise<GHIssue[]> {
+    const url = `${GITHUB_API}/repos/${repo}/issues?labels=ama&state=${state}&per_page=50&sort=created&direction=desc`;
+    const res = await fetch(url, { headers: { Accept: GH_ACCEPT } });
+    if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+    const data = (await res.json()) as GHIssue[];
+    return data.filter((i) => !i.pull_request);
+  }
+
+  function renderQA(tpl: HTMLTemplateElement, issue: GHIssue): HTMLElement | null {
+    if (!issue.title) return null;
+    const frag = tpl.content.cloneNode(true) as DocumentFragment;
+    const item = frag.querySelector<HTMLElement>('.ama-board__qa-item')!;
+
+    const q = frag.querySelector<HTMLElement>('.ama-board__qa-q')!;
+    q.textContent = issue.title;
+
+    const a = frag.querySelector<HTMLElement>('.ama-board__qa-a')!;
+    if (issue.body_html?.trim()) {
+      // Safe: body_html is GitHub-rendered markdown authored by the repo owner.
+      // eslint-disable-next-line no-unsanitized/property
+      a.innerHTML = issue.body_html;
+    } else {
+      a.remove();
+    }
+
+    const date = frag.querySelector<HTMLTimeElement>('.ama-board__qa-date')!;
+    if (issue.closed_at) {
+      date.dateTime = issue.closed_at;
+      date.textContent = new Date(issue.closed_at).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      });
+    }
+
+    const link = frag.querySelector<HTMLAnchorElement>('.ama-board__qa-link')!;
+    link.href = issue.html_url;
+    link.setAttribute('aria-label', `View "${issue.title}" on GitHub`);
+
+    return item;
+  }
+
+  function renderPending(tpl: HTMLTemplateElement, issue: GHIssue): HTMLElement | null {
+    if (!issue.title) return null;
+    const frag = tpl.content.cloneNode(true) as DocumentFragment;
+    const item = frag.querySelector<HTMLElement>('.ama-board__pending-item')!;
+
+    const link = frag.querySelector<HTMLAnchorElement>('.ama-board__pending-link')!;
+    link.href = issue.html_url;
+    link.textContent = issue.title;
+
+    return item;
+  }
+
+  async function loadQAs(root: HTMLElement): Promise<void> {
+    const repo = root.dataset.repo;
+    if (!repo) return;
+
+    const status = root.querySelector<HTMLElement>('[data-qa-status]')!;
+    const list = root.querySelector<HTMLElement>('[data-qa-list]')!;
+    const pendingSection = root.querySelector<HTMLElement>('[data-pending-section]')!;
+    const pendingList = root.querySelector<HTMLElement>('[data-pending-list]')!;
+    const qaTpl = root.querySelector<HTMLTemplateElement>('[data-qa-tpl]')!;
+    const pendingTpl = root.querySelector<HTMLTemplateElement>('[data-pending-tpl]')!;
+
+    try {
+      const [answered, pending] = await Promise.all([
+        fetchIssues(repo, 'closed'),
+        fetchIssues(repo, 'open'),
+      ]);
+
+      if (answered.length === 0) {
+        status.textContent = 'No answered questions yet — be the first to ask!';
+      } else {
+        for (const issue of answered) {
+          const el = renderQA(qaTpl, issue);
+          if (el) list.appendChild(el);
+        }
+        status.hidden = true;
+        list.hidden = false;
+      }
+
+      if (pending.length > 0) {
+        for (const issue of pending) {
+          const el = renderPending(pendingTpl, issue);
+          if (el) pendingList.appendChild(el);
+        }
+        pendingSection.hidden = false;
+      }
+    } catch (err) {
+      // oxlint-disable-next-line no-console
+      if (import.meta.env.DEV) console.error('[AmaBoard]', err);
+      status.textContent = 'Could not load questions.';
+    }
+  }
+
+  function setupForm(root: HTMLElement): void {
+    const submitUrl = root.dataset.submitUrl;
+    const form = root.querySelector<HTMLFormElement>('[data-form]');
+    if (!form || !submitUrl) return;
+
+    const textarea = form.querySelector<HTMLTextAreaElement>('[name="question"]')!;
+    const counter = form.querySelector<HTMLElement>('[data-counter]')!;
+    const submitBtn = form.querySelector<HTMLButtonElement>('[type="submit"]')!;
+    const formMsg = root.querySelector<HTMLElement>('[data-form-msg]')!;
+    const successMsg = root.querySelector<HTMLElement>('[data-success]')!;
+
+    textarea.addEventListener('input', () => {
+      counter.textContent = `${textarea.value.length} / 500`;
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const question = textarea.value.trim();
+      if (question.length < 10) {
+        formMsg.textContent = 'Please write at least 10 characters.';
+        formMsg.hidden = false;
+        textarea.focus();
+        return;
+      }
+
+      const name = (form.querySelector<HTMLInputElement>('[name="name"]')?.value ?? '').trim();
+      const honeypot = (form.querySelector<HTMLInputElement>('[name="website"]')?.value ?? '');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      formMsg.hidden = true;
+
+      try {
+        const res = await fetch(submitUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question, name, website: honeypot }),
+        });
+        const data = (await res.json()) as { ok?: boolean; error?: string };
+
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error ?? 'Unknown error');
+        }
+
+        form.hidden = true;
+        successMsg.hidden = false;
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+        formMsg.textContent = msg;
+        formMsg.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit question';
+      }
+    });
+  }
+
+  const init = () => {
+    const root = document.querySelector<HTMLElement>('.ama-board');
+    if (!root) return;
+    setupForm(root);
+    loadQAs(root);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .ama-board {
+    // ── Submit form ──────────────────────────────────────────────────────────
+
+    &__intro {
+      color: var(--text-muted);
+      @include margin-bottom(1);
+    }
+
+    &__honey {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    &__label {
+      font-size: $typographic-small-font-size;
+      font-weight: 600;
+    }
+
+    &__opt {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    &__textarea,
+    &__input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-family);
+      font-size: $typographic-base-font-size;
+      transition: border-color 0.15s;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        border-color: var(--link);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--link) 15%, transparent);
+      }
+    }
+
+    &__textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: $typographic-base-line-height;
+    }
+
+    &__counter {
+      font-size: $typographic-small-font-size;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    &__form-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    &__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: $button-height;
+      padding: 0 18px;
+      border: 1px solid var(--link);
+      border-radius: $button-border-radius;
+      background: transparent;
+      color: var(--link);
+      font-family: inherit;
+      font-size: $typographic-small-font-size;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition:
+        background 0.15s,
+        color 0.15s;
+
+      &:hover:not(:disabled),
+      &:focus-visible:not(:disabled) {
+        background: var(--link);
+        color: var(--surface);
+      }
+
+      &:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+    }
+
+    &__form-msg {
+      font-size: $typographic-small-font-size;
+      color: var(--color-secondary);
+      margin: 0;
+    }
+
+    &__success {
+      padding: 14px 16px;
+      background: var(--bg-muted);
+      border-radius: 6px;
+      font-size: $typographic-small-font-size;
+      margin: 0;
+    }
+
+    // ── Divider ───────────────────────────────────────────────────────────────
+
+    &__divider {
+      border: none;
+      border-top: 1px solid var(--border-subtle);
+      @include margin-top(2);
+      @include margin-bottom(2);
+    }
+
+    // ── Answered Q&A ─────────────────────────────────────────────────────────
+
+    &__section-title {
+      font-size: $typographic-base-font-size * 1.375;
+      @include margin-top(0);
+      @include margin-bottom(1);
+    }
+
+    &__status {
+      color: var(--text-muted);
+      font-style: italic;
+      margin: 0;
+    }
+
+    &__qa-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__qa-item {
+      padding: 20px 0;
+      border-top: 1px solid var(--border-subtle);
+
+      &:last-child {
+        border-bottom: 1px solid var(--border-subtle);
+      }
+    }
+
+    &__qa-q {
+      font-size: $typographic-base-font-size * 1.0625;
+      font-weight: 600;
+      @include margin-top(0);
+      @include margin-bottom(0.5);
+    }
+
+    &__qa-a {
+      padding-left: 16px;
+      border-left: 3px solid var(--border-subtle);
+
+      // Tighten the prose that GitHub renders for answers.
+      :global(> :first-child) {
+        margin-top: 0;
+      }
+
+      :global(> :last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__qa-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: $typographic-small-font-size;
+      color: var(--text-muted);
+    }
+
+    &__qa-link {
+      color: var(--text-muted);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--link);
+      }
+    }
+
+    // ── Pending ───────────────────────────────────────────────────────────────
+
+    &__pending {
+      @include margin-top(2);
+    }
+
+    &__pending-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &__pending-item {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: $typographic-small-font-size;
+      color: var(--text-muted);
+
+      &:first-child {
+        border-top: 1px solid var(--border-subtle);
+      }
+    }
+
+    &__pending-link {
+      color: var(--text);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--link);
+      }
+    }
+  }
+</style>

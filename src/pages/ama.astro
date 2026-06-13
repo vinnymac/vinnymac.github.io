@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Page from '../components/Page.astro';
+import AmaBoard from '../components/AmaBoard.astro';
+import siteConfig from '../site.config';
+---
+
+<BaseLayout
+  title={`AMA — Ask Me Anything · ${siteConfig.title}`}
+  description="Ask me anything about engineering, side projects, travel hacking, or whatever else is on your mind."
+>
+  <Sidebar />
+  <Page title="Ask Me Anything">
+    <AmaBoard />
+  </Page>
+</BaseLayout>

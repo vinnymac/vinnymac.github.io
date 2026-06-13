@@ -1,0 +1,13 @@
+name = "ama-submit"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[vars]
+GITHUB_REPO = "vinnymac/vinnymac.github.io"
+ALLOWED_ORIGIN = "https://vincenttaverna.com"
+
+# After deploying, set your GitHub token as a secret:
+#   cd workers/ama && npx wrangler secret put GITHUB_TOKEN
+#
+# The token needs the `public_repo` OAuth scope (for public repos).
+# Create one at: https://github.com/settings/tokens/new

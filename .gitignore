@@ -18,6 +18,10 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Cloudflare Workers (wrangler build cache)
+workers/*/node_modules/
+workers/*/.wrangler/
+
 # IDE
 .idea
 .vscode/*
