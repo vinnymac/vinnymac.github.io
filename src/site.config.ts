@@ -49,6 +49,7 @@ const config: SiteConfig = {
     { label: 'email', href: 'mailto:vinnymac@gmail.com' },
     { label: 'bluesky', href: 'https://bsky.app/profile/vinnymac.dev' },
     { label: 'github', href: 'https://github.com/vinnymac' },
+    { label: 'tangled', href: 'https://tangled.org/vinnymac.dev' },
     { label: 'linkedin', href: 'https://www.linkedin.com/in/vincent-taverna-5bb49a62' },
     { label: 'rss', href: '/rss.xml' },
   ],
