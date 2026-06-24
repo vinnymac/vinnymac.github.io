@@ -37,6 +37,11 @@ jobs:
         run: pnpm verify
       - name: Build
         run: pnpm run build
+        env:
+          # Set AMA_SUBMIT_URL in the repo's Actions secrets to enable the
+          # on-site submission form. Value: your deployed Cloudflare Worker URL,
+          # e.g. https://ama-submit.vinnymac.workers.dev
+          PUBLIC_AMA_SUBMIT_URL: ${{ secrets.AMA_SUBMIT_URL }}
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:

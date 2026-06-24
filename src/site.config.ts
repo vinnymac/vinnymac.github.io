@@ -24,6 +24,8 @@ export interface SiteConfig {
   };
   /** Bluesky handle, e.g. `vinnymac.dev`. Used for the comments thread root and link generation. */
   blueskyHandle: string;
+  /** GitHub repo slug used for the AMA feature, e.g. `vinnymac/vinnymac.github.io`. */
+  githubRepo: string;
   menu: MenuItem[];
   contacts: SocialContact[];
 }
@@ -41,9 +43,11 @@ const config: SiteConfig = {
     photo: '/photo.jpg',
   },
   blueskyHandle: 'vinnymac.dev',
+  githubRepo: 'vinnymac/vinnymac.github.io',
   menu: [
     { label: 'Articles', path: '/' },
     { label: 'About me', path: '/pages/about' },
+    { label: 'AMA', path: '/ama' },
   ],
   contacts: [
     { label: 'email', href: 'mailto:vinnymac@gmail.com' },

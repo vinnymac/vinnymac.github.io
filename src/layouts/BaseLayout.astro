@@ -34,6 +34,11 @@ const canonicalUrl = new URL(Astro.url.pathname, url).toString();
 const twitterCard = socialImage ? 'summary_large_image' : 'summary';
 const ogType = article ? 'article' : 'website';
 
+// PUBLIC_AMA_SUBMIT_URL is baked in at build time. Add its origin to connect-src
+// so the AMA form can POST to the Cloudflare Worker.
+const amaSubmitUrl = import.meta.env.PUBLIC_AMA_SUBMIT_URL as string | undefined;
+const amaOrigin = amaSubmitUrl ? new URL(amaSubmitUrl).origin : null;
+
 const antiFlashScript = `(()=>{try{const t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch{}})();`;
 const speculationRules = JSON.stringify({
   prerender: [
@@ -60,7 +65,7 @@ const csp = [
   "img-src 'self' https: data:",
   "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
   "style-src 'self' 'unsafe-inline'",
-  "connect-src 'self' https://public.api.bsky.app https://cloudflareinsights.com",
+  `connect-src 'self' https://public.api.bsky.app https://api.github.com ${amaOrigin ?? ''} https://cloudflareinsights.com`.trimEnd().replace(/\s{2,}/g, ' '),
   "font-src 'self'",
   "base-uri 'self'",
   "form-action 'none'",
