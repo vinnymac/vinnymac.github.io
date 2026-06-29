@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { unified } from '@astrojs/markdown-remark';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -76,22 +77,24 @@ export default defineConfig({
       },
       wrap: true,
     },
-    smartypants: true,
-    remarkPlugins: [remarkPublicImages],
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'append',
-          properties: { className: ['anchor'], ariaLabel: 'Permalink' },
-          content: { type: 'text', value: '#' },
-        },
+    processor: unified({
+      smartypants: true,
+      remarkPlugins: [remarkPublicImages],
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'append',
+            properties: { className: ['anchor'], ariaLabel: 'Permalink' },
+            content: { type: 'text', value: '#' },
+          },
+        ],
+        [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+        rehypeLazyImages,
+        rehypeCodeCopy,
       ],
-      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
-      rehypeLazyImages,
-      rehypeCodeCopy,
-    ],
+    }),
   },
   vite: {
     css: {
