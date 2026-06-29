@@ -1,0 +1,14 @@
+{
+  "$schema": "https://tangled.org/stevedylan.dev/sequoia/raw/main/sequoia.schema.json",
+  "siteUrl": "https://vincenttaverna.com",
+  "contentDir": "./src/content/posts",
+  "outputDir": "./dist",
+  "publicationUri": "at://did:plc:bogaa3hdl22iy3jdang5poz2/site.standard.publication/3mpfncnrm3422",
+  "frontmatter": {
+    "publishDate": "date"
+  },
+  "publishContent": true,
+  "bluesky": {
+    "enabled": true
+  }
+}

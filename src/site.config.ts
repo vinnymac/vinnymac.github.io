@@ -24,6 +24,19 @@ export interface SiteConfig {
   };
   /** Bluesky handle, e.g. `vinnymac.dev`. Used for the comments thread root and link generation. */
   blueskyHandle: string;
+  /**
+   * Standard.site (AT Protocol) publishing identity. Populate after running
+   * `sequoia init`, which authenticates to the PDS, creates the publication
+   * record, and reports the DID + publication AT-URI. Both values are public —
+   * they are emitted as `<link>` tags in the page head — so committing them is safe.
+   * When unset, the Standard.site link tags are simply not emitted.
+   */
+  standardSite?: {
+    /** Author DID, e.g. `did:plc:...` — resolves from `blueskyHandle`. */
+    did: string;
+    /** Publication record AT-URI: `at://<did>/site.standard.publication/<rkey>`. */
+    publicationUri: string;
+  };
   menu: MenuItem[];
   contacts: SocialContact[];
 }
@@ -41,6 +54,11 @@ const config: SiteConfig = {
     photo: '/photo.jpg',
   },
   blueskyHandle: 'vinnymac.dev',
+  // Populated by `sequoia init` (see README → "Standard.site / AT Protocol").
+  // standardSite: {
+  //   did: 'did:plc:...',
+  //   publicationUri: 'at://did:plc:.../site.standard.publication/...',
+  // },
   menu: [
     { label: 'Articles', path: '/' },
     { label: 'About me', path: '/pages/about' },
