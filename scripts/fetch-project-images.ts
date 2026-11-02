@@ -89,11 +89,20 @@ const fetchOk = async (url: string, accept: string): Promise<Response> => {
 };
 
 const decodeEntities = (value: string): string =>
-  value
-    .replaceAll('&amp;', '&')
-    .replaceAll('&quot;', '"')
-    .replaceAll('&#39;', "'")
-    .replaceAll('&#x2F;', '/');
+  value.replace(/&(?:amp|quot|#39|#x2F);/g, (entity) => {
+    switch (entity) {
+      case '&amp;':
+        return '&';
+      case '&quot;':
+        return '"';
+      case '&#39;':
+        return "'";
+      case '&#x2F;':
+        return '/';
+      default:
+        return entity;
+    }
+  });
 
 /** Finds `<meta property|name="og:image" content="…">` in either attribute order. */
 const findMetaImage = (html: string): string | undefined => {
