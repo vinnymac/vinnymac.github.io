@@ -1,10 +1,10 @@
 title: 'DrFirst'
-summary: 'Healthcare technology company behind e-prescribing and medication management software. I worked on drfirst.com in 2019.'
-role: 'Software Engineer'
+summary: 'Healthcare technology company behind e-prescribing and medication management software. After DrFirst acquired Lua, I helped build its telecommunication health technology for the web.'
+role: 'Software Engineer, Contractor'
 kind: site
 date: '2019'
 status: active
 url: https://www.drfirst.com
 image: ../../assets/projects/screenshots/drfirst.webp
 imageAlt: 'The DrFirst home page: the DrFirst logo and the headline “Empowering providers and their patients to achieve better health” beside a smiling clinician in a white coat.'
-tags: ['Healthcare']
+tags: ['Healthcare', 'Telehealth']
