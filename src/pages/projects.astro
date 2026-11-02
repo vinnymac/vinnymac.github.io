@@ -18,10 +18,12 @@ let cardIndex = 0;
 // Filter options. Without JavaScript the radios still filter, through CSS :has().
 const total = projects.length;
 const countOf = (kind: 'site' | 'repo') => projects.filter((p) => p.data.kind === kind).length;
+const inProgressCount = projects.filter((p) => p.data.inProgress).length;
 const filters = [
   { value: 'all', label: 'All', count: total },
   { value: 'site', label: 'Sites', count: countOf('site') },
   { value: 'repo', label: 'Repos', count: countOf('repo') },
+  { value: 'progress', label: 'In progress', count: inProgressCount },
 ] as const;
 ---
 
@@ -36,7 +38,7 @@ const filters = [
     <div class="projects" data-projects>
       <p class="projects__intro">{description}</p>
       <fieldset class="projects__filter">
-        <legend class="visually-hidden">Filter projects by type</legend>
+        <legend class="visually-hidden">Filter projects</legend>
         {filters.map(({ value, label, count }) => (
           <label class="projects__option">
             <input
@@ -62,7 +64,11 @@ const filters = [
           </h2>
           <ul class="projects__grid" role="list">
             {yearProjects.map((project) => (
-              <li class="projects__item" data-kind={project.data.kind}>
+              <li
+                class="projects__item"
+                data-kind={project.data.kind}
+                data-in-progress={project.data.inProgress || undefined}
+              >
                 <ProjectCard project={project} eager={cardIndex++ < EAGER_CARDS} />
               </li>
             ))}
@@ -165,10 +171,11 @@ const filters = [
       outline-offset: 3px;
     }
 
-    // Pure-CSS filtering: hide the other kind's cards, then any year left empty.
-    @each $kind in (site, repo) {
-      &:has(#filter-#{$kind}:checked) &__item:not([data-kind='#{$kind}']),
-      &:has(#filter-#{$kind}:checked) &__year:not(:has(&__item[data-kind='#{$kind}'])) {
+    // Pure-CSS filtering: hide the cards that don't match, then any year left empty.
+    // `kind` filters on data-kind; "In progress" cuts across kinds on data-in-progress.
+    @each $filter, $match in (site: "[data-kind='site']", repo: "[data-kind='repo']", progress: '[data-in-progress]') {
+      &:has(#filter-#{$filter}:checked) &__item:not(#{$match}),
+      &:has(#filter-#{$filter}:checked) &__year:not(:has(&__item#{$match})) {
         display: none;
       }
     }
@@ -253,22 +260,29 @@ const filters = [
 <script>
   // Enhancement only: announce the filtered count to screen readers (the text is
   // visually hidden, the pills already show the counts), and keep the filter in the URL
-  // (?type=site | ?type=repo) so it can be shared. Filtering itself is pure CSS.
+  // (?type=site | repo | progress) so it can be shared. Filtering itself is pure CSS.
   const root = document.querySelector<HTMLElement>('[data-projects]');
   const status = root?.querySelector<HTMLElement>('[data-filter-status]');
   const inputs = root?.querySelectorAll<HTMLInputElement>('input[name="type"]');
 
   if (root && status && inputs) {
     const total = root.querySelectorAll('.projects__item').length;
-    const names: Record<string, string> = { site: 'sites', repo: 'repos' };
+    // What each filter matches, and how the live region names it.
+    const matches: Record<string, { selector: string; name: string }> = {
+      site: { selector: '[data-kind="site"]', name: 'sites' },
+      repo: { selector: '[data-kind="repo"]', name: 'repos' },
+      progress: { selector: '[data-in-progress]', name: 'in progress' },
+    };
 
     const apply = (value: string) => {
       if (value === 'all') {
         status.textContent = `${total} projects`;
         return;
       }
-      const shown = root.querySelectorAll(`.projects__item[data-kind="${value}"]`).length;
-      status.textContent = `${shown} ${names[value] ?? value}`;
+      const match = matches[value];
+      if (!match) return;
+      const shown = root.querySelectorAll(`.projects__item${match.selector}`).length;
+      status.textContent = `${shown} ${match.name}`;
     };
 
     const fromUrl = new URLSearchParams(location.search).get('type');

@@ -11,6 +11,7 @@
     "check": "astro check",
     "preview": "astro preview",
     "projects:images": "node scripts/fetch-project-images.ts",
+    "projects:card": "node scripts/make-summary-card.ts",
     "astro": "astro",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",

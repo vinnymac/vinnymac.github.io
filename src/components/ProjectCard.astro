@@ -53,11 +53,26 @@ const destination = (() => {
 })();
 
 // "Live site" describes the product, not Vincent's involvement (many roles have ended).
-const statusLabel =
-  data.kind === 'repo' ? 'Repo' : data.status === 'active' ? 'Live site' : 'Archived site';
+// Work in progress says so first: the filter on /projects groups it the same way.
+const statusLabel = data.inProgress
+  ? 'In progress'
+  : data.kind === 'repo'
+    ? 'Repo'
+    : data.status === 'active'
+      ? 'Live site'
+      : 'Archived site';
+
+// A closed-source project that is still being built may go public later.
+const closedHint = data.inProgress ? 'Not public yet' : 'Closed source';
 ---
 
-<article class="card" data-status={data.status} data-kind={data.kind} aria-labelledby={titleId}>
+<article
+  class="card"
+  data-status={data.status}
+  data-kind={data.kind}
+  data-in-progress={data.inProgress || undefined}
+  aria-labelledby={titleId}
+>
   <div class="card__body">
     <h3 class="card__title" id={titleId}>
       {destination ? (
@@ -108,7 +123,7 @@ const statusLabel =
         </span>
       ) : (
         <span class="card__hint">
-          {data.status === 'closed' ? 'Closed source' : 'No longer online'}
+          {data.status === 'closed' ? closedHint : 'No longer online'}
         </span>
       )}
     </p>

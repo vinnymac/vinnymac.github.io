@@ -66,6 +66,8 @@ const projects = defineCollection({
       /** Start or launch. Sorting (newest first) and year grouping use this. */
       date: projectDate,
       endDate: projectDate.optional(),
+      /** Still being built. Adds the project to the "In progress" filter on /projects. */
+      inProgress: z.boolean().default(false),
       /** Overrides the fetched OpenGraph image. Path is relative to the YAML file. */
       image: image().optional(),
       /** Describes what the image shows. Required: every card image is informative. */

@@ -1,0 +1,9 @@
+title: iota
+summary: iOS and Android apps built with React Native.
+role: Software Engineer
+kind: repo
+date: '2018'
+status: closed
+image: ../../assets/projects/screenshots/iota.webp
+imageAlt: 'iota summary card: the name “iota” and the line “iOS and Android apps built with React Native”.'
+tags: [React Native, iOS, Android]

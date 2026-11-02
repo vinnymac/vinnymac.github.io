@@ -131,7 +131,12 @@ export const buildProjectsGraph = (
                   data.status === 'closed'
                     ? undefined
                     : (data.sourceUrl ?? (isRepo ? url : undefined)),
-                creativeWorkStatus: data.status === 'archived' ? 'Archived' : 'Active',
+                creativeWorkStatus:
+                  data.status === 'archived'
+                    ? 'Archived'
+                    : data.inProgress
+                      ? 'In progress'
+                      : 'Active',
               },
             };
           }),
