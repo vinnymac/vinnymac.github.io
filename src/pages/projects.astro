@@ -21,7 +21,7 @@ const countOf = (kind: 'site' | 'repo') => projects.filter((p) => p.data.kind ==
 const filters = [
   { value: 'all', label: 'All', count: total },
   { value: 'site', label: 'Sites', count: countOf('site') },
-  { value: 'repo', label: 'Code repos', count: countOf('repo') },
+  { value: 'repo', label: 'Repos', count: countOf('repo') },
 ] as const;
 ---
 
@@ -273,7 +273,7 @@ const filters = [
 
   if (root && status && inputs) {
     const total = root.querySelectorAll('.projects__item').length;
-    const names: Record<string, string> = { site: 'sites', repo: 'code repos' };
+    const names: Record<string, string> = { site: 'sites', repo: 'repos' };
 
     const apply = (value: string) => {
       if (value === 'all') {
