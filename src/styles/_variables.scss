@@ -22,6 +22,10 @@ $layout-post-single-width: 945px;
 $layout-post-width: $layout-post-single-width - 305px;
 
 $layout-width: 1070px;
+// Pages that opt into `wide` (BaseLayout) keep the sidebar at its usual
+// width and give the extra room to the content column.
+$layout-wide-width: 1400px;
+$layout-sidebar-width: math.div($layout-width, 3) - 30px;
 $layout-breakpoint-sm: 685px;
 $layout-breakpoint-md: 960px;
 $layout-breakpoint-lg: 1100px;

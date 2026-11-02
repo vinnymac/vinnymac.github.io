@@ -1,0 +1,9 @@
+title: 'Cacheable'
+summary: 'A robust, scalable and maintained set of caching packages for Node.js, including cache-manager.'
+role: 'Contributor'
+kind: repo
+date: '2025-02'
+status: active
+url: https://github.com/jaredwray/cacheable
+imageAlt: 'GitHub repository card for jaredwray/cacheable.'
+tags: ['TypeScript', 'Open source']

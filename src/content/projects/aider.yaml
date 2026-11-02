@@ -1,0 +1,9 @@
+title: 'Aider'
+summary: 'AI pair programming in your terminal.'
+role: 'Contributor'
+kind: repo
+date: '2025-06'
+status: active
+url: https://github.com/Aider-AI/aider
+imageAlt: 'GitHub repository card for Aider-AI/aider.'
+tags: ['Python', 'AI', 'Open source']

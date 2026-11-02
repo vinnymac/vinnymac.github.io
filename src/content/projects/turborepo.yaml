@@ -1,0 +1,9 @@
+title: 'Turborepo'
+summary: 'A build system for JavaScript and TypeScript, written in Rust.'
+role: 'Contributor'
+kind: repo
+date: '2024-07'
+status: active
+url: https://github.com/vercel/turborepo
+imageAlt: 'GitHub repository card for vercel/turborepo.'
+tags: ['Monorepo', 'Build system', 'Open source']

@@ -1,0 +1,9 @@
+title: 'npm-check'
+summary: 'Checks for outdated, incorrect and unused dependencies.'
+role: 'Contributor'
+kind: repo
+date: '2016-02'
+status: active
+url: https://github.com/dylang/npm-check
+imageAlt: 'GitHub repository card for dylang/npm-check.'
+tags: ['Node.js', 'Open source']

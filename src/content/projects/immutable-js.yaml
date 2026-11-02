@@ -1,0 +1,10 @@
+title: 'Immutable.js'
+summary: 'Immutable persistent data collections for JavaScript.'
+role: 'Contributor'
+kind: repo
+date: '2016-12'
+endDate: '2017-03'
+status: active
+url: https://github.com/immutable-js/immutable-js
+imageAlt: 'GitHub repository card for immutable-js/immutable-js.'
+tags: ['JavaScript', 'Open source']

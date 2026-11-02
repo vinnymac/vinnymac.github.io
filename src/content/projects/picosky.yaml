@@ -1,0 +1,10 @@
+title: picosky
+summary: A Bluesky client that runs as a PICO-8 cart in the browser.
+role: Creator
+kind: site
+date: '2026'
+status: active
+url: https://picosky.vinnymac.dev
+sourceUrl: https://tangled.org/vinnymac.dev/picosky
+imageAlt: picosky social card in a pixel-art PICO-8 style.
+tags: [PICO-8, AT Protocol]

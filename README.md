@@ -32,14 +32,15 @@ pnpm dev           # http://localhost:4321
 
 Other scripts:
 
-| Command        | Description                                        |
-| -------------- | -------------------------------------------------- |
-| `pnpm build`   | Build the static site to `dist/`                   |
-| `pnpm check`   | Type-check Astro + TypeScript                      |
-| `pnpm fmt`     | Format with oxfmt (use `pnpm fmt:check` to verify) |
-| `pnpm lint`    | Lint with oxlint                                   |
-| `pnpm verify`  | Run fmt:check + lint + check (matches CI)          |
-| `pnpm preview` | Serve the production build locally                 |
+| Command                | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `pnpm build`           | Build the static site to `dist/`                              |
+| `pnpm check`           | Type-check Astro + TypeScript                                 |
+| `pnpm fmt`             | Format with oxfmt (use `pnpm fmt:check` to verify)            |
+| `pnpm lint`            | Lint with oxlint                                              |
+| `pnpm verify`          | Run fmt:check + lint + check (matches CI)                     |
+| `pnpm preview`         | Serve the production build locally                            |
+| `pnpm projects:images` | Fetch project OpenGraph images into `src/assets/projects/og/` |
 
 ## Authoring a post
 
@@ -131,6 +132,28 @@ Publish **before** deploying so the emitted AT-URIs resolve. There's a brief gap
 record creation and the site going live; indexers re-verify, so it self-heals. Confirm the
 frontmatter key Sequoia writes matches `standardDocumentUri` in `src/content.config.ts` the
 first time you run it.
+
+## Adding a project
+
+The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. `kind` is `site` for a product or website and `repo` for a code repository; it drives the card label and the **All / Sites / Repos** filter on the page. For a `repo`, put the repository link in `url` (for a site that also has source, use `sourceUrl`). The schema lives in `src/content.config.ts`. A project whose source is not public uses `status: closed`: the card says "Closed source", links nowhere, and the build rejects a `url`, `archiveUrl` or `sourceUrl` on it, so a private repository can't be listed by accident. An invalid file (for example an `active` project with no `url`) fails the build.
+
+```yaml
+title: 'Pointhound'
+summary: 'One or two plain sentences.'
+role: 'Founding Staff Engineer'
+kind: site # site | repo
+date: '2024' # YYYY or YYYY-MM
+endDate: '2025-06' # optional
+status: active # active | archived | closed (closed source: no links at all)
+url: 'https://pointhound.com' # required when active; not allowed when archived
+# archiveUrl: 'https://web.archive.org/web/<14-digit timestamp>/<url>' # archived only, optional
+image: ../../assets/projects/screenshots/foo.webp # optional override, relative to this file
+imageAlt: 'What the image shows.'
+tags: ['Next.js', 'TypeScript'] # optional
+sourceUrl: 'https://github.com/...' # optional
+```
+
+Then run `pnpm projects:images <id>` to download the site's OpenGraph image into `src/assets/projects/og/<id>.webp` (archived projects read it from the `archiveUrl` snapshot). Images are committed, so the page never hotlinks third-party images. The script exits non-zero and lists every project with no usable image. For those, add a screenshot under `src/assets/projects/screenshots/` and set `image`. Pass `--refresh` to download images again.
 
 ## Deployment
 

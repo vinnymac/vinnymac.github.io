@@ -1,0 +1,11 @@
+title: 'DeSmuME English translation'
+summary: 'English translation of DeSmuME 0.3.3, YopYop156’s Nintendo DS emulator, credited on the DeSmuME website.'
+role: 'Translator'
+kind: site
+date: '2006-02'
+endDate: '2006-03'
+status: active
+url: https://www.desmume.com/source-code.htm
+image: ../../assets/projects/screenshots/desmume.webp
+imageAlt: 'The DeSmuME source code page, with the line “ENGLISH Version 0.3.3 - thanks for translating it Vinnymac.” below the download links for YopYop’s original release.'
+tags: ['Translation', 'Nintendo DS', 'Emulator']

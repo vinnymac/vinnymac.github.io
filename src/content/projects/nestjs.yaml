@@ -1,0 +1,10 @@
+title: 'NestJS'
+summary: 'A progressive Node.js framework for building efficient, scalable, enterprise-grade server-side applications with TypeScript.'
+role: 'Contributor'
+kind: repo
+date: '2021-06'
+endDate: '2022-06'
+status: active
+url: https://github.com/nestjs/nest
+imageAlt: 'GitHub repository card for nestjs/nest.'
+tags: ['TypeScript', 'Node.js', 'Open source']

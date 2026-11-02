@@ -1,0 +1,10 @@
+title: Pass Search
+summary: An open search engine with no telemetry or tracking.
+role: Creator
+kind: site
+date: '2026'
+status: active
+url: https://search.pass.dev
+image: ../../assets/projects/screenshots/pass-search.webp
+imageAlt: The Pass Search home page, with the heading “Search the web.” above a search box.
+tags: [Search, Privacy]

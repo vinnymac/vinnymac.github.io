@@ -1,0 +1,10 @@
+title: 'PokéNurse'
+summary: 'A desktop app for macOS, Windows and Linux to favorite, transfer and evolve the Pokémon in your Pokémon Go collection without a phone.'
+role: 'Creator'
+kind: repo
+date: '2016-07'
+endDate: '2017'
+status: active
+url: https://github.com/vinnymac/PokeNurse
+imageAlt: 'GitHub repository card for vinnymac/PokeNurse.'
+tags: ['Electron', 'React', 'macOS']

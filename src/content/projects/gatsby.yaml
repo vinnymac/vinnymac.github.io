@@ -1,0 +1,9 @@
+title: 'Gatsby'
+summary: 'A React-based framework with performance, scalability and security built in.'
+role: 'Contributor'
+kind: repo
+date: '2016-11'
+status: active
+url: https://github.com/gatsbyjs/gatsby
+imageAlt: 'GitHub repository card for gatsbyjs/gatsby.'
+tags: ['JavaScript', 'Open source']

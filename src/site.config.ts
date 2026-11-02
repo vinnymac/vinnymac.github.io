@@ -61,6 +61,7 @@ const config: SiteConfig = {
   // },
   menu: [
     { label: 'Articles', path: '/' },
+    { label: 'Projects', path: '/projects' },
     { label: 'About me', path: '/pages/about' },
   ],
   contacts: [
