@@ -1,5 +1,5 @@
 title: 'Immutable.js'
-summary: 'Added Map::deleteAll for removing several keys at once, and fixed a layout bug on the documentation site.'
+summary: 'Immutable persistent data collections for JavaScript.'
 role: 'Contributor'
 kind: repo
 date: '2016-12'

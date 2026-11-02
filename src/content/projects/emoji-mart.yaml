@@ -1,5 +1,5 @@
 title: 'Emoji Mart'
-summary: 'Added a prop to autofocus the search input in the Emoji Mart picker.'
+summary: 'One component to pick them all: the emoji picker for React.'
 role: 'Contributor'
 kind: repo
 date: '2017-04'
