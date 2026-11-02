@@ -1,0 +1,8 @@
+title: bulltui
+summary: A keyboard-driven terminal UI for BullMQ, written in Rust.
+role: Creator
+date: '2026-07'
+status: active
+url: https://github.com/vinnymac/bulltui
+imageAlt: GitHub repository card for vinnymac/bulltui.
+tags: [Rust, BullMQ, Open source]

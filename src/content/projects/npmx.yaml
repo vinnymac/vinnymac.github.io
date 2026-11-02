@@ -1,0 +1,9 @@
+title: npmx.dev
+summary: A community-built browser for the npm registry.
+role: Contributor
+date: '2026-01'
+status: active
+url: https://npmx.dev
+sourceUrl: https://github.com/npmx-dev/npmx.dev
+imageAlt: npmx social card reading “a fast, modern browser for the npm registry”.
+tags: [Nuxt, Open source]

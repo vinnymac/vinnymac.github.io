@@ -4,6 +4,7 @@
  * in BaseLayout — these helpers just shape the data.
  */
 import type { Post } from './posts';
+import type { Project } from './projects';
 import { categoryPath } from './posts';
 import siteConfig from '../site.config';
 
@@ -73,6 +74,59 @@ export const buildPostGraph = (
           name: item.name,
           item: item.url,
         })),
+      },
+    ],
+  };
+};
+
+/** CollectionPage + ItemList for /projects, in display order. */
+export const buildProjectsGraph = (
+  projects: Project[],
+  canonicalUrl: string,
+  description: string,
+): Record<string, unknown> => {
+  const { author, url: siteUrl } = siteConfig;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': PERSON_ID,
+        name: author.name,
+        url: siteUrl,
+      },
+      {
+        '@type': 'CollectionPage',
+        '@id': canonicalUrl,
+        url: canonicalUrl,
+        name: 'Projects',
+        description,
+        inLanguage: 'en',
+        author: { '@id': PERSON_ID },
+        isPartOf: { '@id': BLOG_ID },
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListOrder: 'https://schema.org/ItemListOrderDescending',
+          numberOfItems: projects.length,
+          itemListElement: projects.map((project, i) => {
+            const { data } = project;
+            const url = data.status === 'active' ? data.url : data.archiveUrl;
+            return {
+              '@type': 'ListItem',
+              position: i + 1,
+              item: {
+                '@type': 'CreativeWork',
+                name: data.title,
+                description: data.summary,
+                url,
+                dateCreated: data.date,
+                keywords: data.tags.length > 0 ? data.tags.join(', ') : undefined,
+                codeRepository: data.sourceUrl,
+                creativeWorkStatus: data.status === 'active' ? 'Active' : 'Archived',
+              },
+            };
+          }),
+        },
       },
     ],
   };

@@ -1,0 +1,9 @@
+title: caterpilla.rs
+summary: A web-of-trust forum built on AT Protocol. Posts, votes and vouches are records in each user's own repository.
+role: Creator
+date: '2026'
+status: active
+url: https://caterpilla.rs/feed
+image: ../../assets/projects/screenshots/caterpillars.webp
+imageAlt: The caterpilla.rs feed, showing a list of discussion threads with vote counts.
+tags: [AT Protocol]

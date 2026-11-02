@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import Page from '../components/Page.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import siteConfig from '../site.config';
+import { formatYear, getProjects, groupProjectsByYear } from '../lib/projects';
+import { buildProjectsGraph } from '../lib/structured-data';
+
+const projects = await getProjects();
+const groups = groupProjectsByYear(projects);
+const description = `Products and open-source projects ${siteConfig.author.name} has built or worked on, newest first.`;
+const canonicalUrl = new URL(Astro.url.pathname, siteConfig.url).toString();
+// Only the first row of cards can be above the fold.
+const EAGER_CARDS = 3;
+let cardIndex = 0;
+---
+
+<BaseLayout
+  title={`Projects - ${siteConfig.title}`}
+  description={description}
+  structuredData={buildProjectsGraph(projects, canonicalUrl, description)}
+  wide
+>
+  <Sidebar />
+  <Page title="Projects">
+    <p class="projects__intro">
+      Things I have built or helped build, newest first. Each card links to the product. Products
+      that are no longer online link to a snapshot on the Wayback Machine when one exists.
+    </p>
+    {groups.map(({ year, projects: yearProjects }) => (
+      <section class="projects__year" aria-labelledby={`projects-${year}`}>
+        <h2 class="projects__year-title" id={`projects-${year}`}>
+          {formatYear(year)}
+        </h2>
+        <ul class="projects__grid" role="list">
+          {yearProjects.map((project) => (
+            <li class="projects__item">
+              <ProjectCard project={project} eager={cardIndex++ < EAGER_CARDS} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </Page>
+</BaseLayout>
+
+<style lang="scss">
+  @use '../styles/variables' as *;
+  @use '../styles/mixins' as *;
+
+  .projects {
+    &__intro {
+      max-inline-size: 65ch;
+    }
+
+    &__year {
+      @include margin-bottom(1.5);
+    }
+
+    // The year sits on a dashed rule that runs to the end of the row.
+    &__year-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      @include margin-top(1);
+      @include margin-bottom(0.75);
+      font-variant-numeric: tabular-nums;
+
+      &::after {
+        content: '';
+        flex: 1;
+        border-block-start: 2px dashed var(--border-subtle);
+      }
+    }
+
+    // Intrinsic grid: as many ~16rem columns as fit, never more than three,
+    // so it goes 3 → 2 → 1 with the space available rather than the viewport.
+    &__grid {
+      --grid-gap: 1.5rem;
+      --grid-min: 16rem;
+
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(max(min(100%, var(--grid-min)), (100% - 2 * var(--grid-gap)) / 3), 1fr)
+      );
+      gap: var(--grid-gap);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__item {
+      margin: 0;
+      padding: 0;
+      min-inline-size: 0;
+    }
+  }
+
+  // Progressive enhancement: cards rise into place as they scroll into view.
+  // Without support (or with reduced motion) they are simply there.
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .projects__item {
+        animation: projects-card-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 70%;
+      }
+
+      @keyframes projects-card-in {
+        from {
+          opacity: 0.15;
+          translate: 0 2.5rem;
+          scale: 0.97;
+        }
+      }
+    }
+  }
+</style>

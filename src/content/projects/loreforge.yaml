@@ -1,0 +1,9 @@
+title: LoreForge
+summary: A forge for the Lore version control system, in private development. The public instance is an invite-only development build.
+role: Creator
+date: '2026-09'
+status: active
+url: https://loreforge.pass.dev
+image: ../../assets/projects/screenshots/loreforge.webp
+imageAlt: The LoreForge sign-in page, with buttons to accept an invitation or sign in.
+tags: [Version control]
