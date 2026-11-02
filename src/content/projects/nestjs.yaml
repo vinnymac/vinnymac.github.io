@@ -1,0 +1,10 @@
+title: 'NestJS'
+summary: 'Merged contributions to NestJS: error chaining for HttpException in core, plus nullable-type fixes in the GraphQL and Swagger plugins.'
+role: 'Contributor'
+kind: repo
+date: '2021-06'
+endDate: '2022-06'
+status: active
+url: https://github.com/nestjs/nest
+imageAlt: 'GitHub repository card for nestjs/nest.'
+tags: ['TypeScript', 'Node.js', 'Open source']

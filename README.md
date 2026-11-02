@@ -135,12 +135,13 @@ first time you run it.
 
 ## Adding a project
 
-The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. The schema lives in `src/content.config.ts`. An invalid file (for example an `active` project with no `url`) fails the build.
+The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. `kind` is `site` for a product or website and `repo` for a code repository; it drives the card label and the **All / Sites / Code repos** filter on the page. For a `repo`, put the repository link in `url` (for a site that also has source, use `sourceUrl`). The schema lives in `src/content.config.ts`. An invalid file (for example an `active` project with no `url`) fails the build.
 
 ```yaml
 title: 'Pointhound'
 summary: 'One or two plain sentences.'
 role: 'Founding Staff Engineer'
+kind: site # site | repo
 date: '2024' # YYYY or YYYY-MM
 endDate: '2025-06' # optional
 status: active # active | archived

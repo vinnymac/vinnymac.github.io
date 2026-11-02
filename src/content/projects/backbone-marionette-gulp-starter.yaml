@@ -1,0 +1,10 @@
+title: 'Backbone Marionette Gulp Starter'
+summary: 'A starter kit for Backbone Marionette apps with Gulp, HAML Coffee, CoffeeScript and Sass, based on Gulp Starter.'
+role: 'Creator'
+kind: repo
+date: '2014-08'
+endDate: '2015-01'
+status: active
+url: https://github.com/vinnymac/backbone-marionette-gulp-starter
+imageAlt: 'GitHub repository card for vinnymac/backbone-marionette-gulp-starter.'
+tags: ['Backbone', 'Gulp', 'CoffeeScript']

@@ -1,6 +1,7 @@
 title: Pass Search
 summary: An open search engine with no telemetry or tracking.
 role: Creator
+kind: site
 date: '2026'
 status: active
 url: https://search.pass.dev

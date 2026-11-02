@@ -1,6 +1,7 @@
 title: caterpilla.rs
 summary: A web-of-trust forum built on AT Protocol. Posts, votes and vouches are records in each user's own repository.
 role: Creator
+kind: site
 date: '2026'
 status: active
 url: https://caterpilla.rs/feed

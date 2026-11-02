@@ -1,6 +1,7 @@
 title: picosky
 summary: A Bluesky client that runs as a PICO-8 cart in the browser.
 role: Creator
+kind: site
 date: '2026'
 status: active
 url: https://picosky.vinnymac.dev

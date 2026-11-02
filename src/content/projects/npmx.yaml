@@ -1,6 +1,7 @@
 title: npmx.dev
 summary: A community-built browser for the npm registry.
 role: Contributor
+kind: site
 date: '2026-01'
 status: active
 url: https://npmx.dev

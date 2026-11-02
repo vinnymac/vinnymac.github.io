@@ -1,0 +1,9 @@
+title: 'dotenvx for VS Code'
+summary: 'An unofficial dotenvx extension for VS Code, published on the Visual Studio Marketplace.'
+role: 'Creator'
+kind: repo
+date: '2024-07'
+status: active
+url: https://github.com/vinnymac/dotenvx-decrypt-vscode
+imageAlt: 'GitHub repository card for vinnymac/dotenvx-decrypt-vscode.'
+tags: ['TypeScript', 'VS Code']

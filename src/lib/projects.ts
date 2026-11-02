@@ -94,3 +94,9 @@ export const formatYear = (year: number): string =>
 
 /** Hostname shown on the card, e.g. `pointhound.com`. */
 export const displayHost = (url: string): string => new URL(url).hostname.replace(/^www\./, '');
+
+/** Repository location shown on repo cards, e.g. `github.com/nestjs/nest`. */
+export const displayRepo = (url: string): string => {
+  const { hostname, pathname } = new URL(url);
+  return `${hostname.replace(/^www\./, '')}${pathname.replace(/\/$/, '')}`;
+};

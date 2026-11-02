@@ -1,0 +1,9 @@
+title: 'Electron React Boilerplate'
+summary: 'Replaced native promises with async/await in the boilerplate.'
+role: 'Contributor'
+kind: repo
+date: '2016-08'
+status: active
+url: https://github.com/electron-react-boilerplate/electron-react-boilerplate
+imageAlt: 'GitHub repository card for electron-react-boilerplate/electron-react-boilerplate.'
+tags: ['Electron', 'React', 'Open source']

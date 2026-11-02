@@ -1,0 +1,9 @@
+title: 'Parrot for Reddit Robin'
+summary: "Merged eight changes to Parrot, an auto-voter for Reddit's April Fools' 2016 Robin chat, and wrote a desktop version and a stats bot."
+role: 'Contributor'
+kind: repo
+date: '2016-04'
+status: active
+url: https://github.com/5a1t/parrot
+imageAlt: 'GitHub repository card for 5a1t/parrot.'
+tags: ['JavaScript', 'Reddit', 'Open source']

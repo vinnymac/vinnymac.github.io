@@ -1,0 +1,9 @@
+title: 'Cacheable'
+summary: 'Fixed the return types of mget in cache-manager so it handles null values.'
+role: 'Contributor'
+kind: repo
+date: '2025-02'
+status: active
+url: https://github.com/jaredwray/cacheable
+imageAlt: 'GitHub repository card for jaredwray/cacheable.'
+tags: ['TypeScript', 'Open source']

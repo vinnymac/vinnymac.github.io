@@ -1,0 +1,9 @@
+title: 'Gatsby'
+summary: 'Merged a change that resolves port conflicts and adds Chalk-colored output to the Gatsby CLI.'
+role: 'Contributor'
+kind: repo
+date: '2016-11'
+status: active
+url: https://github.com/gatsbyjs/gatsby
+imageAlt: 'GitHub repository card for gatsbyjs/gatsby.'
+tags: ['JavaScript', 'Open source']

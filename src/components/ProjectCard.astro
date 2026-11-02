@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import {
   displayHost,
+  displayRepo,
   formatProjectDate,
   PROJECTS_LOCALE,
   projectImage,
@@ -28,6 +29,10 @@ const snapshotFormat = new Intl.DateTimeFormat(PROJECTS_LOCALE, {
 /** Where the card's single link goes, and how to describe that to every reader. */
 const destination = (() => {
   if (data.status === 'active') {
+    if (data.kind === 'repo') {
+      const repo = displayRepo(data.url);
+      return { href: data.url, hint: repo, srHint: `, source repository: ${repo}` };
+    }
     const host = displayHost(data.url);
     return { href: data.url, hint: host, srHint: `, external site: ${host}` };
   }
@@ -46,11 +51,12 @@ const destination = (() => {
   };
 })();
 
-// "Live" describes the product, not Vincent's involvement (many roles have ended).
-const statusLabel = data.status === 'active' ? 'Live' : 'Archived';
+// "Live site" describes the product, not Vincent's involvement (many roles have ended).
+const statusLabel =
+  data.kind === 'repo' ? 'Code repo' : data.status === 'active' ? 'Live site' : 'Archived site';
 ---
 
-<article class="card" data-status={data.status} aria-labelledby={titleId}>
+<article class="card" data-status={data.status} data-kind={data.kind} aria-labelledby={titleId}>
   <div class="card__body">
     <h3 class="card__title" id={titleId}>
       {destination ? (
@@ -309,6 +315,11 @@ const statusLabel = data.status === 'active' ? 'Live' : 'Archived';
     &[data-status='archived'] &__status::before {
       background: transparent;
       box-shadow: inset 0 0 0 1.5px currentColor;
+    }
+
+    // Code repos get a square marker, so the chip differs by shape as well as text.
+    &[data-kind='repo'] &__status::before {
+      border-radius: 2px;
     }
 
     &__hint {

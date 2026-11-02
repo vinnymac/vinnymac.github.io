@@ -1,0 +1,9 @@
+title: 'Aider'
+summary: 'Added validation and clearer errors for GitHub Copilot requests in Aider, the AI pair programming tool for your terminal.'
+role: 'Contributor'
+kind: repo
+date: '2025-06'
+status: active
+url: https://github.com/Aider-AI/aider
+imageAlt: 'GitHub repository card for Aider-AI/aider.'
+tags: ['Python', 'AI', 'Open source']

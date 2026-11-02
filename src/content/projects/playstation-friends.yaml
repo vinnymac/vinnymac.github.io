@@ -1,0 +1,9 @@
+title: 'PlayStation Friends'
+summary: 'A Chrome extension for the PlayStation Network.'
+role: 'Creator'
+kind: repo
+date: '2015-03'
+status: active
+url: https://github.com/vinnymac/playstation-friends
+imageAlt: 'GitHub repository card for vinnymac/playstation-friends.'
+tags: ['Chrome extension']
