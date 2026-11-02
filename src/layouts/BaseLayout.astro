@@ -24,6 +24,8 @@ interface Props {
    * these must be server-rendered — which they are, in this static build.
    */
   standardDocumentUri?: string;
+  /** Widen the layout on large screens (e.g. the Projects card grid). */
+  wide?: boolean;
 }
 
 const {
@@ -33,6 +35,7 @@ const {
   article,
   structuredData,
   standardDocumentUri,
+  wide = false,
 } = Astro.props;
 const { author, url } = siteConfig;
 const metaImage = socialImage ?? author.photo;
@@ -133,7 +136,7 @@ const csp = [
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="layout">
+    <div class:list={['layout', wide && 'layout--wide']}>
       <slot />
     </div>
     <script>
@@ -221,6 +224,23 @@ const csp = [
       :global(main.page) {
         flex: 0 0 calc(100% * 2 / 3);
         max-width: calc(100% * 2 / 3);
+      }
+    }
+
+    // Wide pages: the sidebar keeps the width it has on a regular page at full
+    // layout width, and the content column takes the rest.
+    .layout--wide {
+      max-width: $layout-wide-width;
+
+      :global(aside.sidebar) {
+        flex: 0 0 $layout-sidebar-width;
+        max-width: $layout-sidebar-width;
+      }
+
+      :global(main.page) {
+        flex: 1 1 0;
+        max-width: none;
+        min-width: 0;
       }
     }
   }

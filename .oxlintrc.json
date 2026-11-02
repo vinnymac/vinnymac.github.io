@@ -20,7 +20,7 @@
       }
     },
     {
-      "files": ["scripts/**/*.mjs", "scripts/**/*.js"],
+      "files": ["scripts/**/*.mjs", "scripts/**/*.js", "scripts/**/*.ts"],
       "rules": {
         "no-await-in-loop": "off",
         "no-console": "off"

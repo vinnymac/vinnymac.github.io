@@ -1,0 +1,8 @@
+title: WDK worlds
+summary: Eleven open-source @fantasticfour/world-* packages implementing Vercel Workflow (WDK) worlds on Redis, PostgreSQL, MySQL, NATS JetStream, Azure Cosmos DB, Cloudflare Durable Objects, Upstash and Firestore.
+role: Maintainer
+date: '2026'
+status: active
+url: https://github.com/vinnymac/worlds
+imageAlt: GitHub repository card for vinnymac/worlds.
+tags: [TypeScript, Open source]
