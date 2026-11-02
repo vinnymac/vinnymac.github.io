@@ -32,7 +32,7 @@ const USER_AGENT =
 interface ProjectSource {
   id: string;
   file: string;
-  status: 'active' | 'archived';
+  status: 'active' | 'archived' | 'closed';
   url?: string;
   archiveUrl?: string;
   image?: string;
@@ -63,8 +63,8 @@ const readProjects = async (): Promise<ProjectSource[]> => {
       const data: unknown = parse(await readFile(file, 'utf8'));
       if (!isRecord(data)) throw new Error(`${name}: expected a YAML mapping`);
       const status = data.status;
-      if (status !== 'active' && status !== 'archived') {
-        throw new Error(`${name}: \`status\` must be "active" or "archived"`);
+      if (status !== 'active' && status !== 'archived' && status !== 'closed') {
+        throw new Error(`${name}: \`status\` must be "active", "archived" or "closed"`);
       }
       return {
         id: basename(name, extname(name)),
@@ -124,6 +124,9 @@ const waybackVariant = (archiveUrl: string, flag: 'id_' | 'im_'): string => {
 
 const fetchOgImage = async (project: ProjectSource): Promise<Buffer> => {
   let pageUrl: string;
+  if (project.status === 'closed') {
+    throw new Error('closed-source project has no public page to read; add an `image` override');
+  }
   if (project.status === 'active') {
     if (!project.url) throw new Error('active project has no `url`');
     pageUrl = project.url;
