@@ -135,7 +135,7 @@ first time you run it.
 
 ## Adding a project
 
-The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. `kind` is `site` for a product or website and `repo` for a code repository; it drives the card label and the **All / Sites / Repos** filter on the page. For a `repo`, put the repository link in `url` (for a site that also has source, use `sourceUrl`). The schema lives in `src/content.config.ts`. A project whose source is not public uses `status: closed`: the card says "Closed source", links nowhere, and the build rejects a `url`, `archiveUrl` or `sourceUrl` on it, so a private repository can't be listed by accident. An invalid file (for example an `active` project with no `url`) fails the build.
+The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. `kind` is `site` for a product or website and `repo` for a code repository; it drives the card label and the **Sites / Repos** filters on the page. `inProgress: true` marks work that is still being built: the card says "In progress" and the project also appears under the **In progress** filter. For a `repo`, put the repository link in `url` (for a site that also has source, use `sourceUrl`). The schema lives in `src/content.config.ts`. A project whose source is not public uses `status: closed`: the card says "Closed source" ("Not public yet" when `inProgress`), links nowhere, and the build rejects a `url`, `archiveUrl` or `sourceUrl` on it, so a private repository can't be listed by accident. An invalid file (for example an `active` project with no `url`) fails the build.
 
 ```yaml
 title: 'Pointhound'
@@ -144,6 +144,7 @@ role: 'Founding Staff Engineer'
 kind: site # site | repo
 date: '2024' # YYYY or YYYY-MM
 endDate: '2025-06' # optional
+inProgress: true # optional, default false: adds the "In progress" filter and label
 status: active # active | archived | closed (closed source: no links at all)
 url: 'https://pointhound.com' # required when active; not allowed when archived
 # archiveUrl: 'https://web.archive.org/web/<14-digit timestamp>/<url>' # archived only, optional
@@ -153,7 +154,7 @@ tags: ['Next.js', 'TypeScript'] # optional
 sourceUrl: 'https://github.com/...' # optional
 ```
 
-Then run `pnpm projects:images <id>` to download the site's OpenGraph image into `src/assets/projects/og/<id>.webp` (archived projects read it from the `archiveUrl` snapshot). Images are committed, so the page never hotlinks third-party images. The script exits non-zero and lists every project with no usable image. For those, add a screenshot under `src/assets/projects/screenshots/` and set `image`. Pass `--refresh` to download images again.
+Then run `pnpm projects:images <id>` to download the site's OpenGraph image into `src/assets/projects/og/<id>.webp` (archived projects read it from the `archiveUrl` snapshot). Images are committed, so the page never hotlinks third-party images. The script exits non-zero and lists every project with no usable image. For those, add a screenshot under `src/assets/projects/screenshots/` and set `image`. Pass `--refresh` to download images again. A project with no public page (closed source) has nothing to download, so draw a plain summary card instead with `pnpm projects:card <id> --title <text> --line <text> [--caption <text>] [--icon <svg-or-png>]`; it writes `src/assets/projects/screenshots/<id>.webp`, which you then set as `image`.
 
 ## Deployment
 

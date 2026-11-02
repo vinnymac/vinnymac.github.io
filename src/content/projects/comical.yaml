@@ -3,6 +3,7 @@ summary: Webcomic creation and hosting. A studio for making comics, plus a reade
 role: Creator
 kind: site
 date: '2026'
+inProgress: true
 status: active
 url: https://comical.dev/
 imageAlt: 'The comical.dev card: a painter’s easel, the comical wordmark, the tagline “Webcomic creation + hosting” and three comic panels.'
