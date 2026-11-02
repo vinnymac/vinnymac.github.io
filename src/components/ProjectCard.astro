@@ -70,16 +70,25 @@ const statusLabel =
     </h3>
     <p class="card__meta">
       <span class="card__role">{data.role}</span>
-      <span class="card__dot" aria-hidden="true">·</span>
-      <span class="card__dates">
-        <time datetime={data.date}>{formatProjectDate(data.date)}</time>
-        {data.endDate && (
+      {
+        // Repos only carry a date for ordering; contribution dates are noise on the card.
+        data.kind !== 'repo' && (
           <>
-            {'–'}
-            <time datetime={data.endDate}>{formatProjectDate(data.endDate)}</time>
+            <span class="card__dot" aria-hidden="true">
+              ·
+            </span>
+            <span class="card__dates">
+              <time datetime={data.date}>{formatProjectDate(data.date)}</time>
+              {data.endDate && (
+                <>
+                  {'–'}
+                  <time datetime={data.endDate}>{formatProjectDate(data.endDate)}</time>
+                </>
+              )}
+            </span>
           </>
-        )}
-      </span>
+        )
+      }
     </p>
     <p class="card__summary">{data.summary}</p>
     {data.tags.length > 0 && (
