@@ -1,0 +1,10 @@
+title: 'Lumen'
+summary: 'The Gatsby blog theme this blog was first built on. I contributed react-helmet, markdown external-link defaults and Sass updates.'
+role: 'Contributor'
+kind: repo
+date: '2016-12'
+endDate: '2021-01'
+status: active
+url: https://github.com/alxshelepenok/lumen
+imageAlt: 'GitHub repository card for alxshelepenok/lumen.'
+tags: ['Gatsby', 'Open source']

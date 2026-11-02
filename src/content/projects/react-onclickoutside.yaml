@@ -1,0 +1,10 @@
+title: 'react-onclickoutside'
+summary: 'Updated the browser support notes and later made the component compatible with React StrictMode.'
+role: 'Contributor'
+kind: repo
+date: '2015-12'
+endDate: '2019-08'
+status: active
+url: https://github.com/Pomax/react-onclickoutside
+imageAlt: 'GitHub repository card for Pomax/react-onclickoutside.'
+tags: ['React', 'Open source']

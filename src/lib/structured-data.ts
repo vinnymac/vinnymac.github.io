@@ -111,17 +111,18 @@ export const buildProjectsGraph = (
           itemListElement: projects.map((project, i) => {
             const { data } = project;
             const url = data.status === 'active' ? data.url : data.archiveUrl;
+            const isRepo = data.kind === 'repo';
             return {
               '@type': 'ListItem',
               position: i + 1,
               item: {
-                '@type': 'CreativeWork',
+                '@type': isRepo ? 'SoftwareSourceCode' : 'CreativeWork',
                 name: data.title,
                 description: data.summary,
                 url,
                 dateCreated: data.date,
                 keywords: data.tags.length > 0 ? data.tags.join(', ') : undefined,
-                codeRepository: data.sourceUrl,
+                codeRepository: data.sourceUrl ?? (isRepo ? url : undefined),
                 creativeWorkStatus: data.status === 'active' ? 'Active' : 'Archived',
               },
             };

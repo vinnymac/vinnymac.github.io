@@ -59,6 +59,8 @@ const projects = defineCollection({
       summary: z.string().min(1).max(280),
       /** Vincent's role, e.g. Creator, Maintainer, Contributor, Founding Staff Engineer. */
       role: z.string().min(1),
+      /** What the card links to: a product or website (`site`) or a source repository (`repo`). Drives the filter on /projects. */
+      kind: z.enum(['site', 'repo']),
       /** Start or launch. Sorting (newest first) and year grouping use this. */
       date: projectDate,
       endDate: projectDate.optional(),

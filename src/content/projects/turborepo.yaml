@@ -1,0 +1,9 @@
+title: 'Turborepo'
+summary: 'Updated the Turborepo documentation on managing dependencies with Yarn Berry.'
+role: 'Contributor'
+kind: repo
+date: '2024-07'
+status: active
+url: https://github.com/vercel/turborepo
+imageAlt: 'GitHub repository card for vercel/turborepo.'
+tags: ['Documentation', 'Open source']

@@ -1,0 +1,10 @@
+title: 'bittool'
+summary: 'A Bitcoin market exchange app for Android.'
+role: 'Creator'
+kind: repo
+date: '2013-04'
+endDate: '2013-12'
+status: active
+url: https://github.com/vinnymac/bittool
+imageAlt: 'GitHub repository card for vinnymac/bittool.'
+tags: ['Android', 'Bitcoin']

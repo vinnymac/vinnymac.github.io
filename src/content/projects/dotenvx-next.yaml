@@ -1,0 +1,9 @@
+title: 'dotenvx-next'
+summary: 'A Next.js plugin that loads dotenvx secrets early.'
+role: 'Creator'
+kind: repo
+date: '2026-04'
+status: active
+url: https://github.com/vinnymac/dotenvx-next
+imageAlt: 'GitHub repository card for vinnymac/dotenvx-next.'
+tags: ['Next.js', 'dotenvx']

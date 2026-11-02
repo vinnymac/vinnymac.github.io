@@ -1,6 +1,7 @@
 title: Loomkin
 summary: An open-source multi-agent coding harness built on Elixir and OTP.
 role: Contributor
+kind: repo
 date: '2026-03'
 status: active
 url: https://github.com/pass-agent/loomkin

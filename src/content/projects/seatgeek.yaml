@@ -1,6 +1,7 @@
 title: SeatGeek
 summary: Live-event ticketing. I worked on web infrastructure, the design system, accessibility, internationalization and Core Web Vitals.
 role: Staff Software Engineer
+kind: site
 date: '2022'
 endDate: '2024'
 status: active

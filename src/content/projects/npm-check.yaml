@@ -1,0 +1,9 @@
+title: 'npm-check'
+summary: 'Added helpful messages for missing or malformed package.json files.'
+role: 'Contributor'
+kind: repo
+date: '2016-02'
+status: active
+url: https://github.com/dylang/npm-check
+imageAlt: 'GitHub repository card for dylang/npm-check.'
+tags: ['Node.js', 'Open source']
