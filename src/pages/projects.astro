@@ -53,9 +53,7 @@ const filters = [
             </span>
           </label>
         ))}
-        <p class="projects__status" role="status" data-filter-status>
-          Showing all {total} projects
-        </p>
+        <p class="visually-hidden" role="status" data-filter-status>{total} projects</p>
       </fieldset>
       {groups.map(({ year, projects: yearProjects }) => (
         <section class="projects__year" aria-labelledby={`projects-${year}`}>
@@ -167,18 +165,6 @@ const filters = [
       outline-offset: 3px;
     }
 
-    &__status {
-      flex-basis: 100%;
-      margin: 0;
-      font-size: $typographic-small-font-size;
-      color: var(--text-muted);
-
-      @media (min-width: 40rem) {
-        flex-basis: auto;
-        margin-inline-start: auto;
-      }
-    }
-
     // Pure-CSS filtering: hide the other kind's cards, then any year left empty.
     @each $kind in (site, repo) {
       &:has(#filter-#{$kind}:checked) &__item:not([data-kind='#{$kind}']),
@@ -265,7 +251,8 @@ const filters = [
 </style>
 
 <script>
-  // Enhancement only: announce the filtered count, and keep the filter in the URL
+  // Enhancement only: announce the filtered count to screen readers (the text is
+  // visually hidden, the pills already show the counts), and keep the filter in the URL
   // (?type=site | ?type=repo) so it can be shared. Filtering itself is pure CSS.
   const root = document.querySelector<HTMLElement>('[data-projects]');
   const status = root?.querySelector<HTMLElement>('[data-filter-status]');
@@ -277,11 +264,11 @@ const filters = [
 
     const apply = (value: string) => {
       if (value === 'all') {
-        status.textContent = `Showing all ${total} projects`;
+        status.textContent = `${total} projects`;
         return;
       }
       const shown = root.querySelectorAll(`.projects__item[data-kind="${value}"]`).length;
-      status.textContent = `Showing ${shown} ${names[value] ?? value} of ${total} projects`;
+      status.textContent = `${shown} ${names[value] ?? value}`;
     };
 
     const fromUrl = new URLSearchParams(location.search).get('type');
