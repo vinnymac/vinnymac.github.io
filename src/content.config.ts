@@ -48,8 +48,10 @@ const WAYBACK_SNAPSHOT = /^https:\/\/web\.archive\.org\/web\/\d{14}\/.+/;
 // stable id (used for the fetched OpenGraph image, src/assets/projects/og/<id>.webp).
 // `status` discriminates the union so impossible combinations fail the build:
 // an active project must link somewhere; an archived one may only point at a
-// Wayback snapshot. Objects are strict, so a stray `url` on an archived project
-// (or a typo'd key) is an error rather than silently ignored.
+// Wayback snapshot; a closed-source one links nowhere at all, so a private
+// repository can never be published by accident. Objects are strict, so a stray
+// `url` on an archived or closed project (or a typo'd key) is an error rather
+// than silently ignored.
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/projects' }),
   schema: ({ image }) => {
@@ -73,6 +75,9 @@ const projects = defineCollection({
       sourceUrl: z.url().optional(),
     };
 
+    // A closed-source project has no public source, so it cannot carry `sourceUrl` either.
+    const { sourceUrl: _sourceUrl, ...closedBase } = base;
+
     return (
       z
         .discriminatedUnion('status', [
@@ -80,6 +85,10 @@ const projects = defineCollection({
             ...base,
             status: z.literal('active'),
             url: z.url({ error: 'Active projects need a `url` (the live site or repository).' }),
+          }),
+          z.strictObject({
+            ...closedBase,
+            status: z.literal('closed'),
           }),
           z.strictObject({
             ...base,

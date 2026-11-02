@@ -3,8 +3,6 @@ summary: A Nuxt and Vue frontend for Forgejo with extra features, tested for acc
 role: Creator
 kind: repo
 date: '2026-05'
-status: active
-url: https://git.vinnymac.dev/vinnymac/joui
-sourceUrl: https://git.vinnymac.dev/vinnymac/joui
-imageAlt: Repository summary card for Joui on git.vinnymac.dev.
+status: closed
+imageAlt: Summary card for Joui, an alternative Forgejo frontend built with Nuxt and Vue.
 tags: [Nuxt, Vue, Forgejo]
