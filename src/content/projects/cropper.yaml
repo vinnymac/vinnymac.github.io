@@ -1,5 +1,5 @@
 title: 'Cropper.js'
-summary: 'Contributed to the image cropper and its jQuery plugin: removed a jQuery call from getCanvasData and exposed getSourceCanvas and isCropped.'
+summary: 'A JavaScript image cropper, with a jQuery plugin.'
 role: 'Contributor'
 kind: repo
 date: '2015-10'

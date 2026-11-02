@@ -1,9 +1,9 @@
 title: 'Knip'
-summary: 'Added experimental support for Next.js conventions to Knip, the tool that finds unused files, dependencies and exports.'
+summary: 'Finds unused files, dependencies and exports in JavaScript and TypeScript projects.'
 role: 'Contributor'
 kind: repo
 date: '2025-10'
 status: active
 url: https://github.com/webpro-nl/knip
 imageAlt: 'GitHub repository card for webpro-nl/knip.'
-tags: ['TypeScript', 'Next.js', 'Open source']
+tags: ['TypeScript', 'Open source']

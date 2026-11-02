@@ -1,5 +1,5 @@
 title: 'npm-check'
-summary: 'Added helpful messages for missing or malformed package.json files.'
+summary: 'Checks for outdated, incorrect and unused dependencies.'
 role: 'Contributor'
 kind: repo
 date: '2016-02'

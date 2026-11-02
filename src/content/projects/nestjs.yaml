@@ -1,5 +1,5 @@
 title: 'NestJS'
-summary: 'Merged contributions to NestJS: error chaining for HttpException in core, plus nullable-type fixes in the GraphQL and Swagger plugins.'
+summary: 'A progressive Node.js framework for building efficient, scalable, enterprise-grade server-side applications with TypeScript.'
 role: 'Contributor'
 kind: repo
 date: '2021-06'

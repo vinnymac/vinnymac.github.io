@@ -1,5 +1,5 @@
 title: 'Electron React Boilerplate'
-summary: 'Replaced native promises with async/await in the boilerplate.'
+summary: 'A foundation for scalable cross-platform apps built with Electron and React.'
 role: 'Contributor'
 kind: repo
 date: '2016-08'
