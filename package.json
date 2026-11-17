@@ -16,7 +16,8 @@
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
-    "verify": "pnpm fmt:check && pnpm lint && pnpm check"
+    "test:project-dates": "node --test scripts/project-dates.test.mjs",
+    "verify": "pnpm fmt:check && pnpm lint && pnpm test:project-dates && pnpm check"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.3.5",

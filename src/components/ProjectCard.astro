@@ -95,7 +95,7 @@ const closedHint = data.inProgress ? 'Not public yet' : 'Closed source';
             </span>
             <span class="card__dates">
               <time datetime={data.date}>{formatProjectDate(data.date)}</time>
-              {data.endDate && (
+              {data.endDate && formatProjectDate(data.endDate) !== formatProjectDate(data.date) && (
                 <>
                   {'–'}
                   <time datetime={data.endDate}>{formatProjectDate(data.endDate)}</time>

@@ -32,15 +32,15 @@ pnpm dev           # http://localhost:4321
 
 Other scripts:
 
-| Command                | Description                                                   |
-| ---------------------- | ------------------------------------------------------------- |
-| `pnpm build`           | Build the static site to `dist/`                              |
-| `pnpm check`           | Type-check Astro + TypeScript                                 |
-| `pnpm fmt`             | Format with oxfmt (use `pnpm fmt:check` to verify)            |
-| `pnpm lint`            | Lint with oxlint                                              |
-| `pnpm verify`          | Run fmt:check + lint + check (matches CI)                     |
-| `pnpm preview`         | Serve the production build locally                            |
-| `pnpm projects:images` | Fetch project OpenGraph images into `src/assets/projects/og/` |
+| Command                | Description                                                            |
+| ---------------------- | ---------------------------------------------------------------------- |
+| `pnpm build`           | Build the static site to `dist/`                                       |
+| `pnpm check`           | Type-check Astro + TypeScript                                          |
+| `pnpm fmt`             | Format with oxfmt (use `pnpm fmt:check` to verify)                     |
+| `pnpm lint`            | Lint with oxlint                                                       |
+| `pnpm verify`          | Run formatting, lint, project-date tests, and type checks (matches CI) |
+| `pnpm preview`         | Serve the production build locally                                     |
+| `pnpm projects:images` | Fetch project OpenGraph images into `src/assets/projects/og/`          |
 
 ## Authoring a post
 
@@ -135,14 +135,14 @@ first time you run it.
 
 ## Adding a project
 
-The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. `kind` is `site` for a product or website and `repo` for a code repository; it drives the card label and the **Sites / Repos** filters on the page. `inProgress: true` marks work that is still being built: the card says "In progress" and the project also appears under the **In progress** filter. For a `repo`, put the repository link in `url` (for a site that also has source, use `sourceUrl`). The schema lives in `src/content.config.ts`. A project whose source is not public uses `status: closed`: the card says "Closed source" ("Not public yet" when `inProgress`), links nowhere, and the build rejects a `url`, `archiveUrl` or `sourceUrl` on it, so a private repository can't be listed by accident. An invalid file (for example an `active` project with no `url`) fails the build.
+The [Projects](https://vincenttaverna.com/projects) page is built from one YAML file per project in `src/content/projects/`. The filename is the project's id. Projects are sorted newest first by `date` and grouped by year, so file order does not matter. Dates can be `YYYY`, `YYYY-MM`, or `YYYY-MM-DD`: keep the most precise known start or launch date for sorting. Cards display only the year; the full date stays in the HTML `datetime` attribute. Leave unknown months and days unspecified. `kind` is `site` for a product or website and `repo` for a code repository; it drives the card label and the **Sites / Repos** filters on the page. `inProgress: true` marks work that is still being built: the card says "In progress" and the project also appears under the **In progress** filter. For a `repo`, put the repository link in `url` (for a site that also has source, use `sourceUrl`). The schema lives in `src/content.config.ts`. A project whose source is not public uses `status: closed`: the card says "Closed source" ("Not public yet" when `inProgress`), links nowhere, and the build rejects a `url`, `archiveUrl` or `sourceUrl` on it, so a private repository can't be listed by accident. An invalid file (for example an `active` project with no `url`) fails the build.
 
 ```yaml
 title: 'Pointhound'
 summary: 'One or two plain sentences.'
 role: 'Founding Staff Engineer'
 kind: site # site | repo
-date: '2024' # YYYY or YYYY-MM
+date: '2024' # YYYY, YYYY-MM, or YYYY-MM-DD
 endDate: '2025-06' # optional
 inProgress: true # optional, default false: adds the "In progress" filter and label
 status: active # active | archived | closed (closed source: no links at all)

@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { isProjectDate } from './lib/project-dates';
 
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
@@ -36,10 +37,9 @@ const pages = defineCollection({
   }),
 });
 
-// Project dates are `YYYY` or `YYYY-MM`: precise enough for a timeline without
-// inventing a day. Month is validated so `2026-13` fails the build.
-const projectDate = z.string().regex(/^\d{4}(-(0[1-9]|1[0-2]))?$/, {
-  error: 'Use `YYYY` or `YYYY-MM` (e.g. 2026 or 2026-05).',
+// Preserve known date precision for sorting, independently of the year-only display.
+const projectDate = z.string().refine(isProjectDate, {
+  error: 'Use `YYYY`, `YYYY-MM`, or a valid `YYYY-MM-DD` calendar date.',
 });
 
 const WAYBACK_SNAPSHOT = /^https:\/\/web\.archive\.org\/web\/\d{14}\/.+/;

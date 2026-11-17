@@ -1,5 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { projectDateSortKey, projectDateYear } from './project-dates';
 
 export type Project = CollectionEntry<'projects'>;
 
@@ -25,33 +26,15 @@ export const projectImage = (project: Project): ImageMetadata => {
   return og;
 };
 
-interface PartialDate {
-  year: number;
-  /** 1–12, absent for year-only dates. */
-  month?: number;
-}
-
-const parseProjectDate = (value: string): PartialDate => {
-  const [year, month] = value.split('-').map(Number);
-  if (year === undefined || Number.isNaN(year)) throw new Error(`Invalid project date: ${value}`);
-  return month === undefined ? { year } : { year, month };
-};
-
-/** Year-only dates sort after dated months of the same year (their month is unknown). */
-const sortKey = (value: string): number => {
-  const { year, month } = parseProjectDate(value);
-  return year * 100 + (month ?? 0);
-};
-
 /** All projects, newest first by `date`, then by most recent `endDate` (ongoing first), then title. */
 export const getProjects = async (): Promise<Project[]> => {
   const all = await getCollection('projects');
   const collator = new Intl.Collator(PROJECTS_LOCALE, { sensitivity: 'base' });
   const endKey = (p: Project) =>
-    p.data.endDate ? sortKey(p.data.endDate) : Number.POSITIVE_INFINITY;
+    p.data.endDate ? projectDateSortKey(p.data.endDate) : Number.POSITIVE_INFINITY;
   return all.toSorted(
     (a, b) =>
-      sortKey(b.data.date) - sortKey(a.data.date) ||
+      projectDateSortKey(b.data.date) - projectDateSortKey(a.data.date) ||
       endKey(b) - endKey(a) ||
       collator.compare(a.data.title, b.data.title),
   );
@@ -66,7 +49,7 @@ export interface ProjectYear {
 export const groupProjectsByYear = (projects: Project[]): ProjectYear[] => {
   const groups: ProjectYear[] = [];
   for (const project of projects) {
-    const { year } = parseProjectDate(project.data.date);
+    const year = projectDateYear(project.data.date);
     const last = groups.at(-1);
     if (last?.year === year) last.projects.push(project);
     else groups.push({ year, projects: [project] });
@@ -75,18 +58,8 @@ export const groupProjectsByYear = (projects: Project[]): ProjectYear[] => {
 };
 
 const yearFormat = new Intl.DateTimeFormat(PROJECTS_LOCALE, { year: 'numeric', timeZone: 'UTC' });
-const monthFormat = new Intl.DateTimeFormat(PROJECTS_LOCALE, {
-  year: 'numeric',
-  month: 'short',
-  timeZone: 'UTC',
-});
-
-/** Formats `YYYY` or `YYYY-MM` for display, in the page locale. */
-export const formatProjectDate = (value: string): string => {
-  const { year, month } = parseProjectDate(value);
-  const date = new Date(Date.UTC(year, (month ?? 1) - 1, 1));
-  return (month === undefined ? yearFormat : monthFormat).format(date);
-};
+/** All date precisions display as a year; full values remain in time datetime attributes. */
+export const formatProjectDate = (value: string): string => formatYear(projectDateYear(value));
 
 /** The year heading text, in the page locale. */
 export const formatYear = (year: number): string =>
