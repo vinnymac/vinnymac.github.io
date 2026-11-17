@@ -1,10 +1,11 @@
 title: Parcel
-summary: A native macOS tiling window manager in Swift, with seven layouts, per-Space layout memory and a command-line interface. Designed for keyboard and VoiceOver use.
+summary: A native macOS tiling window manager in Swift, with seven layouts, per-Space layout memory and a command-line interface. Designed for keyboard and VoiceOver use. In development; downloads are not available yet.
 role: Creator
-kind: repo
+kind: site
 date: '2026-10'
 inProgress: true
-status: closed
+status: active
+url: https://parcel.vinnymac.dev
 image: ../../assets/projects/screenshots/parcel.webp
 imageAlt: 'Parcel summary card: the name “Parcel” and the line “Windows that find their place” beside the app icon, four rounded squares with one lifted out of the grid.'
 tags: [Swift, macOS, Accessibility]
